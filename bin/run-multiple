@@ -1,0 +1,31 @@
+#!/bin/bash
+
+function show_help {
+    echo "Usage: ./run-multiple 
+        <-t|-tag> [Regression|E2E]
+        <-e|-env> [qa|prod]
+        <-r|-runs> [# of times to run]
+        "
+}
+
+while [ -n "$1" ];
+do
+    case "$1"
+    in
+        # -r | -region)               shift; REGION=${1};;
+        -t | -tag)                  shift; TAG=${1};;
+        -e | -env)                  shift; ENV=${1};;
+        -r | -runs)                 shift; RUNS=${1};;
+    esac
+    shift
+done    
+# EXECUTE
+rm -rf target*
+
+time (for ((THISRUN=1;THISRUN<=$RUNS;THISRUN++))
+do
+    echo "======================= RUN:#${THISRUN} - ENV: ${ENV} ======================="
+    mvn clean test -Dkarate.options="-t @${TAG}" -Dkarate.targetEnv="${ENV}"
+    cd "$THIS_CWD"
+    mv target target_${THISRUN}
+done)

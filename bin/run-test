@@ -1,0 +1,25 @@
+#!/bin/bash
+
+function show_help {
+    echo "Usage: ./run-test 
+        <-t|-tag> [Regression|E2E]
+        <-e|-env> [qa|prod]
+        "
+}
+
+while [ -n "$1" ];
+do
+    case "$1"
+    in
+        # -r | -region)               shift; REGION=${1};;
+        -t | -tag)                  shift; TAG=${1};;
+        -e | -env)                  shift; ENV=${1};;
+    esac
+    shift
+done    
+# EXECUTE
+echo "======================= ENV: ${ENV} ======================="
+mvn clean test -Dkarate.options="-t @${TAG}" -Dkarate.targetEnv="${ENV}"
+cd "$THIS_CWD"
+
+#./bin/run-test -t [Regression|E2E] -e [qa|prod]
