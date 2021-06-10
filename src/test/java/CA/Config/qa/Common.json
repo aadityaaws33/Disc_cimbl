@@ -1,3 +1,19 @@
 {
-    "AWSRegion": "Nordic"
+    "AWSRegion": "Nordic",
+    "S3bucket": {
+        "TestAssets" : {
+            "Name": "ca-qa-dev",
+            "Key": "OAP",
+            "Region": "APAC"
+        },
+        "OAPHotfolder": {
+            "Name": "ca-data-ingest-dev",
+            "Key": "eu/qa/whatson/data",
+            "Region": "Nordic"
+        }
+    },
+    "DataSource": {
+        "TableName": "OAP_DATASOURCE_eu_qa",
+        "GSI": "DataFileName-CreatedAt-Index"
+    }
 }

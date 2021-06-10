@@ -10,7 +10,11 @@ import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import com.amazonaws.services.s3.model.GetObjectMetadataRequest;
 import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.DeleteObjectRequest;
 
+import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.SdkClientException;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.retry.PredefinedRetryPolicies;
@@ -30,10 +34,12 @@ public class S3Utils {
     public S3Utils(String region) {
         if (region.contentEquals("Nordic")) {
             s3 = AmazonS3ClientBuilder.standard().withRegion("eu-west-1")
-                    .withClientConfiguration(createS3ClientConfiguration()).build();
+                    .withClientConfiguration(createS3ClientConfiguration())
+                    .withCredentials(new ProfileCredentialsProvider()).build();
         } else if (region.contentEquals("APAC")) {
             s3 = AmazonS3ClientBuilder.standard().withRegion("ap-southeast-1")
-                    .withClientConfiguration(createS3ClientConfiguration()).build();
+                    .withClientConfiguration(createS3ClientConfiguration())
+                    .withCredentials(new ProfileCredentialsProvider()).build();
         }
     }
 
@@ -60,6 +66,58 @@ public class S3Utils {
     }
 
     /**
+     * Deletes an S3 object
+     * 
+     * @param BucketName The full S3 Bucket Name
+     * @param ObjectKey  The full S3 Object Key
+     * @param FilePath   The file path of the file to be uploaded
+     * @return Output or error message
+     */
+    public String deleteS3Object(String BucketName, String ObjectKey) {
+
+        String output = "Deleted successfully.";
+        try {
+            s3.deleteObject(new DeleteObjectRequest(BucketName, ObjectKey));
+        } catch (AmazonServiceException e) {
+            System.err.println(e.getErrorMessage());
+            output = e.getErrorMessage();
+        } catch (SdkClientException e) {
+            System.err.println(e.getMessage());
+            output = e.getMessage();
+        }
+
+        return output;
+    }
+
+    /**
+     * Uploads a file to S3
+     * 
+     * @param BucketName The full S3 Bucket Name
+     * @param ObjectKey  The full S3 Object Key
+     * @param FilePath   The file path of the file to be uploaded
+     * @return Output or error message
+     */
+    public String uploadFile(String BucketName, String ObjectKey, String FilePath) {
+
+        String output = "Uploaded successfully.";
+        try {
+            PutObjectRequest request = new PutObjectRequest(BucketName, ObjectKey, new File(FilePath));
+            ObjectMetadata metadata = new ObjectMetadata();
+            metadata.setContentType("text/xml");
+            request.setMetadata(metadata);
+            s3.putObject(request);
+        } catch (AmazonServiceException e) {
+            System.err.println(e.getErrorMessage());
+            output = e.getErrorMessage();
+        } catch (SdkClientException e) {
+            System.err.println(e.getMessage());
+            output = e.getMessage();
+        }
+
+        return output;
+    }
+
+    /**
      * Returns a Boolean which tells if an S3 Object exists
      *
      * @param BucketName The full S3 Bucket Name
@@ -79,21 +137,25 @@ public class S3Utils {
     }
 
     /**
-     * Returns a Boolean which tells if an S3 Object exists
+     * Downloads an S3 Object to a File directory
      *
-     * @param BucketName The full S3 Bucket Name
-     * @param ObjectKey  The full S3 Object Key
-     * @param TargetDir  The target directory to store the S3 object
-     * @return Boolean which tells if an S3 Object exists
+     * @param BucketName   The full S3 Bucket Name
+     * @param ObjectKey    The full S3 Object Key
+     * @param TargetDir    The target directory to store the S3 object
+     * @param SaveFileName The Filename to be used in saving the file (defaults to
+     *                     ObjectKey)
+     * @return Output or error message
      */
-    public String downloadS3Object(String BucketName, String ObjectKey, String TargetDir) {
+    public String downloadS3Object(String BucketName, String ObjectKey, String TargetDir, String SaveFileName) {
 
         String ObjectKeySplit[] = ObjectKey.split("/");
-        String SaveFileName = URLEncoder.encode(ObjectKeySplit[ObjectKeySplit.length - 1], StandardCharsets.UTF_8);
+        if (SaveFileName == "") {
+            SaveFileName = URLEncoder.encode(ObjectKeySplit[ObjectKeySplit.length - 1], StandardCharsets.UTF_8);
+        }
         File OutputDir = new File(TargetDir);
         File OutputPath = new File(OutputDir.getPath() + "/" + SaveFileName);
 
-        var output = "";
+        var output = "Downloaded successfully.";
         try {
             S3Object o = s3.getObject(BucketName, ObjectKey);
             S3ObjectInputStream s3is = o.getObjectContent();
@@ -108,7 +170,6 @@ public class S3Utils {
             }
             s3is.close();
             fos.close();
-            output = "Download successful.";
         } catch (AmazonServiceException e) {
             System.err.println(e.getErrorMessage());
             output = e.getErrorMessage();

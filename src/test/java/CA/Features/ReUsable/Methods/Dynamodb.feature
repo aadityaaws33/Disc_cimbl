@@ -5,11 +5,11 @@ Background:
   * def initializeDynamoDBObject = 
     """
       function(thisAWSregion) {
-        var dynamoDBUtilsClass = Java.type('CA.utils.java.DynamoDBUtils');
+        var dynamoDBUtilsClass = Java.type('CA.Utils.java.DynamoDBUtils');
         return new dynamoDBUtilsClass(thisAWSregion)
       }
     """
-  * def dynamoDB = call initializeDynamoDBObject AWSregion
+  * def dynamoDB = call initializeDynamoDBObject AWSRegion
   * configure afterFeature =
     """
       function() {
@@ -119,6 +119,7 @@ Scenario: Validate DynamoDB Item via Query
         );
       }
 
+
       var queryResp = dynamoDB.Query_GetItems(
         Param_TableName,
         Param_QueryInfoListJava,
@@ -134,7 +135,7 @@ Scenario: Validate DynamoDB Item via Query
 
     }
     """
-  * def queryResult = call getItemsQuery
+  * def queryResult = {}
   # * print queryResult
   * def getMatchResult = 
     """
@@ -147,6 +148,7 @@ Scenario: Validate DynamoDB Item via Query
           }
         }
         else {
+          karate.log(queryResult);
           var matchRes = karate.match('queryResult contains Param_ExpectedResponse');
           if(!matchRes['pass']) {
             karate.log('Initial matching failed');
@@ -203,14 +205,39 @@ Scenario: Validate DynamoDB Item via Query
         return matchRes;
       }
     """
-  * def matchResult = call getMatchResult
+  * def getFinalResult =
+    """
+      function() {
+        var matchResult = {};
+        for(var i = 0; i < Retries; i++) {
+          queryResult = getItemsQuery();
+          karate.log(queryResult);
+          matchResult = getMatchResult();
+          
+          if(matchResult.pass) {
+            matchResult.response = queryResult;
+            break;
+          }
+          else {
+            karate.log('Try #' + (i+1) + ' of ' + Retries + ': Failed. Sleeping for 15s. - ' + karate.pretty(matchResult));
+            Pause(15000);
+          }
+        }
+
+        if(!matchResult.pass) {
+          karate.fail(karate.pretty(matchResult));
+        }
+        return matchResult;
+      }
+    """
+  * def finalResult = getFinalResult()
   * def result =
     """
       {
-        "response": #(queryResult),
-        "message": #(matchResult.message),
-        "pass": #(matchResult.pass),
-        "path": #(matchResult.path)
+        "response": #(finalResult.response),
+        "message": #(finalResult.message),
+        "pass": #(finalResult.pass),
+        "path": #(finalResult.path)
       }
     """
   # * print result

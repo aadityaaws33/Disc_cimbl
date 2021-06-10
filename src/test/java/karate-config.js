@@ -4,12 +4,6 @@ function() {
     karate.configure('connectTimeout', 10000);
     karate.configure('retry',{ count:4, interval:2000});
   
-    // // Custom Report
-    // try {
-    //   karate.read('classpath:target/test-classes/Results.json')
-    // } catch (err) {
-    //   karate.write([],'test-classes/Results.json');
-    // }
     
     // Environment configurations
     var targetEnv = karate.properties['karate.targetEnv'];
@@ -30,15 +24,6 @@ function() {
       Common: CommonData
     };
    
-    // Secret Data configurations
-    // var secretsData = null;
-    // try {
-    //   var AWSUtilsClass = Java.type('AWSUtils.AWSUtils');
-    //   var AWSUtils = new AWSUtilsClass();
-    //   secretsData = AWSUtils.getSecrets(envConfig.Common.SecretsManager.secretName, envConfig.Common.SecretsManager.region);
-    // } catch (err) {
-    //   karate.fail('Problem encountered while fetching data from Secrets Manager.\nReason: ' + err);
-    // }
   
     // Consolidation of configurations
     var config = {
