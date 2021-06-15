@@ -1,0 +1,18 @@
+{
+    "Comments": "Invalid Format Error: Could not parse XML string",
+    "CreatedAt": "#(ExpectedDate.result)",
+    "CreatedBy": "#notnull",
+    "DataFileName": "#(ExpectedDataFileName)",
+    "DataSourceName": "WHATS_ON",
+    "DataSourceStatus": "Failed",
+    "Errors": {
+        "code": "OAP-201",
+        "errorMessage": "Invalid Format Error: Could not parse XML string"
+    },
+    "FilePath": "#(OAPHotfolderS3.Key + '/' + ExpectedDataFileName)",
+    "ID": "#notnull",
+    "ModifiedAt": "#notnull",
+    "ModifiedBy": "#notnull",
+    "UserName": "",
+    "Country": ""
+}

@@ -17,7 +17,7 @@ Background:
         """
 Scenario Outline: Uploading Single Files And Validating OAP Data Source Table [Data Filename: <DATAFILENAME>]
     * def ExpectedDataFileName = RandomString.result + ' ' + '<DATAFILENAME>'
-    * def ExpectedOAPDataSourceRecord = read(TestDataPath + '/OAPDataSource/' + '<EXPECTEDRESPONSEFILE>')
+    * def ExpectedOAPDataSourceRecord = read(TestDataPath + '/OAPDataSource/' + TargetEnv + '/<EXPECTEDRESPONSEFILE>')
     * def ValidationParams =
         """
             {
