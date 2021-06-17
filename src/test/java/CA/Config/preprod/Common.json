@@ -1,0 +1,19 @@
+{
+    "AWSRegion": "Nordic",
+    "S3bucket": {
+        "TestAssets" : {
+            "Name": "ca-qa-prod",
+            "Key": "OAP",
+            "Region": "APAC"
+        },
+        "OAPHotfolder": {
+            "Name": "ca-data-ingest-prod",
+            "Key": "eu/preprod/whatson/data",
+            "Region": "Nordic"
+        }
+    },
+    "DataSource": {
+        "TableName": "OAP_DATASOURCE_eu_preprod",
+        "GSI": "DataFileName-CreatedAt-Index"
+    }
+}

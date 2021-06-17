@@ -1,8 +1,6 @@
-@Regression
 Feature: Single File Upload
 
 Background:
-    * def TCName = 'Single File Upload'
     * callonce read('classpath:CA/Features/ReUsable/Scenarios/Background.feature')
     * configure afterFeature =
         """
@@ -15,9 +13,10 @@ Background:
                 karate.call(ReUsableFeaturesPath + '/Methods/S3.feature@DeleteS3Object', DeleteS3ObjectParams);
             }
         """
-Scenario Outline: Uploading Single Files And Validating OAP Data Source Table [Data Filename: <DATAFILENAME>]
-    * def ExpectedDataFileName = RandomString.result + ' ' + '<DATAFILENAME>'
-    * def ExpectedOAPDataSourceRecord = read(TestDataPath + '/OAPDataSource/' + TargetEnv + '/<EXPECTEDRESPONSEFILE>')
+Scenario: PHASE 1: Uploading Single Files And Validating OAP Data Source Table
+    * def TCName = 'Single File Upload: ' + DATAFILENAME
+    * def ExpectedDataFileName = RandomString.result + ' ' + DATAFILENAME
+    * def ExpectedOAPDataSourceRecord = read(TestDataPath + '/OAPDataSource/' + TargetEnv + '/' + EXPECTEDRESPONSEFILE)
     * def ValidationParams =
         """
             {
@@ -39,14 +38,15 @@ Scenario Outline: Uploading Single Files And Validating OAP Data Source Table [D
                 Param_GlobalSecondaryIndex: #(OAPDataSourceTableGSI),
                 Param_ExpectedResponse: #(ExpectedOAPDataSourceRecord),
                 AWSRegion: #(AWSRegion),
-                Retries: 15
+                Retries: 3,
+                RetryDuration: 10000
             }
         """
     * def DownloadS3ObjectParams =
         """
             {
                 S3BucketName: #(TestAssetsS3.Name),
-                S3Key: #(TestAssetsS3.Key + '/' + '<DATAFILENAME>') ,
+                S3Key: #(TestAssetsS3.Key + '/' + DATAFILENAME) ,
                 AWSRegion: #(TestAssetsS3.Region),
                 DownloadPath: #(DownloadsPath),
                 DownloadFilename: #(ExpectedDataFileName)
@@ -72,6 +72,12 @@ Scenario Outline: Uploading Single Files And Validating OAP Data Source Table [D
     # Then It should pass the validation. Otherwise, it should fail.
     Then karate.match(validateOAPDataSourceTable.result.pass, true).pass?karate.log(validateOAPDataSourceTable.result):karate.fail(validateOAPDataSourceTable.result)
 
-    Examples:
-        | DATAFILENAME              |   EXPECTEDRESPONSEFILE        |
-        | Empty.xml                 |   Empty.json                  |
+    # Examples:
+    #     | DATAFILENAME              |   EXPECTEDRESPONSEFILE        |
+    #     | ValidFile.xml             |   ValidFile.json              |
+    #     | Empty.xml                 |   Empty.json                  |
+    #     | UnclosedNode.xml          |   UnclosedNode.json           |
+    #     | UnexpectedNode.xml        |   UnexpectedNode.json         |
+    #     | WrongFileExtension.pdf    |   WrongFileExtension.json     |
+    #     | WrongValueType.xml        |   WrongValueType.json         |
+    #     | NoFileExtension           |   NoFileExtension.json        |

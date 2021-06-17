@@ -219,8 +219,8 @@ Scenario: Validate DynamoDB Item via Query
             break;
           }
           else {
-            karate.log('Try #' + (i+1) + ' of ' + Retries + ': Failed. Sleeping for 15s. - ' + karate.pretty(matchResult));
-            Pause(15000);
+            karate.log('Try #' + (i+1) + ' of ' + Retries + ': Failed. Sleeping for ' + RetryDuration + ' ms. - ' + karate.pretty(matchResult));
+            Pause(RetryDuration);
           }
         }
 

@@ -1,0 +1,16 @@
+{
+    "Comments": "Invalid XML file. Missing file extension",
+    "CreatedAt": "#(ExpectedDate.result)",
+    "CreatedBy": "#notnull",
+    "DataFileName": "#(ExpectedDataFileName)",
+    "DataSourceName": "WHATS_ON",
+    "DataSourceStatus": "Failed",
+    "Errors": {
+        "code": "101",
+        "errorMessage": "Invalid XML file. Missing file extension"
+    },
+    "FilePath": "#(OAPHotfolderS3.Key + '/' + ExpectedDataFileName)",
+    "ID": "#notnull",
+    "ModifiedAt": "#notnull",
+    "ModifiedBy": "#notnull"
+}
