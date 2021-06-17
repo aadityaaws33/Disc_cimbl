@@ -1,18 +1,15 @@
 {
-    "Comments": "Invalid Format Error: Premature end of data in tag trailers line 2",
+    "Comments": "Successfully Validated",
     "CreatedAt": "#(ExpectedDate.result)",
     "CreatedBy": "#notnull",
     "DataFileName": "#(ExpectedDataFileName)",
     "DataSourceName": "WHATS_ON",
-    "DataSourceStatus": "Failed",
-    "Errors": {
-        "code": "OAP-201",
-        "errorMessage": "Invalid Format Error: Premature end of data in tag trailers line 2"
-    },
+    "DataSourceStatus": "Validated",
+    "Errors": {},
     "FilePath": "#(OAPHotfolderS3.Key + '/' + ExpectedDataFileName)",
     "ID": "#notnull",
     "ModifiedAt": "#notnull",
     "ModifiedBy": "#notnull",
-    "UserName": "",
-    "Country": ""
+    "UserName": "Peter Rothoff Hojholt",
+    "Country": "Norway"
 }

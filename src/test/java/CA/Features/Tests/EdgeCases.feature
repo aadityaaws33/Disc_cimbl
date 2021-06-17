@@ -1,5 +1,9 @@
 @Regression
+<<<<<<< HEAD
 Feature: Happy Path Flow TestAssetsS3
+=======
+Feature: Edge Casess TestAssetsS3
+>>>>>>> a0c191d (CRAU-1415)
 
 Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>]
     * def TestParams =

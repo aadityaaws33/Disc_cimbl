@@ -13,7 +13,7 @@
         }
     },
     "DataSource": {
-        "TableName": "OAP_DATASOURCE_eu_qa",
+        "TableName": "OAP_DATASOURCE-EU_qa",
         "GSI": "DataFileName-CreatedAt-Index"
     }
 }
