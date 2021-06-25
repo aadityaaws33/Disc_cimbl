@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": "E06",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"  
+  },
+  "mediaAssetId": "FI109238745610208",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Discovery+",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "dp_FI109238745610208_allsummer_30.wav",
+    "outputFilename": "FI109238745610208_X_dp_Qa_Bundle_PromosAUTO_s08_bundle02_30_newseason_allsummer_20:30_dpsan.mxf\n            ",
+    "titleArtFileName": "Qa_Bundle_PromosAUTO_s08_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "dp_FI109238745610208_30.mxf",
+    "keyArtFileName": "Qa_Bundle_PromosAUTO_s08_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S08",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "Qa Bundle PromosAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Mondays",
+      "branding": null,
+      "tag": "koko kesä",
+      "dPlusCta": "katso ennakkoon",
+      "time": "20.30",
+      "title": "X dp_Qa Bundle PromosAUTO_s08_bundle02_30_newseason_allsummer_20:30_dpsan",
+      "brand": "uusi kausi",
+      "disclaimer": null
+    }
+  },
+  "subType": "bundle02",
+  "trailerId": "109238745610208",
+  "sponsorFileStatus": "Not Required"
+}

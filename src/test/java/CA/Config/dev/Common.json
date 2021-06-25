@@ -13,7 +13,16 @@
         }
     },
     "DataSource": {
-        "TableName": "OAP_DATASOURCE-EU_dev",
-        "GSI": "DataFileName-CreatedAt-Index"
+        "TableName": "OAP_DATASOURCES_EU-dev",
+        "GSI": "dataFileName-createdAt-Index"
+    },
+    "AssetDB": {
+        "TableName": "OAP_ASSETS_EU-dev",
+        "GSI": ""
+    },
+    "Iconik": {
+        "AppTokenName": "Creative Automation Dev",
+        "GetAppTokenAPIUrl": "https://app.iconik.io/API/auth/v1/auth/simple/login/",
+        "AssetDataAPIUrl": "https://app.iconik.io/API/assets/v1"
     }
 }

@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": "E02",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI109238745610239",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "TV5",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "tv5_FI109238745610239_tonight_30.wav",
+    "outputFilename": "FI109238745610239_X_tv5_Qa_gen_PromosAUTO_s05_gen02_30_special_tonight_20:30_rightnow.mxf\n            ",
+    "titleArtFileName": "Qa_gen_PromosAUTO_s05_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "tv5_FI109238745610239_30.mxf",
+    "keyArtFileName": "Qa_gen_PromosAUTO_s05_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S05",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "Qa gen PromosAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "tonight",
+      "branding": null,
+      "tag": "tänä iltana",
+      "dPlusCta": "katso nyt",
+      "time": "20.30",
+      "title": "X tv5_Qa gen PromosAUTO_s05_gen02_30_special_tonight_20:30_rightnow",
+      "brand": "erikois",
+      "disclaimer": null
+    }
+  },
+  "subType": "gen02",
+  "trailerId": "109238745610239",
+  "sponsorFileStatus": "Not Required"
+}

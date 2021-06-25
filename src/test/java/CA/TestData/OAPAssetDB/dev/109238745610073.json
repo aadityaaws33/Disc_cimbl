@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": null,
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI109238745610073",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Discovery+",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "dp_FI109238745610073_Thursdays_30.wav",
+    "outputFilename": "FI109238745610073_X_dp_Qa_TeasersAUTO_s06_teaser_30_newseas_Thursdays_22:00_dpnow.mxf\n            ",
+    "titleArtFileName": "Qa_TeasersAUTO_s06_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "dp_FI109238745610073_30.mxf",
+    "keyArtFileName": "Qa_TeasersAUTO_s06_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S06",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "Qa TeasersAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Thursdays",
+      "branding": "original",
+      "tag": "torstaisin",
+      "dPlusCta": "katso nyt",
+      "time": "22.00",
+      "title": "X dp_Qa TeasersAUTO_s06_teaser_30_newseas_Thursdays_22:00_dpnow",
+      "brand": "uusi kausi",
+      "disclaimer": null
+    }
+  },
+  "subType": "teaser",
+  "trailerId": "109238745610073",
+  "sponsorFileStatus": "Not Required"
+}

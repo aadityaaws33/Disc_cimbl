@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI109238745610116",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "TV5",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "tv5_FI109238745610116_nxtmonday_30.wav",
+    "outputFilename": "FI109238745610116_X_tv5_QAAUTO_s04_prelaunch_30_sprem_nxtmonday_20:30_streamseason.mxf\n            ",
+    "titleArtFileName": "QAAUTO_s03_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "tv5_FI109238745610116_30.mxf",
+    "keyArtFileName": "QAAUTO_s03_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S04",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "QAAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "nxtmonday",
+      "branding": null,
+      "tag": "ensi maanantaina",
+      "dPlusCta": "katso koko kausi",
+      "time": "20.30",
+      "title": "X tv5_QAAUTO_s04_prelaunch_30_sprem_nxtmonday_20:30_streamseason",
+      "brand": "uusi kausi",
+      "disclaimer": null
+    }
+  },
+  "subType": "prelaunch",
+  "trailerId": "109238745610116",
+  "sponsorFileStatus": "Not Required"
+}

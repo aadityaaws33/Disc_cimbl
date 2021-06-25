@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI109238745610077",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "TV5",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "tv5_FI109238745610077_comingsoon_30.wav",
+    "outputFilename": "FI109238745610077_X_tv5_Qa_TeasersAUTO_s03_teaser_30_special_comingsoon_20:30_streamseason.mxf\n            ",
+    "titleArtFileName": "Qa_TeasersAUTO_s03_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "tv5_FI109238745610077_30.mxf",
+    "keyArtFileName": "Qa_TeasersAUTO_s03_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S03",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "Qa TeasersAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "comingsoon",
+      "branding": null,
+      "tag": "tulossa pian",
+      "dPlusCta": "katso koko kausi",
+      "time": "20.30",
+      "title": "X tv5_Qa TeasersAUTO_s03_teaser_30_special_comingsoon_20:30_streamseason",
+      "brand": "erikois",
+      "disclaimer": null
+    }
+  },
+  "subType": "teaser",
+  "trailerId": "109238745610077",
+  "sponsorFileStatus": "Not Required"
+}

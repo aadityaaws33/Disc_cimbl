@@ -1,18 +1,17 @@
 {
-    "Comments": "Invalid Format Error: Could not parse XML string",
-    "CreatedAt": "#(ExpectedDate.result)",
-    "CreatedBy": "#notnull",
-    "DataFileName": "#(ExpectedDataFileName)",
-    "DataSourceName": "WHATS_ON",
-    "DataSourceStatus": "Failed",
-    "Errors": {
+    "comments": "Invalid Format Error: Could not parse XML string",
+    "createdAt": "#? _.contains(ExpectedDate.result)",
+    "createdBy": "#notnull",
+    "dataFileName": "#(ExpectedDataFileName)",
+    "dataSourceName": "WHATS_ON",
+    "dataSourceStatus": "Failed",
+    "errors": {
         "code": "OAP-201",
         "errorMessage": "Invalid Format Error: Could not parse XML string"
     },
-    "FilePath": "#(OAPHotfolderS3.Key + '/' + ExpectedDataFileName)",
+    "filePath": "#(OAPHotfolderS3.Key + '/' + ExpectedDataFileName)",
     "ID": "#notnull",
-    "ModifiedAt": "#notnull",
-    "ModifiedBy": "#notnull",
-    "UserName": "",
-    "Country": ""
+    "modifiedAt": "#notnull",
+    "modifiedBy": "#notnull",
+    "country": null
 }

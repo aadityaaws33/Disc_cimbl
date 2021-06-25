@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "845654_1",
+  "type": "#? _ == 'film' || _ == 'Films'",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": null,
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": null,
+    "sponsorAssetId": "#notnull",
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI109238745610038",
+  "duration": "25",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Kutonen",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "kut_FI109238745610038_nxtSunday_25.wav",
+    "outputFilename": "FI109238745610038_X_kut_Qa_FilmsAUTO_film_25_prem_+X5432_nxtSunday_20:00_streamnow.mxf",
+    "titleArtFileName": "Qa_Films_titleart.png",
+    "sponsorFileName": "SPONS_5s_67485_1.mxf",
+    "sourceVideoFileName": "kut_FI109238745610038_25.mxf",
+    "keyArtFileName": "Qa_Films_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": null,
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "Qa Films",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "nxtSunday",
+      "branding": "original",
+      "tag": "ensi sunnuntaina",
+      "dPlusCta": "katso nyt",
+      "time": "20.00",
+      "title": "X Qa FilmsAUTO_film_25_prem_+X5432_nxtSunday_20:00_streamnow",
+      "brand": "ensi-ilta",
+      "disclaimer": "Terms & conditions apply."
+    }
+  },
+  "subType": null,
+  "trailerId": "109238745610038",
+  "sponsorFileStatus": "Not Available"
+}

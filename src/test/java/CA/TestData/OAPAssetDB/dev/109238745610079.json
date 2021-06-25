@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI109238745610079",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "TV5",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "tv5_FI109238745610079_tonight_30.wav",
+    "outputFilename": "FI109238745610079_X_tv5_Qa_TeasersAUTO_s05_teaser_30_special_tonight_20:30_rightnow.mxf\n            ",
+    "titleArtFileName": "Qa_TeasersAUTO_s05_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "tv5_FI109238745610079_30.mxf",
+    "keyArtFileName": "Qa_TeasersAUTO_s05_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S05",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "Qa TeasersAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "tonight",
+      "branding": null,
+      "tag": "tänä iltana",
+      "dPlusCta": "katso nyt",
+      "time": "20.30",
+      "title": "X tv5_Qa TeasersAUTO_s05_teaser_30_special_tonight_20:30_rightnow",
+      "brand": "erikois",
+      "disclaimer": null
+    }
+  },
+  "subType": "teaser",
+  "trailerId": "109238745610079",
+  "sponsorFileStatus": "Not Required"
+}

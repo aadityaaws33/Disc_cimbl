@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": "E06",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI109238745610027",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "TV5",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "tv5_FI109238745610027_christmasday_30.wav",
+    "outputFilename": "FI109238745610027_X_tv5_Qa_ShowsAUTO_s08_e06_30_sfinale_christmasday_20:30_streamnextep.mxf\n            ",
+    "titleArtFileName": "Qa_ShowsAUTO_s08_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "tv5_FI109238745610027_30.mxf",
+    "keyArtFileName": "Qa_ShowsAUTO_s08_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S08",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "Qa ShowsAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Thursday",
+      "branding": null,
+      "tag": "1. joulukuuta",
+      "dPlusCta": "",
+      "time": "20.30",
+      "title": "X tv5_Qa ShowsAUTO_s08_e06_30_sfinale_christmasday_20:30_streamnextep",
+      "brand": "kauden finaali",
+      "disclaimer": null
+    }
+  },
+  "subType": "e06",
+  "trailerId": "109238745610027",
+  "sponsorFileStatus": "Not Required"
+}

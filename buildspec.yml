@@ -1,4 +1,9 @@
 version: 0.2
+env:
+  secrets-manager:
+    IconikAdminEmail: "ca-creds:Iconik-AdminEmail"
+    IconikAdminPassword: "ca-creds:Iconik-AdminPassword"
+    # ca-creds-prodtenant
 phases:
   install:
     runtime-versions:

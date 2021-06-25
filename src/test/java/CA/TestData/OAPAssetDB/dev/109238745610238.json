@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": "E01",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI109238745610238",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "TV5",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "tv5_FI109238745610238_starts_30.wav",
+    "outputFilename": "FI109238745610238_X_tv5_Qa_gen_PromosAUTO_s03_gen02_30_seasonfinale_starts_20:30_now.mxf\n            ",
+    "titleArtFileName": "Qa_gen_PromosAUTO_s03_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "tv5_FI109238745610238_30.mxf",
+    "keyArtFileName": "Qa_gen_PromosAUTO_s03_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S03",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "Qa gen PromosAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "starts",
+      "branding": null,
+      "tag": null,
+      "dPlusCta": "katso nyt",
+      "time": "20.30",
+      "title": "X tv5_Qa gen PromosAUTO_s03_gen02_30_seasonfinale_starts_20:30_now",
+      "brand": "alkaa",
+      "disclaimer": null
+    }
+  },
+  "subType": "gen02",
+  "trailerId": "109238745610238",
+  "sponsorFileStatus": "Not Required"
+}

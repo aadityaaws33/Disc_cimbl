@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "episodeCollectionId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "outputAssetId": "#notnull",
+    "outputCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "sourceAudioAssetId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "sponsorAssetId": null
+  },
+  "mediaAssetId": "FI109238745610125",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Frii",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "frii_FI109238745610125_allspring_30.wav",
+    "outputFilename": "FI109238745610125_X_frii_QAAUTO_s04_prelaunch_30_starts_allspring_20:30_san.mxf\n            ",
+    "titleArtFileName": "QAAUTO_s04_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "frii_FI109238745610125_30.mxf",
+    "keyArtFileName": "QAAUTO_s04_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S04",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "QAAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "allspring",
+      "branding": null,
+      "tag": "koko kevät",
+      "dPlusCta": "katso ennakkoon",
+      "time": "20.30",
+      "title": "X frii_QAAUTO_s04_prelaunch_30_starts_allspring_20:30_san",
+      "brand": "alkaa",
+      "disclaimer": null
+    }
+  },
+  "subType": "prelaunch",
+  "trailerId": "109238745610125",
+  "sponsorFileStatus": "Not Required"
+}

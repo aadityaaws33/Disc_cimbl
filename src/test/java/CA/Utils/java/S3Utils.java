@@ -13,6 +13,7 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.DeleteObjectRequest;
 
+import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.AmazonServiceException;
@@ -35,11 +36,11 @@ public class S3Utils {
         if (region.contentEquals("Nordic")) {
             s3 = AmazonS3ClientBuilder.standard().withRegion("eu-west-1")
                     .withClientConfiguration(createS3ClientConfiguration())
-                    .withCredentials(new ProfileCredentialsProvider()).build();
+                    .withCredentials(DefaultAWSCredentialsProviderChain.getInstance()).build();
         } else if (region.contentEquals("APAC")) {
             s3 = AmazonS3ClientBuilder.standard().withRegion("ap-southeast-1")
                     .withClientConfiguration(createS3ClientConfiguration())
-                    .withCredentials(new ProfileCredentialsProvider()).build();
+                    .withCredentials(DefaultAWSCredentialsProviderChain.getInstance()).build();
         }
     }
 

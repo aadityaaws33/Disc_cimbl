@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": "E01",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": "#notnull",
+    "outputCollectionId": "#notnull"  
+  },
+  "mediaAssetId": "FI109238745610223",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "TV5",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "tv5_FI109238745610223_wedsandsuns_30.wav",
+    "outputFilename": "\n                FI109238745610223_X_tv5_Qa_Bundle_PromosAUTO_s08_bundle02_30_exclusive_wedsandsuns_21:45_streamnow.mxf\n            ",
+    "titleArtFileName": "Qa_Bundle_PromosAUTO_s08_titleart.png",
+    "sponsorFileName": "SPONS_5s_67485_1.mxf",
+    "sourceVideoFileName": "tv5_FI109238745610223_30.mxf",
+    "keyArtFileName": "Qa_Bundle_PromosAUTO_s08_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S08",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "Qa Bundle PromosAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Thursday",
+      "branding": null,
+      "tag": "",
+      "dPlusCta": "katso nyt",
+      "time": "21.45",
+      "title": "X tv5_Qa Bundle PromosAUTO_s08_bundle02_30_exclusive_wedsandsuns_21:45_streamnow",
+      "brand": "eksklusiivinen",
+      "disclaimer": null
+    }
+  },
+  "subType": "bundle02",
+  "trailerId": "109238745610223",
+  "sponsorFileStatus": "Not Available"
+}

@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI109238745610126",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Frii",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "frii_FI109238745610126_allfall_30.wav",
+    "outputFilename": "FI109238745610126_X_frii_QAAUTO_s04_prelaunch_30_exclusive_allfall_20:30_newseasonnow.mxf\n            ",
+    "titleArtFileName": "QAAUTO_s04_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "frii_FI109238745610126_30.mxf",
+    "keyArtFileName": "QAAUTO_s04_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S04",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "QAAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "allfall",
+      "branding": null,
+      "tag": "koko syksy",
+      "dPlusCta": "",
+      "time": "20.30",
+      "title": "X frii_QAAUTO_s04_prelaunch_30_exclusive_allfall_20:30_newseasonnow",
+      "brand": "eksklusiivinen",
+      "disclaimer": null
+    }
+  },
+  "subType": "prelaunch",
+  "trailerId": "109238745610126",
+  "sponsorFileStatus": "Not Required"
+}

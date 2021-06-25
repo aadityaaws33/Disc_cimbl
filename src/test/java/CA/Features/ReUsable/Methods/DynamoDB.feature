@@ -1,0 +1,262 @@
+Feature: DynamoDB-related ReUsable/Methods functions.
+
+Background:
+  * def Pause = function(pause){ java.lang.Thread.sleep(pause) }
+  * def initializeDynamoDBObject = 
+    """
+      function(thisAWSregion) {
+        var dynamoDBUtilsClass = Java.type('CA.Utils.java.DynamoDBUtils');
+        return new dynamoDBUtilsClass(thisAWSregion)
+      }
+    """
+  * def dynamoDB = call initializeDynamoDBObject AWSRegion
+  * configure afterScenario =
+    """
+      function() {
+        dynamoDB.shutdown();
+      }
+    """
+
+@FilterQueryResults
+Scenario: Filter Results generated from Querying DynamoDB
+  * def filterResults =
+    """
+      function()
+      {
+        for(var index in Param_FilterNestedInfoList) {
+          var queryResults = [];
+          var infoName = Param_FilterNestedInfoList[index].infoName;
+          var infoValue = Param_FilterNestedInfoList[index].infoValue;
+          var infoComparator = Param_FilterNestedInfoList[index].infoComparator;
+
+          if(infoName.contains('.')) {
+            var infoFilter = infoName.split('.').pop();
+            infoName = infoName.replace('.' + infoFilter, '');
+            var thisPath = "$." + infoName + "[?(@." + infoFilter + " contains '" + infoValue + "')]";
+            karate.log(thisPath);
+            for(i in Param_QueryResults) {
+              var filteredValue = karate.jsonPath(Param_QueryResults[i], thisPath);
+              if(filteredValue.length > 0) {
+                queryResults.push(Param_QueryResults[i]);
+              }
+            }
+          } else {
+            for(i in Param_QueryResults) {
+              karate.log(Param_QueryResults[i][infoName]);
+              if(!Param_QueryResults[i][infoName]) {
+                karate.log(karate.pretty(Param_QueryResults[i]));
+                karate.fail('Empty key-value pair! Key: ' + infoName + ' has value: ' + Param_QueryResults[i][infoName]);
+              }
+              if(Param_QueryResults[i][infoName].contains(infoValue)) {
+                queryResults.push(Param_QueryResults[i]);
+              }
+            }
+          }
+          Param_QueryResults = queryResults;    
+          if(queryResults.length < 1)  {
+            // karate.log('No results found for ' + karate.pretty(Param_FilterNestedInfoList));
+            break;
+          }      
+        }
+
+        return queryResults;
+      }
+    """
+  * def result = call filterResults
+  # * print result
+
+@GetItemsViaQuery
+Scenario: Get DynamoDB Item(s) via Query
+  * def getItemsQuery =
+    """
+    function()
+    {
+      var HashMap = Java.type('java.util.HashMap');
+      var Param_QueryInfoListJava = [];
+      for(var index in Param_QueryInfoList){
+        // Convert J04 Object into Java HashMap
+        var Param_QueryInfoItemHashMapJava = new HashMap();
+        Param_QueryInfoItemHashMapJava.putAll(Param_QueryInfoList[index]);
+        // Append converted Java HashMap to Java List
+        Param_QueryInfoListJava.push(
+          Param_QueryInfoItemHashMapJava
+        );
+      }
+
+      var queryResp = dynamoDB.Query_GetItems(
+        Param_TableName,
+        Param_QueryInfoListJava,
+        Param_GlobalSecondaryIndex
+      );
+
+      if(queryResp.length < 1)  {
+        // karate.log('No results found for ' + karate.pretty(Param_QueryInfoList));
+        return queryResp;
+      }
+
+      return JSON.parse(queryResp);
+    }
+    """
+  * def result = call getItemsQuery
+  # * print result
+
+@ValidateItemViaQuery
+Scenario: Validate DynamoDB Item via Query
+  #* print '-------------------Dynamo DB Feature and Item Count-------------'
+  * def getItemsQuery =
+    """
+    function()
+    {
+      var HashMap = Java.type('java.util.HashMap');
+      var Param_QueryInfoListJava = [];
+      for(var index in Param_QueryInfoList){
+        // Convert J04 Object into Java HashMap
+        var Param_QueryInfoItemHashMapJava = new HashMap();
+        Param_QueryInfoItemHashMapJava.putAll(Param_QueryInfoList[index]);
+        // Append converted Java HashMap to Java List
+        Param_QueryInfoListJava.push(
+          Param_QueryInfoItemHashMapJava
+        );
+      }
+
+
+      var queryResp = dynamoDB.Query_GetItems(
+        Param_TableName,
+        Param_QueryInfoListJava,
+        Param_GlobalSecondaryIndex
+      );
+
+      if(queryResp.length < 1)  {
+        karate.log('No results found for ' + karate.pretty(Param_QueryInfoList));
+        return queryResp;
+      }
+
+      return JSON.parse(queryResp[0]);
+
+    }
+    """
+  * def getMatchResult = 
+    """
+      function(queryResult) {
+        var finalResult = {
+          message: [],
+          pass: false,
+          path: null
+        }
+
+        if(queryResult.length < 1) {
+          finalResult.message.push('No records found.');
+        }
+        else {
+          var thisRes = karate.match('queryResult deep contains Param_ExpectedResponse');
+          if(!thisRes.pass) {
+            finalResult.message.push(thisRes.message);
+          }
+        }
+
+        if(finalResult.message.length < 1) {
+          finalResult.pass = true;
+        }
+
+        return finalResult;
+      }
+    """
+  * def getFinalResult =
+    """
+      function() {
+        var matchResult = {};
+        for(var i = 0; i < Retries; i++) {
+          queryResult = getItemsQuery();
+          karate.log(queryResult);
+          matchResult = getMatchResult(queryResult);
+          
+          if(matchResult.pass) {
+            matchResult.response = queryResult;
+            break;
+          }
+          else {
+            karate.log('Try #' + (i+1) + ' of ' + Retries + ': Failed. Sleeping for ' + RetryDuration + ' ms. - ' + karate.pretty(matchResult));
+            Pause(RetryDuration);
+          }
+        }
+
+        // if(!matchResult.pass) {
+        //   karate.fail(karate.pretty(matchResult));
+        // }
+        return matchResult;
+      }
+    """
+  * def finalResult = getFinalResult()
+  * def result =
+    """
+      {
+        "response": #(finalResult.response),
+        "message": #(finalResult.message),
+        "pass": #(finalResult.pass),
+        "path": #(finalResult.path)
+      }
+    """
+
+@DeleteDBRecords
+Scenario: Delete items from DynamoDB Table
+  * def deleteItems =
+    """
+      function(itemParamList) {
+        var result = {
+          message: '',
+          pass: false
+        }
+
+        for(var i = 0; i < Retries; i++) {
+          var failedDeleteResultMsg = [];
+          var getItemResults = [];
+
+          for(var j in itemParamList) {
+            var dynamoDB = initializeDynamoDBObject(AWSRegion);
+            var PrimaryPartitionKeyName = itemParamList[j]['PrimaryPartitionKeyName'];
+            var PrimaryPartitionKeyValue = itemParamList[j]['PrimaryPartitionKeyValue'];
+            var thisDeleteMsg = dynamoDB.Delete_Item(TableName, PrimaryPartitionKeyName, PrimaryPartitionKeyValue)
+            if(thisDeleteMsg.contains('Failed')) {
+              failedDeleteResultMsg.push(PrimaryPartitionKeyName + ': ' + thisDeleteMsg);
+            }
+            dynamoDB.shutdown();
+          }
+
+          var getItemParams = {
+            Param_TableName: TableName,
+            Param_QueryInfoList: [
+              {
+                infoName: 'promoAssetStatus',
+                infoValue: PromoAssetStatus,
+                infoComparator: '=',
+                infoType: 'key'           
+              },
+              {
+                infoName: PrimaryFilterKeyName,
+                infoValue: PrimaryFilterKeyValue,
+                infoComparator: 'contains',
+                infoType: 'filter'           
+              }
+            ],
+            Param_GlobalSecondaryIndex: GSI
+          }
+          getItemResults =  karate.call(ReUsableFeaturesPath + '/Methods/DynamoDB.feature@GetItemsViaQuery', getItemParams);
+
+          if(failedDeleteResultMsg.length > 1 || getItemResults.result.length > 1) {
+            karate.log(failedDeleteResultMsg);
+            karate.log(getItemResults.result);
+            var errMsg = 'Failed to delete AssetDB trailer Records for ' + PrimaryFilterKeyValue;
+            result.message = errMsg;
+            karate.log('Try #' + (i+1) + ' of ' + Retries + ': Failed. Sleeping for ' + RetryDuration + ' ms. - ' + errMsg);
+            Pause(RetryDuration);
+          } else {
+            result.pass = true;
+            result.message = 'Successfully deleted AssetDB trailer Records for ' + PrimaryFilterKeyValue;
+            break;
+          }
+        }
+
+        return result;
+      }
+    """
+  * def result = deleteItems(itemParamList)

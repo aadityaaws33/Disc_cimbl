@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "#? _ == 'film' || _ == 'Films'",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": null,
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": null,
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI109238745610052",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Discovery+",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "dp_FI109238745610052_everynight_30.wav",
+    "outputFilename": "FI109238745610052_X_dp_Qa_FilmsAUTO_film_30_starts_everynight_20:30_now.mxf\n            ",
+    "titleArtFileName": "Qa_FilmsAUTO_film_s08_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "dp_FI109238745610052_30.mxf",
+    "keyArtFileName": "Qa_FilmsAUTO_film_s08_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": null,
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "Qa Films",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Everynight",
+      "branding": null,
+      "tag": "koko ilta",
+      "dPlusCta": "katso nyt",
+      "time": "20.30",
+      "title": "X dp_Qa FilmsAUTO_film_30_starts_everynight_20:30_now",
+      "brand": "alkaa",
+      "disclaimer": "Terms & conditions apply."
+    }
+  },
+  "subType": null,
+  "trailerId": "109238745610052",
+  "sponsorFileStatus": "Not Required"
+}

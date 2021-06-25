@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": "E06",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI109238745610246",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Frii",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "frii_FI109238745610246_allfall_30.wav",
+    "outputFilename": "\n                FI109238745610246_X_frii_Qa_gen_PromosAUTO_s04_gen05_30_exclusive_allfall_20:30_streamalreadynow.mxf\n            ",
+    "titleArtFileName": "Qa_gen_PromosAUTO_s04_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "frii_FI109238745610246_30.mxf",
+    "keyArtFileName": "Qa_gen_PromosAUTO_s04_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S04",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "Qa gen PromosAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "allfall",
+      "branding": null,
+      "tag": "koko syksy",
+      "dPlusCta": "katso ennakkoon",
+      "time": "20.30",
+      "title": "X frii_Qa gen PromosAUTO_s04_gen05_30_exclusive_allfall_20:30_streamalreadynow",
+      "brand": "eksklusiivinen",
+      "disclaimer": null
+    }
+  },
+  "subType": "gen05",
+  "trailerId": "109238745610246",
+  "sponsorFileStatus": "Not Required"
+}

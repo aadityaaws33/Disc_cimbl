@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": "E03",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI109238745610240",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Kutonen",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "kut_FI109238745610240_tnght_30.wav",
+    "outputFilename": "FI109238745610240_X_kut_Qa_gen_PromosAUTO_s05_gen03_30_sfinale_tnght_20:30_streamrightnow.mxf\n            ",
+    "titleArtFileName": "Qa_gen_PromosAUTO_s05_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "kut_FI109238745610240_30.mxf",
+    "keyArtFileName": "Qa_gen_PromosAUTO_s05_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S05",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "Qa gen PromosAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "tnght",
+      "branding": null,
+      "tag": "tänä yönä",
+      "dPlusCta": "katso nyt",
+      "time": "20.30",
+      "title": "X kut_Qa gen PromosAUTO_s05_gen03_30_sfinale_tnght_20:30_streamrightnow",
+      "brand": "kauden finaali",
+      "disclaimer": null
+    }
+  },
+  "subType": "gen03",
+  "trailerId": "109238745610240",
+  "sponsorFileStatus": "Not Required"
+}

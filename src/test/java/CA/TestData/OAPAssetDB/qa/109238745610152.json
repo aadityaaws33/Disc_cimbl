@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "845654_1",
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": "#notnull",
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI109238745610152",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Frii",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "frii_FI109238745610152_tuesday_25.wav",
+    "outputFilename": "\n                FI109238745610152_X_frii_QAAUTO_s02_launch_30_seasonpremiere_+X5432_tuesday20:00_newseasonnow.mxf\n            ",
+    "titleArtFileName": "QAAUTO_s02_titleart.png",
+    "sponsorFileName": "SPONS_5s_67485_1.mxf",
+    "sourceVideoFileName": "frii_FI109238745610152_25.mxf",
+    "keyArtFileName": "QAAUTO_s02_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S02",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "QAAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "tuesday",
+      "branding": "original",
+      "tag": "tiistai",
+      "dPlusCta": "",
+      "time": "20.00",
+      "title": "X frii_QAAUTO_s02_launch_30_seasonpremiere_+X5432_tuesday_20:00_newseasonnow",
+      "brand": "uusi kausi",
+      "disclaimer": "Terms & conditions apply."
+    }
+  },
+  "subType": "launch",
+  "trailerId": "109238745610152",
+  "sponsorFileStatus": "Not Available"
+}

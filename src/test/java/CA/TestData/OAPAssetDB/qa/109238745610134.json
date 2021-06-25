@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "episodeCollectionId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "outputAssetId": "#notnull",
+    "outputCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "sourceAudioAssetId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "sponsorAssetId": null
+  },
+  "mediaAssetId": "FI109238745610134",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "TV5",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "tv5_FI109238745610134_allnxtweek_30.wav",
+    "outputFilename": "FI109238745610134_X_tv5_QAAUTO_s08_prelaunch_30_sfinale_allnxtweek_20:30_newseasonnow.mxf\n            ",
+    "titleArtFileName": "QAAUTO_s08_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "tv5_FI109238745610134_30.mxf",
+    "keyArtFileName": "QAAUTO_s08_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S08",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "QAAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Everyday",
+      "branding": null,
+      "tag": "koko ensi viikon",
+      "dPlusCta": "",
+      "time": "20.30",
+      "title": "X tv5_QAAUTO_s08_prelaunch_30_sfinale_allnxtweek_20:30_newseasonnow",
+      "brand": "kauden finaali",
+      "disclaimer": null
+    }
+  },
+  "subType": "prelaunch",
+  "trailerId": "109238745610134",
+  "sponsorFileStatus": "Not Required"
+}

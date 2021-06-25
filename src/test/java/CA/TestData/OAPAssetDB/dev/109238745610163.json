@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI109238745610163",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Kutonen",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "kut_FI109238745610163_tmrw_30.wav",
+    "outputFilename": "FI109238745610163_X_kut_QAAUTO_s04_launch_30_newseas_tmrw_20:30_sas.mxf\n            ",
+    "titleArtFileName": "QAAUTO_s04_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "kut_FI109238745610163_30.mxf",
+    "keyArtFileName": "QAAUTO_s04_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S04",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "QAAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "tmrw",
+      "branding": null,
+      "tag": "huomenna",
+      "dPlusCta": "katso kaikki kaudet",
+      "time": "20.30",
+      "title": "X kut_QAAUTO_s04_launch_30_newseas_tmrw_20:30_sas",
+      "brand": "uusi kausi",
+      "disclaimer": null
+    }
+  },
+  "subType": "launch",
+  "trailerId": "109238745610163",
+  "sponsorFileStatus": "Not Required"
+}

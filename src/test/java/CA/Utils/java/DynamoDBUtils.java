@@ -30,6 +30,7 @@ import com.amazonaws.services.dynamodbv2.document.Table;
 import com.amazonaws.services.dynamodbv2.document.internal.IteratorSupport;
 import com.amazonaws.services.dynamodbv2.document.spec.QuerySpec;
 import com.amazonaws.services.dynamodbv2.document.spec.ScanSpec;
+import com.amazonaws.services.dynamodbv2.document.spec.DeleteItemSpec;
 import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.ScanRequest;
@@ -121,6 +122,27 @@ public class DynamoDBUtils {
     /**
      * Returns an integer which denotes the number of items as a result of a query
      *
+     * @param TableName                     The dynamoDB table name to be queried
+     * @param PrimaryPartitionKeyName       The Primary Partition Key
+     * @param PrimaryPartitionKeyValue      The Value of the Primary Partition Key
+     * 
+     * @return Success/Failure message
+     */
+    public String Delete_Item(String TableName, String PrimaryPartitionKeyName, String PrimaryPartitionKeyValue) {
+        String result = "Successfully deleted " + PrimaryPartitionKeyValue + " from " + TableName;
+        try {
+            table = dynamoDB.getTable(TableName);
+            DeleteItemSpec deleteItemSpec = new DeleteItemSpec().withPrimaryKey(new PrimaryKey(PrimaryPartitionKeyName, PrimaryPartitionKeyValue));
+            table.deleteItem(deleteItemSpec);
+        } catch (Exception e) {
+            result = "Failed to delete " + PrimaryPartitionKeyValue + " from " + TableName + ": " + e.getMessage();
+        }
+        return result;
+    }
+
+    /**
+     * Returns an integer which denotes the number of items as a result of a query
+     *
      * @param TableName            The dynamoDB table name to be queried
      * @param QueryInfoMapList     A List of HashMaps that contain information to
      *                             form the query expression [ { infoName:
@@ -128,6 +150,7 @@ public class DynamoDBUtils {
      *                             <Value>, infoComparator: <Comparator>, infoType:
      *                             <key/filter> }, ... ]
      * @param GlobalSecondaryIndex The GSI, if any
+     * 
      * @return Number of items resulting from the query
      */
     public int Query_GetTableItemCount(String TableName, List<HashMap<String, String>> QueryInfoMapList,

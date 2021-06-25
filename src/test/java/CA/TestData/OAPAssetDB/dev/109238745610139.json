@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "episodeCollectionId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "outputAssetId": "#notnull",
+    "outputCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "sourceAudioAssetId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "sponsorAssetId": "#notnull"
+  },
+  "mediaAssetId": "FI109238745610139",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "TV5",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "tv5_FI109238745610139_dayofchristmaseve_30.wav",
+    "outputFilename": "FI109238745610139_X_tv5_QAAUTO_s08_prelaunch_30_sfinale_dayofchristmaseve_20:30_streamseason.mxf\n            ",
+    "titleArtFileName": "QAAUTO_s08_titleart.png",
+    "sponsorFileName": "SPONS_5s_67485_1.mxf",
+    "sourceVideoFileName": "tv5_FI109238745610139_30.mxf",
+    "keyArtFileName": "QAAUTO_s08_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S08",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "QAAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Thursday",
+      "branding": null,
+      "tag": "joulupäivä",
+      "dPlusCta": "katso koko kausi",
+      "time": "20.30",
+      "title": "X tv5_QAAUTO_s08_prelaunch_30_sfinale_dayofchristmaseve_20:30_streamseason",
+      "brand": "kauden finaali",
+      "disclaimer": null
+    }
+  },
+  "subType": "prelaunch",
+  "trailerId": "109238745610139",
+  "sponsorFileStatus": "Not Available"
+}

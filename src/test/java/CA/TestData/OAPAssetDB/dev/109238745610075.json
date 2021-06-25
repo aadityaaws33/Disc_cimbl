@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "845654_1",
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": "#notnull",
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI109238745610075",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Kutonen",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "kut_FI109238745610075_nxtSunday_25.wav",
+    "outputFilename": "FI109238745610075_X_kut_Qa_TeasersAUTO_s01_teaser_30_seasonpremiere_+X5432_nxtSunday_20:00_sas.mxf",
+    "titleArtFileName": "Qa_TeasersAUTO_s01_titleart.png",
+    "sponsorFileName": "SPONS_5s_67485_1.mxf",
+    "sourceVideoFileName": "kut_FI109238745610075_25.mxf",
+    "keyArtFileName": "Qa_TeasersAUTO_s01_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S01",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "Qa TeasersAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "nxtSunday",
+      "branding": "original",
+      "tag": "ensi sunnuntaina",
+      "dPlusCta": "katso kaikki kaudet",
+      "time": "20.00",
+      "title": "X kut_Qa TeasersAUTO_s01_teaser_30_seasonpremiere_+X5432_nxtSunday_20:00_sas",
+      "brand": "uusi kausi",
+      "disclaimer": "Terms & conditions apply."
+    }
+  },
+  "subType": "teaser",
+  "trailerId": "109238745610075",
+  "sponsorFileStatus": "Not Available"
+}

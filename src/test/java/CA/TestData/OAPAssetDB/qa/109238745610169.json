@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI109238745610169",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Discovery+",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "dp_FI109238745610169_everynight_30.wav",
+    "outputFilename": "FI109238745610169_X_dp_QAAUTO_s08_launch_30_starts_everynight_20:30_newseriesnow.mxf\n            ",
+    "titleArtFileName": "QAAUTO_s08_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "dp_FI109238745610169_30.mxf",
+    "keyArtFileName": "QAAUTO_s08_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S08",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "QAAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Everynight",
+      "branding": null,
+      "tag": "koko ilta",
+      "dPlusCta": "",
+      "time": "20.30",
+      "title": "X dp_QAAUTO_s08_launch_30_starts_everynight_20:30_newseriesnow",
+      "brand": "alkaa",
+      "disclaimer": null
+    }
+  },
+  "subType": "launch",
+  "trailerId": "109238745610169",
+  "sponsorFileStatus": "Not Required"
+}

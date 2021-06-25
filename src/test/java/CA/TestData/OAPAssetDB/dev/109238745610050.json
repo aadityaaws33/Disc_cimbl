@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "#? _ == 'film' || _ == 'Films'",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": null,
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": null,
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI109238745610050",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Frii",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "frii_FI109238745610050_allwinter_30.wav",
+    "outputFilename": "FI109238745610050_X_frii_Qa_FilmsAUTO_film_30_prem_allwinter_20:30_streamalreadynow.mxf\n            ",
+    "titleArtFileName": "Qa_FilmsAUTO_film_s08_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "frii_FI109238745610050_30.mxf",
+    "keyArtFileName": "Qa_FilmsAUTO_film_s08_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": null,
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "Qa Films",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "allwinter",
+      "branding": null,
+      "tag": "koko talvi",
+      "dPlusCta": "katso ennakkoon",
+      "time": "20.30",
+      "title": "X frii_Qa FilmsAUTO_film_30_prem_allwinter_20:30_streamalreadynow",
+      "brand": "ensi-ilta",
+      "disclaimer": "Terms & conditions apply."
+    }
+  },
+  "subType": null,
+  "trailerId": "109238745610050",
+  "sponsorFileStatus": "Not Required"
+}

@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": "E09",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI109238745610249",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Discovery+",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "dp_FI109238745610249_everynight_30.wav",
+    "outputFilename": "FI109238745610249_X_dp_Qa_gen_PromosAUTO_s08_gen02_30_starts_everynight_20:30_newseriesnow.mxf\n            ",
+    "titleArtFileName": "Qa_gen_PromosAUTO_s08_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "dp_FI109238745610249_30.mxf",
+    "keyArtFileName": "Qa_gen_PromosAUTO_s08_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S08",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "Qa gen PromosAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Everynight",
+      "branding": null,
+      "tag": "koko ilta",
+      "dPlusCta": "",
+      "time": "20.30",
+      "title": "X dp_Qa gen PromosAUTO_s08_gen02_30_starts_everynight_20:30_newseriesnow",
+      "brand": "alkaa",
+      "disclaimer": null
+    }
+  },
+  "subType": "gen02",
+  "trailerId": "109238745610249",
+  "sponsorFileStatus": "Not Required"
+}

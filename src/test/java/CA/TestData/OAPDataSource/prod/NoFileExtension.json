@@ -1,6 +1,6 @@
 {
     "Comments": "Invalid XML file. Missing file extension",
-    "CreatedAt": "#(ExpectedDate.result)",
+    "CreatedAt": "#? _.contains(ExpectedDate.result)",
     "CreatedBy": "#notnull",
     "DataFileName": "#(ExpectedDataFileName)",
     "DataSourceName": "WHATS_ON",

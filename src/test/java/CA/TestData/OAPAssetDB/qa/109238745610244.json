@@ -1,0 +1,59 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "#? _ == 'show' || _ == 'Shows'",
+  "episodeNumber": "E06",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI109238745610244",
+  "duration": "30",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Frii",
+  "comments": "Pending Audio & Video Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "frii_FI109238745610244_tonightandtomorrow_30.wav",
+    "outputFilename": "\n                FI109238745610244_X_frii_Qa_gen_PromosAUTO_s04_gen04_30_tvpremiere_tonightandtomorrow_20:30_streamalreadynow.mxf\n            ",
+    "titleArtFileName": "Qa_gen_PromosAUTO_s04_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "frii_FI109238745610244_30.mxf",
+    "keyArtFileName": "Qa_gen_PromosAUTO_s04_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S04",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "showTitle": "Qa gen PromosAUTO",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "tonightandtomorrow",
+      "branding": null,
+      "tag": "tänää ja huomenna",
+      "dPlusCta": "katso ennakkoon",
+      "time": "20.30",
+      "title": "X frii_Qa gen PromosAUTO_s04_gen04_30_tvpremiere_tonightandtomorrow_20:30_streamalreadynow",
+      "brand": "TV-ensi-ilta",
+      "disclaimer": null
+    }
+  },
+  "subType": "gen04",
+  "trailerId": "109238745610244",
+  "sponsorFileStatus": "Not Required"
+}

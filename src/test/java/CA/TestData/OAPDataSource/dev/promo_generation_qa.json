@@ -1,0 +1,17 @@
+{
+    "comments": "XML file is processed",
+    "country": "Finland",
+    "createdAt": "#notnull",
+    "createdBy": "#notnull",
+    "dataFileName": "#(ExpectedDataFileName)",
+    "dataSourceName": "WHATS_ON",
+    "dataSourceStatus": "Finished",
+    "errors": {
+  
+    },
+    "filePath": "#('eu/' + TargetEnv + '/whatson/data/' + ExpectedDataFileName)",
+    "ID": "#notnull",
+    "modifiedAt": "#notnull",
+    "modifiedBy": "#notnull",
+    "userName": "Peter Rothoff Hojholt"
+  }
