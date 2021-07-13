@@ -4,7 +4,7 @@
   "sourceAudioFileStatus": "Not Available",
   "modifiedAt": "#notnull",
   "mediaId": "729939_1",
-  "type": "#? _ == 'show' || _ == 'Shows'",
+  "type": "Shows",
   "episodeNumber": "E06",
   "isMetadataUpdateRequired": false,
   "iconikObjectIds": {
@@ -16,17 +16,18 @@
     "mediaAssetCollectionId": "#notnull",
     "seasonCollectionId": "#notnull",
     "sponsorAssetId": null,
-    "outputCollectionId": "#notnull"  
+    "outputCollectionId": "#notnull"
   },
   "mediaAssetId": "FI109238745610206",
   "duration": "30",
+  "createdAt": "#notnull",
   "promoAssetStatus": "Pending Upload",
   "modifiedBy": "#notnull",
   "promotedChannel": "Frii",
-  "comments": "Pending Audio & Video Upload",
+  "comments": "Pending asset upload",
   "associatedFiles": {
     "sourceAudioFileName": "frii_FI109238745610206_allfall_30.wav",
-    "outputFilename": "\n                FI109238745610206_X_frii_Qa_Bundle_PromosAUTO_s04_bundle05_30_exclusive_allfall_20:30_streamalreadynow.mxf\n            ",
+    "outputFilename": "FI109238745610206_X_frii_Qa_Bundle_PromosAUTO_s04_bundle05_30_exclusive_allfall_20:30_streamalreadynow.mxf",
     "titleArtFileName": "Qa_Bundle_PromosAUTO_s04_titleart.png",
     "sponsorFileName": "",
     "sourceVideoFileName": "frii_FI109238745610206_30.mxf",
@@ -38,6 +39,7 @@
   "wochitVideoId": null,
   "userName": "Peter Rothoff Hojholt",
   "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
   "showTitle": "Qa Bundle PromosAUTO",
   "outputFileStatus": "Not Available",
   "promoXMLName": "#(ExpectedDataFileName)",

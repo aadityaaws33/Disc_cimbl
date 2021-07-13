@@ -1,6 +1,6 @@
 {
     "Comments": "Invalid Format Error: Premature end of data in tag trailers line 2",
-    "CreatedAt": "#? _.contains(ExpectedDate.result)",
+    "createdAt": "#notnull",
     "CreatedBy": "#notnull",
     "DataFileName": "#(ExpectedDataFileName)",
     "DataSourceName": "WHATS_ON",

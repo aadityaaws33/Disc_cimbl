@@ -17,6 +17,8 @@ Scenario: Load common background
     * def OAPAssetDBTableGSI = EnvConfig['Common']['AssetDB']['GSI']
     * def IconikAssetDataAPIUrl = EnvConfig['Common']['Iconik']['AssetDataAPIUrl']
     * def IconikGetAppTokenAPIUrl = EnvConfig['Common']['Iconik']['GetAppTokenAPIUrl']
+    * def IconikDeleteQueueAPIUrl = EnvConfig['Common']['Iconik']['DeleteQueueAPIUrl']
+    * def IconikSearchAPIUrl = EnvConfig['Common']['Iconik']['SearchAPIUrl']
     * def IconikAppTokenName = EnvConfig['Common']['Iconik']['AppTokenName']
     * def IconikAdminEmail = EnvConfig['Common']['Iconik']['AdminEmail']
     * def IconikAdminPassword = EnvConfig['Common']['Iconik']['AdminPassword']

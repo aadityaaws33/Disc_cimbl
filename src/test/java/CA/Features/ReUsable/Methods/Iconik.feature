@@ -164,7 +164,7 @@ Scenario: Search for Assets
   * def resp = call read(thisFile + '@ExecuteHTTPRequest') SearchForAssetParams
   * def result = resp.result
 
-@DeleteAsset
+@DeleteAssetCollection
 Scenario: Delete Asset
   * def DeleteAssetParams = 
     """
@@ -172,7 +172,7 @@ Scenario: Delete Asset
         thisURL: #(URL),
         thisQuery: #(Query),
         thisMethod: post,
-        thisStatus: 204
+        thisStatus: #(ExpectedStatusCode)
       }
     """
   * def resp = call read(thisFile + '@ExecuteHTTPRequest') DeleteAssetParams
@@ -274,10 +274,10 @@ Scenario: Validate Collection Heirarchy
 
                         if(!thisResult.pass) {
                             result.pass = false;
-                            if(ValidationResult.result.path) {
-                                errMsg = ValidationResult.result.message.replace(ValidationResult.result.path);
+                            if(thisResult.path) {
+                                errMsg = thisResult.message.replace('$', thisResult.path);
                             } else {
-                                errMsg = ValidationResult.result.message;
+                                errMsg = thisResult.message;
                             }
                             result.message.push(trailerId + ': ' + errMsg);
                             break;
@@ -350,23 +350,36 @@ Scenario: Validate Placeholders
                 for(var j in expectedIconikPlaceholderAssets) {
                     var expectedAssetID = expectedIconikPlaceholderAssets[j]['assetId'];
                     var expectedAssetName = expectedIconikPlaceholderAssets[j]['assetName'];
+                    var expectedAssetType = expectedIconikPlaceholderAssets[j]['assetType'];
+
                     var thisURL = IconikAssetDataAPIUrl + '/assets/' + expectedAssetID;
                     var ExpectedPlaceholderAssetData = read(TestDataPath + '/Iconik/ExpectedPlaceholderAssetData.json')
                     ExpectedPlaceholderAssetData.title = expectedAssetName;
                     ExpectedPlaceholderAssetData.external_id = expectedAssetName;
                     ExpectedPlaceholderAssetData.id = expectedAssetID;
+                    ExpectedPlaceholderAssetData.type = 'PLACEHOLDER';
+
+                    ASSET_SPONSORFILES = ['SPONS_5sec_684831_1.mxf', 'SPONS_5sec_684831_1.mxf'];
+
+                    if(expectedAssetType.contains('sponsor')) {
+                      for(var k in ASSET_SPONSORFILES) {
+                        if(ASSET_SPONSORFILES[k] == trailerIDassociatedFiles.sponsorFileName) {
+                          ExpectedPlaceholderAssetData.type = 'ASSET';
+                        }
+                      }
+                    }
                     var ValidatePlaceholderExistsParams = {
                         GetAssetDataURL: thisURL,
                         ExpectedAssetData: ExpectedPlaceholderAssetData
                     }
                     var thisResult = karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@ValidatePlaceholderExists', ValidatePlaceholderExistsParams);
                     if(!thisResult.result.pass) {
-                        if(ValidationResult.result.path) {
-                            errMsg = ValidationResult.result.message.replace(ValidationResult.result.path);
+                        if(thisResult.result.path) {
+                            errMsg = thisResult.result.message.replace(thisResult.result.path);
                         } else {
-                            errMsg = ValidationResult.result.message;
+                            errMsg = thisResult.result.message;
                         }
-                        result.message.push(trailerId + ': ' + errMsg);
+                        result.message.push(trailerId + '[' + expectedAssetType + '/' + expectedAssetID + ']' + ': ' + errMsg);
                         result.pass = false;
                     }
                 }

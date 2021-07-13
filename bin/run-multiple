@@ -28,4 +28,5 @@ do
     mvn clean test -Dkarate.options="-t @${TAG}" -Dkarate.targetEnv="${ENV}"
     cd "$THIS_CWD"
     mv target target_${THISRUN}
+
 done)

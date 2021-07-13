@@ -4,7 +4,7 @@
   "sourceAudioFileStatus": "Not Available",
   "modifiedAt": "#notnull",
   "mediaId": "845654_1",
-  "type": "#? _ == 'show' || _ == 'Shows'",
+  "type": "Shows",
   "episodeNumber": "E01",
   "isMetadataUpdateRequired": false,
   "iconikObjectIds": {
@@ -16,19 +16,20 @@
     "mediaAssetCollectionId": "#notnull",
     "seasonCollectionId": "#notnull",
     "sponsorAssetId": "#notnull",
-    "outputCollectionId": "#notnull"  
+    "outputCollectionId": "#notnull"
   },
   "mediaAssetId": "FI109238745610195",
   "duration": "30",
+  "createdAt": "#notnull",
   "promoAssetStatus": "Pending Upload",
   "modifiedBy": "#notnull",
   "promotedChannel": "Kutonen",
-  "comments": "Pending Audio & Video Upload",
+  "comments": "Pending asset upload",
   "associatedFiles": {
     "sourceAudioFileName": "kut_FI109238745610195_nxtSunday_25.wav",
-    "outputFilename": "\n                FI109238745610195_X_kut_Qa_Bundle_PromosAUTO_s01_bundle04_30_seasonpremiere_+X5432_nxtSunday_20:00_sas.mxf\n            ",
+    "outputFilename": "FI109238745610195_X_kut_Qa_Bundle_PromosAUTO_s01_bundle04_30_seasonpremiere_+X5432_nxtSunday_20:00_sas.mxf",
     "titleArtFileName": "Qa_Bundle_PromosAUTO_s01_titleart.png",
-    "sponsorFileName": "SPONS_5s_67485_1.mxf",
+    "sponsorFileName": "SPONS_109238745610195",
     "sourceVideoFileName": "kut_FI109238745610195_25.mxf",
     "keyArtFileName": "Qa_Bundle_PromosAUTO_s01_image.jpg"
   },
@@ -38,6 +39,7 @@
   "wochitVideoId": null,
   "userName": "Peter Rothoff Hojholt",
   "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
   "showTitle": "Qa Bundle PromosAUTO",
   "outputFileStatus": "Not Available",
   "promoXMLName": "#(ExpectedDataFileName)",

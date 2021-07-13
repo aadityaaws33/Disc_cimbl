@@ -4,7 +4,7 @@
   "sourceAudioFileStatus": "Not Available",
   "modifiedAt": "#notnull",
   "mediaId": "729939_1",
-  "type": "#? _ == 'show' || _ == 'Shows'",
+  "type": "Shows",
   "episodeNumber": "E01",
   "isMetadataUpdateRequired": false,
   "iconikObjectIds": {
@@ -16,17 +16,18 @@
     "mediaAssetCollectionId": "#notnull",
     "seasonCollectionId": "#notnull",
     "sponsorAssetId": null,
-    "outputCollectionId": "#notnull"  
+    "outputCollectionId": "#notnull"
   },
   "mediaAssetId": "FI109238745610198",
   "duration": "30",
+  "createdAt": "#notnull",
   "promoAssetStatus": "Pending Upload",
   "modifiedBy": "#notnull",
   "promotedChannel": "TV5",
-  "comments": "Pending Audio & Video Upload",
+  "comments": "Pending asset upload",
   "associatedFiles": {
     "sourceAudioFileName": "tv5_FI109238745610198_starts_30.wav",
-    "outputFilename": "FI109238745610198_X_tv5_Qa_Bundle_PromosAUTO_s03_bundle02_30_seasonfinale_starts_20:30_now.mxf\n            ",
+    "outputFilename": "FI109238745610198_X_tv5_Qa_Bundle_PromosAUTO_s03_bundle02_30_seasonfinale_starts_20:30_now.mxf",
     "titleArtFileName": "Qa_Bundle_PromosAUTO_s03_titleart.png",
     "sponsorFileName": "",
     "sourceVideoFileName": "tv5_FI109238745610198_30.mxf",
@@ -38,6 +39,7 @@
   "wochitVideoId": null,
   "userName": "Peter Rothoff Hojholt",
   "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
   "showTitle": "Qa Bundle PromosAUTO",
   "outputFileStatus": "Not Available",
   "promoXMLName": "#(ExpectedDataFileName)",

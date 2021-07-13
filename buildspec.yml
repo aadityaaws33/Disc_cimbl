@@ -1,41 +1,61 @@
-version: 0.2
-env:
-  secrets-manager:
-    IconikAdminEmail: "ca-creds:Iconik-AdminEmail"
-    IconikAdminPassword: "ca-creds:Iconik-AdminPassword"
-    # ca-creds-prodtenant
-phases:
-  install:
-    runtime-versions:
-      java: corretto11
-  pre_build:
-    commands:
-      - echo Running Pre Build
-     # - mvn clean test -Dkarate.options="-t SchemaValidation" -Dkarate.targetEnv="${env}"
-  build:
-    commands:
-      - echo Build started on `date`
-      - mvn clean test -Dkarate.options="-t @Module" -Dkarate.region="Nordic"
-    cache:
-      paths:
-        - '/root/.m2/**/*'
-  post_build:
-    commands:
-      - echo Build completed on `date`
-      - cd $CODEBUILD_SRC_DIR/target/cucumber-html-reports/
-      - echo Listing the contents of Html Reports
-      - ls -al
-reports:
-  CucsReports:
-    files:
-      - '**/*'
-    base-directory: 'target/cucumber-html-reports/' # Location of the reports
-artifacts:
-  secondary-artifacts:
-    test_automation_output:
-      files:
-        #- $CODEBUILD_SRC_DIR/target/cucumber-html-reports/**/*
-        - target/**/*
-cache:
-  paths:
-    - '/root/.m2/**/*'
+{
+  "version": 0.2,
+  "env": {
+    "secrets-manager": {
+      "IconikAdminEmail": "ca-creds:Iconik-AdminEmail",
+      "IconikAdminPassword": "ca-creds:Iconik-AdminPassword"
+    }
+  },
+  "phases": {
+    "install": {
+      "runtime-versions": {
+        "java": "corretto11"
+      }
+    },
+    "pre_build": {
+      "commands":
+        "echo Running Pre Build"
+    },
+    "build": {
+      "commands": [
+        "echo Build started on `date`",
+        "if [ \"$skipTests\" != \"true\" ]; then\n mvn clean test -Dkarate.options=\"-t @$TAG\" -Dkarate.targetEnv=\"$ENV\" \nfi\n"   ],
+      "cache": {
+        "paths": [
+          "/root/.m2/**/*"
+        ]
+      }
+    },
+    "post_build": {
+      "commands": [
+        "echo Build completed on `date`",
+        "if [ \"$skipTests\" != \"true\" ]; then\n cd $CODEBUILD_SRC_DIR/target/cucumber-html-reports/\nfi\n",
+        "echo Listing the contents of Html Reports",
+        "ls -al"
+      ]
+    }
+  },
+  "reports": {
+    "CucsReports": {
+      "if [ \"$skipTests\" != \"true\" ]; files\nfi\n": [
+        "**/*"
+      ],
+      "if [ \"$skipTests\" != \"true\" ]; then\n base-directory": "target/cucumber-html-reports/\nfi\n"
+    }
+  },
+  "artifacts": {
+    "secondary-artifacts":
+    {
+      "test_automation_output": {
+        "if [ \"$skipTests\" != \"true\" ]; files\nfi\n": [
+          "target/**/*"
+        ]
+      }
+    }
+  },
+  "cache": {
+    "paths": [
+      "/root/.m2/**/*"
+    ]
+  }
+}

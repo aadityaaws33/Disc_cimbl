@@ -1,0 +1,32 @@
+{
+    "query": "#(SearchKeyword)",
+    "doc_types": [
+        "assets",
+        "collections"
+    ],
+    "filter": {
+        "operator": "AND",
+        "terms": [
+            {
+                "name": "status",
+                "value": "ACTIVE"
+            }            
+        ]
+    },
+    "facets_filters": [],
+    "search_fields": [
+        "title",
+        "description",
+        "segment_text",
+        "file_names.lower",
+        "metadata"
+    ],
+    "include_fields": #(SearchFields),
+    "facets": [],
+    "sort": [
+        {
+            "name": "date_created",
+            "order": "desc"
+        }
+    ]
+}

@@ -1,6 +1,6 @@
 {
     "Comments": "Invalid Format Error: Element 'duration': 'Fifteen' is not a valid value of the atomic type 'xs:byte'.\n,Error: Element 'seasonNumber': 'Eighteen' is not a valid value of the atomic type 'xs:byte'.",
-    "CreatedAt": "#? _.contains(ExpectedDate.result)",
+    "createdAt": "#notnull",
     "CreatedBy": "#notnull",
     "DataFileName": "#(ExpectedDataFileName)",
     "DataSourceName": "WHATS_ON",

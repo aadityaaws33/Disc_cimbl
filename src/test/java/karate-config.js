@@ -3,7 +3,7 @@ function() {
     // Global configurations
     karate.configure('connectTimeout', 10000);
     karate.configure('retry', { count:4, interval:2000});
-    karate.configure('report', { showLog: true, showAllSteps: false});
+    // karate.configure('report', { showLog: true, showAllSteps: false});
     
     // Environment configurations
     var targetEnv = karate.properties['karate.targetEnv'];

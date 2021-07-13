@@ -10,10 +10,10 @@
 	"deleted_by_user": null,
 	"external_id": "REPLACEME",
 	"id": "REPLACEME",
-	"is_online": false,
+	"is_online": "#ignore",
 	"status": "ACTIVE",
 	"title": "REPLACEME",
-	"type": "PLACEHOLDER",
+	"type": "REPLACEME",
 	"versions": [
 		{
 			"analyze_status": "N/A",

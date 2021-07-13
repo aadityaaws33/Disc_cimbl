@@ -1,6 +1,6 @@
 {
     "comments": "Invalid Format Error: Element 'ThisIsAnUnexpectedNode': This element is not expected.",
-    "createdAt": "#? _.contains(ExpectedDate.result)",
+    "createdAt": "#notnull",
     "createdBy": "#notnull",
     "dataFileName": "#(ExpectedDataFileName)",
     "dataSourceName": "WHATS_ON",

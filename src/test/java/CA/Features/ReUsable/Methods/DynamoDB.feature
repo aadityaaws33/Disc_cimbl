@@ -207,42 +207,53 @@ Scenario: Delete items from DynamoDB Table
           pass: false
         }
 
+        var dynamoDB = initializeDynamoDBObject(AWSRegion);
         for(var i = 0; i < Retries; i++) {
           var failedDeleteResultMsg = [];
           var getItemResults = [];
 
           for(var j in itemParamList) {
-            var dynamoDB = initializeDynamoDBObject(AWSRegion);
             var PrimaryPartitionKeyName = itemParamList[j]['PrimaryPartitionKeyName'];
             var PrimaryPartitionKeyValue = itemParamList[j]['PrimaryPartitionKeyValue'];
             var thisDeleteMsg = dynamoDB.Delete_Item(TableName, PrimaryPartitionKeyName, PrimaryPartitionKeyValue)
             if(thisDeleteMsg.contains('Failed')) {
               failedDeleteResultMsg.push(PrimaryPartitionKeyName + ': ' + thisDeleteMsg);
             }
-            dynamoDB.shutdown();
+          }
+          
+          Pause(2000);
+
+          var getItemResults = [];
+
+          for(var k in PromoAssetStatus) {
+            var thisPromoAssetStatus = PromoAssetStatus[k];
+            var getItemParams = {
+              Param_TableName: TableName,
+              Param_QueryInfoList: [
+                {
+                  infoName: 'promoAssetStatus',
+                  infoValue: thisPromoAssetStatus,
+                  infoComparator: '=',
+                  infoType: 'key'           
+                },
+                {
+                  infoName: PrimaryFilterKeyName,
+                  infoValue: PrimaryFilterKeyValue,
+                  infoComparator: 'contains',
+                  infoType: 'filter'           
+                }
+              ],
+              Param_GlobalSecondaryIndex: GSI
+            }
+            
+            var thisResult = karate.call(ReUsableFeaturesPath + '/Methods/DynamoDB.feature@GetItemsViaQuery', getItemParams);
+
+            for(var l in thisResult.result) {
+              getItemResults.push(thisResult.result[l]);
+            }
           }
 
-          var getItemParams = {
-            Param_TableName: TableName,
-            Param_QueryInfoList: [
-              {
-                infoName: 'promoAssetStatus',
-                infoValue: PromoAssetStatus,
-                infoComparator: '=',
-                infoType: 'key'           
-              },
-              {
-                infoName: PrimaryFilterKeyName,
-                infoValue: PrimaryFilterKeyValue,
-                infoComparator: 'contains',
-                infoType: 'filter'           
-              }
-            ],
-            Param_GlobalSecondaryIndex: GSI
-          }
-          getItemResults =  karate.call(ReUsableFeaturesPath + '/Methods/DynamoDB.feature@GetItemsViaQuery', getItemParams);
-
-          if(failedDeleteResultMsg.length > 1 || getItemResults.result.length > 1) {
+          if(failedDeleteResultMsg.length > 1 || getItemResults.length > 1) {
             karate.log(failedDeleteResultMsg);
             karate.log(getItemResults.result);
             var errMsg = 'Failed to delete AssetDB trailer Records for ' + PrimaryFilterKeyValue;
@@ -255,7 +266,7 @@ Scenario: Delete items from DynamoDB Table
             break;
           }
         }
-
+        dynamoDB.shutdown();
         return result;
       }
     """

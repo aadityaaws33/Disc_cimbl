@@ -1,6 +1,6 @@
 {
     "comments": "Invalid Format Error: Could not parse XML string",
-    "createdAt": "#? _.contains(ExpectedDate.result)",
+    "createdAt": "#notnull",
     "createdBy": "#notnull",
     "dataFileName": "#(ExpectedDataFileName)",
     "dataSourceName": "WHATS_ON",

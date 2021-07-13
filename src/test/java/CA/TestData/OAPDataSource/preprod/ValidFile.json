@@ -1,6 +1,6 @@
 {
     "Comments": "Successfully Validated",
-    "CreatedAt": "#? _.contains(ExpectedDate.result)",
+    "createdAt": "#notnull",
     "CreatedBy": "#notnull",
     "DataFileName": "#(ExpectedDataFileName)",
     "DataSourceName": "WHATS_ON",
