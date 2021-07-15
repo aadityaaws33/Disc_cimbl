@@ -47,7 +47,7 @@
     "data": {
       "versionType": "Monday",
       "branding": null,
-      "tag": "maanantaina",
+      "tag": "#? _ == 'maanantaina' || _ == 'maanantai'",
       "dPlusCta": "katso nyt",
       "time": "20.30",
       "title": "X tv5_Qa FilmsAUTO_film_30_premiere_Monday_20:30_now",
