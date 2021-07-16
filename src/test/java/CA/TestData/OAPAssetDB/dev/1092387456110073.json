@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": null,
+  "type": "Shows",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI1092387456110073",
+  "duration": "30",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Discovery+",
+  "comments": "Pending asset upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "dp_FI1092387456110073_Thursdays_30.wav",
+    "outputFilename": "FI1092387456110073_X_dp_Qa_Teasers_s06_teaser_30_newseas_Thursdays_22:00_dpnow.mxf",
+    "titleArtFileName": "Qa_Teasers_s06_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "dp_FI1092387456110073_30.mxf",
+    "keyArtFileName": "Qa_Teasers_s06_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S06",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "Qa Teasers",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Thursdays",
+      "branding": "original",
+      "tag": "torstaisin",
+      "dPlusCta": "katso nyt",
+      "time": "22.00",
+      "title": "X dp_Qa Teasers_s06_teaser_30_newseas_Thursdays_22:00_dpnow",
+      "brand": "uusi kausi",
+      "disclaimer": null
+    }
+  },
+  "subType": "teaser",
+  "trailerId": "1092387456110073",
+  "sponsorFileStatus": "Not Required"
+}

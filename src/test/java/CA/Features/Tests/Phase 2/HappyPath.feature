@@ -21,13 +21,12 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>]
         | promo_generation_FI_qa_teasers_v1.0.xml       | promo_generation_qa.json    |
         | promo_generation_FI_qa_films_v1.0.xml         | promo_generation_qa.json    |
         ###############################################################################
-        # | promo_generation_FI_qa_bundle_v2.0.xml        | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_episodic_v2.0.xml      | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_generic_v2.0.xml       | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_launch_v2.0.xml        | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_prelaunch_v2.0.xml     | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_teasers_v2.0.xml       | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_films_v2.0.xml         | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_SHORTENED.xml        | promo_generation_qa.json    |
+        | promo_generation_FI_qa_bundle_v2.0.xml        | promo_generation_qa.json    |
+        | promo_generation_FI_qa_episodic_v2.0.xml      | promo_generation_qa.json    |
+        | promo_generation_FI_qa_generic_v2.0.xml       | promo_generation_qa.json    |
+        | promo_generation_FI_qa_launch_v2.0.xml        | promo_generation_qa.json    |
+        | promo_generation_FI_qa_prelaunch_v2.0.xml     | promo_generation_qa.json    |
+        | promo_generation_FI_qa_teasers_v2.0.xml       | promo_generation_qa.json    |
+        | promo_generation_FI_qa_films_v2.0.xml         | promo_generation_qa.json    |
 
 # =>new scenario outline to check each time

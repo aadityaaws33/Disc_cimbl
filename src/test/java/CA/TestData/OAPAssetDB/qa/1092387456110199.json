@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "Shows",
+  "episodeNumber": "E02",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI1092387456110199",
+  "duration": "30",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "TV5",
+  "comments": "Pending asset upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "tv5_FI1092387456110199_tonight_30.wav",
+    "outputFilename": "FI1092387456110199_X_tv5_Qa_Bundle_Promos_s05_bundle02_30_special_tonight_20:30_rightnow.mxf",
+    "titleArtFileName": "Qa_Bundle_Promos_s05_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "tv5_FI1092387456110199_30.mxf",
+    "keyArtFileName": "Qa_Bundle_Promos_s05_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S05",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "Qa Bundle Promos",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "tonight",
+      "branding": null,
+      "tag": "tänä iltana",
+      "dPlusCta": "katso nyt",
+      "time": "20.30",
+      "title": "X tv5_Qa Bundle Promos_s05_bundle02_30_special_tonight_20:30_rightnow",
+      "brand": "erikois",
+      "disclaimer": null
+    }
+  },
+  "subType": "bundle02",
+  "trailerId": "1092387456110199",
+  "sponsorFileStatus": "Not Required"
+}

@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "845456_1",
+  "type": "Shows",
+  "episodeNumber": "E01",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI1092387456110004",
+  "duration": "15",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Discovery+",
+  "comments": "Pending asset upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "dp_FI1092387456110004_fridays_15.wav",
+    "outputFilename": "FI1092387456110004_X_dp_QA Shows_s07_e01_15_premiere_fridays_22:30_dpsas.mxf",
+    "titleArtFileName": "QA_Shows_s07_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "dp_FI1092387456110004_15.mxf",
+    "keyArtFileName": "QA_Shows_s07_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S07",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "QA Shows",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "fridays",
+      "branding": null,
+      "tag": "perjantaisin",
+      "dPlusCta": "katso kaikki kaudet",
+      "time": "22.30",
+      "title": "X dp_QA Shows_s07_e01_15_premiere_fridays_22:30_dpsas",
+      "brand": "ensi-ilta",
+      "disclaimer": null
+    }
+  },
+  "subType": "e01",
+  "trailerId": "1092387456110004",
+  "sponsorFileStatus": "Not Required"
+}

@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": null,
+  "type": "Shows",
+  "episodeNumber": "E01",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI1092387456110003",
+  "duration": "30",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Discovery+",
+  "comments": "Pending asset upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "dp_FI1092387456110003_Fridays_30.wav",
+    "outputFilename": "FI1092387456110003_X_dp_Qa_Shows_s06_e01_30_neweps_Fridays_22:00_dpsae.mxf",
+    "titleArtFileName": "Qa_Shows_s06_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "dp_FI1092387456110003_30.mxf",
+    "keyArtFileName": "Qa_Shows_s06_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S06",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "Qa Shows",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Fridays",
+      "branding": "original",
+      "tag": "perjantaisin",
+      "dPlusCta": "katso kaikki jaksot",
+      "time": "22.00",
+      "title": "X dp_Qa Shows_s06_e01_30_neweps_Fridays_22:00_dpsae",
+      "brand": "uudet jaksot",
+      "disclaimer": null
+    }
+  },
+  "subType": "e01",
+  "trailerId": "1092387456110003",
+  "sponsorFileStatus": "Not Required"
+}

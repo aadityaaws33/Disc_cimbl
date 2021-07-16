@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "Shows",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI1092387456110260",
+  "duration": "30",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "TV5",
+  "comments": "Pending asset upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "tv5_FI1092387456110260_comingoct_30.wav",
+    "outputFilename": "FI1092387456110260_X_tv5_Qa_gen_Promos_s08_gen02_30_exclusive_comingoct_21:45_streamnow.mxf",
+    "titleArtFileName": "Qa_gen_Promos_s08_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "tv5_FI1092387456110260_30.mxf",
+    "keyArtFileName": "Qa_gen_Promos_s08_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S08",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "Qa gen Promos",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Thursday",
+      "branding": null,
+      "tag": "tulossa lokakuussa",
+      "dPlusCta": "katso nyt",
+      "time": "21.45",
+      "title": "X tv5_Qa gen Promos_s08_gen02_30_exclusive_comingoct_21:45_streamnow",
+      "brand": "eksklusiivinen",
+      "disclaimer": null
+    }
+  },
+  "subType": "gen02",
+  "trailerId": "1092387456110260",
+  "sponsorFileStatus": "Not Required"
+}

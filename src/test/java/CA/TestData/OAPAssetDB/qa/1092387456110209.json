@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "Shows",
+  "episodeNumber": "E09",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI1092387456110209",
+  "duration": "30",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Discovery+",
+  "comments": "Pending asset upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "dp_FI1092387456110209_everynight_30.wav",
+    "outputFilename": "FI1092387456110209_X_dp_Qa_Bundle_Promos_s08_bundle02_30_starts_everynight_20:30_newseriesnow.mxf",
+    "titleArtFileName": "Qa_Bundle_Promos_s08_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "dp_FI1092387456110209_30.mxf",
+    "keyArtFileName": "Qa_Bundle_Promos_s08_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S08",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "Qa Bundle Promos",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Everynight",
+      "branding": null,
+      "tag": "koko ilta",
+      "dPlusCta": "",
+      "time": "20.30",
+      "title": "X dp_Qa Bundle Promos_s08_bundle02_30_starts_everynight_20:30_newseriesnow",
+      "brand": "alkaa",
+      "disclaimer": null
+    }
+  },
+  "subType": "bundle02",
+  "trailerId": "1092387456110209",
+  "sponsorFileStatus": "Not Required"
+}

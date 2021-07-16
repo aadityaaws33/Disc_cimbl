@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "Shows",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI1092387456110098",
+  "duration": "30",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "TV5",
+  "comments": "Pending asset upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "tv5_FI1092387456110098_comingmay_30.wav",
+    "outputFilename": "FI1092387456110098_X_tv5_Qa_Teasers_s08_teaser_30_sfinale_comingmay_20:30_streamnow.mxf",
+    "titleArtFileName": "Qa_Teasers_s08_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "tv5_FI1092387456110098_30.mxf",
+    "keyArtFileName": "Qa_Teasers_s08_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S08",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "Qa Teasers",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Thursday",
+      "branding": null,
+      "tag": "tulossa toukokuussa",
+      "dPlusCta": "katso nyt",
+      "time": "20.30",
+      "title": "X tv5_Qa Teasers_s08_teaser_30_sfinale_comingmay_20:30_streamnow",
+      "brand": "kauden finaali",
+      "disclaimer": null
+    }
+  },
+  "subType": "teaser",
+  "trailerId": "1092387456110098",
+  "sponsorFileStatus": "Not Required"
+}

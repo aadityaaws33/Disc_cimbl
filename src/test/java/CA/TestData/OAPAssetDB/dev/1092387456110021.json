@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "Shows",
+  "episodeNumber": "E01",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI1092387456110021",
+  "duration": "30",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "TV5",
+  "comments": "Pending asset upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "tv5_FI1092387456110021_nextweek_30.wav",
+    "outputFilename": "FI1092387456110021_X_tv5_Qa_Shows_s08_e01_30_sfinale_nextweek_20:30_streamseason.mxf",
+    "titleArtFileName": "Qa_Shows_s08_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "tv5_FI1092387456110021_30.mxf",
+    "keyArtFileName": "Qa_Shows_s08_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S08",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "Qa Shows",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Thursday",
+      "branding": null,
+      "tag": "ensi viikolla",
+      "dPlusCta": "katso koko kausi",
+      "time": "20.30",
+      "title": "X tv5_Qa Shows_s08_e01_30_sfinale_nextweek_20:30_streamseason",
+      "brand": "kauden finaali",
+      "disclaimer": null
+    }
+  },
+  "subType": "e01",
+  "trailerId": "1092387456110021",
+  "sponsorFileStatus": "Not Required"
+}

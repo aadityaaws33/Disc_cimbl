@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "845654_1",
+  "type": "Shows",
+  "episodeNumber": "E01",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": "#notnull",
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI1092387456110195",
+  "duration": "30",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Kutonen",
+  "comments": "Pending asset upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "kut_FI1092387456110195_nxtFriday_25.wav",
+    "outputFilename": "FI1092387456110195_X_kut_Qa_Bundle_Promos_s01_bundle04_30_seasonpremiere_+X5432_nxtFriday_20:00_sas.mxf",
+    "titleArtFileName": "Qa_Bundle_Promos_s01_titleart.png",
+    "sponsorFileName": "SPONS_1092387456110195",
+    "sourceVideoFileName": "kut_FI1092387456110195_25.mxf",
+    "keyArtFileName": "Qa_Bundle_Promos_s01_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S01",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "Qa Bundle Promos",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "nxtFriday",
+      "branding": "original",
+      "tag": "ensi perjantaina",
+      "dPlusCta": "katso kaikki kaudet",
+      "time": "20.00",
+      "title": "X kut_Qa Bundle Promos_s01_bundle04_30_seasonpremiere_+X5432_nxtFriday_20:00_sas",
+      "brand": "uusi kausi",
+      "disclaimer": "Terms & conditions apply."
+    }
+  },
+  "subType": "bundle04",
+  "trailerId": "1092387456110195",
+  "sponsorFileStatus": "Not Available"
+}

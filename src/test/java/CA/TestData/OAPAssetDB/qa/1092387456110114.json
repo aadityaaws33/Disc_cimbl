@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "845456_1",
+  "type": "Shows",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI1092387456110114",
+  "duration": "15",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Discovery+",
+  "comments": "Pending asset upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "dp_FI1092387456110114_saturdays_15.wav",
+    "outputFilename": "FI1092387456110114_X_dp_Qa_s09_prelaunch_15_premiere_saturdays_21:15_dpsas.mxf",
+    "titleArtFileName": "Qa_s9_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "dp_FI1092387456110114_15.mxf",
+    "keyArtFileName": "Qa_s9_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S09",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "QA",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "saturdays",
+      "branding": null,
+      "tag": "lauantaisin",
+      "dPlusCta": "katso kaikki kaudet",
+      "time": "21.15",
+      "title": "X dp_QA_s09_prelaunch_15_premiere_saturdays_21:15_dpsas",
+      "brand": "ensi-ilta",
+      "disclaimer": null
+    }
+  },
+  "subType": "prelaunch",
+  "trailerId": "1092387456110114",
+  "sponsorFileStatus": "Not Required"
+}

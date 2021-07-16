@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "Shows",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI1092387456110071",
+  "duration": "30",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "TV5",
+  "comments": "Pending asset upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "tv5_FI1092387456110071_mon_30.wav",
+    "outputFilename": "FI1092387456110071_X_tv5_Qa_Teasers_Updated_s03_teaser_30_seasonprem_mon_20:30_streamseason.mxf",
+    "titleArtFileName": "Qa_Teasers_Updated_s03_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "tv5_FI1092387456110071_30.mxf",
+    "keyArtFileName": "Qa_Teasers_Updated_s03_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S03",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "Qa Teasers Updated",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "mon",
+      "branding": null,
+      "tag": "#? _ == 'maanantaina' || _ == 'maanantai'",
+      "dPlusCta": "katso koko kausi",
+      "time": "20.30",
+      "title": "X tv5_Qa Teasers Updated_s03_teaser_30_seasonprem_mon_20:30_streamseason",
+      "brand": "uusi kausi",
+      "disclaimer": null
+    }
+  },
+  "subType": "teaser",
+  "trailerId": "1092387456110071",
+  "sponsorFileStatus": "Not Required"
+}

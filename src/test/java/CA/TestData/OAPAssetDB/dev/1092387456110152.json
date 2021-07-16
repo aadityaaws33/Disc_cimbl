@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "845654_1",
+  "type": "Shows",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": "#notnull",
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI1092387456110152",
+  "duration": "30",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Frii",
+  "comments": "Pending asset upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "frii_FI1092387456110152_friday_25.wav",
+    "outputFilename": "FI1092387456110152_X_frii_Qa_s02_launch_30_seasonpremiere_+X5432_friday20:00_newseasonnow.mxf",
+    "titleArtFileName": "Qa_s02_titleart.png",
+    "sponsorFileName": "SPONS_1092387456110152",
+    "sourceVideoFileName": "frii_FI1092387456110152_25.mxf",
+    "keyArtFileName": "Qa_s02_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S02",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "QA",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "friday",
+      "branding": "original",
+      "tag": "perjantaina",
+      "dPlusCta": "",
+      "time": "20.00",
+      "title": "X frii_QA_s02_launch_30_seasonpremiere_+X5432_friday_20:00_newseasonnow",
+      "brand": "uusi kausi",
+      "disclaimer": "Terms & conditions apply."
+    }
+  },
+  "subType": "launch",
+  "trailerId": "1092387456110152",
+  "sponsorFileStatus": "Not Available"
+}

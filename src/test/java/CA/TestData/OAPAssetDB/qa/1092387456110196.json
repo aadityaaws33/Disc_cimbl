@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "Shows",
+  "episodeNumber": "E01",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI1092387456110196",
+  "duration": "30",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "TV5",
+  "comments": "Pending asset upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "tv5_FI1092387456110196_nxtthursday_30.wav",
+    "outputFilename": "FI1092387456110196_X_tv5_Qa_Bundle_Promos_s04_bundle05_30_sprem_nxtthursday_20:30_streamseason.mxf",
+    "titleArtFileName": "Qa_Bundle_Promos_s03_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "tv5_FI1092387456110196_30.mxf",
+    "keyArtFileName": "Qa_Bundle_Promos_s03_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S04",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "Qa Bundle Promos",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "nxtthursday",
+      "branding": null,
+      "tag": "ensi torstaina",
+      "dPlusCta": "katso koko kausi",
+      "time": "20.30",
+      "title": "X tv5_Qa Bundle Promos_s04_bundle05_30_sprem_nxtthursday_20:30_streamseason",
+      "brand": "uusi kausi",
+      "disclaimer": null
+    }
+  },
+  "subType": "bundle05",
+  "trailerId": "1092387456110196",
+  "sponsorFileStatus": "Not Required"
+}

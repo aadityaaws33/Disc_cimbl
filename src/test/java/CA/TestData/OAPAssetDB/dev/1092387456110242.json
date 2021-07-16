@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "Shows",
+  "episodeNumber": "E05",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI1092387456110242",
+  "duration": "30",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Kutonen",
+  "comments": "Pending asset upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "kut_FI1092387456110242_tomorrow_30.wav",
+    "outputFilename": "FI1092387456110242_X_kut_Qa_gen_Promos_s04_gen02_30_prem_tomorrow_20:30_sas.mxf",
+    "titleArtFileName": "Qa_gen_Promos_s04_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "kut_FI1092387456110242_30.mxf",
+    "keyArtFileName": "Qa_gen_Promos_s04_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S04",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "Qa gen Promos",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "tomorrow",
+      "branding": null,
+      "tag": "huomenna",
+      "dPlusCta": "katso kaikki kaudet",
+      "time": "20.30",
+      "title": "X kut_Qa gen Promos_s04_gen02_30_prem_tomorrow_20:30_sas",
+      "brand": "ensi-ilta",
+      "disclaimer": null
+    }
+  },
+  "subType": "gen02",
+  "trailerId": "1092387456110242",
+  "sponsorFileStatus": "Not Required"
+}

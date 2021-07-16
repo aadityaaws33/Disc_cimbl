@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "Shows",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI1092387456110123",
+  "duration": "30",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Kutonen",
+  "comments": "Pending asset upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "kut_FI1092387456110123_tmrw_30.wav",
+    "outputFilename": "FI1092387456110123_X_kut_Qa_s04_prelaunch_30_newseas_tmrw_20:30_sas.mxf",
+    "titleArtFileName": "Qa_s04_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "kut_FI1092387456110123_30.mxf",
+    "keyArtFileName": "Qa_s04_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S04",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "QA",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "tmrw",
+      "branding": null,
+      "tag": "huomenna",
+      "dPlusCta": "katso kaikki kaudet",
+      "time": "20.30",
+      "title": "X kut_QA_s04_prelaunch_30_newseas_tmrw_20:30_sas",
+      "brand": "uusi kausi",
+      "disclaimer": null
+    }
+  },
+  "subType": "prelaunch",
+  "trailerId": "1092387456110123",
+  "sponsorFileStatus": "Not Required"
+}

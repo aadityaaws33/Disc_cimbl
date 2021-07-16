@@ -219,6 +219,7 @@ Scenario: Delete items from DynamoDB Table
             if(thisDeleteMsg.contains('Failed')) {
               failedDeleteResultMsg.push(PrimaryPartitionKeyName + ': ' + thisDeleteMsg);
             }
+            Pause(500);
           }
           
           Pause(2000);

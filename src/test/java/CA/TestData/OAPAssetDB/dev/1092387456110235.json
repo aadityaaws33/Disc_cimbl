@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "845654_1",
+  "type": "Shows",
+  "episodeNumber": "E01",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": "#notnull",
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI1092387456110235",
+  "duration": "30",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Kutonen",
+  "comments": "Pending asset upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "kut_FI1092387456110235_nxtSaturday_25.wav",
+    "outputFilename": "FI1092387456110235_X_kut_Qa_gen_Promos_s01_gen04_30_seasonpremiere_+X5432_nxtSaturday_20:00_sas.mxf",
+    "titleArtFileName": "Qa_gen_Promos_s01_titleart.png",
+    "sponsorFileName": "SPONS_1092387456110235",
+    "sourceVideoFileName": "kut_FI1092387456110235_25.mxf",
+    "keyArtFileName": "Qa_gen_Promos_s01_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S01",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "Qa gen Promos",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "nxtSaturday",
+      "branding": "original",
+      "tag": "ensi lauantaina",
+      "dPlusCta": "katso kaikki kaudet",
+      "time": "20.00",
+      "title": "X kut_Qa gen Promos_s01_gen04_30_seasonpremiere_+X5432_nxtSaturday_20:00_sas",
+      "brand": "uusi kausi",
+      "disclaimer": "Terms & conditions apply."
+    }
+  },
+  "subType": "gen04",
+  "trailerId": "1092387456110235",
+  "sponsorFileStatus": "Not Available"
+}

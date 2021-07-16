@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "Films",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": null,
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": null,
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI1092387456110045",
+  "duration": "30",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Kutonen",
+  "comments": "Pending asset upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "kut_FI1092387456110045_tomorrow_30.wav",
+    "outputFilename": "FI1092387456110045_X_kut_Qa_Films_film_30_prem_tomorrow_20:30_streamnow.mxf",
+    "titleArtFileName": "Qa_Films_film_s04_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "kut_FI1092387456110045_30.mxf",
+    "keyArtFileName": "Qa_Films_film_s04_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": null,
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "Qa Films",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "wednesday",
+      "branding": null,
+      "tag": "huomenna",
+      "dPlusCta": "katso nyt",
+      "time": "20.30",
+      "title": "X kut_Qa Films_film_30_prem_tomorrow_20:30_streamnow",
+      "brand": "ensi-ilta",
+      "disclaimer": "Terms & conditions apply."
+    }
+  },
+  "subType": null,
+  "trailerId": "1092387456110045",
+  "sponsorFileStatus": "Not Required"
+}

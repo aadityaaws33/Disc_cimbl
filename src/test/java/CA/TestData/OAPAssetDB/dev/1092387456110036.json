@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": null,
+  "type": "Films",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": null,
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": null,
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI1092387456110036",
+  "duration": "30",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "TV5",
+  "comments": "Pending asset upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "tv5_FI1092387456110036_Thursdays_30.wav",
+    "outputFilename": "FI1092387456110036_X_4_Qa_Films_film_30_special_Thursdays_22:00_streamrightnow.mxf",
+    "titleArtFileName": "Qa Films_film_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "tv5_FI1092387456110036_30.mxf",
+    "keyArtFileName": "Qa Films_film_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": null,
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "Qa Films",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Thursdays",
+      "branding": "original",
+      "tag": "torstaisin",
+      "dPlusCta": "katso nyt",
+      "time": "22.00",
+      "title": "X tv5_Qa Films_film_30_special_Thursdays_22:00_streamrightnow",
+      "brand": "erikois",
+      "disclaimer": "Terms & conditions apply."
+    }
+  },
+  "subType": null,
+  "trailerId": "1092387456110036",
+  "sponsorFileStatus": "Not Required"
+}

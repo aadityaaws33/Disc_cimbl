@@ -25,8 +25,14 @@ rm -rf target*
 time (for ((THISRUN=1;THISRUN<=$RUNS;THISRUN++))
 do
     echo "======================= RUN:#${THISRUN} - ENV: ${ENV} ======================="
-    mvn clean test -Dkarate.options="-t @${TAG}" -Dkarate.targetEnv="${ENV}"
+    rm -f THIS.log
+    mvn clean test -Dkarate.options="-t @${TAG}" -Dkarate.targetEnv="${ENV}" | tee THIS.log
+    STATUS="PASSED"
+    if grep -q "BUILD FAILURE" THIS.log; then
+        STATUS="FAILED" # SomeString was found
+    fi
+
     cd "$THIS_CWD"
-    mv target target_${THISRUN}
+    mv target target_${THISRUN}_${STATUS}
 
 done)

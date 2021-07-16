@@ -32,9 +32,7 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>]
         # | promo_generation_FI_qa_launch_v2.0.xml        | promo_generation_qa.json    |
         # | promo_generation_FI_qa_prelaunch_v2.0.xml     | promo_generation_qa.json    |
         # | promo_generation_FI_qa_teasers_v2.0.xml       | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_films_v2.0.xml         | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_SHORTENED.xml        | promo_generation_qa.json    |
-
+        | promo_generation_FI_qa_films_v2.0.xml         | promo_generation_qa.json    |
 
 @Save
 Scenario: PREPARATION: Downloading file from S3
@@ -52,21 +50,21 @@ Scenario: PREPARATION: Downloading file from S3
     When def downloadFileStatus = call read(ReUsableFeaturesPath + '/Methods/S3.feature@DownloadS3Object') DownloadS3ObjectParams
     Then downloadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(downloadFileStatus.result.message))
 
-# @Save
-# Scenario: PREPARATION: Upload file to S3
-#     * def scenarioName = 'PREPARATION Upload File To S3'
-#     Given def UploadFileParams =
-#         """
-#             {
-#                 S3BucketName: #(OAPHotfolderS3.Name),
-#                 S3Key: #(OAPHotfolderS3.Key + '/' + ExpectedDataFileName) ,
-#                 AWSRegion: #(OAPHotfolderS3.Region),
-#                 FilePath: #(DownloadsPath + '/' + ExpectedDataFileName)
-#             }
-#         """
-#     When def uploadFileStatus = call read(ReUsableFeaturesPath + '/Methods/S3.feature@UploadFile') UploadFileParams
-#     * print uploadFileStatus.result
-#     Then uploadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(uploadFileStatus.result.message))
+@Save
+Scenario: PREPARATION: Upload file to S3
+    * def scenarioName = 'PREPARATION Upload File To S3'
+    Given def UploadFileParams =
+        """
+            {
+                S3BucketName: #(OAPHotfolderS3.Name),
+                S3Key: #(OAPHotfolderS3.Key + '/' + ExpectedDataFileName) ,
+                AWSRegion: #(OAPHotfolderS3.Region),
+                FilePath: #(DownloadsPath + '/' + ExpectedDataFileName)
+            }
+        """
+    When def uploadFileStatus = call read(ReUsableFeaturesPath + '/Methods/S3.feature@UploadFile') UploadFileParams
+    * print uploadFileStatus.result
+    Then uploadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(uploadFileStatus.result.message))
 
 @Save
 Scenario: MAIN PHASE 2: Save AssetDB Records

@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "729939_1",
+  "type": "Shows",
+  "episodeNumber": "E01",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI1092387456110017",
+  "duration": "30",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Frii",
+  "comments": "Pending asset upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "frii_FI1092387456110017_allwinter_30.wav",
+    "outputFilename": "FI1092387456110017_X_frii_Qa_Shows_s08_e01_30_newseries_allwinter_20:30_streamalreadynow.mxf",
+    "titleArtFileName": "Qa_Shows_s08_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "frii_FI1092387456110017_30.mxf",
+    "keyArtFileName": "Qa_Shows_s08_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S08",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "Qa Shows",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "allwinter",
+      "branding": null,
+      "tag": "koko talvi",
+      "dPlusCta": "katso ennakkoon",
+      "time": "20.30",
+      "title": "X frii_Qa Shows_s08_e01_30_newseries_allwinter_20:30_streamalreadynow",
+      "brand": "uusi sarja",
+      "disclaimer": null
+    }
+  },
+  "subType": "e01",
+  "trailerId": "1092387456110017",
+  "sponsorFileStatus": "Not Required"
+}
