@@ -34,21 +34,21 @@ Scenario Outline: Delete Asset DB Records
         # | promo_generation_FI_qa_teasers_v2.0.xml       | promo_generation_qa.json    |
         # | promo_generation_FI_qa_films_v2.0.xml         | promo_generation_qa.json    |
 
-@Delete
-Scenario: PREPARATION: Downloading file from S3
-    * def scenarioName = 'PREPARATION Download From S3'
-    Given def DownloadS3ObjectParams =
-        """
-            {
-                S3BucketName: #(TestAssetsS3.Name),
-                S3Key: #(TestAssetsS3.Key + '/' + DATAFILENAME),
-                AWSRegion: #(TestAssetsS3.Region),
-                DownloadPath: #(DownloadsPath),
-                DownloadFilename: #(ExpectedDataFileName),
-            }
-        """
-    When def downloadFileStatus = call read(ReUsableFeaturesPath + '/Methods/S3.feature@DownloadS3Object') DownloadS3ObjectParams
-    Then downloadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(downloadFileStatus.result.message))
+# @Delete
+# Scenario: PREPARATION: Downloading file from S3
+#     * def scenarioName = 'PREPARATION Download From S3'
+#     Given def DownloadS3ObjectParams =
+#         """
+#             {
+#                 S3BucketName: #(TestAssetsS3.Name),
+#                 S3Key: #(TestAssetsS3.Key + '/' + DATAFILENAME),
+#                 AWSRegion: #(TestAssetsS3.Region),
+#                 DownloadPath: #(DownloadsPath),
+#                 DownloadFilename: #(ExpectedDataFileName),
+#             }
+#         """
+#     When def downloadFileStatus = call read(ReUsableFeaturesPath + '/Methods/S3.feature@DownloadS3Object') DownloadS3ObjectParams
+#     Then downloadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(downloadFileStatus.result.message))
 
 @Delete
 Scenario: Delete AssetDB Records
@@ -87,4 +87,3 @@ Scenario: Delete AssetDB Records
     When def deleteDBRecordStatus = call read(ReUsableFeaturesPath + '/Methods/DynamoDB.feature@DeleteDBRecords') DeleteDBRecordsParams
     * print deleteDBRecordStatus.result
     Then deleteDBRecordStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully deleted in DB: ' + karate.pretty(trailerIDs)):karate.fail('[FAILED] ' + scenarioName + ': ' + karate.pretty(deleteDBRecordStatus.result.message))
-    * Pause(5000)

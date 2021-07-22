@@ -6,10 +6,10 @@ Background:
     * def RandomString = callonce read(ReUsableFeaturesPath + '/Methods/RandomGenerator.feature@GenerateRandomString')
     * def ExpectedDate = callonce read(ReUsableFeaturesPath + '/Methods/Date.feature@GetDateWithOffset') { offset: 0 }
     * def ExpectedDataFileName = DATAFILENAME.replace('.xml', '-' + TargetEnv + '-' + RandomString.result + '-AUTO.xml')
-    * def Teardown =
+    * configure afterScenario =
         """
             function() {
-                karate.log('-- TEARDOWN --');
+                karate.log('-- TEARDOWN: S3 DELETE XML FROM INGEST --');
                 // Teardown. Delete uploaded S3 object: failed
                 var DeleteS3ObjectParams = {
                     S3BucketName: OAPHotfolderS3.Name,
@@ -24,7 +24,7 @@ Background:
                 }
                 karate.call(ReUsableFeaturesPath + '/Methods/S3.feature@DeleteS3Object', DeleteS3ObjectParams);
                 
-                karate.log('-- DEBUG: ICONIK ASSET DELETION --');
+                karate.log('-- TEARDOWN: ICONIK DELETE TEST ASSETS --');
                 var deleteIconikAssetsParams = {
                     ExpectedDataFileName: ExpectedDataFileName
                 }
@@ -83,7 +83,9 @@ Scenario: Validate OAP
     When def deleteDBRecordStatus = call read(ReUsableFeaturesPath + '/Methods/DynamoDB.feature@DeleteDBRecords') DeleteDBRecordsParams
     * print deleteDBRecordStatus.result
     Then deleteDBRecordStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully deleted in DB: ' + karate.pretty(trailerIDs)):karate.fail('[FAILED] ' + scenarioName + ': ' + karate.pretty(deleteDBRecordStatus.result.message))
-    * Pause(5000)
+    # ----------- HARD WAIT BEFORE MAIN STEPS -----------
+    * Pause(5*1000)
+    # ---------------------------------------------------
     * def scenarioName = 'PREPARATION Upload File To S3'
     Given def UploadFileParams =
         """
@@ -206,7 +208,9 @@ Scenario: Validate OAP
     When def validateIconikPlaceholder = call read(ReUsableFeaturesPath + '/Methods/Iconik.feature@ValidatePlaceholders') ValidatePlaceholderParams
     * print validateIconikPlaceholder.result
     Then validateIconikPlaceholder.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + karate.pretty(trailerIDs)):karate.fail('[FAILED] ' + scenarioName + ': ' + karate.pretty(validateIconikPlaceholder.result.message))
-    * Teardown()
+    
+    
+# * Teardown()
     
 
 # # Scenario:

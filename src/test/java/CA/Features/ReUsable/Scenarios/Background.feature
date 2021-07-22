@@ -26,5 +26,5 @@ Scenario: Load common background
     * def IconikAuthToken = IconikAuthenticationData['IconikAuthToken']
     * def IconikAppID = IconikAuthenticationData['IconikAppID']
     # ---- Functions ----
-    * def Pause = function(pause){ java.lang.Thread.sleep(pause) }
+    * def Pause = function(pause){ karate.log('Pausing for ' + pause + 'ms.'); java.lang.Thread.sleep(pause) }
     * print "Successfully loaded common background"

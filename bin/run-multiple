@@ -21,6 +21,7 @@ do
 done    
 # EXECUTE
 rm -rf target*
+EXITSTATUS=0
 
 time (for ((THISRUN=1;THISRUN<=$RUNS;THISRUN++))
 do
@@ -30,9 +31,12 @@ do
     STATUS="PASSED"
     if grep -q "BUILD FAILURE" THIS.log; then
         STATUS="FAILED" # SomeString was found
+        EXITSTATUS=1
     fi
 
     cd "$THIS_CWD"
-    mv target target_${THISRUN}_${STATUS}
+    cp -r target target_${THISRUN}_${STATUS}
 
 done)
+
+exit $EXITSTATUS

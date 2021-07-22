@@ -40,14 +40,14 @@
   "userName": "Peter Rothoff Hojholt",
   "sourceVideoFileStatus": "Not Available",
   "createdBy": "#notnull",
-  "showTitle": "Qa Teasers Updated",
+  "showTitle": "Qa Teasers UpdatedAUTO",
   "outputFileStatus": "Not Available",
   "promoXMLName": "#(ExpectedDataFileName)",
   "xmlMetadata": {
     "data": {
       "versionType": "mon",
       "branding": null,
-      "tag": "#? _ == 'maanantaina' || _ == 'maanantai'",
+      "tag": "maanantaina",
       "dPlusCta": "katso koko kausi",
       "time": "20.30",
       "title": "X tv5_Qa Teasers Updated_s03_teaser_30_seasonprem_mon_20:30_streamseason",

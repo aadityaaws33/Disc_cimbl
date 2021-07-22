@@ -18,20 +18,20 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>]
     * call read('classpath:CA/Features/ReUsable/Scenarios/SaveDBRecords.feature@Save') TestParams
     Examples:
         | DATAFILENAME                                  | EXPECTEDRESPONSEFILE        |
-        # | promo_generation_FI_qa_bundle_v1.0.xml        | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_generic_v1.0.xml       | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_episodic_v1.0.xml      | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_launch_v1.0.xml        | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_prelaunch_v1.0.xml     | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_teasers_v1.0.xml       | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_films_v1.0.xml         | promo_generation_qa.json    |
+        | promo_generation_FI_qa_bundle_v1.0.xml        | promo_generation_qa.json    |
+        | promo_generation_FI_qa_generic_v1.0.xml       | promo_generation_qa.json    |
+        | promo_generation_FI_qa_episodic_v1.0.xml      | promo_generation_qa.json    |
+        | promo_generation_FI_qa_launch_v1.0.xml        | promo_generation_qa.json    |
+        | promo_generation_FI_qa_prelaunch_v1.0.xml     | promo_generation_qa.json    |
+        | promo_generation_FI_qa_teasers_v1.0.xml       | promo_generation_qa.json    |
+        | promo_generation_FI_qa_films_v1.0.xml         | promo_generation_qa.json    |
         ###############################################################################
-        # | promo_generation_FI_qa_bundle_v2.0.xml        | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_episodic_v2.0.xml      | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_generic_v2.0.xml       | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_launch_v2.0.xml        | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_prelaunch_v2.0.xml     | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_teasers_v2.0.xml       | promo_generation_qa.json    |
+        | promo_generation_FI_qa_bundle_v2.0.xml        | promo_generation_qa.json    |
+        | promo_generation_FI_qa_episodic_v2.0.xml      | promo_generation_qa.json    |
+        | promo_generation_FI_qa_generic_v2.0.xml       | promo_generation_qa.json    |
+        | promo_generation_FI_qa_launch_v2.0.xml        | promo_generation_qa.json    |
+        | promo_generation_FI_qa_prelaunch_v2.0.xml     | promo_generation_qa.json    |
+        | promo_generation_FI_qa_teasers_v2.0.xml       | promo_generation_qa.json    |
         | promo_generation_FI_qa_films_v2.0.xml         | promo_generation_qa.json    |
 
 @Save
@@ -103,6 +103,7 @@ Scenario: MAIN PHASE 2: Save AssetDB Records
                         iconikObjectIds = thisResponse.iconikObjectIds;
                         if(
                             iconikObjectIds.outputAssetId == null ||
+                            thisResponse.promoAssetStatus != 'Pending Upload' ||
                             (thisResponse.sourceAudioFileStatus == 'Available' && iconikObjectIds.sourceAudioAssetId == null) ||
                             (thisResponse.sourceVideoFileStatus == 'Available' && iconikObjectIds.sourceVideoAssetId == null) ||
                             (thisResponse.sponsorFileStatus == 'Available' && iconikObjectIds.sponsorAssetId == null)
