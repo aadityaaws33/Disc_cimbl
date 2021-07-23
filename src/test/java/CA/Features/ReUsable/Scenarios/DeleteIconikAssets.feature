@@ -108,11 +108,20 @@ Scenario: Teardown: Delete Iconik Assets
         """
             function(QueryResult) {
                 
-                var assetIDs = karate.jsonPath(QueryResult, '$.*.iconikObjectIds.showTitleCollectionId');
+                var assetIDs = karate.jsonPath(QueryResult, '$.*.iconikObjectIds.outputAssetId');
                 var finalAssetIDs = [];
                 for(var i in assetIDs) {
                     if(assetIDs[i] != null) {
-                        finalAssetIDs.push(assetIDs[i]);
+                        var addToArray = true;
+                        for(var j in finalAssetIDs) {
+                            if(assetIDs[i] == finalAssetIDs[j]) {
+                                addToArray = false;
+                                break;
+                            }
+                        }
+                        if(addToArray) {
+                            finalAssetIDs.push(assetIDs[i]);
+                        }
                     }
                 }
                 return finalAssetIDs;
@@ -145,24 +154,22 @@ Scenario: Teardown: Delete Iconik Assets
     And def DeleteParams =
         """
             {
-                URL: #(IconikDeleteQueueAPIUrl + '/bulk'),
-                Query: {
-                    contently_only: true,
-                    object_ids: #(DeleteIDList),
-                    object_type: 'collections'   
-                },
-                ExpectedStatusCode: 202
-            }
-        """
-    Then DeleteIDList.length > 0?karate.log(ReUsableFeaturesPath + '/Methods/Iconik.feature@DeleteAssetCollection',DeleteParams):karate.log('[Teardown] Nothing to delete')
-    And def DeleteParams =
-        """
-            {
-                URL: #(IconikDeleteQueueAPIUrl + '/collections'),
+                URL: #(IconikDeleteQueueAPIUrl + '/assets'),
                 Query: {
                     ids: #(DeleteIDList)
                 },
                 ExpectedStatusCode: 204
             }
         """
-    Then DeleteIDList.length > 0?karate.log(ReUsableFeaturesPath + '/Methods/Iconik.feature@DeleteAssetCollection',DeleteParams):karate.log('[Teardown] Nothing to delete')
+    Then DeleteIDList.length > 0?karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@DeleteAssetCollection',DeleteParams):karate.log('[Teardown] Nothing to delete')
+    # And def DeleteParams =
+    #     """
+    #         {
+    #             URL: #(IconikDeleteQueueAPIUrl + '/collections'),
+    #             Query: {
+    #                 ids: #(DeleteIDList)
+    #             },
+    #             ExpectedStatusCode: 204
+    #         }
+    #     """
+    # Then DeleteIDList.length > 0?karate.log(ReUsableFeaturesPath + '/Methods/Iconik.feature@DeleteAssetCollection',DeleteParams):karate.log('[Teardown] Nothing to delete')

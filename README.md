@@ -2,6 +2,9 @@
 
 This project is intended to test CA OAP using the [Karate Framework](https://intuit.github.io/karate/). 
 
+# Test Automation Flow
+The test automation flow is summarized in this [PPT document](./doc/OAP%20-%20Test%20Automation%20Flow.pptx)
+
 # Prerequisites
 1. Java Development Kit
 2. Maven

@@ -177,6 +177,7 @@ Scenario: Delete Asset
     """
   * def resp = call read(thisFile + '@ExecuteHTTPRequest') DeleteAssetParams
   * def result = resp.result
+  * print result
 
 @GetAssetACL
 Scenario: Get Asset User Group ACL

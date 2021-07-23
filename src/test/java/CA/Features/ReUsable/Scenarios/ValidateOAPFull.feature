@@ -1,40 +1,8 @@
 @parallel=false
 Feature: Single File Upload
 
-Background:
-    * callonce read('classpath:CA/Features/ReUsable/Scenarios/Background.feature')
-    * def RandomString = callonce read(ReUsableFeaturesPath + '/Methods/RandomGenerator.feature@GenerateRandomString')
-    * def ExpectedDate = callonce read(ReUsableFeaturesPath + '/Methods/Date.feature@GetDateWithOffset') { offset: 0 }
-    * def ExpectedDataFileName = DATAFILENAME.replace('.xml', '-' + TargetEnv + '-' + RandomString.result + '-AUTO.xml')
-    * configure afterScenario =
-        """
-            function() {
-                karate.log('-- TEARDOWN: S3 DELETE XML FROM INGEST --');
-                // Teardown. Delete uploaded S3 object: failed
-                var DeleteS3ObjectParams = {
-                    S3BucketName: OAPHotfolderS3.Name,
-                    S3Key: OAPHotfolderS3.Key + '/failed/' + ExpectedDataFileName
-                }
-                karate.call(ReUsableFeaturesPath + '/Methods/S3.feature@DeleteS3Object', DeleteS3ObjectParams);
-                
-                // Teardown. Delete uploaded S3 object: archive
-                var DeleteS3ObjectParams = {
-                    S3BucketName: OAPHotfolderS3.Name,
-                    S3Key: OAPHotfolderS3.Key + '/archive/' + ExpectedDataFileName
-                }
-                karate.call(ReUsableFeaturesPath + '/Methods/S3.feature@DeleteS3Object', DeleteS3ObjectParams);
-                
-                karate.log('-- TEARDOWN: ICONIK DELETE TEST ASSETS --');
-                var deleteIconikAssetsParams = {
-                    ExpectedDataFileName: ExpectedDataFileName
-                }
-                karate.call(ReUsableFeaturesPath + '/Scenarios/DeleteIconikAssets.feature@Teardown', deleteIconikAssetsParams);
-
-            }
-        """
-
 Scenario: Validate OAP
-    * def scenarioName = 'PREPARATION Download From S3'
+    * def scenarioName = 'SETUP: Download From S3'
     Given def DownloadS3ObjectParams =
         """
             {
@@ -48,45 +16,12 @@ Scenario: Validate OAP
     When def downloadFileStatus = call read(ReUsableFeaturesPath + '/Methods/S3.feature@DownloadS3Object') DownloadS3ObjectParams
     * print downloadFileStatus.result
     Then downloadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(downloadFileStatus.result.message))
-    * json XMLNodes = read('classpath:' + DownloadsPath + '/' + ExpectedDataFileName)
-    * def scenarioName = "PREPARATION Delete AssetDB Records"
+    # ------- Modify XML for Unique Trailer IDs: epochTime + originalTrailerID -------
+    * xml XMLNodes = karate.call(ReUsableFeaturesPath + '/Methods/XML.feature@modifyXMLTrailerIDs', {TestXMLPath: TestXMLPath}).result
+    * karate.write(karate.prettyXml(XMLNodes), TestXMLPath.replace('classpath:target/', ''))
     * def trailerIDs = karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].id'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id')
-    * def formDeleteDBRecordsParams =
-        """
-            function(trailerIDList) {
-                var paramList = [];
-                for(var i in trailerIDList) {
-                    var thisParam = {
-
-                        PrimaryPartitionKeyName: 'trailerId',
-                        PrimaryPartitionKeyValue: trailerIDList[i],
-                    }
-                    paramList.push(thisParam);
-                }
-
-                var finalParams = {
-                    itemParamList: paramList,
-                    TableName: OAPAssetDBTableName,
-                    GSI: 'promoAssetStatus-modifiedAt-Index',
-                    PromoAssetStatus: ['Pending Upload', 'Pending Wochit'],
-                    PrimaryFilterKeyName: 'promoXMLName',
-                    PrimaryFilterKeyValue: ExpectedDataFileName,
-                    Retries: 5,
-                    RetryDuration: 5000,
-                    AWSRegion: AWSRegion
-                };
-
-                return finalParams;
-            }
-        """
-    Given def DeleteDBRecordsParams = formDeleteDBRecordsParams(trailerIDs)
-    When def deleteDBRecordStatus = call read(ReUsableFeaturesPath + '/Methods/DynamoDB.feature@DeleteDBRecords') DeleteDBRecordsParams
-    * print deleteDBRecordStatus.result
-    Then deleteDBRecordStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully deleted in DB: ' + karate.pretty(trailerIDs)):karate.fail('[FAILED] ' + scenarioName + ': ' + karate.pretty(deleteDBRecordStatus.result.message))
-    # ----------- HARD WAIT BEFORE MAIN STEPS -----------
-    * Pause(5*1000)
-    # ---------------------------------------------------
-    * def scenarioName = 'PREPARATION Upload File To S3'
+    # --------------------------------------------------------------------------------
+    * def scenarioName = 'SETUP: Upload File To S3'
     Given def UploadFileParams =
         """
             {
@@ -99,6 +34,7 @@ Scenario: Validate OAP
     When def uploadFileStatus = call read(ReUsableFeaturesPath + '/Methods/S3.feature@UploadFile') UploadFileParams
     * print uploadFileStatus.result
     Then uploadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(uploadFileStatus.result.message))
+    # --------------------------------------------------------------------------------
     * def scenarioName = 'MAIN PHASE 1 Validate OAP DataSource Table Record'
     * def ExpectedOAPDataSourceRecord = read(TestDataPath + '/OAPDataSource/' + TargetEnv + '/' + EXPECTEDRESPONSEFILE)
     Given def ValidationParams =
@@ -129,6 +65,7 @@ Scenario: Validate OAP
     When def validateOAPDataSourceTable =  call read(ReUsableFeaturesPath + '/Methods/DynamoDB.feature@ValidateItemViaQuery') ValidationParams
     * print validateOAPDataSourceTable.result
     Then validateOAPDataSourceTable.result.pass == true? karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(validateOAPDataSourceTable.result.message))
+    # --------------------------------------------------------------------------------    
     * def scenarioName = 'MAIN PHASE 2 Validate OAP AssetDB Table Records'
     * def validateAssetDBTrailerRecords =
         """
@@ -140,7 +77,7 @@ Scenario: Validate OAP
 
                 for(var i in trailerIDs) {
                     var trailerId = trailerIDs[i];
-                    var ExpectedOAPAssetDBRecord = karate.read(TestDataPath + '/OAPAssetDB/' + TargetEnv + '/' + trailerId + '.json');
+                    var ExpectedOAPAssetDBRecord = karate.read(TestDataPath + '/OAPAssetDB/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
                     var ValidationParams = {
                         Param_TableName: OAPAssetDBTableName,
                         Param_QueryInfoList: [
@@ -182,6 +119,7 @@ Scenario: Validate OAP
     When def validateOAPAssetDBTable = validateAssetDBTrailerRecords(trailerIDs)
     * print validateOAPAssetDBTable
     Then validateOAPAssetDBTable.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + karate.pretty(trailerIDs)):karate.fail('[FAILED] ' + scenarioName + ': ' + karate.pretty(validateOAPAssetDBTable.message))
+    # --------------------------------------------------------------------------------    
     * def scenarioName = "MAIN PHASE 2 Check Iconik Collection Heirarchy"
     Given def trailerIDs = karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].id'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id')
     And def ValidateCollectionHeirarchyParams =
@@ -195,6 +133,7 @@ Scenario: Validate OAP
     When def validateCollectionHeirarchy = call read(ReUsableFeaturesPath + '/Methods/Iconik.feature@ValidateCollectionHeirarchy') ValidateCollectionHeirarchyParams
     * print validateCollectionHeirarchy.result
     Then validateCollectionHeirarchy.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + karate.pretty(trailerIDs)):karate.fail('[FAILED] ' + scenarioName + ': ' + karate.pretty(validateCollectionHeirarchy.result.message))
+    # --------------------------------------------------------------------------------
     * def scenarioName = "MAIN PHASE 2 Check Iconik Placeholder Existence"
     Given def trailerIDs = karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].id'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id')
     And def ValidatePlaceholderParams =
@@ -208,9 +147,6 @@ Scenario: Validate OAP
     When def validateIconikPlaceholder = call read(ReUsableFeaturesPath + '/Methods/Iconik.feature@ValidatePlaceholders') ValidatePlaceholderParams
     * print validateIconikPlaceholder.result
     Then validateIconikPlaceholder.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + karate.pretty(trailerIDs)):karate.fail('[FAILED] ' + scenarioName + ': ' + karate.pretty(validateIconikPlaceholder.result.message))
-    
-    
-# * Teardown()
     
 
 # # Scenario:

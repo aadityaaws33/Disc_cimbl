@@ -4,16 +4,27 @@
         "TestAssets" : {
             "Name": "ca-qa-prod",
             "Key": "OAP",
-            "Region": "APAC"
+            "Region": "Nordic"
         },
         "OAPHotfolder": {
             "Name": "ca-data-ingest-prod",
-            "Key": "eu/preprod/whatson/data",
+            "Key": "eu/qa/whatson/data",
             "Region": "Nordic"
         }
     },
     "DataSource": {
-        "TableName": "OAP_DATASOURCE_eu_preprod",
-        "GSI": "DataFileName-CreatedAt-Index"
+        "TableName": "OAP_DATASOURCES_EU-preprod",
+        "GSI": "dataFileName-createdAt-Index"
+    },
+    "AssetDB": {
+        "TableName": "OAP_ASSETS_EU-preprod",
+        "GSI": ""
+    },
+    "Iconik": {
+        "AppTokenName": "Creative Automation Preprod",
+        "GetAppTokenAPIUrl": "https://app.iconik.io/API/auth/v1/auth/simple/login/",
+        "AssetDataAPIUrl": "https://app.iconik.io/API/assets/v1",
+        "DeleteQueueAPIUrl": "https://app.iconik.io/API/assets/v1/delete_queue",
+        "SearchAPIUrl": "https://app.iconik.io/API/search/v1/search/?per_page=150"
     }
 }

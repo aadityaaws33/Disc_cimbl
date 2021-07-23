@@ -5,14 +5,14 @@ Background:
     * callonce read('classpath:CA/Features/ReUsable/Scenarios/Background.feature')
     # * def ExpectedDataFileName = DATAFILENAME.replace('qa', ) //RandomString.result)
     # * def ExpectedDataFileName = DATAFILENAME.replace('.xml', '-' + TargetEnv + '-AUTO.xml')
-    * def RandomString =
+    * def RandomString = 
         """
             {
-                result: '1627261285308'
+                result: '1627450502703'
             }
-        """
+        """"
     * def ExpectedDataFileName = DATAFILENAME.replace('.xml', '-' + TargetEnv + '-' + RandomString.result + '-AUTO.xml')
-
+    * def TestXMLPath = 'classpath:' + DownloadsPath + '/' + ExpectedDataFileName
 @SaveDBRecords
 Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>]
     * def TestParams =
@@ -24,22 +24,23 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>]
         """
     * call read('classpath:CA/Features/ReUsable/Scenarios/SaveDBRecords.feature@Save') TestParams
     Examples:
-        | DATAFILENAME                                  | EXPECTEDRESPONSEFILE        |
-        | promo_generation_FI_qa_bundle_v1.0.xml        | promo_generation_qa.json    |
-        | promo_generation_FI_qa_generic_v1.0.xml       | promo_generation_qa.json    |
-        | promo_generation_FI_qa_episodic_v1.0.xml      | promo_generation_qa.json    |
-        | promo_generation_FI_qa_launch_v1.0.xml        | promo_generation_qa.json    |
-        | promo_generation_FI_qa_prelaunch_v1.0.xml     | promo_generation_qa.json    |
-        | promo_generation_FI_qa_teasers_v1.0.xml       | promo_generation_qa.json    |
-        | promo_generation_FI_qa_films_v1.0.xml         | promo_generation_qa.json    |
-        ###############################################################################
-        | promo_generation_FI_qa_bundle_v2.0.xml        | promo_generation_qa.json    |
-        | promo_generation_FI_qa_episodic_v2.0.xml      | promo_generation_qa.json    |
-        | promo_generation_FI_qa_generic_v2.0.xml       | promo_generation_qa.json    |
-        | promo_generation_FI_qa_launch_v2.0.xml        | promo_generation_qa.json    |
-        | promo_generation_FI_qa_prelaunch_v2.0.xml     | promo_generation_qa.json    |
-        | promo_generation_FI_qa_teasers_v2.0.xml       | promo_generation_qa.json    |
-        | promo_generation_FI_qa_films_v2.0.xml         | promo_generation_qa.json    |
+        | DATAFILENAME                                  | EXPECTEDRESPONSEFILE          |
+        | promo_generation_FI_qa.xml                    | promo_generation_qa.json      |
+        # | promo_generation_FI_qa_bundle_v1.0.xml        | promo_generation_qa.json    |
+        # | promo_generation_FI_qa_generic_v1.0.xml       | promo_generation_qa.json    |
+        # | promo_generation_FI_qa_episodic_v1.0.xml      | promo_generation_qa.json    |
+        # | promo_generation_FI_qa_launch_v1.0.xml        | promo_generation_qa.json    |
+        # | promo_generation_FI_qa_prelaunch_v1.0.xml     | promo_generation_qa.json    |
+        # | promo_generation_FI_qa_teasers_v1.0.xml       | promo_generation_qa.json    |
+        # | promo_generation_FI_qa_films_v1.0.xml         | promo_generation_qa.json    |
+        # ###############################################################################
+        # | promo_generation_FI_qa_bundle_v2.0.xml        | promo_generation_qa.json    |
+        # | promo_generation_FI_qa_episodic_v2.0.xml      | promo_generation_qa.json    |
+        # | promo_generation_FI_qa_generic_v2.0.xml       | promo_generation_qa.json    |
+        # | promo_generation_FI_qa_launch_v2.0.xml        | promo_generation_qa.json    |
+        # | promo_generation_FI_qa_prelaunch_v2.0.xml     | promo_generation_qa.json    |
+        # | promo_generation_FI_qa_teasers_v2.0.xml       | promo_generation_qa.json    |
+        # | promo_generation_FI_qa_films_v2.0.xml         | promo_generation_qa.json    |
 
 @Save
 Scenario: PREPARATION: Downloading file from S3
@@ -56,22 +57,27 @@ Scenario: PREPARATION: Downloading file from S3
         """
     When def downloadFileStatus = call read(ReUsableFeaturesPath + '/Methods/S3.feature@DownloadS3Object') DownloadS3ObjectParams
     Then downloadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(downloadFileStatus.result.message))
+    # ------- Modify XML for Unique Trailer IDs: epochTime + originalTrailerID -------
+    * xml XMLNodes = karate.call(ReUsableFeaturesPath + '/Methods/XML.feature@modifyXMLTrailerIDs', {TestXMLPath: TestXMLPath}).result
+    * karate.write(karate.prettyXml(XMLNodes), TestXMLPath.replace('classpath:target/', ''))
+    * def trailerIDs = karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].id'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id')
+    # --------------------------------------------------------------------------------
 
-@Save
-Scenario: PREPARATION: Upload file to S3
-    * def scenarioName = 'PREPARATION Upload File To S3'
-    Given def UploadFileParams =
-        """
-            {
-                S3BucketName: #(OAPHotfolderS3.Name),
-                S3Key: #(OAPHotfolderS3.Key + '/' + ExpectedDataFileName) ,
-                AWSRegion: #(OAPHotfolderS3.Region),
-                FilePath: #(DownloadsPath + '/' + ExpectedDataFileName)
-            }
-        """
-    When def uploadFileStatus = call read(ReUsableFeaturesPath + '/Methods/S3.feature@UploadFile') UploadFileParams
-    * print uploadFileStatus.result
-    Then uploadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(uploadFileStatus.result.message))
+# @Save
+# Scenario: PREPARATION: Upload file to S3
+#     * def scenarioName = 'PREPARATION Upload File To S3'
+#     Given def UploadFileParams =
+#         """
+#             {
+#                 S3BucketName: #(OAPHotfolderS3.Name),
+#                 S3Key: #(OAPHotfolderS3.Key + '/' + ExpectedDataFileName) ,
+#                 AWSRegion: #(OAPHotfolderS3.Region),
+#                 FilePath: #(DownloadsPath + '/' + ExpectedDataFileName)
+#             }
+#         """
+#     When def uploadFileStatus = call read(ReUsableFeaturesPath + '/Methods/S3.feature@UploadFile') UploadFileParams
+#     * print uploadFileStatus.result
+#     Then uploadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(uploadFileStatus.result.message))
 
 @Save
 Scenario: MAIN PHASE 2: Save AssetDB Records
@@ -139,10 +145,11 @@ Scenario: MAIN PHASE 2: Save AssetDB Records
                                 }
                             }
                         }
-                        
+                        // thisResponse['comments'] = "#? _ == 'Pending Asset Upload' || _ == 'Pending asset upload'";
+                        thisResponse['trailerId'] = '#(RandomString.result + ' + "'" + thisResponse['trailerId'].replace(RandomString.result, '') + "'" + ')';
                         thisResponse['promoXMLName'] = '#(ExpectedDataFileName)';
                                                
-                        karate.write(karate.pretty(thisResponse), 'test-classes/' + ResultsPath + '/' + trailerId + '.json');
+                        karate.write(karate.pretty(thisResponse), 'test-classes/' + ResultsPath + '/' + trailerId.replace(RandomString.result, '') + '.json');
                     }
                 }
                 
