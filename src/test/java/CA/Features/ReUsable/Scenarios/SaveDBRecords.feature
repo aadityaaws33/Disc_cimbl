@@ -4,7 +4,14 @@ Feature: Single File Upload
 Background:
     * callonce read('classpath:CA/Features/ReUsable/Scenarios/Background.feature')
     # * def ExpectedDataFileName = DATAFILENAME.replace('qa', ) //RandomString.result)
-    * def ExpectedDataFileName = DATAFILENAME.replace('.xml', '-' + TargetEnv + '-AUTO.xml')
+    # * def ExpectedDataFileName = DATAFILENAME.replace('.xml', '-' + TargetEnv + '-AUTO.xml')
+    * def RandomString =
+        """
+            {
+                result: '1627261285308'
+            }
+        """
+    * def ExpectedDataFileName = DATAFILENAME.replace('.xml', '-' + TargetEnv + '-' + RandomString.result + '-AUTO.xml')
 
 @SaveDBRecords
 Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>]
