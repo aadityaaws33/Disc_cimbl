@@ -2,10 +2,13 @@
 Feature: Single File Upload
 
 Background:
-    * callonce read('classpath:CA/Features/ReUsable/Scenarios/Background.feature')
-    * def RandomString = callonce read(ReUsableFeaturesPath + '/Methods/RandomGenerator.feature@GenerateRandomString')
-    * def ExpectedDate = callonce read(ReUsableFeaturesPath + '/Methods/Date.feature@GetDateWithOffset') { offset: 0 }
-    * def ExpectedDataFileName = DATAFILENAME.replace('qa', RandomString.result).replace('.xml', '-' + TargetEnv + '-AUTO.xml')
+    * def TestParams =
+        """
+            {
+                ModifyXML: false
+            }
+        """
+    * callonce read('classpath:CA/Features/ReUsable/Scenarios/Setup.feature') TestParams
     * configure afterFeature =
         """
             function() {

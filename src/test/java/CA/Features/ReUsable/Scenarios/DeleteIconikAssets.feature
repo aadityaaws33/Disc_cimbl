@@ -1,9 +1,6 @@
 @parallel=false
 Feature: Delete test assets after all the executions have finished
 
-Background:
-    * callonce read('classpath:CA/Features/ReUsable/Scenarios/Background.feature')
-
 # For manual deletion
 @SearchAndDeleteAssets
 Scenario: Search and delete all Iconik assets which contains a particular pattern in its filename

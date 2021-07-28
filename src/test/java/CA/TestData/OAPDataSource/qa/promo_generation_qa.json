@@ -1,6 +1,6 @@
 {
     "comments": "XML file is processed",
-    "country": "Finland",
+    "country": "#(ExpectedCountry)",
     "createdAt": "#notnull",
     "createdBy": "#notnull",
     "dataFileName": "#(ExpectedDataFileName)",

@@ -1,10 +1,6 @@
 @parallel=false 
 Feature: Delete AssetDB Records
 
-Background:
-    * callonce read('classpath:CA/Features/ReUsable/Scenarios/Background.feature')
-    # * def ExpectedDataFileName = DATAFILENAME.replace('qa', ) //RandomString.result)
-    # * def ExpectedDataFileName = DATAFILENAME.replace('.xml', '-' + TargetEnv + '-AUTO.xml')
 @DeleteAssetDBRecords
 Scenario: Delete AssetDB Records
     * json XMLNodes = read('classpath:' + DownloadsPath + '/' + ExpectedDataFileName)

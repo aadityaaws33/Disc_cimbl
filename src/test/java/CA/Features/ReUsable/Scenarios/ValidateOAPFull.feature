@@ -2,27 +2,8 @@
 Feature: Single File Upload
 
 Scenario: Validate OAP
-    * def scenarioName = 'SETUP: Download From S3'
-    Given def DownloadS3ObjectParams =
-        """
-            {
-                S3BucketName: #(TestAssetsS3.Name),
-                S3Key: #(TestAssetsS3.Key + '/' + DATAFILENAME),
-                AWSRegion: #(TestAssetsS3.Region),
-                DownloadPath: #(DownloadsPath),
-                DownloadFilename: #(ExpectedDataFileName),
-            }
-        """
-    When def downloadFileStatus = call read(ReUsableFeaturesPath + '/Methods/S3.feature@DownloadS3Object') DownloadS3ObjectParams
-    * print downloadFileStatus.result
-    Then downloadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(downloadFileStatus.result.message))
-    # ------- Modify XML for Unique Trailer IDs: epochTime + originalTrailerID -------
-    * xml XMLNodes = karate.call(ReUsableFeaturesPath + '/Methods/XML.feature@modifyXMLTrailerIDs', {TestXMLPath: TestXMLPath}).result
-    * karate.write(karate.prettyXml(XMLNodes), TestXMLPath.replace('classpath:target/', ''))
-    * def trailerIDs = karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].id'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id')
-    # --------------------------------------------------------------------------------
-    * def scenarioName = 'SETUP: Upload File To S3'
-    Given def UploadFileParams =
+    * def scenarioName = 'MAIN PHASE 1 Upload File To S3'
+    * def UploadFileParams =
         """
             {
                 S3BucketName: #(OAPHotfolderS3.Name),
@@ -31,9 +12,9 @@ Scenario: Validate OAP
                 FilePath: #(DownloadsPath + '/' + ExpectedDataFileName)
             }
         """
-    When def uploadFileStatus = call read(ReUsableFeaturesPath + '/Methods/S3.feature@UploadFile') UploadFileParams
+    * def uploadFileStatus = call read(ReUsableFeaturesPath + '/Methods/S3.feature@UploadFile') UploadFileParams
     * print uploadFileStatus.result
-    Then uploadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(uploadFileStatus.result.message))
+    * uploadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(uploadFileStatus.result.message))
     # --------------------------------------------------------------------------------
     * def scenarioName = 'MAIN PHASE 1 Validate OAP DataSource Table Record'
     * def ExpectedOAPDataSourceRecord = read(TestDataPath + '/OAPDataSource/' + TargetEnv + '/' + EXPECTEDRESPONSEFILE)
@@ -69,7 +50,7 @@ Scenario: Validate OAP
     * def scenarioName = 'MAIN PHASE 2 Validate OAP AssetDB Table Records'
     * def validateAssetDBTrailerRecords =
         """
-            function(trailerIDs) {
+            function(trailerIDs, stage) {
                 var result = {
                     message: [],
                     pass: true
@@ -77,7 +58,7 @@ Scenario: Validate OAP
 
                 for(var i in trailerIDs) {
                     var trailerId = trailerIDs[i];
-                    var ExpectedOAPAssetDBRecord = karate.read(TestDataPath + '/OAPAssetDB/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
+                    var ExpectedOAPAssetDBRecord = karate.read(TestDataPath + '/OAPAssetDB/' + stage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
                     var ValidationParams = {
                         Param_TableName: OAPAssetDBTableName,
                         Param_QueryInfoList: [
@@ -116,7 +97,7 @@ Scenario: Validate OAP
             }
         """
     Given def trailerIDs = karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].id'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id')
-    When def validateOAPAssetDBTable = validateAssetDBTrailerRecords(trailerIDs)
+    When def validateOAPAssetDBTable = validateAssetDBTrailerRecords(trailerIDs, 'beforeProcessing')
     * print validateOAPAssetDBTable
     Then validateOAPAssetDBTable.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + karate.pretty(trailerIDs)):karate.fail('[FAILED] ' + scenarioName + ': ' + karate.pretty(validateOAPAssetDBTable.message))
     # --------------------------------------------------------------------------------    
@@ -133,7 +114,8 @@ Scenario: Validate OAP
     When def validateCollectionHeirarchy = call read(ReUsableFeaturesPath + '/Methods/Iconik.feature@ValidateCollectionHeirarchy') ValidateCollectionHeirarchyParams
     * print validateCollectionHeirarchy.result
     Then validateCollectionHeirarchy.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + karate.pretty(trailerIDs)):karate.fail('[FAILED] ' + scenarioName + ': ' + karate.pretty(validateCollectionHeirarchy.result.message))
-    # --------------------------------------------------------------------------------
+
+    #--------------------------------------------------------------------------------
     * def scenarioName = "MAIN PHASE 2 Check Iconik Placeholder Existence"
     Given def trailerIDs = karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].id'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id')
     And def ValidatePlaceholderParams =
@@ -141,7 +123,8 @@ Scenario: Validate OAP
             {
                 Retries: 30,
                 RetryDuration: 10000,
-                trailerIDs: #(trailerIDs)
+                trailerIDs: #(trailerIDs),
+                expectedType: 'PLACEHOLDER'
             }
         """
     When def validateIconikPlaceholder = call read(ReUsableFeaturesPath + '/Methods/Iconik.feature@ValidatePlaceholders') ValidatePlaceholderParams
@@ -149,14 +132,3 @@ Scenario: Validate OAP
     Then validateIconikPlaceholder.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + karate.pretty(trailerIDs)):karate.fail('[FAILED] ' + scenarioName + ': ' + karate.pretty(validateIconikPlaceholder.result.message))
     
 
-# # Scenario:
-# #     * fetch DB record for trailerID
-# #     * modifiedAt - createdAt => duration
-# #     * write duration => jsonfile
-# #     * for each file
-# #         for each trailerID
-# #         <filename>.json
-# #             {
-# #                 trailerID: <time>
-# #                     ...
-# #             }

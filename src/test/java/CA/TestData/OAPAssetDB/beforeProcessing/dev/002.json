@@ -1,0 +1,61 @@
+{
+  "templateType": "DPlus",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "4551337_2",
+  "type": "Shows",
+  "episodeNumber": "E02",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": "#notnull",
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI0000000000004551337001",
+  "duration": "25",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Discovery+",
+  "comments": "Pending Asset Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "dp_FI0000000000004551337001_Today_25.wav",
+    "outputFilename": "FI0000000000004551337001_X_4_Ex_on_the_Beach_s06_bundle02_30_e03e04_+X4587_newep_tonight_22:00_streamalreadynow.mxf",
+    "titleArtFileName": "QA_AUTO_Ex_on_the_Beach_s06_titleart.png",
+    "sponsorFileName": "QA_AUTO_SPONS_5sec_4551337_2",
+    "sourceVideoFileName": "dp_FI0000000000004551337001_25.mxf",
+    "keyArtFileName": "QA_AUTO_Ex_on_the_Beach_s06_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S06",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "QA AUTO EX ON THE BEACH",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Today",
+      "branding": "original",
+      "tag": "tänä iltana",
+      "dPlusCta": "katso ennakkoon",
+      "time": "22.00",
+      "title": "X 4_Ex on the Beach_s06_bundle02_30_e03e04_+X4587_newep_tonight_22:00_streamalreadynow",
+      "brand": "uusi jakso",
+      "disclaimer": "Alt indhold krÃ\u0083Â¦ver abonnement."
+    }
+  },
+  "subType": "bundle02",
+  "trailerId": "#(RandomString.result + '002')",
+  "sponsorFileStatus": "Not Available"
+}

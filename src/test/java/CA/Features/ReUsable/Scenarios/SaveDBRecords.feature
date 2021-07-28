@@ -2,45 +2,37 @@
 Feature: Single File Upload
 
 Background:
-    * callonce read('classpath:CA/Features/ReUsable/Scenarios/Background.feature')
-    # * def ExpectedDataFileName = DATAFILENAME.replace('qa', ) //RandomString.result)
-    # * def ExpectedDataFileName = DATAFILENAME.replace('.xml', '-' + TargetEnv + '-AUTO.xml')
     * def RandomString = 
         """
             {
-                result: '1627450502703'
+                result: '1627621731761'
             }
         """"
-    * def ExpectedDataFileName = DATAFILENAME.replace('.xml', '-' + TargetEnv + '-' + RandomString.result + '-AUTO.xml')
-    * def TestXMLPath = 'classpath:' + DownloadsPath + '/' + ExpectedDataFileName
+
 @SaveDBRecords
 Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>]
     * def TestParams =
         """
             {
                 DATAFILENAME: <DATAFILENAME>,
-                EXPECTEDRESPONSEFILE: <EXPECTEDRESPONSEFILE>
+                EXPECTEDRESPONSEFILE: <EXPECTEDRESPONSEFILE>,
+                ModifyXML: true
             }
         """
+    * call read('classpath:CA/Features/ReUsable/Scenarios/Setup.feature') TestParams
+    * def ExpectedDataFileName = DATAFILENAME.replace('.xml', '-' + TargetEnv + '-' + RandomString.result + '-AUTO.xml')
+    * def TestXMLPath = 'classpath:' + DownloadsPath + '/' + ExpectedDataFileName
     * call read('classpath:CA/Features/ReUsable/Scenarios/SaveDBRecords.feature@Save') TestParams
     Examples:
         | DATAFILENAME                                  | EXPECTEDRESPONSEFILE          |
-        | promo_generation_FI_qa.xml                    | promo_generation_qa.json      |
-        # | promo_generation_FI_qa_bundle_v1.0.xml        | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_generic_v1.0.xml       | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_episodic_v1.0.xml      | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_launch_v1.0.xml        | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_prelaunch_v1.0.xml     | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_teasers_v1.0.xml       | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_films_v1.0.xml         | promo_generation_qa.json    |
-        # ###############################################################################
-        # | promo_generation_FI_qa_bundle_v2.0.xml        | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_episodic_v2.0.xml      | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_generic_v2.0.xml       | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_launch_v2.0.xml        | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_prelaunch_v2.0.xml     | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_teasers_v2.0.xml       | promo_generation_qa.json    |
-        # | promo_generation_FI_qa_films_v2.0.xml         | promo_generation_qa.json    |
+        | promo_generation_FI_bundle_dp.xml             | promo_generation_qa.json      |
+        | promo_generation_NO_episodic_dp.xml           | promo_generation_qa.json      |
+        | promo_generation_FI_launch_combi.xml          | promo_generation_qa.json      |
+        | promo_generation_DK_generic_dp.xml            | promo_generation_qa.json      |
+        | promo_generation_DK_teaser_combi.xml          | promo_generation_qa.json      |
+        | promo_generation_NO_prelaunch_combi.xml       | promo_generation_qa.json      | 
+        | promo_generation_SE_film_dp.xml               | promo_generation_qa.json      |
+       
 
 @Save
 Scenario: PREPARATION: Downloading file from S3
