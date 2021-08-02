@@ -27,9 +27,9 @@
   "comments": "Pending Asset Upload",
   "associatedFiles": {
     "sourceAudioFileName": "tvn_FI0000000000004551337011_Now_30.wav",
-    "outputFilename": "FI0000000000004551337011_X_tvn_Greys_Anatomy_s18_prelaunch_30_newseason_streamnow.mxf",
+    "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'FI0000000000004551337011_X_tvn_Greys_Anatomy_s18_prelaunch_30_newseason_streamnow.mxf')",
     "titleArtFileName": "Greys_Anatomy_s18_titleart.png",
-    "sponsorFileName": "QA_AUTO_SPONS_5sec_4551337_012.mxf",
+    "sponsorFileName": "#(WochitStage + '_' + 'QA_AUTO_SPONS_5sec_4551337_012.mxf')",
     "sourceVideoFileName": "tvn_FI0000000000004551337011_30.mxf",
     "keyArtFileName": "Greys_Anatomy_s18_image.jpg"
   },
@@ -40,7 +40,7 @@
   "userName": "Peter Rothoff Hojholt",
   "sourceVideoFileStatus": "Not Available",
   "createdBy": "#notnull",
-  "showTitle": "QA AUTO GREYS ANATOMI",
+  "showTitle": "#('QA AUTO GREYS ANATOMI ' + WochitStage)",
   "outputFileStatus": "Not Available",
   "promoXMLName": "#(ExpectedDataFileName)",
   "xmlMetadata": {

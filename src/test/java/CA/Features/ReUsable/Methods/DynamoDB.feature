@@ -169,7 +169,10 @@ Scenario: Validate DynamoDB Item via Query
           queryResult = getItemsQuery();
           karate.log(queryResult);
           matchResult = getMatchResult(queryResult);
-          
+
+          if(WriteToFile == true) {
+            karate.write(karate.pretty(queryResult), WritePath);
+          }
           if(matchResult.pass) {
             matchResult.response = queryResult;
             break;
@@ -215,7 +218,8 @@ Scenario: Delete items from DynamoDB Table
           for(var j in itemParamList) {
             var PrimaryPartitionKeyName = itemParamList[j]['PrimaryPartitionKeyName'];
             var PrimaryPartitionKeyValue = itemParamList[j]['PrimaryPartitionKeyValue'];
-            var thisDeleteMsg = dynamoDB.Delete_Item(TableName, PrimaryPartitionKeyName, PrimaryPartitionKeyValue)
+            karate.log('[Deleting] ' + PrimaryPartitionKeyName + ': ' + PrimaryPartitionKeyValue);
+            var thisDeleteMsg = dynamoDB.Delete_Item(TableName, PrimaryPartitionKeyName, PrimaryPartitionKeyValue);
             if(thisDeleteMsg.contains('Failed')) {
               failedDeleteResultMsg.push(PrimaryPartitionKeyName + ': ' + thisDeleteMsg);
             }
@@ -256,7 +260,7 @@ Scenario: Delete items from DynamoDB Table
 
           if(failedDeleteResultMsg.length > 1 || getItemResults.length > 1) {
             karate.log(failedDeleteResultMsg);
-            karate.log(getItemResults.result);
+            karate.log(getItemResults);
             var errMsg = 'Failed to delete AssetDB trailer Records for ' + PrimaryFilterKeyValue;
             result.message = errMsg;
             karate.log('Try #' + (i+1) + ' of ' + Retries + ': Failed. Sleeping for ' + RetryDuration + ' ms. - ' + errMsg);

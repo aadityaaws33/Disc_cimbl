@@ -234,8 +234,16 @@ Scenario: Validate Collection Heirarchy
                     // Build expectedCollectionHeirarchy array
                     // Push collection ID to array if it is not null
                     var expectedCollectionHeirarchy = [];
-                    var trailerIDIconikObjectIDs = trailerIdAssetDBrecord.iconikObjectIds;
-                    karate.log(trailerId + ' iconikObjectIDs: ' + karate.pretty(trailerIDIconikObjectIDs));
+                    try {
+                        var trailerIDIconikObjectIDs = trailerIdAssetDBrecord.iconikObjectIds;
+                    } catch(e) {
+                        var errMsg = 'Failed to validate Iconik Heirarchy for ' + trailerId + ': ' + e
+                        result.message.push(trailerId + ': ' + errMsg);
+                        result.pass = false
+                        continue;
+                    }
+                    
+                    // karate.log(trailerId + ' iconikObjectIDs: ' + karate.pretty(trailerIDIconikObjectIDs));
                     // ORDERED LIST, CANNOT DO DYNAMICALLY
                     // FIRST IN, LAST OUT
                     var expectedHeirarchyCollectionKeys = [
@@ -313,7 +321,7 @@ Scenario: Validate Collection Heirarchy
             return thisResult
         }
         """
-    * def result = validateCollectionHeirarchy(trailerIDs)
+    * def result = validateCollectionHeirarchy(TrailerIDs)
 
 @GetAssetDetailsByTrailerIDs
 Scenario: Get AssetIDs from AssetDB by TrailerID
@@ -327,8 +335,15 @@ Scenario: Get AssetIDs from AssetDB by TrailerID
                     // Build Assets array
                     // Push asset ID to array if it is not null
                     var expectedIconikPlaceholderAssets = [];
-                    var trailerIDIconikObjectIDs = trailerIdAssetDBrecord.iconikObjectIds;
-                    var trailerIDassociatedFiles = trailerIdAssetDBrecord.associatedFiles;
+                    var expectedCollectionHeirarchy = [];
+
+                    try {
+                        var trailerIDIconikObjectIDs = trailerIdAssetDBrecord.iconikObjectIds;
+                        var trailerIDassociatedFiles = trailerIdAssetDBrecord.associatedFiles;
+                    } catch(e) {
+                        karate.fail('Failed to validate get asset details by trailerID for ' + trailerId + ': ' + e);
+                        continue;
+                    }
 
                     for(var j in trailerIDIconikObjectIDs) {
                         if(j.contains('AssetId') && trailerIDIconikObjectIDs[j] != null) {
@@ -351,7 +366,7 @@ Scenario: Get AssetIDs from AssetDB by TrailerID
                 }
             }
         """
-    * def result = getAssetIDsByTrailer(trailerIDs)
+    * def result = getAssetIDsByTrailer(TrailerIDs)
 
 @ValidatePlaceholders
 Scenario: Validate Placeholders
@@ -363,7 +378,7 @@ Scenario: Validate Placeholders
                 pass: true
             };
 
-            var expectedIconikPlaceholderAssets = karate.call(thisFile + '@GetAssetDetailsByTrailerIDs', {trailerIDs: trailerIDList}).result;
+            var expectedIconikPlaceholderAssets = karate.call(thisFile + '@GetAssetDetailsByTrailerIDs', {TrailerIDs: trailerIDList}).result;
             for(var j in expectedIconikPlaceholderAssets) {
                 var trailerId = expectedIconikPlaceholderAssets[j]['trailerId'];
                 var expectedAssetID = expectedIconikPlaceholderAssets[j]['assetId'];
@@ -375,16 +390,14 @@ Scenario: Validate Placeholders
                 ExpectedPlaceholderAssetData.title = expectedAssetName;
                 ExpectedPlaceholderAssetData.external_id = expectedAssetName;
                 ExpectedPlaceholderAssetData.id = expectedAssetID;
-                ExpectedPlaceholderAssetData.type = expectedType;
-
-                ASSET_SPONSORFILES = ['SPONS_5sec_684831_1.mxf', 'SPONS_5sec_684831_1.mxf'];
-
-                if(expectedAssetType.contains('SPONSOR')) {
-                    for(var k in ASSET_SPONSORFILES) {
-                        if(ASSET_SPONSORFILES[k] == trailerIDassociatedFiles.sponsorFileName) {
-                            ExpectedPlaceholderAssetData.type = 'ASSET';
-                        }
-                    }
+                ExpectedPlaceholderAssetData.type = ExpectedType;
+                
+                if(WochitStage == 'beforeProcessing') {
+                    ExpectedPlaceholderAssetData.is_online = '#ignore';
+                    ExpectedPlaceholderAssetData.versions[0].is_online = '#ignore';
+                } else {
+                    ExpectedPlaceholderAssetData.is_online = true;
+                    ExpectedPlaceholderAssetData.versions[0].is_online = true;
                 }
                 var ValidatePlaceholderExistsParams = {
                     GetAssetDataURL: thisURL,
@@ -422,14 +435,106 @@ Scenario: Validate Placeholders
         return thisResult;
       }
     """
-  * def result = validatePlaceholders(trailerIDs)
+  * def result = validatePlaceholders(TrailerIDs)
 
+@SearchAndDeleteAssets
+Scenario: Search and delete all Iconik assets which contains a particular pattern in its filename
+    * karate.log('Search and Delete for: ' + SearchKeywords)
+    * def searchAndDelete =
+        """
+            function() {
+                var filterTerms = [
+                    {
+                        name: 'status',
+                        value: 'ACTIVE'
+                    }
+                ]
+                for(var i in SearchKeywords) {
+                    var searchQuery = karate.read(TestDataPath + '/Iconik/GETSearchRequest.json')
+                    searchQuery.filter.terms = karate.toJson(filterTerms);
+                    searchQuery.include_fields = ['id']
+                    searchQuery.query = SearchKeywords[i];
+                    var SearchForAssetsParams = {
+                        URL: '',
+                        Query: searchQuery
+                    }
+                    karate.log('[Searching] ' + SearchKeywords[i]);
+                    var page = 1;
+                    while (true) {
+                        // var deleteAssetIDList = [];
+                        SearchForAssetsParams.URL = IconikSearchAPIUrl + '&page=' + page;
+                        var searchResult = karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@SearchForAssets', SearchForAssetsParams);
+                        var thisPath = '$.objects.*.id';
+                        var searchedAssets = karate.jsonPath(searchResult.result, thisPath);
+                        // for(var j in searchedAssets) {
+                        //     deleteAssetIDList.push(searchedAssets[j]);
+                        // }
 
+                        var DeleteAssetParams = {
+                            URL: IconikDeleteQueueAPIUrl,
+                            Query: {
+                                ids: searchedAssets
+                            }
+                        }
+                        if(searchedAssets.length < 1){
+                            karate.log('Nothing to delete.');
+                        } else {
+                            karate.log('[Deleting] ' + searchedAssets);
+                            karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@DeleteAsset', DeleteAssetParams);
+                        }
+                        page++;
+                        Pause(1000);
+                        if(page >= searchResult.result.pages) {
+                            break
+                        } 
+                    }
+                }
+            }
+        """
+    * searchAndDelete()
 
-# @UploadAssetToPlaceholder
-# Scenario: Upload Asset to Placehorders
-    
-
-# @UploadAsset
-#     Given url URL
-    
+@SetupCheckIconikAssets
+Scenario: Setup: Check Iconik Assets Before Running
+    # * var SearchKeywords = ['after*']
+    * karate.log('Search for: ' + SearchKeywords)
+    * def searchIconikAssets =
+        """
+            function(SearchKeywords) {
+                var results = [];
+                
+                var filterTerms = [
+                    {
+                        name: 'status',
+                        value: 'ACTIVE'
+                    }
+                ]
+                for(var i in SearchKeywords){
+                    var searchQuery = karate.read(TestDataPath + '/Iconik/GETSearchRequest.json');
+                    searchQuery.filter.terms = karate.toJson(filterTerms);
+                    searchQuery.include_fields = ['id'];
+                    searchQuery.query = SearchKeywords[i];
+                    var SearchForAssetsParams = {
+                        URL: '',
+                        Query: searchQuery
+                    }
+                    
+                    karate.log('[Searching] ' + SearchKeywords[i]);
+                    var page = 1;
+                    while (true) {
+                        SearchForAssetsParams.URL = IconikSearchAPIUrl + '&page=' + page;
+                        var searchResult = karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@SearchForAssets', SearchForAssetsParams);
+                        var thisPath = '$.objects.*.id';
+                        var searchedAssets = karate.jsonPath(searchResult.result, thisPath);
+                        for(var j in searchedAssets) {
+                            results.push(searchedAssets[j]);
+                        }
+                        if(page >= searchResult.result.pages) {
+                            break
+                        } 
+                    }
+                }
+                return results;
+            }
+        
+        """
+    * def result = searchIconikAssets(SearchKeywords)

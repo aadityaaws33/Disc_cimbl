@@ -27,7 +27,7 @@ do
     echo "======================= RUN:#${THISRUN} - ENV: ${ENV} ======================="
     export THISRUN=$THISRUN
     rm -f THIS.log
-    mvn clean test -Dkarate.options="-t @${TAG}" -Dkarate.targetEnv="${ENV}" | tee -a THIS.log
+    mvn clean test -Dkarate.options="-t @${TAG}" -Dkarate.targetEnv="${ENV}" | tee THIS.log
     STATUS="PASSED"
     if grep -q "BUILD FAILURE" THIS.log; then
         STATUS="FAILED" # SomeString was found
@@ -35,9 +35,10 @@ do
 
     cd "$THIS_CWD"
     cp -r target target_${THISRUN}_${STATUS}
-
+    
+    echo ${THISRUN} - ${STATUS} >> RESULT.log
 done)
-if grep -q "BUILD FAILURE" THIS.log; then
+if grep -q "FAILED" RESULT.log; then
     echo "BUILD FAILURE"
     exit 1
 else

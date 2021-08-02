@@ -1,6 +1,6 @@
 Feature: Test Setup
 
-Scenario: Test Setup - Global Variables & Procedures
+Scenario: Test Setup - Global Functions, Variables & Procedures
     # ---- Functions ----
     * def Pause = function(pause){ karate.log('Pausing for ' + pause + 'ms.'); java.lang.Thread.sleep(pause) }
     * def getExpectedCountry =
@@ -19,18 +19,34 @@ Scenario: Test Setup - Global Variables & Procedures
                 return expectedCountry
             }
         """
+    * def storeTrailers =
+        """
+            function(trailerIDs) {
+                try {
+                    var data = karate.read('classpath:CA/trailers.json');
+                } catch(e) {
+                    karate.write({}, 'test-classes/CA/trailers.json');
+                    var data = {};
+                }
+                for(var i in trailerIDs) {
+                    data[trailerIDs[i]] = isDeleteOutputOnly;
+                }
+                karate.write(karate.pretty(data), 'test-classes/CA/trailers.json');
+            }
+        """
     # ---- Paths ----
     * def ReUsableFeaturesPath = 'classpath:CA/Features/ReUsable'
     * def TestDataPath = 'classpath:CA/TestData'
     * def DownloadsPath = 'target/test-classes/CA/Downloads'
     * def ResultsPath = 'CA/Results'
-    # ---- Variables ----
-    * def RandomString = karate.callSingle(ReUsableFeaturesPath + '/Methods/RandomGenerator.feature@GenerateRandomString')
+    # ---- Testing Variables ----
+    * def WochitStage = STAGE
+    * def RandomString = GenerateRandomString == true?karate.callSingle(ReUsableFeaturesPath + '/Methods/RandomGenerator.feature@GenerateRandomString'):RandomString
     * def ExpectedDate = callonce read(ReUsableFeaturesPath + '/Methods/Date.feature@GetDateWithOffset') { offset: 0 } 
     * def ExpectedCountry = getExpectedCountry(DATAFILENAME) 
-    * def ExpectedDataFileName = DATAFILENAME.replace('.xml', '-' + TargetEnv + '-' + RandomString.result + '-AUTO.xml')
+    * def ExpectedDataFileName = DATAFILENAME.replace('.xml', '-' + TargetEnv + '-' + RandomString.result + '-' + WochitStage +'-AUTO.xml')
     * def TestXMLPath = 'classpath:' + DownloadsPath + '/' + ExpectedDataFileName
-    # ---- Config ----
+    # ---- Config Variables----
     * def AWSRegion = EnvConfig['Common']['AWSRegion']
     * def TestAssetsS3 = EnvConfig['Common']['S3bucket']['TestAssets']
     * def OAPHotfolderS3 = EnvConfig['Common']['S3bucket']['OAPHotfolder']
@@ -49,22 +65,7 @@ Scenario: Test Setup - Global Variables & Procedures
     * def IconikAuthToken = IconikAuthenticationData['IconikAuthToken']
     * def IconikAppID = IconikAuthenticationData['IconikAppID']
     # # ---- SETUP Procedures ----
-    # * def DownloadS3AssetsParams =
-    #     """
-    #         {
-    #             TestAssets: [
-    #                 'Assets/15 AUDIO.wav',
-    #                 'Assets/15 VIDEO.mxf'
-    #                 'Assets/25 AUDIO.wav',
-    #                 'Assets/25 VIDEO.mxf'
-    #                 'Assets/30 AUDIO.wav',
-    #                 'Assets/30 VIDEO.mxf',
-    #                 'Assets/SPONSOR.mxf'
-    #             ],
-    #             AssetType: 'media'
-    #         }
-    #     """
-    # * karate.callSingle(ReUsableFeaturesPath + '/Scenarios/DownloadS3Assets.feature', DownloadS3AssetsParams)
+    * karate.log('-- SETUP: Download XML File --')
     * def DownloadXMLfromS3Params =
         """
             {
@@ -74,11 +75,14 @@ Scenario: Test Setup - Global Variables & Procedures
                 AssetType: 'xml'
             }
         """
-    * call read(ReUsableFeaturesPath + '/Scenarios/DownloadS3Assets.feature') DownloadXMLfromS3Params
+    * if(DownloadXML == true) {karate.call(ReUsableFeaturesPath + '/Scenarios/DownloadS3Assets.feature', DownloadXMLfromS3Params)}
     # ---- Modify XML for Unique Trailer IDs: epochTime + originalTrailerID ----
     # DO NOT EXECUTE IF ONLY DOING PHASE1!
-    * def scenarioName = 'SETUP: Modify XML to make it unique'
-    * xml XMLNodes = ModifyXML?karate.call(ReUsableFeaturesPath + '/Methods/XML.feature@modifyXMLTrailerIDs', {TestXMLPath: TestXMLPath}).result:'<xml></xml>'
-    * if(ModifyXML) {karate.write(karate.prettyXml(XMLNodes), TestXMLPath.replace('classpath:target/', ''))}
-    * def trailerIDs = ModifyXML?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].id'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id'):''
-    * print 'SETUP successfully executed'
+    * karate.log('-- SETUP: Modify XML to make it unique --')
+    * xml XMLNodes = ModifyXML == true?karate.call(ReUsableFeaturesPath + '/Methods/XML.feature@modifyXML', {TestXMLPath: TestXMLPath}).result:'<xml></xml>'
+    * if(ModifyXML == true) {karate.write(karate.prettyXml(XMLNodes), TestXMLPath.replace('classpath:target/', ''))}
+    * def TrailerIDs = ModifyXML == true?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].id'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id'):''
+    * def TrailerNames = ModifyXML == true?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.*.outputFilename').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.outputFilename'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.*.outputFilename'):''
+    * Pause(Math.floor(Math.random() * 10000) + Math.floor(Math.random() * 10000))
+    * storeTrailers(TrailerIDs)
+    * karate.log('-- SETUP: successfully executed --')

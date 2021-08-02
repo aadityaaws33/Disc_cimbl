@@ -27,7 +27,7 @@
   "comments": "Pending Asset Upload",
   "associatedFiles": {
     "sourceAudioFileName": "dp_FI0000000000004551337001_Date_15.wav",
-    "outputFilename": "FI0000000000004551337001_X_dp_Greys_Anatomy_s18_launch_15_newseason_27may.mxf",
+    "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'FI0000000000004551337001_X_dp_Greys_Anatomy_s18_bundle02_15_newseason_27may.mxf')",
     "titleArtFileName": "QA AUTO Greys_Anatomy_s18_titleart.png",
     "sponsorFileName": "",
     "sourceVideoFileName": "dp_FI0000000000004551337001_15.mxf",
@@ -40,7 +40,7 @@
   "userName": "Peter Rothoff Hojholt",
   "sourceVideoFileStatus": "Not Available",
   "createdBy": "#notnull",
-  "showTitle": "QA AUTO GREYS ANATOMIA",
+  "showTitle": "#('QA AUTO GREYS ANATOMIA ' + WochitStage)",
   "outputFileStatus": "Not Available",
   "promoXMLName": "#(ExpectedDataFileName)",
   "xmlMetadata": {
@@ -50,12 +50,12 @@
       "tag": "27. toukokuuta",
       "dPlusCta": null,
       "time": null,
-      "title": "X dp_Greys Anatomy_s18_launch_15_newseason_27may",
+      "title": "X dp_Greys Anatomy_s18_bundle02_15_newseason_27may",
       "brand": "uusi kausi",
-      "disclaimer": "Terms and conditions apply."
+      "disclaimer": ""
     }
   },
-  "subType": "launch",
+  "subType": "bundle02",
   "trailerId": "#(RandomString.result + '001')",
   "sponsorFileStatus": "Not Required"
 }

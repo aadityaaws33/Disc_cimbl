@@ -27,11 +27,11 @@
   "comments": "Pending Asset Upload",
   "associatedFiles": {
     "sourceAudioFileName": "dp_NO0000000000004551337003_Weekday_15.wav",
-    "outputFilename": "NO0000000000004551337003_X_dp_FÃ¯Â¿Â½rste_date_s01_e02_15_newep_Thursday_20:30_streamalreadynow.mxf",
-    "titleArtFileName": "QA_AUTO_FÃ¯Â¿Â½rste_date_s01_titleart.png",
+    "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'NO0000000000004551337003_X_dp_Forste_date_s01_e02_15_newep_Thursday_20:30_streamalreadynow.mxf')",
+    "titleArtFileName": "QA_AUTO_Forste_date_s01_titleart.png",
     "sponsorFileName": "",
     "sourceVideoFileName": "dp_NO0000000000004551337003_15.mxf",
-    "keyArtFileName": "QA_AUTO_FÃ¯Â¿Â½rste_date_s01_image.jpg"
+    "keyArtFileName": "QA_AUTO_Forste_date_s01_image.jpg"
   },
   "promoXMLId": "#notnull",
   "wochitRenditionStatus": "Not Started",
@@ -40,7 +40,7 @@
   "userName": "Peter Rothoff Hojholt",
   "sourceVideoFileStatus": "Not Available",
   "createdBy": "#notnull",
-  "showTitle": "QA AUTO FÃ¯Â¿Â½rste date",
+  "showTitle": "#('QA AUTO Forste date ' + WochitStage)",
   "outputFileStatus": "Not Available",
   "promoXMLName": "#(ExpectedDataFileName)",
   "xmlMetadata": {
@@ -50,7 +50,7 @@
       "tag": "torsdag",
       "dPlusCta": "strøm allerede nå",
       "time": "20.30",
-      "title": "X dp_FÃ¯Â¿Â½rste date_s01_e02_15_newep_Thursday_20:30_streamalreadynow",
+      "title": "X dp_Forste date_s01_e02_15_newep_Thursday_20:30_streamalreadynow",
       "brand": "ny episode",
       "disclaimer": "Terms and conditions apply."
     }

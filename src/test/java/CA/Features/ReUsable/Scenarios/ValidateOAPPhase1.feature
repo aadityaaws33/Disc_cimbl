@@ -5,7 +5,8 @@ Background:
     * def TestParams =
         """
             {
-                ModifyXML: false
+                ModifyXML: false,
+                GenerateRandomString: true
             }
         """
     * callonce read('classpath:CA/Features/ReUsable/Scenarios/Setup.feature') TestParams
@@ -83,7 +84,8 @@ Scenario: MAIN PHASE 1: Validate OAP Datasource Table Record
                 Param_ExpectedResponse: #(ExpectedOAPDataSourceRecord),
                 AWSRegion: #(AWSRegion),
                 Retries: 30,
-                RetryDuration: 10000
+                RetryDuration: 10000,
+                WriteToFile: false
             }
         """
     When def validateOAPDataSourceTable =  call read(ReUsableFeaturesPath + '/Methods/DynamoDB.feature@ValidateItemViaQuery') ValidationParams

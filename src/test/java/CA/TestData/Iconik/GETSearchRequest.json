@@ -1,5 +1,5 @@
 {
-    "query": "#(SearchKeyword)",
+    "query": "REPLACEME",
     "doc_types": [
         "assets",
         "collections"
@@ -21,7 +21,7 @@
         "file_names.lower",
         "metadata"
     ],
-    "include_fields": #(SearchFields),
+    "include_fields": ["REPLACEME"],
     "facets": [],
     "sort": [
         {

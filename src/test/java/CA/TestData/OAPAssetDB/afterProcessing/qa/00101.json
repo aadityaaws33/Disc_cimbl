@@ -1,0 +1,61 @@
+{
+  "templateType": "DPlus",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "4551337_1",
+  "type": "Shows",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI0000000000004551337001",
+  "duration": "15",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Completed",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Discovery+",
+  "comments": "",
+  "associatedFiles": {
+    "sourceAudioFileName": "dp_FI0000000000004551337001_Date_15.wav",
+    "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'FI0000000000004551337001_X_dp_Greys_Anatomy_s18_bundle02_15_newseason_27may.mxf')",
+    "titleArtFileName": "QA AUTO Greys_Anatomy_s18_titleart.png",
+    "sponsorFileName": "",
+    "sourceVideoFileName": "dp_FI0000000000004551337001_15.mxf",
+    "keyArtFileName": "QA AUTO Greys_Anatomy_s18_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Finished",
+  "seasonNumber": "S18",
+  "wochitVideoId": "#notnull",
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Available",
+  "createdBy": "#notnull",
+  "showTitle": "#('QA AUTO GREYS ANATOMIA ' + WochitStage)",
+  "outputFileStatus": "Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Date",
+      "branding": "original",
+      "tag": "27. toukokuuta",
+      "dPlusCta": null,
+      "time": null,
+      "title": "X dp_Greys Anatomy_s18_bundle02_15_newseason_27may",
+      "brand": "uusi kausi",
+      "disclaimer": ""
+    }
+  },
+  "subType": "bundle02",
+  "trailerId": "#(RandomString.result + '00101')",
+  "sponsorFileStatus": "Not Required"
+}

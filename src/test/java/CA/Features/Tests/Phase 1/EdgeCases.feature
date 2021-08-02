@@ -6,7 +6,11 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>]
         """
             {
                 DATAFILENAME: <DATAFILENAME>,
-                EXPECTEDRESPONSEFILE: <EXPECTEDRESPONSEFILE>
+                EXPECTEDRESPONSEFILE: <EXPECTEDRESPONSEFILE>,
+                STAGE: '',
+                DownloadXML: true,
+                ModifyXML: false,
+                GenerateRandomString: true
             }
         """
     * call read('classpath:CA/Features/ReUsable/Scenarios/ValidateOAPPhase1.feature') TestParams

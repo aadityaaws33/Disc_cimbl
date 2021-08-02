@@ -27,9 +27,9 @@
   "comments": "Pending Asset Upload",
   "associatedFiles": {
     "sourceAudioFileName": "dp_DK0000000000004551337007_Now_30.wav",
-    "outputFilename": "DK0000000000004551337007_X_dp_Greys_Anatomy_s18_gen02_30_e05e10_newseason_streamnow.mxf",
+    "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'DK0000000000004551337007_X_dp_Greys_Anatomy_s18_gen02_30_e05e10_newseason_streamnow.mxf')",
     "titleArtFileName": "QA_AUTO_Greys_Anatomy_s18_titleart.png",
-    "sponsorFileName": "QA_AUTO_SPONS_5sec_4551337_8.mxf",
+    "sponsorFileName": "#(WochitStage + '_' + 'QA_AUTO_SPONS_5sec_4551337_8.mxf')",
     "sourceVideoFileName": "dp_DK0000000000004551337007_30.mxf",
     "keyArtFileName": "QA_AUTO_Greys_Anatomy_s18_image.jpg"
   },
@@ -40,7 +40,7 @@
   "userName": "Peter Rothoff Hojholt",
   "sourceVideoFileStatus": "Not Available",
   "createdBy": "#notnull",
-  "showTitle": "QA AUTO GREYS HVIDE\\nVERDEN",
+  "showTitle": "#('QA AUTO GREYS HVIDE\\\\nVERDEN ' + WochitStage)",
   "outputFileStatus": "Not Available",
   "promoXMLName": "#(ExpectedDataFileName)",
   "xmlMetadata": {

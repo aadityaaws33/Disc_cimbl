@@ -27,7 +27,7 @@
   "comments": "Pending Asset Upload",
   "associatedFiles": {
     "sourceAudioFileName": "tv5_FI0000000000004551337009_Date_15.wav",
-    "outputFilename": "FI0000000000004551337009_X_tv5_Greys_Anatomy_s18_launch_15_newseason_27may.mxf",
+    "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'FI0000000000004551337009_X_tv5_Greys_Anatomy_s18_launch_15_newseason_27may.mxf')",
     "titleArtFileName": "QA_AUTO_Greys_Anatomy_s18_titleart.png",
     "sponsorFileName": "",
     "sourceVideoFileName": "tv5_FI0000000000004551337009_15.mxf",
@@ -40,7 +40,7 @@
   "userName": "Peter Rothoff Hojholt",
   "sourceVideoFileStatus": "Not Available",
   "createdBy": "#notnull",
-  "showTitle": "QA AUTO GREYS ANATOMIA",
+  "showTitle": "#('QA AUTO GREYS ANATOMIA ' + WochitStage)",
   "outputFileStatus": "Not Available",
   "promoXMLName": "#(ExpectedDataFileName)",
   "xmlMetadata": {

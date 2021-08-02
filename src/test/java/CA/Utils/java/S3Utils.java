@@ -148,7 +148,6 @@ public class S3Utils {
      * @return Output or error message
      */
     public String downloadS3Object(String BucketName, String ObjectKey, String TargetDir, String SaveFileName) {
-
         String ObjectKeySplit[] = ObjectKey.split("/");
         if (SaveFileName == "") {
             SaveFileName = URLEncoder.encode(ObjectKeySplit[ObjectKeySplit.length - 1], StandardCharsets.UTF_8);

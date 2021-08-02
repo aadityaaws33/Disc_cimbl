@@ -27,9 +27,9 @@
   "comments": "Pending Asset Upload",
   "associatedFiles": {
     "sourceAudioFileName": "k5_DK0000000000004551337015_Coming_Soon_10.wav",
-    "outputFilename": "DK0000000000004551337015_X_k5_Over_atlanten_s01_teaser_15_+X5432_comingsoon.mxf",
+    "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'DK0000000000004551337015_X_k5_Over_atlanten_s01_teaser_15_+X5432_comingsoon.mxf')",
     "titleArtFileName": "QA_AUTO_Over_atlanten_s01_titleart.png",
-    "sponsorFileName": "QA_AUTO_SPONS_5sec_4551337_016.mxf",
+    "sponsorFileName": "#(WochitStage + '_' + 'QA_AUTO_SPONS_5sec_4551337_016.mxf')",
     "sourceVideoFileName": "k5_DK0000000000004551337015_10.mxf",
     "keyArtFileName": "QA_AUTO_Over_atlanten_s01_image.jpg"
   },
@@ -40,7 +40,7 @@
   "userName": "Peter Rothoff Hojholt",
   "sourceVideoFileStatus": "Not Available",
   "createdBy": "#notnull",
-  "showTitle": "QA AUTO Over atlanten",
+  "showTitle": "#('QA AUTO Over atlanten ' + WochitStage)",
   "outputFileStatus": "Not Available",
   "promoXMLName": "#(ExpectedDataFileName)",
   "xmlMetadata": {

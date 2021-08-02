@@ -10,7 +10,7 @@
 	"deleted_by_user": null,
 	"external_id": "REPLACEME",
 	"id": "REPLACEME",
-	"is_online": "#ignore",
+	"is_online": "REPLACEME",
 	"status": "ACTIVE",
 	"title": "REPLACEME",
 	"type": "REPLACEME",
@@ -21,7 +21,7 @@
 			"created_by_user": "#notnull",
 			"date_created": "#notnull",
 			"id": "#notnull",
-			"is_online": false,
+			"is_online": "REPLACEME",
 			"status": "ACTIVE",
 			"transcribe_status": "N/A"
 		}

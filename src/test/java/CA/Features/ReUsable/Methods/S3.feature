@@ -22,6 +22,8 @@ Scenario: Download an S3 Object
         """
         function() {    
             karate.log('[Downloading] ' + S3Key + ' to ' + DownloadPath + '/' + DownloadFilename);
+            
+            
             var s3DownloadStatus = s3Utils.downloadS3Object(
                 S3BucketName, //s3 bucket name
                 S3Key, //s3 key

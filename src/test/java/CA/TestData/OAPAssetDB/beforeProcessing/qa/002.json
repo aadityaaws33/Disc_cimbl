@@ -27,20 +27,20 @@
   "comments": "Pending Asset Upload",
   "associatedFiles": {
     "sourceAudioFileName": "dp_FI0000000000004551337001_Today_25.wav",
-    "outputFilename": "FI0000000000004551337001_X_4_Ex_on_the_Beach_s06_bundle02_30_e03e04_+X4587_newep_tonight_22:00_streamalreadynow.mxf",
-    "titleArtFileName": "QA_AUTO_Ex_on_the_Beach_s06_titleart.png",
-    "sponsorFileName": "QA_AUTO_SPONS_5sec_4551337_2",
+    "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'FI0000000000004551337001_X_dp_Greys_Anatomy_s18_bundle02_25_e03e04_+X4587_newep_tonight_22:00_streamalreadynow.mxf')",
+    "titleArtFileName": "QA AUTO Greys_Anatomy_s18_titleart.png",
+    "sponsorFileName": "#(WochitStage + '_' + 'QA_AUTO_SPONS_5sec_4551337_2')",
     "sourceVideoFileName": "dp_FI0000000000004551337001_25.mxf",
-    "keyArtFileName": "QA_AUTO_Ex_on_the_Beach_s06_image.jpg"
+    "keyArtFileName": "QA AUTO Greys_Anatomy_s18_image.jpg"
   },
   "promoXMLId": "#notnull",
   "wochitRenditionStatus": "Not Started",
-  "seasonNumber": "S06",
+  "seasonNumber": "S18",
   "wochitVideoId": null,
   "userName": "Peter Rothoff Hojholt",
   "sourceVideoFileStatus": "Not Available",
   "createdBy": "#notnull",
-  "showTitle": "QA AUTO EX ON THE BEACH",
+  "showTitle": "#('QA AUTO GREYS ANATOMIA ' + WochitStage)",
   "outputFileStatus": "Not Available",
   "promoXMLName": "#(ExpectedDataFileName)",
   "xmlMetadata": {
@@ -50,9 +50,9 @@
       "tag": "tänä iltana",
       "dPlusCta": "katso ennakkoon",
       "time": "22.00",
-      "title": "X 4_Ex on the Beach_s06_bundle02_30_e03e04_+X4587_newep_tonight_22:00_streamalreadynow",
+      "title": "X dp_Greys_Anatomy_s18_bundle02_25_e03e04_+X4587_newep_tonight_22:00_streamalreadynow",
       "brand": "uusi jakso",
-      "disclaimer": "Alt indhold krÃ\u0083Â¦ver abonnement."
+      "disclaimer": ""
     }
   },
   "subType": "bundle02",
