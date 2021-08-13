@@ -18,7 +18,8 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>]
                 ModifyXML: true,
                 STAGE: 'beforeProcessing',
                 GenerateRandomString: false,
-                RandomString: #(RandomString)
+                RandomString: #(RandomString),
+                WaitTime: 0
             }
         """
     * call read('classpath:CA/Features/ReUsable/Scenarios/Setup.feature') TestParams

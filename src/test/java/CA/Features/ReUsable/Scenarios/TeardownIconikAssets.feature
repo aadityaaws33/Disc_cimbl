@@ -50,7 +50,8 @@ Scenario: Teardown: Delete Iconik Assets
     * def deleteAssets =
         """
             function(assetData) {
-                karate.log('[Teardown] Asset Data: ' + karate.pretty(assetData));
+                // karate.log('[Teardown] Asset Data: ' + karate.pretty(assetData));
+                karate.log('[Teardown] Asset Data: ' + assetData);
 
                 if(assetData.assetIDs == null || assetData.assetIDs.length < 1) {
                     karate.log('[Teardown] No asset IDs to delete');

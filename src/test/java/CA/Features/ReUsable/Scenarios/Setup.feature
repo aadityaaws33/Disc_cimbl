@@ -19,19 +19,18 @@ Scenario: Test Setup - Global Functions, Variables & Procedures
                 return expectedCountry
             }
         """
-    * def storeTrailers =
+    * def storeData =
         """
-            function(trailerIDs) {
+            function(dataList, filename) {
                 try {
-                    var data = karate.read('classpath:CA/trailers.json');
+                    var data = karate.read('classpath:CA/' + filename);
                 } catch(e) {
-                    karate.write({}, 'test-classes/CA/trailers.json');
                     var data = {};
                 }
-                for(var i in trailerIDs) {
-                    data[trailerIDs[i]] = isDeleteOutputOnly;
+                for(var i in dataList) {
+                    data[dataList[i]] = isDeleteOutputOnly;
                 }
-                karate.write(karate.pretty(data), 'test-classes/CA/trailers.json');
+                karate.write(karate.pretty(data), 'test-classes/CA/' + filename);
             }
         """
     # ---- Paths ----
@@ -83,6 +82,6 @@ Scenario: Test Setup - Global Functions, Variables & Procedures
     * if(ModifyXML == true) {karate.write(karate.prettyXml(XMLNodes), TestXMLPath.replace('classpath:target/', ''))}
     * def TrailerIDs = ModifyXML == true?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].id'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id'):''
     * def TrailerNames = ModifyXML == true?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.*.outputFilename').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.outputFilename'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.*.outputFilename'):''
-    * Pause(Math.floor(Math.random() * 10000) + Math.floor(Math.random() * 10000))
-    * storeTrailers(TrailerIDs)
+    * Pause(WaitTime)
+    * storeData(TrailerIDs, 'trailers.json')
     * karate.log('-- SETUP: successfully executed --')

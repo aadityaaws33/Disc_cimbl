@@ -24,7 +24,7 @@
   "promoAssetStatus": "Pending Upload",
   "modifiedBy": "#notnull",
   "promotedChannel": "TV Norge",
-  "comments": "Pending Asset Upload",
+  "comments": "Pending Upload",
   "associatedFiles": {
     "sourceAudioFileName": "tvn_FI0000000000004551337011_Date_15.wav",
     "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'FI0000000000004551337011_X_tvn_Greys_Anatomy_s18_prelaunch_15_newseason_27may.mxf')",

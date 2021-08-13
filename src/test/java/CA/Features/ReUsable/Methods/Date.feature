@@ -1,6 +1,11 @@
 Feature: Common ReUsable/Methods functions
 
 @GetDateWithOffset
+# Creates a date string in YYYY-MM-DD format
+# Parameters: 
+# {
+#   offset: <# of days>
+# }
 Scenario: Get Date in YYYY-MM-DD format with specified offset
   * def getDateWithOffset =
     """
@@ -22,6 +27,11 @@ Scenario: Get Date in YYYY-MM-DD format with specified offset
   * print result
 
 @CreateDateList
+# Creates a list of date strings in YYYY-MM-DD format from Today backwards til <offset>
+# Parameters: 
+# {
+#   offset: <# of days>
+# }
 Scenario: Create Date in YYYY-MM-DD format with specified offset
   * def createDateList =
     """

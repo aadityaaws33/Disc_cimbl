@@ -44,7 +44,9 @@ Scenario: Update Test Results to Results.json
           try {
             var results = karate.read(tcResultReadPath);
             results[scenarioName] = tcResult;
-            karate.log('Current TC Results:' + karate.pretty(results));
+            // karate.log('Current TC Results:' + karate.pretty(results));
+            // karate.write(karate.pretty(results), tcResultWritePath);
+            karate.log('Current TC Results:' + results);
             karate.write(karate.pretty(results), tcResultWritePath);
             break;
           } catch(e) {

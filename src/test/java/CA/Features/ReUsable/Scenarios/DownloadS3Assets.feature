@@ -25,7 +25,8 @@ Scenario: Download Assets from S3
                     if(downloadFileStatus.result.pass) {
                         karate.log('[PASSED] ' + scenarioName + ': ' + thisDownloadFileName);
                     } else {
-                        karate.fail('[FAILED] ' + scenarioName + ': ' + thisDownloadFileName + ': ' + karate.pretty(downloadFileStatus.result.message))
+                        // karate.fail('[FAILED] ' + scenarioName + ': ' + thisDownloadFileName + ': ' + karate.pretty(downloadFileStatus.result.message))
+                        karate.fail('[FAILED] ' + scenarioName + ': ' + thisDownloadFileName + ': ' + downloadFileStatus.result.message)
                     }
                 }
             }

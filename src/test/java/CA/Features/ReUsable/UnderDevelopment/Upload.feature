@@ -8,7 +8,8 @@ Background:
                 EXPECTEDRESPONSEFILE: <EXPECTEDRESPONSEFILE>,
                 DownloadXML: false,
                 ModifyXML: false,
-                GenerateRandomString: true
+                GenerateRandomString: true,
+                WaitTime: 0
             }
         """
     * call read('classpath:CA/Features/ReUsable/Scenarios/Setup.feature') TestParams

@@ -18,6 +18,18 @@ Background:
     """
 
 @FilterQueryResults
+# Filter Results generated from @GetItemsViaQuery
+# Parameters:
+# {
+#   Param_QueryResults: <Results from @GetItemsViaQuery>,
+#   Param_FilterNestedInfoList: [
+#     {
+#       infoName: <attribute to filter>,
+#       infoValue: <attribute value to filter>,
+#       infoComparator: <[contains | = ]>
+#     }        
+#   ]
+# }
 Scenario: Filter Results generated from Querying DynamoDB
   * def filterResults =
     """
@@ -44,7 +56,8 @@ Scenario: Filter Results generated from Querying DynamoDB
             for(i in Param_QueryResults) {
               karate.log(Param_QueryResults[i][infoName]);
               if(!Param_QueryResults[i][infoName]) {
-                karate.log(karate.pretty(Param_QueryResults[i]));
+                // karate.log(karate.pretty(Param_QueryResults[i]));
+                karate.log(Param_QueryResults[i]);
                 karate.fail('Empty key-value pair! Key: ' + infoName + ' has value: ' + Param_QueryResults[i][infoName]);
               }
               if(Param_QueryResults[i][infoName].contains(infoValue)) {
@@ -66,6 +79,23 @@ Scenario: Filter Results generated from Querying DynamoDB
   # * print result
 
 @GetItemsViaQuery
+# Get DynamoDB Item(s) via Query
+# Parameters:
+# {
+#   Param_TableName: <Tablename>,
+#   Param_QueryInfoList: [
+#       {
+#           infoName: <attribute to filter>,
+#           infoValue: <attribute value to filter>,
+#           infoComparator: <['contains' | '=']>,
+#           infoType: <'key' | 'filter'>
+#       }
+#   ],
+#   Param_GlobalSecondaryIndex: <Table GSI>,
+#   AWSRegion: <AWS Region: 'Nordics' | 'APAC'>,
+#   Retries: <number of retries>,
+#   RetryDuration: <time between retries in milliseconds>
+# }
 Scenario: Get DynamoDB Item(s) via Query
   * def getItemsQuery =
     """
@@ -101,6 +131,24 @@ Scenario: Get DynamoDB Item(s) via Query
   # * print result
 
 @ValidateItemViaQuery
+# Get DynamoDB Item(s) via Query and Validate against Expected Result
+# Parameters:
+# {
+#   Param_TableName: <Tablename>,
+#   Param_QueryInfoList: [
+#       {
+#           infoName: <attribute to filter>,
+#           infoValue: <attribute value to filter>,
+#           infoComparator: <['contains' | '=']>,
+#           infoType: <'key' | 'filter'>
+#       }
+#   ],
+#   Param_GlobalSecondaryIndex: <Table GSI>,
+#   Param_ExpectedResponse: <Expected JSON>,
+#   AWSRegion: <AWS Region: 'Nordic' | 'APAC'>,
+#   Retries: <number of retries>,
+#   RetryDuration: <time between retries in milliseconds>
+# }
 Scenario: Validate DynamoDB Item via Query
   #* print '-------------------Dynamo DB Feature and Item Count-------------'
   * def getItemsQuery =
@@ -127,7 +175,8 @@ Scenario: Validate DynamoDB Item via Query
       );
 
       if(queryResp.length < 1)  {
-        karate.log('No results found for ' + karate.pretty(Param_QueryInfoList));
+        // karate.log('No results found for ' + karate.pretty(Param_QueryInfoList));
+        karate.log('No results found for ' + Param_QueryInfoList);
         return queryResp;
       }
 
@@ -201,6 +250,24 @@ Scenario: Validate DynamoDB Item via Query
     """
 
 @DeleteDBRecords
+# Delete items from DynamoDB Table
+# Parameters:
+# {
+#     itemParamList: [
+#       {
+#         PrimaryPartitionKeyName: <attribute to filter>,
+#         PrimaryPartitionKeyValue: <attribute value to filter>
+#       }
+#     ],
+#     TableName: <Tablename>,
+#     GSI: <Table GSI>,
+#     PromoAssetStatus: <expected promoAssetStatus>,
+#     PrimaryFilterKeyName: <expected filter key>,
+#     PrimaryFilterKeyValue: <expected filter value>,
+#     Retries: <# of retries>,
+#     RetryDuration: <time between retries in milliseconds>,
+#     AWSRegion: <AWS Region: 'Nordic' | 'APAC'>
+# }
 Scenario: Delete items from DynamoDB Table
   * def deleteItems =
     """
@@ -263,7 +330,7 @@ Scenario: Delete items from DynamoDB Table
             karate.log(getItemResults);
             var errMsg = 'Failed to delete AssetDB trailer Records for ' + PrimaryFilterKeyValue;
             result.message = errMsg;
-            karate.log('Try #' + (i+1) + ' of ' + Retries + ': Failed. Sleeping for ' + RetryDuration + ' ms. - ' + errMsg);
+            karate.log('Try #' + (i+1) + ' of ' + Retries + ': Failed. Sleeping for ' + RetryDuration + ' ms. - ' + karate.pretty(errMsg));
             Pause(RetryDuration);
           } else {
             result.pass = true;
