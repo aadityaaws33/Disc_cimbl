@@ -1,4 +1,4 @@
-package CA.Utils.java;
+package com.automation.ca.backend;
 
 /**
  * Contains all global utility configurations

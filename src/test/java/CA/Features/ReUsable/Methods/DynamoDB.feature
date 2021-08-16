@@ -5,7 +5,7 @@ Background:
   * def initializeDynamoDBObject = 
     """
       function(thisAWSregion) {
-        var dynamoDBUtilsClass = Java.type('CA.Utils.java.DynamoDBUtils');
+        var dynamoDBUtilsClass = Java.type('com.automation.ca.backend.DynamoDBUtils');
         return new dynamoDBUtilsClass(thisAWSregion)
       }
     """

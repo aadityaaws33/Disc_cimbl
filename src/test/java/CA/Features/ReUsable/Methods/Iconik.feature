@@ -449,6 +449,10 @@ Scenario: Search and delete all Iconik assets which contains a particular patter
                         value: 'ACTIVE'
                     }
                 ]
+                
+                var thisPath = '$.objects.*.id';
+                var searchedAssets = [];
+
                 for(var i in SearchKeywords) {
                     var searchQuery = karate.read(TestDataPath + '/Iconik/GETSearchRequest.json')
                     searchQuery.filter.terms = karate.toJson(filterTerms);
@@ -460,34 +464,33 @@ Scenario: Search and delete all Iconik assets which contains a particular patter
                     }
                     karate.log('[Searching] ' + SearchKeywords[i]);
                     var page = 1;
-                    while (true) {
-                        // var deleteAssetIDList = [];
+
+                    maxPages = 100;
+                    for(var j = 1; j <= maxPages; j++) {
                         SearchForAssetsParams.URL = IconikSearchAPIUrl + '&page=' + page;
                         var searchResult = karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@SearchForAssets', SearchForAssetsParams);
-                        var thisPath = '$.objects.*.id';
-                        var searchedAssets = karate.jsonPath(searchResult.result, thisPath);
-                        // for(var j in searchedAssets) {
-                        //     deleteAssetIDList.push(searchedAssets[j]);
-                        // }
-
-                        var DeleteAssetParams = {
-                            URL: IconikDeleteQueueAPIUrl,
-                            Query: {
-                                ids: searchedAssets
-                            }
+                        maxPages = searchResult.result.pages;
+                        var thisSearch = karate.jsonPath(searchResult.result, thisPath);
+                        for(var k in thisSearch) {
+                            searchedAssets.push(thisSearch[k]);
                         }
-                        if(searchedAssets.length < 1){
-                            karate.log('Nothing to delete.');
-                        } else {
-                            karate.log('[Deleting] ' + searchedAssets);
-                            karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@DeleteAsset', DeleteAssetParams);
-                        }
-                        page++;
                         Pause(1000);
-                        if(page >= searchResult.result.pages) {
-                            break
-                        } 
                     }
+                }
+                
+                if(searchedAssets.length < 1) {
+                    karate.log('Nothing to delete');
+                } else {
+                    karate.log('[Deleting] ')
+                    var DeleteAssetParams = {
+                        URL: IconikDeleteQueueAPIUrl + '/assets',
+                        Query: {
+                            ids: searchedAssets
+                        },
+                        ExpectedStatusCode: 204
+                    }
+                    karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@DeleteAssetCollection', DeleteAssetParams);
+                    Pause(3000);
                 }
             }
         """

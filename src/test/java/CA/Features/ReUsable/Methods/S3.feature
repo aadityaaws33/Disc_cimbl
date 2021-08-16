@@ -4,7 +4,7 @@ Background:
     * def initializeS3Object =
         """
             function(thisAWSregion) {
-                var S3UtilsClass = Java.type('CA.Utils.java.S3Utils');
+                var S3UtilsClass = Java.type('com.automation.ca.backend.S3Utils');
                 return new S3UtilsClass(AWSRegion);
             }
         """

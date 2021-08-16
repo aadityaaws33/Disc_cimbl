@@ -1,4 +1,4 @@
-package CA.Utils.java;
+package com.automation.ca.backend;
 
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.retry.PredefinedRetryPolicies;
