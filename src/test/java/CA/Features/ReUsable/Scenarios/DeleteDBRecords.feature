@@ -16,7 +16,7 @@ Scenario: Delete AssetDB Records
                     }
                     paramList.push(thisParam);
                 }
-                if(WochitStage == 'beforeProcessing') {
+                if(WochitStage == 'preWochit') {
                     var promoAssetStatus = ['Pending Upload'];
                 } else {
                     var promoAssetStatus = ['Completed', 'Processing'];

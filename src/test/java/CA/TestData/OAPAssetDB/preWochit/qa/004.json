@@ -1,0 +1,61 @@
+{
+  "templateType": "DPlus",
+  "country": "Norway",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "4551337_4",
+  "type": "Shows",
+  "episodeNumber": "E02",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": "#notnull",
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "NO0000000000004551337003",
+  "duration": "25",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Discovery+",
+  "comments": "Pending Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "dp_NO0000000000004551337003_Weekday_25.wav",
+    "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'NO0000000000004551337003_X_dp_QA_TEST_AUTOMATION_NORWAY_s01_e02_30_+X4598_newep_Thursday_20:30_streamalreadynow.mxf')",
+    "titleArtFileName": "QA_TEST_AUTOMATION_NORWAY_s01_titleart.png",
+    "sponsorFileName": "#(WochitStage + '_' + 'QA_TEST_AUTOMATION_NORWAY_SPONS_5sec_4551337_4.mxf')",
+    "sourceVideoFileName": "dp_NO0000000000004551337003_25.mxf",
+    "keyArtFileName": "QA_TEST_AUTOMATION_NORWAY_s01_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S01",
+  "wochitVideoId": null,
+  "userName": "Peter Rothoff Hojholt",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "#('QA TEST AUTOMATION NORWAY ' + WochitStage)",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Weekday",
+      "branding": "original",
+      "tag": "torsdag",
+      "dPlusCta": "strøm allerede nå",
+      "time": "20.30",
+      "title": "X dp_QA TEST AUTOMATION NORWAY_s01_e02_30_+X4598_newep_Thursday_20:30_streamalreadynow",
+      "brand": "ny episode",
+      "disclaimer": "Terms and conditions apply."
+    }
+  },
+  "subType": "e02",
+  "trailerId": "#(RandomString.result + '004')",
+  "sponsorFileStatus": "Not Available"
+}

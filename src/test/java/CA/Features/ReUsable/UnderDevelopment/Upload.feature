@@ -19,7 +19,7 @@ Background:
                 result: '1628048169995'
             }
         """
-    * def stage = 'beforeProcessing'
+    * def stage = 'preWochit'
     * def TrailerIDs = ['1628048169995006']
     * def this =
         """

@@ -1,43 +1,72 @@
+@Teardown
 Feature: Teardown
 
-Scenario: Teardown
-    * def Teardown = 
+Scenario Outline: Teardown
+    * def Pause = function(pause){ karate.log('Pausing for ' + pause + 'ms.'); java.lang.Thread.sleep(pause) }
+    * configure abortedStepsShouldPass = true
+    * def GlobalVarsParams =
         """
-            function() {
-
-                karate.log('-- TEARDOWN: S3 DELETE XML FROM INGEST --');
-                // Teardown. Delete uploaded S3 object: failed
-                var DeleteS3ObjectParams = {
-                    S3BucketName: OAPHotfolderS3.Name,
-                    S3Key: OAPHotfolderS3.Key + '/failed/' + ExpectedDataFileName
-                }
-                karate.call(ReUsableFeaturesPath + '/Methods/S3.feature@DeleteS3Object', DeleteS3ObjectParams);
-
-                // Teardown. Delete uploaded S3 object: archive
-                var DeleteS3ObjectParams = {
-                    S3BucketName: OAPHotfolderS3.Name,
-                    S3Key: OAPHotfolderS3.Key + '/archive/' + ExpectedDataFileName,
-                }
-                karate.call(ReUsableFeaturesPath + '/Methods/S3.feature@DeleteS3Object', DeleteS3ObjectParams);
-                
-                // Get All Trailer IDs from trailer.json
-                var TrailerData = karate.read('classpath:CA/trailers.json');
-
-                karate.log('-- TEARDOWN: ASSETDB DELETE TEST RECORDS --');
-                var DeleteAssetDBRecordsParams = {
-                    TrailerData: TrailerData
-                }
-                karate.call(ReUsableFeaturesPath + '/Scenarios/DeleteDBRecords.feature', DeleteAssetDBRecordsParams );
-                
-
-                karate.log('-- TEARDOWN: ICONIK DELETE TEST ASSETS --');
-                var deleteIconikAssetsParams = {
-                    ExpectedDataFileName: ExpectedDataFileName,
-                    TrailerData: TrailerData
-                }
-                karate.log(deleteIconikAssetsParams);
-                karate.call(ReUsableFeaturesPath + '/Scenarios/TeardownIconikAssets.feature@Teardown', deleteIconikAssetsParams);
-
+            {
+                DATAFILENAME: 'DK', 
+                STAGE: <STAGE>,
+                GenerateRandomString: true
             }
         """
-    * Teardown()
+    * call read('classpath:CA/Features/ReUsable/Scenarios/GlobalVariables.feature') GlobalVarsParams
+    * def deleteAssetDBRecords =
+        """
+            function(TrailerData, TrailerIDs) {
+                try {                  
+                    karate.log('-- TEARDOWN: ASSETDB DELETE TEST RECORDS --');
+                    var DeleteAssetDBRecordsParams = {
+                        TrailerData: TrailerData,
+                        TrailerIDs: TrailerIDs
+                    }
+                    karate.call(ReUsableFeaturesPath + '/Scenarios/DeleteDBRecords.feature', DeleteAssetDBRecordsParams );
+                } catch (e) {
+                    karate.log('[Teardown] Skipping AssetDB Deletion - ' + e);
+                }
+            }
+        """
+    * def deleteIconikAssets =
+        """
+            function(TrailerData) {
+                try {
+                    karate.log('-- TEARDOWN: ICONIK DELETE TEST ASSETS --');
+                    var deleteIconikAssetsParams = {
+                        TrailerData: TrailerData
+                    }
+                    // karate.log(deleteIconikAssetsParams);
+                    karate.call(ReUsableFeaturesPath + '/Scenarios/TeardownIconikAssets.feature', deleteIconikAssetsParams);
+                } catch (e) {
+                    karate.log('[Teardown] Iconik Deletion - ' + e);
+                }
+            }
+        """
+    * configure afterScenario = 
+        """
+            function() {
+                
+                // Get All Trailer IDs from trailer.json
+                try {
+                    var TrailerData = karate.read('classpath:CA/' + WochitStage + '_trailers.json');
+                    var TrailerIDs = [];
+                    karate.forEach(TrailerData, function(id) { TrailerIDs.push(id) });
+                } catch (e) {
+                    karate.log('[Teardown] Skipping ASSETDB & ICONIK Deletion - ' + e);
+                    karate.abort();
+                }
+
+                if(TrailerData.length < 1) {
+                    karate.log('[Teardown] No TrailerIDs for ' + WochitStage);
+                } else {
+                    deleteAssetDBRecords(TrailerData, TrailerIDs);
+                    deleteIconikAssets(TrailerData);                    
+                }
+            }
+        """
+    Examples:
+        | STAGE          |
+        | preWochit      |
+        | postWochit     |
+        | metadataUpdate |

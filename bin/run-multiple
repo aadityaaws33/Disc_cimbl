@@ -20,7 +20,7 @@ do
     shift
 done    
 # EXECUTE
-rm -rf target*
+rm -rf target* RESULT.log
 
 time (for ((THISRUN=1;THISRUN<=$RUNS;THISRUN++))
 do
@@ -37,7 +37,8 @@ do
     cp -r target target_${THISRUN}_${STATUS}
     
     echo ${THISRUN} - ${STATUS} >> RESULT.log
-done)
+    sleep 10
+done
 if grep -q "FAILED" RESULT.log; then
     echo "BUILD FAILURE"
     exit 1
@@ -45,3 +46,4 @@ else
     echo "BUILD SUCCESS"
     exit 0
 fi
+)

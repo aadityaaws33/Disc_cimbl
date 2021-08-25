@@ -88,7 +88,8 @@ Scenario: MAIN PHASE 1: Validate OAP Datasource Table Record
                 AWSRegion: #(AWSRegion),
                 Retries: 30,
                 RetryDuration: 10000,
-                WriteToFile: false
+                WriteToFile: false,
+                ShortCircuit: null
             }
         """
     When def validateOAPDataSourceTable =  call read(ReUsableFeaturesPath + '/Methods/DynamoDB.feature@ValidateItemViaQuery') ValidationParams

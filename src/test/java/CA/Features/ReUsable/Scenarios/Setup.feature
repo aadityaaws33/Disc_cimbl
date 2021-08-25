@@ -33,36 +33,10 @@ Scenario: Test Setup - Global Functions, Variables & Procedures
                 karate.write(karate.pretty(data), 'test-classes/CA/' + filename);
             }
         """
-    # ---- Paths ----
-    * def ReUsableFeaturesPath = 'classpath:CA/Features/ReUsable'
-    * def TestDataPath = 'classpath:CA/TestData'
-    * def DownloadsPath = 'target/test-classes/CA/Downloads'
-    * def ResultsPath = 'CA/Results'
-    # ---- Testing Variables ----
-    * def WochitStage = STAGE
-    * def RandomString = GenerateRandomString == true?karate.callSingle(ReUsableFeaturesPath + '/Methods/RandomGenerator.feature@GenerateRandomString'):RandomString
-    * def ExpectedDate = callonce read(ReUsableFeaturesPath + '/Methods/Date.feature@GetDateWithOffset') { offset: 0 } 
+    # # ---- SETUP Global Variables ----
+    * Pause(WaitTime)
     * def ExpectedCountry = getExpectedCountry(DATAFILENAME) 
-    * def ExpectedDataFileName = DATAFILENAME.replace('.xml', '-' + TargetEnv + '-' + RandomString.result + '-' + WochitStage +'-AUTO.xml')
-    * def TestXMLPath = 'classpath:' + DownloadsPath + '/' + ExpectedDataFileName
-    # ---- Config Variables----
-    * def AWSRegion = EnvConfig['Common']['AWSRegion']
-    * def TestAssetsS3 = EnvConfig['Common']['S3bucket']['TestAssets']
-    * def OAPHotfolderS3 = EnvConfig['Common']['S3bucket']['OAPHotfolder']
-    * def OAPDataSourceTableName = EnvConfig['Common']['DataSource']['TableName']
-    * def OAPDataSourceTableGSI = EnvConfig['Common']['DataSource']['GSI']
-    * def OAPAssetDBTableName = EnvConfig['Common']['AssetDB']['TableName']
-    * def OAPAssetDBTableGSI = EnvConfig['Common']['AssetDB']['GSI']
-    * def IconikAssetDataAPIUrl = EnvConfig['Common']['Iconik']['AssetDataAPIUrl']
-    * def IconikGetAppTokenAPIUrl = EnvConfig['Common']['Iconik']['GetAppTokenAPIUrl']
-    * def IconikDeleteQueueAPIUrl = EnvConfig['Common']['Iconik']['DeleteQueueAPIUrl']
-    * def IconikSearchAPIUrl = EnvConfig['Common']['Iconik']['SearchAPIUrl']
-    * def IconikAppTokenName = EnvConfig['Common']['Iconik']['AppTokenName']
-    * def IconikAdminEmail = EnvConfig['Common']['Iconik']['AdminEmail']
-    * def IconikAdminPassword = EnvConfig['Common']['Iconik']['AdminPassword']
-    * def IconikAuthenticationData = karate.callSingle(ReUsableFeaturesPath + '/Methods/Iconik.feature@GetAppTokenData').result
-    * def IconikAuthToken = IconikAuthenticationData['IconikAuthToken']
-    * def IconikAppID = IconikAuthenticationData['IconikAppID']
+    * call read('classpath:CA/Features/ReUsable/Scenarios/GlobalVariables.feature')
     # # ---- SETUP Procedures ----
     * karate.log('-- SETUP: Download XML File --')
     * def DownloadXMLfromS3Params =
@@ -82,5 +56,4 @@ Scenario: Test Setup - Global Functions, Variables & Procedures
     * if(ModifyXML == true) {karate.write(karate.prettyXml(XMLNodes), TestXMLPath.replace('classpath:target/', ''))}
     * def TrailerIDs = ModifyXML == true?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].id'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id'):''
     * def TrailerNames = ModifyXML == true?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.*.outputFilename').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.outputFilename'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.*.outputFilename'):''
-    * Pause(WaitTime)
     * karate.log('-- SETUP: successfully executed --')

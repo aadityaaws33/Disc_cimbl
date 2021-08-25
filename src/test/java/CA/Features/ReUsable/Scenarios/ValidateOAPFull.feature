@@ -1,11 +1,23 @@
 @parallel=false
 Feature: Single File Upload
 
-# Scenario: Validate OAP
+Background:
+    * def thisFile = ReUsableFeaturesPath + '/Scenarios/ValidateOAPFull.feature'
 
+
+@Main
 Scenario: MAIN PHASE Validate OAP
+    * call read(thisFile + '@UploadXMLFileToS3')
+    * call read(thisFile + '@ValidateOAPDataSourceDBRecords')
+    * call read(thisFile + '@ValidateOAPAssetDBRecords')
+    * call read(thisFile + '@ValidateIconikCollectionHeirarchy')
+    * call read(thisFile + '@ValidateIconikPlaceholdersAndAssets')
+
+
+@UploadXMLFileToS3
+Scenario: MAIN PHASE 1 Upload File To S3
     * def scenarioName = WochitStage + ' MAIN PHASE 1 Upload File To S3'
-    * def UploadFileParams =
+    Given def UploadFileParams =
         """
             {
                 S3BucketName: #(OAPHotfolderS3.Name),
@@ -14,11 +26,13 @@ Scenario: MAIN PHASE Validate OAP
                 FilePath: #(DownloadsPath + '/' + ExpectedDataFileName)
             }
         """
-    * def uploadFileStatus = call read(ReUsableFeaturesPath + '/Methods/S3.feature@UploadFile') UploadFileParams
+    When def uploadFileStatus = call read(ReUsableFeaturesPath + '/Methods/S3.feature@UploadFile') UploadFileParams
     * print uploadFileStatus.result
-    # * uploadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(uploadFileStatus.result.message))
-    * uploadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + uploadFileStatus.result.message)
-    # --------------------------------------------------------------------------------
+    # Then uploadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(uploadFileStatus.result.message))
+    Then uploadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + uploadFileStatus.result.message)
+
+@ValidateOAPDataSourceDBRecords
+Scenario: MAIN PHASE 1 Validate OAP DataSource Table Record
     *  def scenarioName = WochitStage + ' MAIN PHASE 1 Validate OAP DataSource Table Record'
     * def ExpectedOAPDataSourceRecord = read(TestDataPath + '/OAPDataSource/' + TargetEnv + '/' + EXPECTEDRESPONSEFILE)
     Given def ValidationParams =
@@ -44,15 +58,21 @@ Scenario: MAIN PHASE Validate OAP
                 AWSRegion: #(AWSRegion),
                 Retries: 120,
                 RetryDuration: 10000,
-                WriteToFile: False
+                WriteToFile: false,
+                ShortCircuit: {
+                    Key: 'dataSourceStatus',
+                    Value: 'Failed'
+                }
             }
         """
     When def validateOAPDataSourceTable =  call read(ReUsableFeaturesPath + '/Methods/DynamoDB.feature@ValidateItemViaQuery') ValidationParams
     * print validateOAPDataSourceTable.result
     # Then validateOAPDataSourceTable.result.pass == true? karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(validateOAPDataSourceTable.result.message))
     Then validateOAPDataSourceTable.result.pass == true? karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + validateOAPDataSourceTable.result.message)
-    # --------------------------------------------------------------------------------    
-    *  def scenarioName = WochitStage + ' MAIN PHASE 2 Validate OAP AssetDB Table Records'
+    
+@ValidateOAPAssetDBRecords
+Scenario: MAIN PHASE 2 Validate OAP AssetDB Table Records
+    * def scenarioName = WochitStage + ' MAIN PHASE 2 Validate OAP AssetDB Table Records'
     * def validateAssetDBTrailerRecords =
         """
             function(TrailerIDs, stage) {
@@ -63,8 +83,24 @@ Scenario: MAIN PHASE Validate OAP
 
                 for(var i in TrailerIDs) {
                     var trailerId = TrailerIDs[i];
-                    karate.log(TestDataPath + '/OAPAssetDB/' + stage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
-                    var ExpectedOAPAssetDBRecord = karate.read(TestDataPath + '/OAPAssetDB/' + stage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
+
+                    var expectedStage = stage;
+                    if(stage == 'metadataUpdate') {
+                        expectedStage = 'preWochit'
+                    }
+
+                    karate.log('Expected AssetDB Record: ' + TestDataPath + '/OAPAssetDB/' + expectedStage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
+                    var ExpectedOAPAssetDBRecord = karate.read(TestDataPath + '/OAPAssetDB/' + expectedStage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
+
+                    if(stage == 'metadataUpdate') {
+                        ExpectedOAPAssetDBRecord.xmlMetadata.data.disclaimer = stage;
+                        ExpectedOAPAssetDBRecord.isMetadataUpdateRequired = true;
+                        // ExpectedOAPAssetDBRecord.promoXMLName = ExpectedOAPAssetDBRecord.promoXMLName.replace(stage, expectedStage);
+                        ExpectedOAPAssetDBRecord.showTitle = ExpectedOAPAssetDBRecord.showTitle.replace(stage, expectedStage);
+                        ExpectedOAPAssetDBRecord.associatedFiles.outputFilename = ExpectedOAPAssetDBRecord.associatedFiles.outputFilename.replace('metadataUpdate', expectedStage);
+                        ExpectedOAPAssetDBRecord.associatedFiles.sponsorFileName = ExpectedOAPAssetDBRecord.associatedFiles.sponsorFileName.replace('metadataUpdate', expectedStage);
+                    }
+
 
                     var ValidationParams = {
                         Param_TableName: OAPAssetDBTableName,
@@ -82,7 +118,11 @@ Scenario: MAIN PHASE Validate OAP
                         Retries: 120,
                         RetryDuration: 10000,
                         WriteToFile: true,
-                        WritePath: 'test-classes/' + ResultsPath + '/' + trailerId + '.json'
+                        WritePath: 'test-classes/' + ResultsPath + '/' + trailerId + '.json',
+                        ShortCircuit: {
+                            Key: 'promoAssetStatus',
+                            Value: 'Failed'
+                        }
                     }
                     var ValidationResult = karate.call(ReUsableFeaturesPath + '/Methods/DynamoDB.feature@ValidateItemViaQuery', ValidationParams);
                     // karate.write(karate.pretty(ValidationResult.result.response), 'test-classes/' + ResultsPath + '/' + trailerId + '.json');
@@ -110,7 +150,9 @@ Scenario: MAIN PHASE Validate OAP
     * print validateOAPAssetDBTable
     # Then validateOAPAssetDBTable.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + karate.pretty(TrailerIDs)):karate.fail('[FAILED] ' + scenarioName + ': ' + karate.pretty(validateOAPAssetDBTable.message))
     Then validateOAPAssetDBTable.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + TrailerIDs):karate.fail('[FAILED] ' + scenarioName + ': ' + validateOAPAssetDBTable.message)
-    # --------------------------------------------------------------------------------    
+
+@ValidateIconikCollectionHeirarchy
+Scenario: MAIN PHASE 2 Check Iconik Collection Heirarchy
     *  def scenarioName = WochitStage + ' MAIN PHASE 2 Check Iconik Collection Heirarchy'
     Given def TrailerIDs = karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].id'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id')
     And def ValidateCollectionHeirarchyParams =
@@ -126,10 +168,11 @@ Scenario: MAIN PHASE Validate OAP
     # Then validateCollectionHeirarchy.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + karate.pretty(TrailerIDs)):karate.fail('[FAILED] ' + scenarioName + ': ' + karate.pretty(validateCollectionHeirarchy.result.message))
     Then validateCollectionHeirarchy.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + TrailerIDs):karate.fail('[FAILED] ' + scenarioName + ': ' + validateCollectionHeirarchy.result.message)
 
-    #--------------------------------------------------------------------------------
+@ValidateIconikPlaceholdersAndAssets
+Scenario: MAIN PHASE 2 Check Iconik Placeholder Existence
     *  def scenarioName = WochitStage + ' MAIN PHASE 2 Check Iconik Placeholder Existence'
     Given def TrailerIDs = karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].id'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id')
-    And def ExpectedType = WochitStage == 'beforeProcessing'?'PLACEHOLDER':'ASSET'
+    And def ExpectedType = WochitStage == 'preWochit' || WochitStage == 'metadataUpdate'?'PLACEHOLDER':'ASSET'
     And def ValidatePlaceholderParams =
         """
             {
@@ -144,4 +187,3 @@ Scenario: MAIN PHASE Validate OAP
     * print validateIconikPlaceholder.result
     # Then validateIconikPlaceholder.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + karate.pretty(TrailerIDs)):karate.fail('[FAILED] ' + scenarioName + ': ' + karate.pretty(validateIconikPlaceholder.result.message))
     Then validateIconikPlaceholder.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + TrailerIDs):karate.fail('[FAILED] ' + scenarioName + ': ' + validateIconikPlaceholder.result.message)
-    # --------------------------------------------------------------------------------

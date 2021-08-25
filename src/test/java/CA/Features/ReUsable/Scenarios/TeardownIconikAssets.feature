@@ -1,9 +1,8 @@
 @parallel=false
 Feature: Delete test assets after all the executions have finished
 
-@Teardown
 Scenario: Teardown: Delete Iconik Assets
-    * def scenarioName = WochitStage + ' TEARDOWN Delete Iconik Assets'
+    * def scenarioName = 'TEARDOWN Delete Iconik Assets'
     * def getAssets =
         """
             function(TrailerData) {
@@ -23,7 +22,7 @@ Scenario: Teardown: Delete Iconik Assets
                     } catch (e) {
                         karate.log('Failed to read ' + filePath + '! ' + e);
                     }
-                    karate.log(trailerIdAssetDBrecord)
+                    // karate.log(trailerIdAssetDBrecord)
                     if(isDeleteOutputOnly == true) {
                         var iconikAsset = karate.jsonPath(trailerIdAssetDBrecord, '$.iconikObjectIds.outputAssetId');
                         finalAssets.assetIDs.push(iconikAsset);

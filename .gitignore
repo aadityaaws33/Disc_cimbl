@@ -9,3 +9,4 @@ log/*
 target*
 THIS.log
 test.log
+RESULT.log

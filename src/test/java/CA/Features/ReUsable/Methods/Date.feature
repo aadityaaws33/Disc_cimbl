@@ -11,9 +11,9 @@ Scenario: Get Date in YYYY-MM-DD format with specified offset
     """
       function(delta) {
         var todaysDate = new Date();
-        var yyyy = todaysDate.getFullYear().toString();
-        var mm = (todaysDate.getMonth() + 1).toString();
-        var dd  = (todaysDate.getDate() + delta).toString();
+        var yyyy = todaysDate.getUTCFullYear().toString();
+        var mm = (todaysDate.getUTCMonth() + 1).toString();
+        var dd  = (todaysDate.getUTCDate() + delta).toString();
 
         var mmChars = mm.split('');
         var ddChars = dd.split('');

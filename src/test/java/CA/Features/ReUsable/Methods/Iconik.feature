@@ -392,7 +392,7 @@ Scenario: Validate Placeholders
                 ExpectedPlaceholderAssetData.id = expectedAssetID;
                 ExpectedPlaceholderAssetData.type = ExpectedType;
                 
-                if(WochitStage == 'beforeProcessing') {
+                if(WochitStage == 'preWochit' || WochitStage == 'metadataUpdate') {
                     ExpectedPlaceholderAssetData.is_online = '#ignore';
                     ExpectedPlaceholderAssetData.versions[0].is_online = '#ignore';
                 } else {
