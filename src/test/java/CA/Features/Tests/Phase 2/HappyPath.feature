@@ -21,6 +21,10 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>]
     * configure afterFeature =
         """
             function() {
+                if(karate.info.errorMessage == null) {
+                    storeData(TrailerIDs, 'trailers.json');
+                }
+
                 var teardownParams = {
                     ExpectedDataFileName: ExpectedDataFileName
                 }
@@ -40,8 +44,7 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>]
         | promo_generation_NO_prelaunch_combi.xml       | promo_generation_qa.json    | beforeProcessing    |  false              | 4000     |
         | promo_generation_FI_bundle_dp.xml             | promo_generation_qa.json    | beforeProcessing    |  false              | 5000     |
         | promo_generation_FI_launch_combi.xml          | promo_generation_qa.json    | beforeProcessing    |  false              | 6000     |
-        # SWEDEN IS NOT YET IMPLEMENTED FOR WOCHIT
-        # | promo_generation_SE_film_dp.xml               | promo_generation_qa.json    | beforeProcessing    |  false              | 7000     |
+        | promo_generation_SE_film_dp.xml               | promo_generation_qa.json    | beforeProcessing    |  false              | 7000     |
         # ------------------------------- After Wochit Processing ----------------------------------------------------------------------------
         | promo_generation_DK_generic_dp.xml            | promo_generation_qa.json    | afterProcessing     |  true               | 8000     |
         | promo_generation_DK_teaser_combi.xml          | promo_generation_qa.json    | afterProcessing     |  true               | 9000     |
@@ -49,6 +52,5 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>]
         | promo_generation_NO_prelaunch_combi.xml       | promo_generation_qa.json    | afterProcessing     |  true               | 11000    |
         | promo_generation_FI_bundle_dp.xml             | promo_generation_qa.json    | afterProcessing     |  true               | 12000    |
         | promo_generation_FI_launch_combi.xml          | promo_generation_qa.json    | afterProcessing     |  true               | 13000    |
-        # SWEDEN IS NOT YET IMPLEMENTED FOR WOCHIT 
-        # | promo_generation_SE_film_dp.xml               | promo_generation_qa.json    | afterProcessing     |  true              | 14000     |
+        | promo_generation_SE_film_dp.xml               | promo_generation_qa.json    | afterProcessing     |  true              | 14000     |
 # =>new scenario outline to check each time

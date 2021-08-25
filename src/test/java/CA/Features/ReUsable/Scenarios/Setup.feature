@@ -83,5 +83,4 @@ Scenario: Test Setup - Global Functions, Variables & Procedures
     * def TrailerIDs = ModifyXML == true?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].id'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id'):''
     * def TrailerNames = ModifyXML == true?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.*.outputFilename').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.outputFilename'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.*.outputFilename'):''
     * Pause(WaitTime)
-    * storeData(TrailerIDs, 'trailers.json')
     * karate.log('-- SETUP: successfully executed --')

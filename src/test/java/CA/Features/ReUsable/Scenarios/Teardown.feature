@@ -4,6 +4,7 @@ Scenario: Teardown
     * def Teardown = 
         """
             function() {
+
                 karate.log('-- TEARDOWN: S3 DELETE XML FROM INGEST --');
                 // Teardown. Delete uploaded S3 object: failed
                 var DeleteS3ObjectParams = {
