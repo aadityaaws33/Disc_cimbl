@@ -46,22 +46,20 @@ Scenario Outline: Teardown
     * configure afterScenario = 
         """
             function() {
-                
                 // Get All Trailer IDs from trailer.json
                 try {
                     var TrailerData = karate.read('classpath:CA/' + WochitStage + '_trailers.json');
                     var TrailerIDs = [];
                     karate.forEach(TrailerData, function(id) { TrailerIDs.push(id) });
-                } catch (e) {
-                    karate.log('[Teardown] Skipping ASSETDB & ICONIK Deletion - ' + e);
-                    karate.abort();
-                }
 
-                if(TrailerData.length < 1) {
-                    karate.log('[Teardown] No TrailerIDs for ' + WochitStage);
-                } else {
-                    deleteAssetDBRecords(TrailerData, TrailerIDs);
-                    deleteIconikAssets(TrailerData);                    
+                    if(TrailerData.length < 1) {
+                        karate.log('[Teardown] No TrailerIDs for ' + WochitStage);
+                    } else {
+                        deleteAssetDBRecords(TrailerData, TrailerIDs);
+                        deleteIconikAssets(TrailerData);                    
+                    }
+                } catch (e) {
+                    karate.log('[Teardown] Skipping ASSETDB & ICONIK Deletion - ' + e);                    
                 }
             }
         """

@@ -29,7 +29,8 @@ import com.intuit.karate.Runner;
 @RunWith(Karate.class)
 @KarateOptions(features = "classpath:CA")
 public class TestRunner {
-  
+  private static Results finalResults;
+
   @BeforeClass
   public static void beforeClass() {
       // skip 'callSingle' in karate-config.js
@@ -37,26 +38,30 @@ public class TestRunner {
  
   @AfterClass
   public static void afterClass() {
-      // skip 'callSingle' in karate-config.js
-      int envParallelThreads = 0;
-      try {
-        envParallelThreads =  Integer.parseInt(
-                                System.getenv("parallelThreads")
-                              );
-      } catch (NumberFormatException e) {
-        envParallelThreads = 4;
-      }
-  
-      System.out.println("Parallel Threads: " + envParallelThreads);
-  
-      // Results results = Runner.path("classpath:CA").hook(new ExecHook()).parallel(envParallelThreads);
-      System.setProperty("karate.options", "-t @Teardown");
-      Runner.path("classpath:CA").parallel(envParallelThreads);
+    // skip 'callSingle' in karate-config.js
+    int envParallelThreads = 0;
+    try {
+      envParallelThreads =  Integer.parseInt(
+                              System.getenv("parallelThreads")
+                            );
+    } catch (NumberFormatException e) {
+      envParallelThreads = 4;
+    }
+
+    System.out.println("Parallel Threads: " + envParallelThreads);
+
+    // Results results = Runner.path("classpath:CA").hook(new ExecHook()).parallel(envParallelThreads);
+    System.setProperty("karate.options", "-t @Teardown");
+    Runner.path("classpath:CA").parallel(envParallelThreads);
+
+    generateReport(finalResults.getReportDir());
+    assertTrue(finalResults.getErrorMessages(), finalResults.getFailCount() == 0);
+
+    System.out.print(finalResults.getErrorMessages());
   }  
   
 
   private static void generateReport(String karateOutputPath) {
-    System.out.println("THIS WENT INSIDE GENERATEREPORT");
     Collection<File> jsonFiles =
         FileUtils.listFiles(new File(karateOutputPath), new String[] {"json"}, true);
     List<String> jsonPaths = new ArrayList(jsonFiles.size());
@@ -83,9 +88,7 @@ public class TestRunner {
     System.out.println("Parallel Threads: " + envParallelThreads);
 
     // Results results = Runner.path("classpath:CA").hook(new ExecHook()).parallel(envParallelThreads);
-    Results results = Runner.path("classpath:CA").parallel(envParallelThreads);
-    generateReport(results.getReportDir());
-    assertTrue(results.getErrorMessages(), results.getFailCount() == 0);
+    finalResults = Runner.path("classpath:CA").parallel(envParallelThreads);
   }
 
  
