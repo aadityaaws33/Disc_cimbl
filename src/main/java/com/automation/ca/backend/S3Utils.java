@@ -3,6 +3,7 @@ package com.automation.ca.backend;
 import java.util.Date;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
@@ -20,9 +21,16 @@ import com.amazonaws.AmazonServiceException;
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.retry.PredefinedRetryPolicies;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.FileNotFoundException;
 
 public class S3Utils {
@@ -157,19 +165,17 @@ public class S3Utils {
 
         var output = "Downloaded successfully.";
         try {
-            S3Object o = s3.getObject(BucketName, ObjectKey);
-            S3ObjectInputStream s3is = o.getObjectContent();
-
             OutputDir.mkdirs();
-            FileOutputStream fos = new FileOutputStream(OutputPath);
-
-            byte[] read_buf = new byte[1024];
-            int read_len = 0;
-            while ((read_len = s3is.read(read_buf)) > 0) {
-                fos.write(read_buf, 0, read_len);
+            S3Object o = s3.getObject(BucketName, ObjectKey);
+            BufferedReader in = new BufferedReader(new InputStreamReader(o.getObjectContent()));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(OutputPath));
+            String readLine;
+            while((readLine = in.readLine()) != null) {
+                writer.append(readLine);
+                writer.newLine();
             }
-            s3is.close();
-            fos.close();
+            writer.close();
+
         } catch (AmazonServiceException e) {
             System.err.println(e.getErrorMessage());
             output = e.getErrorMessage();

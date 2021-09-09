@@ -8,7 +8,8 @@
     <packaging>jar</packaging>
  
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> -->
+        <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
         <java.version>11</java.version>
         <maven.compiler.version>3.8.0</maven.compiler.version>
         <karate.apache.version>0.9.6</karate.apache.version>
@@ -125,7 +126,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.10</version>
                 <configuration>
-                    <argLine>-Dfile.encoding=UTF-8 -Xms2G -Xmx6G</argLine>
+                    <!-- <argLine>-Dfile.encoding=UTF-8 -Xms2G -Xmx6G</argLine> -->
+                    <argLine>-Dfile.encoding=ISO-8859-1 -Xms2G -Xmx6G</argLine>
+                    <encoding>ISO-8859-1</encoding>
                 </configuration>
             </plugin>
             <plugin>
@@ -133,7 +136,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven.compiler.version}</version>
                 <configuration>
-                    <encoding>UTF-8</encoding>
+                    <!-- <encoding>UTF-8</encoding> -->
+                    <encoding>ISO-8859-1</encoding>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                     <compilerArgument>-Werror</compilerArgument>

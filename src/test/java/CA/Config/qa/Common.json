@@ -3,7 +3,7 @@
     "S3bucket": {
         "TestAssets" : {
             "Name": "ca-qa-dev",
-            "Key": "OAP/Development",
+            "Key": "OAP",
             "Region": "APAC"
         },
         "OAPHotfolder": {

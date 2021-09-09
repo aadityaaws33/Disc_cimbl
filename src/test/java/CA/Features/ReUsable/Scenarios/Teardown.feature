@@ -2,8 +2,9 @@
 Feature: Teardown
 
 Scenario Outline: Teardown
-    * def Pause = function(pause){ karate.log('Pausing for ' + pause + 'ms.'); java.lang.Thread.sleep(pause) }
+    * configure report = false
     * configure abortedStepsShouldPass = true
+    * def Pause = function(pause){ karate.log('Pausing for ' + pause + 'ms.'); java.lang.Thread.sleep(pause) }
     * def GlobalVarsParams =
         """
             {

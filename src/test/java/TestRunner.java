@@ -3,7 +3,7 @@
 import static org.testng.AssertJUnit.assertTrue;
 
 import java.io.File;
-// import java.lang.System;
+import java.lang.System;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -33,12 +33,12 @@ public class TestRunner {
 
   @BeforeClass
   public static void beforeClass() {
+    System.setProperty("file.encoding","ISO-8859-1");
       // skip 'callSingle' in karate-config.js
   } 
  
   @AfterClass
   public static void afterClass() {
-    // skip 'callSingle' in karate-config.js
     int envParallelThreads = 0;
     try {
       envParallelThreads =  Integer.parseInt(
