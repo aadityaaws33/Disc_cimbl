@@ -50,7 +50,6 @@ public class TestRunner {
 
     System.out.println("Parallel Threads: " + envParallelThreads);
 
-    // Results results = Runner.path("classpath:CA").hook(new ExecHook()).parallel(envParallelThreads);
     System.setProperty("karate.options", "-t @Teardown");
     Runner.path("classpath:CA").parallel(envParallelThreads);
 
@@ -73,7 +72,6 @@ public class TestRunner {
 
   @Test
   public void testParallel() {
-    System.out.println("THIS WENT INSIDE TESTPARALLEL");
     //Read environment variable "parallelThreads"
     //Defaults to 4 parallel threads if not set
     int envParallelThreads = 0;

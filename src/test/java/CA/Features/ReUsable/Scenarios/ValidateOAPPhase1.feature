@@ -64,7 +64,7 @@ Scenario: PREPARATION: Upload file to S3
 
 Scenario: MAIN PHASE 1: Validate OAP Datasource Table Record
     * def scenarioName = 'MAIN PHASE 1 Validate OAP DataSource Table Record'
-    * def ExpectedOAPDataSourceRecord = read(TestDataPath + '/OAPDataSource/' + TargetEnv + '/' + EXPECTEDRESPONSEFILE)
+    * def ExpectedOAPDataSourceRecord = read(resourcesPath + '/OAPDataSource/' + TargetEnv + '/' + EXPECTEDRESPONSEFILE)
     Given def ValidationParams =
         """
             {

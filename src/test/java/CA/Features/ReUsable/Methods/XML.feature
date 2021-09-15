@@ -16,19 +16,36 @@ Scenario:
                 for(var index in TestXMLData['trailers']['_']['trailer']) {
                     var thisStage = WochitStage;
 
-                    if(WochitStage == 'postWochit') {
-                        TestXMLData['trailers']['_']['trailer'][index]['@']['id'] = TestXMLData['trailers']['_']['trailer'][index]['@']['id'] + '01';
-                    } else if(WochitStage == 'metadataUpdate') {
-                        TestXMLData['trailers']['_']['trailer'][index]['_']['disclaimer'] = WochitStage;
-                        thisStage = 'preWochit';
+                    // Set expected stage
+                    var expectedStage = WochitStage;
+                    if(WochitStage == 'metadataUpdate' || WochitStage == 'versionTypeUpdate') {
+                        expectedStage = 'preWochit';
+                    } else if(WochitStage == 'rerender' || WochitStage == 'versionTypeDelete') {
+                        expectedStage = 'postWochit';
                     }
-                    TestXMLData['trailers']['_']['trailer'][index]['_']['associatedFiles']['outputFilename'] = RandomString.result + '_' + thisStage + '_' + TestXMLData['trailers']['_']['trailer'][index]['_']['associatedFiles']['outputFilename'];
+
+                    // Stage-specific modifications
+                    if(WochitStage == 'postWochit' || WochitStage == 'rerender' || WochitStage == 'versionTypeDelete') {
+                        TestXMLData['trailers']['_']['trailer'][index]['@']['id'] = TestXMLData['trailers']['_']['trailer'][index]['@']['id'] + '01';
+                    } 
+                    if(WochitStage == 'metadataUpdate' || WochitStage == 'rerender') {
+                        TestXMLData['trailers']['_']['trailer'][index]['_']['disclaimer'] = WochitStage;
+                    } 
+                    if(WochitStage == 'versionTypeUpdate' || WochitStage == 'versionTypeDelete') {
+                        TestXMLData['trailers']['_']['trailer'][index]['_']['versionType'] = 'TEST';
+                    }
+
+
+                    // Common modifications
+                    TestXMLData['trailers']['_']['trailer'][index]['_']['associatedFiles']['outputFilename'] = RandomString.result + '_' + expectedStage + '_' + TestXMLData['trailers']['_']['trailer'][index]['_']['associatedFiles']['outputFilename'];
                     TestXMLData['trailers']['_']['trailer'][index]['@']['id'] = RandomString.result + TestXMLData['trailers']['_']['trailer'][index]['@']['id'];
-                    TestXMLData['trailers']['_']['trailer'][index]['_']['showTitle'] = TestXMLData['trailers']['_']['trailer'][index]['_']['showTitle'] + ' ' + thisStage;
+                    TestXMLData['trailers']['_']['trailer'][index]['_']['showTitle'] = TestXMLData['trailers']['_']['trailer'][index]['_']['showTitle'] + ' ' + expectedStage;
                      if(TestXMLData['trailers']['_']['trailer'][index]['_']['associatedFiles']['sponsorTail'] != null) {
-                         TestXMLData['trailers']['_']['trailer'][index]['_']['associatedFiles']['sponsorTail'] = thisStage + '_' + TestXMLData['trailers']['_']['trailer'][index]['_']['associatedFiles']['sponsorTail']
+                         TestXMLData['trailers']['_']['trailer'][index]['_']['associatedFiles']['sponsorTail'] = expectedStage + '_' + TestXMLData['trailers']['_']['trailer'][index]['_']['associatedFiles']['sponsorTail']
                      }
                     // karate.log(TestXMLData['trailers']['_']['trailer'][index]['@']['id'].replace(RandomString.result, '')); 
+
+                    // Environment-specific modifications
                     if(TargetEnv == 'dev' || TargetEnv == 'qa') {
                         TestXMLData['trailers']['@']['username'] = TestUser;
                     }

@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Denmark",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "4551337_15",
+  "type": "Shows",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "DK0000000000004551337015",
+  "duration": "25",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Kanal 5 Danmark",
+  "comments": "Pending Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "k5_DK0000000000004551337015_Coming_Soon_25.wav",
+    "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'DK0000000000004551337015_X_k5_QA_TEST_AUTOMATION_DENMARK_s01_teaser_30_+X5432_comingsoon.mxf')",
+    "titleArtFileName": "QA_TEST_AUTOMATION_DENMARK_s01_titleart.png",
+    "sponsorFileName": null,
+    "sourceVideoFileName": "k5_DK0000000000004551337015_25.mxf",
+    "keyArtFileName": "QA_TEST_AUTOMATION_DENMARK_s01_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S01",
+  "wochitVideoId": null,
+  "userName": "#(TestUser)",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "#('QA TEST AUTOMATION DENMARK ' + WochitStage)",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Coming_Soon",
+      "branding": "original",
+      "tag": "kommer snart",
+      "dPlusCta": null,
+      "time": null,
+      "title": "X k5_QA TEST AUTOMATION DENMARK_s01_teaser_30_+X5432_comingsoon",
+      "brand": null,
+      "disclaimer": "Terms & conditions apply."
+    }
+  },
+  "subType": "teaser",
+  "trailerId": "#(RandomString.result + '015')",
+  "sponsorFileStatus": "Not Required"
+}

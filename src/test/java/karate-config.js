@@ -7,9 +7,11 @@ function() {
     
     // Environment configurations
     var targetEnv = karate.properties['karate.targetEnv'];
+    var testUser = java.lang.System.getenv('TestUser');
     
     var AdminEmail = java.lang.System.getenv('IconikAdminEmail'); 
     var AdminPassword = java.lang.System.getenv('IconikAdminPassword'); 
+
     if(!AdminEmail || !AdminPassword) {
       karate.fail('[FAILED] No AdminEmail/AdminPassword acquired! Please check your environment variables!');
     }
@@ -38,6 +40,7 @@ function() {
     var config = {
       TargetEnv: targetEnv,
       TargetTag: targetTag,
+      TestUser: testUser,
       EnvConfig: envConfig,
     };
     

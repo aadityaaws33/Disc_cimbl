@@ -368,7 +368,7 @@ Scenario: Get AssetIDs from AssetDB by TrailerID
         """
     * def result = getAssetIDsByTrailer(TrailerIDs)
 
-@ValidatePlaceholders
+@ValidateIconikPlaceholders
 Scenario: Validate Placeholders
   * def execute =
     """
@@ -384,33 +384,45 @@ Scenario: Validate Placeholders
                 var expectedAssetID = expectedIconikPlaceholderAssets[j]['assetId'];
                 var expectedAssetName = expectedIconikPlaceholderAssets[j]['assetName'];
                 var expectedAssetType = expectedIconikPlaceholderAssets[j]['assetType'];
+                
 
                 var thisURL = IconikAssetDataAPIUrl + '/assets/' + expectedAssetID;
-                var ExpectedPlaceholderAssetData = read(TestDataPath + '/Iconik/ExpectedPlaceholderAssetData.json')
+                var ExpectedPlaceholderAssetData = read(resourcesPath + '/Iconik/ExpectedPlaceholderAssetData.json')
                 ExpectedPlaceholderAssetData.title = expectedAssetName;
                 ExpectedPlaceholderAssetData.external_id = expectedAssetName;
-                ExpectedPlaceholderAssetData.id = expectedAssetID;
-                ExpectedPlaceholderAssetData.type = ExpectedType;             
-
-                if(WochitStage == 'preWochit' || WochitStage == 'metadataUpdate') {
+                ExpectedPlaceholderAssetData.id = expectedAssetID;  
+               
+                // Environment-specific modifications to expected record
+                // QA_AUTOMATION_USER
+                //if(TargetEnv == 'dev' || TargetEnv == 'qa') {
+                if(TestUser == 'QA_AUTOMATION_USER') {
                     ExpectedPlaceholderAssetData.is_online = '#ignore';
                     ExpectedPlaceholderAssetData.versions[0].is_online = '#ignore';
+                    ExpectedPlaceholderAssetData.type = '#ignore';
                 } else {
-                    ExpectedPlaceholderAssetData.is_online = true;
-                    ExpectedPlaceholderAssetData.versions[0].is_online = true;
+                    if(WochitStage == 'preWochit' || WochitStage == 'metadataUpdate' || WochitStage == 'versionTypeUpdate' || WochitStage == 'versionTypeDelete') {
+                        ExpectedPlaceholderAssetData.type = 'PLACEHOLDER';
+                    } else {
+                        ExpectedPlaceholderAssetData.type = 'ASSET';
+                    }
+
+                    if(WochitStage == 'versionTypeDelete' && expectedAssetType == 'VIDEO') {
+                        ExpectedPlaceholderAssetData.type = 'ASSET';
+                    }
+
+                    if(WochitStage == 'preWochit' || WochitStage == 'metadataUpdate' || WochitStage == 'versionTypeUpdate' || WochitStage == 'versionTypeDelete') {
+                        ExpectedPlaceholderAssetData.is_online = '#ignore';
+                        ExpectedPlaceholderAssetData.versions[0].is_online = '#ignore';
+                    } else {
+                        ExpectedPlaceholderAssetData.is_online = true;
+                        ExpectedPlaceholderAssetData.versions[0].is_online = true;
+                    }
                 }
                 var ValidatePlaceholderExistsParams = {
                     GetAssetDataURL: thisURL,
                     ExpectedAssetData: ExpectedPlaceholderAssetData
                 }
 
-                // Environment-specific modifications to expected record
-                // QA_AUTOMATION_USER
-                if(TargetEnv == 'dev' || TargetEnv == 'qa') {
-                    ExpectedPlaceholderAssetData.is_online = '#ignore';
-                    ExpectedPlaceholderAssetData.versions[0].is_online = '#ignore';
-                    ExpectedPlaceholderAssetData.type = '#ignore';
-                }
                 var thisResult = karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@ValidatePlaceholderExists', ValidatePlaceholderExistsParams);
                 if(!thisResult.result.pass) {
                     if(thisResult.result.path) {
@@ -462,7 +474,7 @@ Scenario: Search and delete all Iconik assets which contains a particular patter
                 var searchedAssets = [];
 
                 for(var i in SearchKeywords) {
-                    var searchQuery = karate.read(TestDataPath + '/Iconik/GETSearchRequest.json')
+                    var searchQuery = karate.read(resourcesPath + '/Iconik/GETSearchRequest.json')
                     searchQuery.filter.terms = karate.toJson(filterTerms);
                     searchQuery.include_fields = ['id']
                     searchQuery.query = SearchKeywords[i];
@@ -520,7 +532,7 @@ Scenario: Setup: Check Iconik Assets Before Running
                     }
                 ]
                 for(var i in SearchKeywords){
-                    var searchQuery = karate.read(TestDataPath + '/Iconik/GETSearchRequest.json');
+                    var searchQuery = karate.read(resourcesPath + '/Iconik/GETSearchRequest.json');
                     searchQuery.filter.terms = karate.toJson(filterTerms);
                     searchQuery.include_fields = ['id'];
                     searchQuery.query = SearchKeywords[i];

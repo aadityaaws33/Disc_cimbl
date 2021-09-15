@@ -13,7 +13,7 @@
         <java.version>11</java.version>
         <maven.compiler.version>3.8.0</maven.compiler.version>
         <karate.apache.version>0.9.6</karate.apache.version>
-        <karate.junit.version>1.1.0</karate.junit.version>
+        <karate.junit.version>0.9.6</karate.junit.version>
         <junit.version>4.13.2</junit.version>
         <cucumber.reporting.version>5.3.0</cucumber.reporting.version>
     </properties>    

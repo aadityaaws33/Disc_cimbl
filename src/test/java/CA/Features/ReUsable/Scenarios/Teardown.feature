@@ -65,7 +65,10 @@ Scenario Outline: Teardown
             }
         """
     Examples:
-        | STAGE          |
-        | preWochit      |
-        | postWochit     |
-        | metadataUpdate |
+        | STAGE             |
+        | preWochit         |
+        | postWochit        |
+        | metadataUpdate    |
+        | rerender          |
+        | versionTypeUpdate |
+        | versionTypeDelete |

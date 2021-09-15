@@ -34,7 +34,7 @@ Scenario: MAIN PHASE 1 Upload File To S3
 @ValidateOAPDataSourceDBRecords
 Scenario: MAIN PHASE 1 Validate OAP DataSource Table Record
     *  def scenarioName = WochitStage + ' MAIN PHASE 1 Validate OAP DataSource Table Record'
-    * def ExpectedOAPDataSourceRecord = read(TestDataPath + '/OAPDataSource/' + TargetEnv + '/' + EXPECTEDRESPONSEFILE)
+    * def ExpectedOAPDataSourceRecord = read(resourcesPath + '/OAPDataSource/' + TargetEnv + '/' + EXPECTEDRESPONSEFILE)
     Given def ValidationParams =
         """
             {
@@ -86,31 +86,53 @@ Scenario: MAIN PHASE 2 Validate OAP AssetDB Table Records
 
                     // Set expected stage
                     var expectedStage = stage;
-                    if(stage == 'metadataUpdate') {
-                        expectedStage = 'preWochit'
+                    if(stage == 'metadataUpdate' || stage == 'versionTypeUpdate') {
+                        expectedStage = 'preWochit';
+                    } else if(stage == 'rerender' || stage == 'versionTypeDelete') {
+                        expectedStage = 'postWochit';
                     }
 
-                    karate.log('Expected AssetDB Record: ' + TestDataPath + '/OAPAssetDB/' + expectedStage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
-                    var ExpectedOAPAssetDBRecord = karate.read(TestDataPath + '/OAPAssetDB/' + expectedStage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
+                    karate.log('Expected AssetDB Record: ' + resourcesPath + '/OAPAssetDB/' + expectedStage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
+                    var ExpectedOAPAssetDBRecord = karate.read(resourcesPath + '/OAPAssetDB/' + expectedStage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
 
-                    // Stage-specific modifications to expected record
+                    // Stage-specific modifications
                     if(stage == 'metadataUpdate') {
                         ExpectedOAPAssetDBRecord.xmlMetadata.data.disclaimer = stage;
                         ExpectedOAPAssetDBRecord.isMetadataUpdateRequired = true;
                         // ExpectedOAPAssetDBRecord.promoXMLName = ExpectedOAPAssetDBRecord.promoXMLName.replace(stage, expectedStage);
-                        ExpectedOAPAssetDBRecord.showTitle = ExpectedOAPAssetDBRecord.showTitle.replace(stage, expectedStage);
-                        ExpectedOAPAssetDBRecord.associatedFiles.outputFilename = ExpectedOAPAssetDBRecord.associatedFiles.outputFilename.replace('metadataUpdate', expectedStage);
-                        if(ExpectedOAPAssetDBRecord.associatedFiles.sponsorFileName != null) {
-                            ExpectedOAPAssetDBRecord.associatedFiles.sponsorFileName = ExpectedOAPAssetDBRecord.associatedFiles.sponsorFileName.replace('metadataUpdate', expectedStage);
-                        }
+                    } else if(stage == 'versionTypeUpdate') {
+                        ExpectedOAPAssetDBRecord.xmlMetadata.data.versionType = 'TEST';
+                        ExpectedOAPAssetDBRecord.comments = '#? _ == "New Version Type - Pending Upload" || _ == "New Version Type - Pending Asset Upload"';
+                    } else if(stage == 'rerender') {
+                        ExpectedOAPAssetDBRecord.xmlMetadata.data.disclaimer = stage;
+                        ExpectedOAPAssetDBRecord.isMetadataUpdateRequired = true;
+                        // ExpectedOAPAssetDBRecord.promoXMLName = ExpectedOAPAssetDBRecord.promoXMLName.replace(stage, expectedStage);
+                    } else if(stage == 'versionTypeDelete') {
+                        ExpectedOAPAssetDBRecord.xmlMetadata.data.versionType = 'TEST';
+                        ExpectedOAPAssetDBRecord.comments = 'New Version Type - Pending Audio Upload';
+                        ExpectedOAPAssetDBRecord.sourceAudioFileStatus = 'Not Available';
+                        ExpectedOAPAssetDBRecord.promoAssetStatus = 'Pending Upload';
+                        ExpectedOAPAssetDBRecord.wochitRenditionStatus = 'Not Started';
+                        ExpectedOAPAssetDBRecord.wochitVideoId = null;
+                        ExpectedOAPAssetDBRecord.outputFileStatus = 'Not Available';
+                    }
+
+                    // Common modifications
+                    ExpectedOAPAssetDBRecord.showTitle = ExpectedOAPAssetDBRecord.showTitle.replace(stage, expectedStage);
+                    ExpectedOAPAssetDBRecord.associatedFiles.outputFilename = ExpectedOAPAssetDBRecord.associatedFiles.outputFilename.replace(stage, expectedStage);
+                    if(ExpectedOAPAssetDBRecord.associatedFiles.sponsorFileName != null) {
+                        ExpectedOAPAssetDBRecord.associatedFiles.sponsorFileName = ExpectedOAPAssetDBRecord.associatedFiles.sponsorFileName.replace(stage, expectedStage);
                     }
 
                     // Environment-specific modifications to expected record
                     // QA_AUTOMATION_USER
-                    if(TargetEnv == 'dev' || TargetEnv == 'qa') {
-                        ExpectedOAPAssetDBRecord.promoAssetStatus = 'Processing';
-                        ExpectedOAPAssetDBRecord.wochitRenditionStatus = 'Processing';
-                        ExpectedOAPAssetDBRecord.outputFileStatus = 'Not Available';
+                    if(stage == 'postWochit' || stage == 'rerender') {
+                        //if(TargetEnv == 'dev' || TargetEnv == 'qa') {
+                        if(TestUser == 'QA_AUTOMATION_USER') {
+                            ExpectedOAPAssetDBRecord.promoAssetStatus = 'Processing';
+                            ExpectedOAPAssetDBRecord.wochitRenditionStatus = 'Processing';
+                            ExpectedOAPAssetDBRecord.outputFileStatus = 'Not Available';
+                        }
                     }
 
                     var ValidationParams = {
@@ -183,18 +205,16 @@ Scenario: MAIN PHASE 2 Check Iconik Collection Heirarchy
 Scenario: MAIN PHASE 2 Check Iconik Placeholder Existence
     *  def scenarioName = WochitStage + ' MAIN PHASE 2 Check Iconik Placeholder Existence'
     Given def TrailerIDs = karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].id'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id')
-    And def ExpectedType = WochitStage == 'preWochit' || WochitStage == 'metadataUpdate'?'PLACEHOLDER':'ASSET'
     And def ValidatePlaceholderParams =
         """
             {
                 Retries: 120,
                 RetryDuration: 10000,
                 TrailerIDs: #(TrailerIDs),
-                ExpectedType: #(ExpectedType),
                 WochitStage: #(WochitStage)
             }
         """
-    When def validateIconikPlaceholder = call read(ReUsableFeaturesPath + '/Methods/Iconik.feature@ValidatePlaceholders') ValidatePlaceholderParams
+    When def validateIconikPlaceholder = call read(ReUsableFeaturesPath + '/Methods/Iconik.feature@ValidateIconikPlaceholders') ValidatePlaceholderParams
     * print validateIconikPlaceholder.result
     # Then validateIconikPlaceholder.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + karate.pretty(TrailerIDs)):karate.fail('[FAILED] ' + scenarioName + ': ' + karate.pretty(validateIconikPlaceholder.result.message))
     Then validateIconikPlaceholder.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + TrailerIDs):karate.fail('[FAILED] ' + scenarioName + ': ' + validateIconikPlaceholder.result.message)

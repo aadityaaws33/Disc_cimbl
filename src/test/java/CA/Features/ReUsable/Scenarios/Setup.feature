@@ -53,7 +53,6 @@ Scenario: Test Setup - Global Functions, Variables & Procedures
     # DO NOT EXECUTE IF ONLY DOING PHASE1!
     * karate.log('-- SETUP: Modify XML to make it unique --')
     * xml XMLNodes = ModifyXML == true?karate.call(ReUsableFeaturesPath + '/Methods/XML.feature@modifyXML', {TestXMLPath: TestXMLPath}).result:'<xml></xml>'
-    * karate.log("JESSNAR: " + karate.prettyXml(XMLNodes))
     * if(ModifyXML == true) {karate.write(karate.prettyXml(XMLNodes), TestXMLPath.replace('classpath:target/', ''))}
     * def TrailerIDs = ModifyXML == true?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].id'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id'):''
     * def TrailerNames = ModifyXML == true?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.*.outputFilename').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.outputFilename'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.*.outputFilename'):''

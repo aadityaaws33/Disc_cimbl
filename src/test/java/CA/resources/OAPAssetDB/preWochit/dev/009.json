@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Finland",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "4551337_9",
+  "type": "Shows",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": null,
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI0000000000004551337009",
+  "duration": "15",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "TV5",
+  "comments": "Pending Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "tv5_FI0000000000004551337009_Date_15.wav",
+    "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'FI0000000000004551337009_X_tv5_QA_TEST_AUTOMATION_FINLAND_s18_launch_15_newseason_27may.mxf')",
+    "titleArtFileName": "QA_TEST_AUTOMATION_FINLAND_s18_titleart.png",
+    "sponsorFileName": null,
+    "sourceVideoFileName": "tv5_FI0000000000004551337009_15.mxf",
+    "keyArtFileName": "QA_TEST_AUTOMATION_FINLAND_s18_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S18",
+  "wochitVideoId": null,
+  "userName": "#(TestUser)",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "#('QA TEST AUTOMATION FINLAND ' + WochitStage)",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Date",
+      "branding": "original",
+      "tag": "27. toukokuuta",
+      "dPlusCta": null,
+      "time": null,
+      "title": "X tv5_QA TEST AUTOMATION FINLAND_s18_launch_15_newseason_27may",
+      "brand": "uusi kausi",
+      "disclaimer": "Terms and conditions apply."
+    }
+  },
+  "subType": "launch",
+  "trailerId": "#(RandomString.result + '009')",
+  "sponsorFileStatus": "Not Required"
+}

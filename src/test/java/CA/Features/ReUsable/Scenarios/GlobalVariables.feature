@@ -5,7 +5,7 @@ Scenario: Global Variables
     
     # ---- Paths ----
     * def ReUsableFeaturesPath = 'classpath:CA/Features/ReUsable'
-    * def TestDataPath = 'classpath:CA/TestData'
+    * def resourcesPath = 'classpath:CA/resources'
     * def DownloadsPath = 'target/test-classes/CA/Downloads'
     * def ResultsPath = 'CA/Results'
     # ---- Testing Variables ----
@@ -15,9 +15,11 @@ Scenario: Global Variables
     * def ExpectedDataFileName = DATAFILENAME.replace('.xml', '-' + TargetEnv + '-' + RandomString.result + '-' + WochitStage +'-AUTO.xml')
     * def TestXMLPath = 'classpath:' + DownloadsPath + '/' + ExpectedDataFileName
     # ---- Config Variables----
-    * def TestUser = EnvConfig['Common']['TestUser']
+    # * def TestUser = EnvConfig['Common']['TestUser']
     * def AWSRegion = EnvConfig['Common']['AWSRegion']
     * def TestAssetsS3 = EnvConfig['Common']['S3bucket']['TestAssets']
+    * def WochitRenditionTableName = EnvConfig['Common']['WochitRendition']['TableName']
+    * def WochitRenditionTableGSI = EnvConfig['Common']['WochitRendition']['GSI']
     * def OAPHotfolderS3 = EnvConfig['Common']['S3bucket']['OAPHotfolder']
     * def OAPDataSourceTableName = EnvConfig['Common']['DataSource']['TableName']
     * def OAPDataSourceTableGSI = EnvConfig['Common']['DataSource']['GSI']

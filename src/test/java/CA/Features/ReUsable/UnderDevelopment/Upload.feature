@@ -26,7 +26,7 @@ Background:
             function() {
                 for(var index in TrailerIDs) {
                     trailerId = TrailerIDs[index];
-                    var ExpectedOAPAssetDBRecord = karate.read(TestDataPath + '/OAPAssetDB/' + stage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
+                    var ExpectedOAPAssetDBRecord = karate.read(resourcesPath + '/OAPAssetDB/' + stage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
                     var ValidationParams = {
                         Param_TableName: OAPAssetDBTableName,
                         Param_QueryInfoList: [
@@ -51,7 +51,7 @@ Background:
     * call this
 
 
-@WIP
+
 Scenario: MAIN PHASE 2 Upload Assets to Iconik Placeholders
     * def scenarioName = 'MAIN PHASE 2 Upload Assets to Iconik Placeholders'
     * def GetAssetDetailsByTrailerIDsParams =
