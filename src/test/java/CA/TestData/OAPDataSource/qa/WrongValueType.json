@@ -1,5 +1,5 @@
 {
-    "comments": "Invalid Format Error: Element 'duration': 'Fifteen' is not a valid value of the atomic type 'xs:byte'.\n,Error: Element 'seasonNumber': 'Eighteen' is not a valid value of the atomic type 'xs:byte'.",
+    "comments": "Invalid Format. /trailers/trailer/0/seasonNumber must be number",
     "createdAt": "#notnull",
     "createdBy": "#notnull",
     "dataFileName": "#(ExpectedDataFileName)",
@@ -7,11 +7,11 @@
     "dataSourceStatus": "Failed",
     "errors": {
         "code": "OAP-201",
-        "errorMessage": "Invalid Format Error: Element 'duration': 'Fifteen' is not a valid value of the atomic type 'xs:byte'.\n,Error: Element 'seasonNumber': 'Eighteen' is not a valid value of the atomic type 'xs:byte'."
+        "errorMessage": "Invalid Format. /trailers/trailer/0/seasonNumber must be number"
     },
     "filePath": "#(OAPHotfolderS3.Key + '/' + ExpectedDataFileName)",
     "ID": "#notnull",
     "modifiedAt": "#notnull",
     "modifiedBy": "#notnull",
-    "country": null
+    "country": "Denmark"
 }

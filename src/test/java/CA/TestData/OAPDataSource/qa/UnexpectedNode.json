@@ -1,5 +1,5 @@
 {
-    "comments": "Invalid Format Error: Element 'ThisIsAnUnexpectedNode': This element is not expected.",
+    "comments": "Invalid Format. must not have additional tag ThisIsAnUnexpectedNode",
     "createdAt": "#notnull",
     "createdBy": "#notnull",
     "dataFileName": "#(ExpectedDataFileName)",
@@ -7,11 +7,11 @@
     "dataSourceStatus": "Failed",
     "errors": {
         "code": "OAP-201",
-        "errorMessage": "Invalid Format Error: Element 'ThisIsAnUnexpectedNode': This element is not expected."
+        "errorMessage": "Invalid Format. must not have additional tag ThisIsAnUnexpectedNode"
     },
     "filePath": "#(OAPHotfolderS3.Key + '/' + ExpectedDataFileName)",
     "ID": "#notnull",
     "modifiedAt": "#notnull",
     "modifiedBy": "#notnull",
-    "country": null
+    "country": "Denmark"
 }

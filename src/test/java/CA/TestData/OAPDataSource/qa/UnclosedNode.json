@@ -1,5 +1,5 @@
 {
-    "comments": "Invalid Format Error: Premature end of data in tag trailers line 2",
+    "comments": "Invalid Format. Error: Unexpected close tag\nLine: 74\nColumn: 11\nChar: >",
     "createdAt": "#notnull",
     "createdBy": "#notnull",
     "dataFileName": "#(ExpectedDataFileName)",
@@ -7,7 +7,7 @@
     "dataSourceStatus": "Failed",
     "errors": {
         "code": "OAP-201",
-        "errorMessage": "Invalid Format Error: Premature end of data in tag trailers line 2"
+        "errorMessage": "Invalid Format. Error: Unexpected close tag\nLine: 74\nColumn: 11\nChar: >"
     },
     "filePath": "#(OAPHotfolderS3.Key + '/' + ExpectedDataFileName)",
     "ID": "#notnull",
