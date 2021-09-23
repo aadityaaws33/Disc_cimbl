@@ -24,12 +24,12 @@
   "promoAssetStatus": "Pending Upload",
   "modifiedBy": "#notnull",
   "promotedChannel": "TV5",
-  "comments": "Pending Upload",
+  "comments": "Pending Asset Upload",
   "associatedFiles": {
     "sourceAudioFileName": "tv5_FI0000000000004551337009_Date_15.wav",
     "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'FI0000000000004551337009_X_tv5_QA_TEST_AUTOMATION_FINLAND_s18_launch_15_newseason_27may.mxf')",
     "titleArtFileName": "QA_TEST_AUTOMATION_FINLAND_s18_titleart.png",
-    "sponsorFileName": "",
+    "sponsorFileName": null,
     "sourceVideoFileName": "tv5_FI0000000000004551337009_15.mxf",
     "keyArtFileName": "QA_TEST_AUTOMATION_FINLAND_s18_image.jpg"
   },
@@ -37,7 +37,7 @@
   "wochitRenditionStatus": "Not Started",
   "seasonNumber": "S18",
   "wochitVideoId": null,
-  "userName": "Peter Rothoff Hojholt",
+  "userName": "#(TestUser)",
   "sourceVideoFileStatus": "Not Available",
   "createdBy": "#notnull",
   "showTitle": "#('QA TEST AUTOMATION FINLAND ' + WochitStage)",

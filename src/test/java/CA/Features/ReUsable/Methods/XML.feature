@@ -15,6 +15,7 @@ Scenario:
             function(TestXMLData, WochitStage) {
                 for(var index in TestXMLData['trailers']['_']['trailer']) {
                     var thisStage = WochitStage;
+
                     if(WochitStage == 'postWochit') {
                         TestXMLData['trailers']['_']['trailer'][index]['@']['id'] = TestXMLData['trailers']['_']['trailer'][index]['@']['id'] + '01';
                     } else if(WochitStage == 'metadataUpdate') {
@@ -28,7 +29,9 @@ Scenario:
                          TestXMLData['trailers']['_']['trailer'][index]['_']['associatedFiles']['sponsorTail'] = thisStage + '_' + TestXMLData['trailers']['_']['trailer'][index]['_']['associatedFiles']['sponsorTail']
                      }
                     // karate.log(TestXMLData['trailers']['_']['trailer'][index]['@']['id'].replace(RandomString.result, '')); 
-
+                    if(TargetEnv == 'dev' || TargetEnv == 'qa') {
+                        TestXMLData['trailers']['@']['username'] = TestUser;
+                    }
                 }
                 return TestXMLData;
             }

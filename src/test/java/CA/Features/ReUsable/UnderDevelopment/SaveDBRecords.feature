@@ -95,7 +95,7 @@ Scenario: MAIN PHASE 2: Save AssetDB Records
                         if(WochitStage == 'preWochit') {
                             if(
                                 iconikObjectIds.outputAssetId == null ||
-                                thisResponse.promoAssetStatus != 'Pending Upload' ||
+                                thisResponse.promoAssetStatus != 'Pending Asset Upload' ||
                                 (thisResponse.sourceAudioFileStatus == 'Available' && iconikObjectIds.sourceAudioAssetId == null) ||
                                 (thisResponse.sourceVideoFileStatus == 'Available' && iconikObjectIds.sourceVideoAssetId == null) ||
                                 (thisResponse.sponsorFileStatus == 'Available' && iconikObjectIds.sponsorAssetId == null)
@@ -126,7 +126,7 @@ Scenario: MAIN PHASE 2: Save AssetDB Records
                             }
                         }
                         karate.log()
-                        // thisResponse['comments'] = "#? _ == 'Pending Asset Upload' || _ == 'Pending asset upload'";
+                        // thisResponse['comments'] = "#? _ == 'Pending Asset Upload' || _ == 'Pending Asset Upload'";
                         thisResponse['trailerId'] = '#(RandomString.result + ' + "'" + thisResponse['trailerId'].replace(RandomString.result, '') + "'" + ')';
                         thisResponse['promoXMLName'] = '#(ExpectedDataFileName)';
                         thisResponse['showTitle']  = "#('" + thisResponse['showTitle'].replace(' ' + WochitStage, '') + " ' + WochitStage)";

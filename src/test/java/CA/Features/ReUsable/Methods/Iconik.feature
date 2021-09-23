@@ -390,8 +390,8 @@ Scenario: Validate Placeholders
                 ExpectedPlaceholderAssetData.title = expectedAssetName;
                 ExpectedPlaceholderAssetData.external_id = expectedAssetName;
                 ExpectedPlaceholderAssetData.id = expectedAssetID;
-                ExpectedPlaceholderAssetData.type = ExpectedType;
-                
+                ExpectedPlaceholderAssetData.type = ExpectedType;             
+
                 if(WochitStage == 'preWochit' || WochitStage == 'metadataUpdate') {
                     ExpectedPlaceholderAssetData.is_online = '#ignore';
                     ExpectedPlaceholderAssetData.versions[0].is_online = '#ignore';
@@ -402,6 +402,14 @@ Scenario: Validate Placeholders
                 var ValidatePlaceholderExistsParams = {
                     GetAssetDataURL: thisURL,
                     ExpectedAssetData: ExpectedPlaceholderAssetData
+                }
+
+                // Environment-specific modifications to expected record
+                // QA_AUTOMATION_USER
+                if(TargetEnv == 'dev' || TargetEnv == 'qa') {
+                    ExpectedPlaceholderAssetData.is_online = '#ignore';
+                    ExpectedPlaceholderAssetData.versions[0].is_online = '#ignore';
+                    ExpectedPlaceholderAssetData.type = '#ignore';
                 }
                 var thisResult = karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@ValidatePlaceholderExists', ValidatePlaceholderExistsParams);
                 if(!thisResult.result.pass) {

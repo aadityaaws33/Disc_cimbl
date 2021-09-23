@@ -29,7 +29,7 @@
     "sourceAudioFileName": "dp_NO0000000000004551337003_Weekday_15.wav",
     "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'NO0000000000004551337003_X_dp_QA_TEST_AUTOMATION_NORWAY_s01_e02_15_newep_Thursday_20:30_streamalreadynow.mxf')",
     "titleArtFileName": "QA_TEST_AUTOMATION_NORWAY_s01_titleart.png",
-    "sponsorFileName": "",
+    "sponsorFileName": null,
     "sourceVideoFileName": "dp_NO0000000000004551337003_15.mxf",
     "keyArtFileName": "QA_TEST_AUTOMATION_NORWAY_s01_image.jpg"
   },
@@ -37,7 +37,7 @@
   "wochitRenditionStatus": "Finished",
   "seasonNumber": "S01",
   "wochitVideoId": "#notnull",
-  "userName": "Peter Rothoff Hojholt",
+  "userName": "#(TestUser)",
   "sourceVideoFileStatus": "Available",
   "createdBy": "#notnull",
   "showTitle": "#('QA TEST AUTOMATION NORWAY ' + WochitStage)",

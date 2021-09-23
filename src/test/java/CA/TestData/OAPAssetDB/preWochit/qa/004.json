@@ -24,7 +24,7 @@
   "promoAssetStatus": "Pending Upload",
   "modifiedBy": "#notnull",
   "promotedChannel": "Discovery+",
-  "comments": "Pending Upload",
+  "comments": "Pending Asset Upload",
   "associatedFiles": {
     "sourceAudioFileName": "dp_NO0000000000004551337003_Weekday_25.wav",
     "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'NO0000000000004551337003_X_dp_QA_TEST_AUTOMATION_NORWAY_s01_e02_30_+X4598_newep_Thursday_20:30_streamalreadynow.mxf')",
@@ -37,7 +37,7 @@
   "wochitRenditionStatus": "Not Started",
   "seasonNumber": "S01",
   "wochitVideoId": null,
-  "userName": "Peter Rothoff Hojholt",
+  "userName": "#(TestUser)",
   "sourceVideoFileStatus": "Not Available",
   "createdBy": "#notnull",
   "showTitle": "#('QA TEST AUTOMATION NORWAY ' + WochitStage)",

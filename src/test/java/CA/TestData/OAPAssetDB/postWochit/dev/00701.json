@@ -29,7 +29,7 @@
     "sourceAudioFileName": "dp_DK0000000000004551337007_Now_15.wav",
     "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'DK0000000000004551337007_X_dp_QA_TEST_AUTOMATION_DENMARK_s18_gen02_15_e05e10_newseason_streamnow.mxf')",
     "titleArtFileName": "QA_AUTO_QA_TEST_AUTOMATION_DENMARK_s18_titleart.png",
-    "sponsorFileName": "",
+    "sponsorFileName": null,
     "sourceVideoFileName": "dp_DK0000000000004551337007_15.mxf",
     "keyArtFileName": "QA_AUTO_QA_TEST_AUTOMATION_DENMARK_s18_image.jpg"
   },
@@ -37,7 +37,7 @@
   "wochitRenditionStatus": "Finished",
   "seasonNumber": "S18",
   "wochitVideoId": "#notnull",
-  "userName": "Peter Rothoff Hojholt",
+  "userName": "#(TestUser)",
   "sourceVideoFileStatus": "Available",
   "createdBy": "#notnull",
   "showTitle": "#('QA TEST AUTOMATION DENMARK ' + WochitStage)",

@@ -15,6 +15,7 @@ Scenario: Global Variables
     * def ExpectedDataFileName = DATAFILENAME.replace('.xml', '-' + TargetEnv + '-' + RandomString.result + '-' + WochitStage +'-AUTO.xml')
     * def TestXMLPath = 'classpath:' + DownloadsPath + '/' + ExpectedDataFileName
     # ---- Config Variables----
+    * def TestUser = EnvConfig['Common']['TestUser']
     * def AWSRegion = EnvConfig['Common']['AWSRegion']
     * def TestAssetsS3 = EnvConfig['Common']['S3bucket']['TestAssets']
     * def OAPHotfolderS3 = EnvConfig['Common']['S3bucket']['OAPHotfolder']

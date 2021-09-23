@@ -37,7 +37,7 @@
   "wochitRenditionStatus": "Finished",
   "seasonNumber": null,
   "wochitVideoId": "#notnull",
-  "userName": "Peter Rothoff Hojholt",
+  "userName": "#(TestUser)",
   "sourceVideoFileStatus": "Available",
   "createdBy": "#notnull",
   "showTitle": "#('QA TEST AUTOMATION SWEDEN ' + WochitStage)",

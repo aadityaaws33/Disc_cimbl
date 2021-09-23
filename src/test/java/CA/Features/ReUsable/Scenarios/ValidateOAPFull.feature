@@ -84,6 +84,7 @@ Scenario: MAIN PHASE 2 Validate OAP AssetDB Table Records
                 for(var i in TrailerIDs) {
                     var trailerId = TrailerIDs[i];
 
+                    // Set expected stage
                     var expectedStage = stage;
                     if(stage == 'metadataUpdate') {
                         expectedStage = 'preWochit'
@@ -92,15 +93,25 @@ Scenario: MAIN PHASE 2 Validate OAP AssetDB Table Records
                     karate.log('Expected AssetDB Record: ' + TestDataPath + '/OAPAssetDB/' + expectedStage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
                     var ExpectedOAPAssetDBRecord = karate.read(TestDataPath + '/OAPAssetDB/' + expectedStage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
 
+                    // Stage-specific modifications to expected record
                     if(stage == 'metadataUpdate') {
                         ExpectedOAPAssetDBRecord.xmlMetadata.data.disclaimer = stage;
                         ExpectedOAPAssetDBRecord.isMetadataUpdateRequired = true;
                         // ExpectedOAPAssetDBRecord.promoXMLName = ExpectedOAPAssetDBRecord.promoXMLName.replace(stage, expectedStage);
                         ExpectedOAPAssetDBRecord.showTitle = ExpectedOAPAssetDBRecord.showTitle.replace(stage, expectedStage);
                         ExpectedOAPAssetDBRecord.associatedFiles.outputFilename = ExpectedOAPAssetDBRecord.associatedFiles.outputFilename.replace('metadataUpdate', expectedStage);
-                        ExpectedOAPAssetDBRecord.associatedFiles.sponsorFileName = ExpectedOAPAssetDBRecord.associatedFiles.sponsorFileName.replace('metadataUpdate', expectedStage);
+                        if(ExpectedOAPAssetDBRecord.associatedFiles.sponsorFileName != null) {
+                            ExpectedOAPAssetDBRecord.associatedFiles.sponsorFileName = ExpectedOAPAssetDBRecord.associatedFiles.sponsorFileName.replace('metadataUpdate', expectedStage);
+                        }
                     }
 
+                    // Environment-specific modifications to expected record
+                    // QA_AUTOMATION_USER
+                    if(TargetEnv == 'dev' || TargetEnv == 'qa') {
+                        ExpectedOAPAssetDBRecord.promoAssetStatus = 'Processing';
+                        ExpectedOAPAssetDBRecord.wochitRenditionStatus = 'Processing';
+                        ExpectedOAPAssetDBRecord.outputFileStatus = 'Not Available';
+                    }
 
                     var ValidationParams = {
                         Param_TableName: OAPAssetDBTableName,

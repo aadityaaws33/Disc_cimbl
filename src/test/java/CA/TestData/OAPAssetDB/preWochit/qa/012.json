@@ -24,7 +24,7 @@
   "promoAssetStatus": "Pending Upload",
   "modifiedBy": "#notnull",
   "promotedChannel": "TV Norge",
-  "comments": "Pending Upload",
+  "comments": "Pending Asset Upload",
   "associatedFiles": {
     "sourceAudioFileName": "tvn_FI0000000000004551337011_Now_30.wav",
     "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'FI0000000000004551337011_X_tvn_QA_TEST_AUTOMATION_NORWAY_s18_prelaunch_30_newseason_streamnow.mxf')",
@@ -37,7 +37,7 @@
   "wochitRenditionStatus": "Not Started",
   "seasonNumber": "S18",
   "wochitVideoId": null,
-  "userName": "Peter Rothoff Hojholt",
+  "userName": "#(TestUser)",
   "sourceVideoFileStatus": "Not Available",
   "createdBy": "#notnull",
   "showTitle": "#('QA TEST AUTOMATION NORWAY ' + WochitStage)",

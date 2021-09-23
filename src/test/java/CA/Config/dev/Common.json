@@ -26,5 +26,6 @@
         "AssetDataAPIUrl": "https://app.iconik.io/API/assets/v1",
         "DeleteQueueAPIUrl": "https://app.iconik.io/API/assets/v1/delete_queue",
         "SearchAPIUrl": "https://app.iconik.io/API/search/v1/search/?per_page=150"
-    }
+    },
+    "TestUser": "QA_AUTOMATION_USER"
 }

@@ -24,7 +24,7 @@
   "promoAssetStatus": "Pending Upload",
   "modifiedBy": "#notnull",
   "promotedChannel": "Discovery+",
-  "comments": "Pending Upload",
+  "comments": "Pending Asset Upload",
   "associatedFiles": {
     "sourceAudioFileName": "dp_SE0000000000004551337005_Weekday_30.wav",
     "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'SE0000000000004551337005_X_dp_QA_TEST_AUTOMATION_SWEDEN_w25_film_30_Wednesday_21:00_streamnow.mxf')",
@@ -37,7 +37,7 @@
   "wochitRenditionStatus": "Not Started",
   "seasonNumber": null,
   "wochitVideoId": null,
-  "userName": "Peter Rothoff Hojholt",
+  "userName": "#(TestUser)",
   "sourceVideoFileStatus": "Not Available",
   "createdBy": "#notnull",
   "showTitle": "#('QA TEST AUTOMATION SWEDEN ' + WochitStage)",

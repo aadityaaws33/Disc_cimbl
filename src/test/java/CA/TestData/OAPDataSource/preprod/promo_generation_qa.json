@@ -13,5 +13,5 @@
     "ID": "#notnull",
     "modifiedAt": "#notnull",
     "modifiedBy": "#notnull",
-    "userName": "Peter Rothoff Hojholt"
-  }
+    "userName": "#(TestUser)"
+}
