@@ -17,8 +17,11 @@ The test automation flow is summarized in this [PPT document](./doc/OAP%20-%20Te
 * Set Iconik admin user and password as environment variable
     * `export IconikAdminEmail="xxxx@xxx.com"`
     * `export IconikAdminPassword="xxxxxxxx"`
+* Set Test User as environment variable
+    * `export TestUser="QA_AUTOMATION_USER"`
+    * Note: It will trigger asset creation if you use other TestUsers
 * Set parallel threads (NOTE: Defaults to 4 parallel threads if not set) 
-  * `export parallelThreads=10`
+  * `export parallelThreads=20`
 
 * RUN TESTS
 

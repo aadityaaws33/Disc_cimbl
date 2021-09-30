@@ -20,7 +20,7 @@ Scenario: Download Assets from S3
                         DownloadPath: DownloadsPath,
                         DownloadFilename: thisDownloadFileName,
                     }
-                    var downloadFileStatus = karate.call(ReUsableFeaturesPath + '/Methods/S3.feature@DownloadS3Object', DownloadS3ObjectParams);
+                    var downloadFileStatus = karate.call(ReUsableFeaturesPath + '/StepDefs/S3.feature@DownloadS3Object', DownloadS3ObjectParams);
                     karate.log(downloadFileStatus.result);
                     if(downloadFileStatus.result.pass) {
                         karate.log('[PASSED] ' + scenarioName + ': ' + thisDownloadFileName);

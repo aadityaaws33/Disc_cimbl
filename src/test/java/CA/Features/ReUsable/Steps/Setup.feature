@@ -36,7 +36,7 @@ Scenario: Test Setup - Global Functions, Variables & Procedures
     # # ---- SETUP Global Variables ----
     * Pause(WaitTime)
     * def ExpectedCountry = getExpectedCountry(DATAFILENAME) 
-    * call read('classpath:CA/Features/ReUsable/Scenarios/GlobalVariables.feature')
+    * call read('classpath:CA/Features/ReUsable/Steps/GlobalVariables.feature')
     # # ---- SETUP Procedures ----
     * karate.log('-- SETUP: Download XML File --')
     * def DownloadXMLfromS3Params =
@@ -48,11 +48,11 @@ Scenario: Test Setup - Global Functions, Variables & Procedures
                 AssetType: 'xml'
             }
         """
-    * if(DownloadXML == true) {karate.call(ReUsableFeaturesPath + '/Scenarios/DownloadS3Assets.feature', DownloadXMLfromS3Params)}
+    * if(DownloadXML == true) {karate.call(ReUsableFeaturesPath + '/Steps/DownloadS3Assets.feature', DownloadXMLfromS3Params)}
     # ---- Modify XML for Unique Trailer IDs: epochTime + originalTrailerID ----
     # DO NOT EXECUTE IF ONLY DOING PHASE1!
     * karate.log('-- SETUP: Modify XML to make it unique --')
-    * xml XMLNodes = ModifyXML == true?karate.call(ReUsableFeaturesPath + '/Methods/XML.feature@modifyXML', {TestXMLPath: TestXMLPath}).result:'<xml></xml>'
+    * xml XMLNodes = ModifyXML == true?karate.call(ReUsableFeaturesPath + '/StepDefs/XML.feature@modifyXML', {TestXMLPath: TestXMLPath}).result:'<xml></xml>'
     * if(ModifyXML == true) {karate.write(karate.prettyXml(XMLNodes), TestXMLPath.replace('classpath:target/', ''))}
     * def TrailerIDs = ModifyXML == true?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].id'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id'):''
     * def TrailerNames = ModifyXML == true?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.*.outputFilename').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.outputFilename'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.*.outputFilename'):''

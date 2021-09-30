@@ -1,7 +1,7 @@
 Feature: Iconik functionalities
 
 Background:
-    * def thisFile = 'classpath:CA/Features/ReUsable/Methods/Iconik.feature'
+    * def thisFile = 'classpath:CA/Features/ReUsable/StepDefs/Iconik.feature'
 
 @GetRenditionHTTPInfo
 Scenario: Get Rendition URL from custom action list via Iconik API
@@ -269,7 +269,7 @@ Scenario: Validate Collection Heirarchy
                             URL: thisURL,
                             thisQuery: ''
                         }
-                        var assetData = karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@GetAssetData', getAssetDataParams);
+                        var assetData = karate.call(ReUsableFeaturesPath + '/StepDefs/Iconik.feature@GetAssetData', getAssetDataParams);
                         var assetDataParentCollections = assetData.result.parents;
                         
                         // API response: parents -> OAP / COUNTRY / FILM -OR- SHOW / ...
@@ -423,7 +423,7 @@ Scenario: Validate Placeholders
                     ExpectedAssetData: ExpectedPlaceholderAssetData
                 }
 
-                var thisResult = karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@ValidatePlaceholderExists', ValidatePlaceholderExistsParams);
+                var thisResult = karate.call(ReUsableFeaturesPath + '/StepDefs/Iconik.feature@ValidatePlaceholderExists', ValidatePlaceholderExistsParams);
                 if(!thisResult.result.pass) {
                     if(thisResult.result.path) {
                         errMsg = thisResult.result.message.replace(thisResult.result.path);
@@ -488,7 +488,7 @@ Scenario: Search and delete all Iconik assets which contains a particular patter
                     maxPages = 100;
                     for(var j = 1; j <= maxPages; j++) {
                         SearchForAssetsParams.URL = IconikSearchAPIUrl + '&page=' + page;
-                        var searchResult = karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@SearchForAssets', SearchForAssetsParams);
+                        var searchResult = karate.call(ReUsableFeaturesPath + '/StepDefs/Iconik.feature@SearchForAssets', SearchForAssetsParams);
                         maxPages = searchResult.result.pages;
                         var thisSearch = karate.jsonPath(searchResult.result, thisPath);
                         for(var k in thisSearch) {
@@ -509,7 +509,7 @@ Scenario: Search and delete all Iconik assets which contains a particular patter
                         },
                         ExpectedStatusCode: 204
                     }
-                    karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@DeleteAssetCollection', DeleteAssetParams);
+                    karate.call(ReUsableFeaturesPath + '/StepDefs/Iconik.feature@DeleteAssetCollection', DeleteAssetParams);
                     Pause(3000);
                 }
             }
@@ -545,7 +545,7 @@ Scenario: Setup: Check Iconik Assets Before Running
                     var page = 1;
                     while (true) {
                         SearchForAssetsParams.URL = IconikSearchAPIUrl + '&page=' + page;
-                        var searchResult = karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@SearchForAssets', SearchForAssetsParams);
+                        var searchResult = karate.call(ReUsableFeaturesPath + '/StepDefs/Iconik.feature@SearchForAssets', SearchForAssetsParams);
                         var thisPath = '$.objects.*.id';
                         var searchedAssets = karate.jsonPath(searchResult.result, thisPath);
                         for(var j in searchedAssets) {

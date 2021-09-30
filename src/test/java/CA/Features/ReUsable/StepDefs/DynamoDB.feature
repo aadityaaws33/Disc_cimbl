@@ -307,7 +307,7 @@ Scenario: Delete items from DynamoDB Table
             Param_GlobalSecondaryIndex: GSI
           }
           
-          var thisResult = karate.call(ReUsableFeaturesPath + '/Methods/DynamoDB.feature@GetItemsViaQuery', getItemParams);
+          var thisResult = karate.call(ReUsableFeaturesPath + '/StepDefs/DynamoDB.feature@GetItemsViaQuery', getItemParams);
 
           if(thisResult.result.length > 0) {
             return false;

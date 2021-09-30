@@ -18,8 +18,8 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>][St
                 GenerateRandomString: true
             }
         """
-    * call read('classpath:CA/Features/ReUsable/Scenarios/Setup.feature') TestParams
-    * def setupCheckIconikForAssets = karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@SetupCheckIconikAssets', {SearchKeywords: TrailerNames}).result
+    * call read('classpath:CA/Features/ReUsable/Steps/Setup.feature') TestParams
+    * def setupCheckIconikForAssets = karate.call(ReUsableFeaturesPath + '/StepDefs/Iconik.feature@SetupCheckIconikAssets', {SearchKeywords: TrailerNames}).result
     * if(setupCheckIconikForAssets.length > 0) {karate.log('[SETUP][FAILED] Iconik Assets Exist! ' + setupCheckIconikForAssets); karate.abort()} else {karate.log('[SETUP][PASSED] Iconik Assets Do Not Exist')}
     * configure afterScenario =
         """
@@ -30,7 +30,7 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>][St
             }
         """
     Given print TestParams
-    When def Result = call read('classpath:CA/Features/ReUsable/Scenarios/ValidateOAPFull.feature@Main') TestParams
+    When def Result = call read('classpath:CA/Features/ReUsable/Steps/ValidateOAPFull.feature@Main') TestParams
     Then karate.info.errorMessage == null?karate.log('[PASSED]: <DATAFILENAME>'):karate.fail('[FAILED]: <DATAFILENAME>')
     Examples:
         | DATAFILENAME                                  | EXPECTEDRESPONSEFILE        | STAGE               |  ISDELETEOUTPUTONLY | WAITTIME |

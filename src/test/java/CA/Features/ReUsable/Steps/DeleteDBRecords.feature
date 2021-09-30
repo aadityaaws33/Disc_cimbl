@@ -37,7 +37,7 @@ Scenario: Delete AssetDB Records
             }
         """
     Given def DeleteDBRecordsParams = formDeleteDBRecordsParams(TrailerData)
-    When def deleteDBRecordStatus = call read(ReUsableFeaturesPath + '/Methods/DynamoDB.feature@DeleteDBRecords') DeleteDBRecordsParams
+    When def deleteDBRecordStatus = call read(ReUsableFeaturesPath + '/StepDefs/DynamoDB.feature@DeleteDBRecords') DeleteDBRecordsParams
     * print deleteDBRecordStatus.result
     # Then deleteDBRecordStatus.result.pass == true?karate.log('[PASSED]: Successfully deleted in DB: ' + karate.pretty(TrailerIDs)):karate.fail('[FAILED]: ' + karate.pretty(deleteDBRecordStatus.result.message))
     Then deleteDBRecordStatus.result.pass == true?karate.log('[PASSED]: Successfully deleted in DB: ' + TrailerIDs):karate.fail('[FAILED]: ' + deleteDBRecordStatus.result.message)

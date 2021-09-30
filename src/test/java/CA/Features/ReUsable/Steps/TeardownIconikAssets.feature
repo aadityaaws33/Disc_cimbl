@@ -64,14 +64,14 @@ Scenario: Teardown: Delete Iconik Assets
                         },
                         ExpectedStatusCode: 204
                     }
-                    karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@DeleteAssetCollection', deleteParams);
+                    karate.call(ReUsableFeaturesPath + '/StepDefs/Iconik.feature@DeleteAssetCollection', deleteParams);
                 }
 
                 if(assetData.assetNames == null || assetData.assetNames.length < 1) {
                     karate.log('[Teardown] No output filenames to search and delete ');
                 } else {
                     karate.log('[Teardown] : Searching and deleting:' + assetData.assetNames);
-                    karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@SearchAndDeleteAssets', {SearchKeywords: assetData.assetNames});
+                    karate.call(ReUsableFeaturesPath + '/StepDefs/Iconik.feature@SearchAndDeleteAssets', {SearchKeywords: assetData.assetNames});
                 }
 
                 if(assetData.collections == null || assetData.collections.length < 1) {
@@ -88,7 +88,7 @@ Scenario: Teardown: Delete Iconik Assets
                         },
                         ExpectedStatusCode: 202
                     }
-                    karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@DeleteAssetCollection', deleteParams);
+                    karate.call(ReUsableFeaturesPath + '/StepDefs/Iconik.feature@DeleteAssetCollection', deleteParams);
                     
                     // COLLECTIONS - DELETE COLLECTION
                     karate.log('[Teardown] Deleting collections: ' + assetData.collections);
@@ -99,7 +99,7 @@ Scenario: Teardown: Delete Iconik Assets
                         },
                         ExpectedStatusCode: 204
                     }
-                    karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@DeleteAssetCollection', deleteParams);
+                    karate.call(ReUsableFeaturesPath + '/StepDefs/Iconik.feature@DeleteAssetCollection', deleteParams);
                 }
             }
         """   

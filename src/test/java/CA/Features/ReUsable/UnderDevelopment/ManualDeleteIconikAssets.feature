@@ -14,8 +14,8 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>]
                 ExpectedDataFileName: #(ExpectedDataFileName)
             }
         """
-    * call read('classpath:CA/Features/ReUsable/Scenarios/TeardownIconikAssets.feature@Delete') TestParams
-    * call read('classpath:CA/Features/ReUsable/Scenarios/TeardownIconikAssets.feature@Teardown') TestParams
+    * call read('classpath:CA/Features/ReUsable/Steps/TeardownIconikAssets.feature@Delete') TestParams
+    * call read('classpath:CA/Features/ReUsable/Steps/TeardownIconikAssets.feature@Teardown') TestParams
     Examples:
         | DATAFILENAME                                  | EXPECTEDRESPONSEFILE        |
         | promo_generation_FI_qa_bundle_v1.0.xml        | promo_generation_qa.json    |
@@ -48,6 +48,6 @@ Scenario: PREPARATION: Downloading file from S3
                 DownloadFilename: #(ExpectedDataFileName),
             }
         """
-    When def downloadFileStatus = call read(ReUsableFeaturesPath + '/Methods/S3.feature@DownloadS3Object') DownloadS3ObjectParams
+    When def downloadFileStatus = call read(ReUsableFeaturesPath + '/StepDefs/S3.feature@DownloadS3Object') DownloadS3ObjectParams
     # Then downloadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(downloadFileStatus.result.message))
     Then downloadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + downloadFileStatus.result.message)

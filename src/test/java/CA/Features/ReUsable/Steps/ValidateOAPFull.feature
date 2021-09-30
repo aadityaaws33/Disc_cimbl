@@ -2,7 +2,7 @@
 Feature: Single File Upload
 
 Background:
-    * def thisFile = ReUsableFeaturesPath + '/Scenarios/ValidateOAPFull.feature'
+    * def thisFile = ReUsableFeaturesPath + '/Steps/ValidateOAPFull.feature'
 
 
 @Main
@@ -26,7 +26,7 @@ Scenario: MAIN PHASE 1 Upload File To S3
                 FilePath: #(DownloadsPath + '/' + ExpectedDataFileName)
             }
         """
-    When def uploadFileStatus = call read(ReUsableFeaturesPath + '/Methods/S3.feature@UploadFile') UploadFileParams
+    When def uploadFileStatus = call read(ReUsableFeaturesPath + '/StepDefs/S3.feature@UploadFile') UploadFileParams
     * print uploadFileStatus.result
     # Then uploadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(uploadFileStatus.result.message))
     Then uploadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + uploadFileStatus.result.message)
@@ -65,7 +65,7 @@ Scenario: MAIN PHASE 1 Validate OAP DataSource Table Record
                 }
             }
         """
-    When def validateOAPDataSourceTable =  call read(ReUsableFeaturesPath + '/Methods/DynamoDB.feature@ValidateItemViaQuery') ValidationParams
+    When def validateOAPDataSourceTable =  call read(ReUsableFeaturesPath + '/StepDefs/DynamoDB.feature@ValidateItemViaQuery') ValidationParams
     * print validateOAPDataSourceTable.result
     # Then validateOAPDataSourceTable.result.pass == true? karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(validateOAPDataSourceTable.result.message))
     Then validateOAPDataSourceTable.result.pass == true? karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + validateOAPDataSourceTable.result.message)
@@ -157,7 +157,7 @@ Scenario: MAIN PHASE 2 Validate OAP AssetDB Table Records
                             Value: 'Failed'
                         }
                     }
-                    var ValidationResult = karate.call(ReUsableFeaturesPath + '/Methods/DynamoDB.feature@ValidateItemViaQuery', ValidationParams);
+                    var ValidationResult = karate.call(ReUsableFeaturesPath + '/StepDefs/DynamoDB.feature@ValidateItemViaQuery', ValidationParams);
                     // karate.write(karate.pretty(ValidationResult.result.response), 'test-classes/' + ResultsPath + '/' + trailerId + '.json');
                     if(!ValidationResult.result.pass) {
                         result.pass = false;
@@ -196,7 +196,7 @@ Scenario: MAIN PHASE 2 Check Iconik Collection Heirarchy
                 TrailerIDs: #(TrailerIDs)
             }
         """
-    When def validateCollectionHeirarchy = call read(ReUsableFeaturesPath + '/Methods/Iconik.feature@ValidateCollectionHeirarchy') ValidateCollectionHeirarchyParams
+    When def validateCollectionHeirarchy = call read(ReUsableFeaturesPath + '/StepDefs/Iconik.feature@ValidateCollectionHeirarchy') ValidateCollectionHeirarchyParams
     * print validateCollectionHeirarchy.result
     # Then validateCollectionHeirarchy.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + karate.pretty(TrailerIDs)):karate.fail('[FAILED] ' + scenarioName + ': ' + karate.pretty(validateCollectionHeirarchy.result.message))
     Then validateCollectionHeirarchy.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + TrailerIDs):karate.fail('[FAILED] ' + scenarioName + ': ' + validateCollectionHeirarchy.result.message)
@@ -214,7 +214,7 @@ Scenario: MAIN PHASE 2 Check Iconik Placeholder Existence
                 WochitStage: #(WochitStage)
             }
         """
-    When def validateIconikPlaceholder = call read(ReUsableFeaturesPath + '/Methods/Iconik.feature@ValidateIconikPlaceholders') ValidatePlaceholderParams
+    When def validateIconikPlaceholder = call read(ReUsableFeaturesPath + '/StepDefs/Iconik.feature@ValidateIconikPlaceholders') ValidatePlaceholderParams
     * print validateIconikPlaceholder.result
     # Then validateIconikPlaceholder.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + karate.pretty(TrailerIDs)):karate.fail('[FAILED] ' + scenarioName + ': ' + karate.pretty(validateIconikPlaceholder.result.message))
     Then validateIconikPlaceholder.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + TrailerIDs):karate.fail('[FAILED] ' + scenarioName + ': ' + validateIconikPlaceholder.result.message)

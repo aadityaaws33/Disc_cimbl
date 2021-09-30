@@ -15,7 +15,7 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>]
                 GenerateRandomString: false
             }
         """
-    * call read('classpath:CA/Features/ReUsable/Scenarios/ValidateOAPPhase1.feature') TestParams
+    * call read('classpath:CA/Features/ReUsable/Steps/ValidateOAPPhase1.feature') TestParams
 
     Examples:
         | DATAFILENAME              |   EXPECTEDRESPONSEFILE        | WAITTIME |

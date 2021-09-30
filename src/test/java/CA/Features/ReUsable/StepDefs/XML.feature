@@ -1,7 +1,7 @@
 Feature: XML-related Methods
 
 Background:
-    * def thisFile = ReUsableFeaturesPath + '/Methods/XML.feature'
+    * def thisFile = ReUsableFeaturesPath + '/StepDefs/XML.feature'
 @modifyXML
 Scenario: XML modifications depending on Wochit Stages
     * def result = karate.call(thisFile + '@modifyXMLTrailers', {TestXMLPath: TestXMLPath, WochitStage: WochitStage}).result

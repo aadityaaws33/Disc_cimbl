@@ -13,7 +13,7 @@ Scenario Outline: Teardown
                 GenerateRandomString: true
             }
         """
-    * call read('classpath:CA/Features/ReUsable/Scenarios/GlobalVariables.feature') GlobalVarsParams
+    * call read('classpath:CA/Features/ReUsable/Steps/GlobalVariables.feature') GlobalVarsParams
     * def deleteAssetDBRecords =
         """
             function(TrailerData, TrailerIDs) {
@@ -23,7 +23,7 @@ Scenario Outline: Teardown
                         TrailerData: TrailerData,
                         TrailerIDs: TrailerIDs
                     }
-                    karate.call(ReUsableFeaturesPath + '/Scenarios/DeleteDBRecords.feature', DeleteAssetDBRecordsParams );
+                    karate.call(ReUsableFeaturesPath + '/Steps/DeleteDBRecords.feature', DeleteAssetDBRecordsParams );
                 } catch (e) {
                     karate.log('[Teardown] Skipping AssetDB Deletion - ' + e);
                 }
@@ -38,7 +38,7 @@ Scenario Outline: Teardown
                         TrailerData: TrailerData
                     }
                     // karate.log(deleteIconikAssetsParams);
-                    karate.call(ReUsableFeaturesPath + '/Scenarios/TeardownIconikAssets.feature', deleteIconikAssetsParams);
+                    karate.call(ReUsableFeaturesPath + '/Steps/TeardownIconikAssets.feature', deleteIconikAssetsParams);
                 } catch (e) {
                     karate.log('[Teardown] Iconik Deletion - ' + e);
                 }

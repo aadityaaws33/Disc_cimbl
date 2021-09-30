@@ -10,7 +10,7 @@ Background:
                 WaitTime: 0
             }
         """
-    * callonce read('classpath:CA/Features/ReUsable/Scenarios/Setup.feature') TestParams
+    * callonce read('classpath:CA/Features/ReUsable/Steps/Setup.feature') TestParams
     * configure afterFeature =
         """
             function() {
@@ -19,13 +19,13 @@ Background:
                     S3BucketName: OAPHotfolderS3.Name,
                     S3Key: OAPHotfolderS3.Key + '/failed/' + ExpectedDataFileName
                 }
-                karate.call(ReUsableFeaturesPath + '/Methods/S3.feature@DeleteS3Object', DeleteS3ObjectParams);
+                karate.call(ReUsableFeaturesPath + '/StepDefs/S3.feature@DeleteS3Object', DeleteS3ObjectParams);
                 // Teardown. Delete uploaded S3 object: archive
                 var DeleteS3ObjectParams = {
                     S3BucketName: OAPHotfolderS3.Name,
                     S3Key: OAPHotfolderS3.Key + '/archive/' + ExpectedDataFileName
                 }
-                karate.call(ReUsableFeaturesPath + '/Methods/S3.feature@DeleteS3Object', DeleteS3ObjectParams);
+                karate.call(ReUsableFeaturesPath + '/StepDefs/S3.feature@DeleteS3Object', DeleteS3ObjectParams);
             }
         """
 
@@ -41,7 +41,7 @@ Scenario: PREPARATION: Downloading file from S3
                 DownloadFilename: #(ExpectedDataFileName),
             }
         """
-    When def downloadFileStatus = call read(ReUsableFeaturesPath + '/Methods/S3.feature@DownloadS3Object') DownloadS3ObjectParams
+    When def downloadFileStatus = call read(ReUsableFeaturesPath + '/StepDefs/S3.feature@DownloadS3Object') DownloadS3ObjectParams
     * print downloadFileStatus.result
     # Then downloadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(downloadFileStatus.result.message))
     Then downloadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + downloadFileStatus.result.message)
@@ -57,7 +57,7 @@ Scenario: PREPARATION: Upload file to S3
                 FilePath: #(DownloadsPath + '/' + ExpectedDataFileName)
             }
         """
-    When def uploadFileStatus = call read(ReUsableFeaturesPath + '/Methods/S3.feature@UploadFile') UploadFileParams
+    When def uploadFileStatus = call read(ReUsableFeaturesPath + '/StepDefs/S3.feature@UploadFile') UploadFileParams
     * print uploadFileStatus.result
     # Then uploadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(uploadFileStatus.result.message))
     Then uploadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + uploadFileStatus.result.message)
@@ -92,7 +92,7 @@ Scenario: MAIN PHASE 1: Validate OAP Datasource Table Record
                 ShortCircuit: null
             }
         """
-    When def validateOAPDataSourceTable =  call read(ReUsableFeaturesPath + '/Methods/DynamoDB.feature@ValidateItemViaQuery') ValidationParams
+    When def validateOAPDataSourceTable =  call read(ReUsableFeaturesPath + '/StepDefs/DynamoDB.feature@ValidateItemViaQuery') ValidationParams
     * print validateOAPDataSourceTable.result
     # Then validateOAPDataSourceTable.result.pass == true? karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(validateOAPDataSourceTable.result.message))
     Then validateOAPDataSourceTable.result.pass == true? karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + validateOAPDataSourceTable.result.message)

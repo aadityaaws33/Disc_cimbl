@@ -21,7 +21,7 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>]
                 GenerateRandomString: false
             }
         """
-    * call read('classpath:CA/Features/ReUsable/Scenarios/Setup.feature') TestParams
+    * call read('classpath:CA/Features/ReUsable/Steps/Setup.feature') TestParams
     * def ExpectedDataFileName = DATAFILENAME.replace('.xml', '-' + TargetEnv + '-' + RandomString.result + '-' + WochitStage +'-AUTO.xml')
     * def TestXMLPath = 'classpath:' + DownloadsPath + '/' + ExpectedDataFileName
     * call read('classpath:CA/Features/ReUsable/UnderDevelopment/SaveDBRecords.feature@Save') TestParams
@@ -51,7 +51,7 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>]
 #                 FilePath: #(DownloadsPath + '/' + ExpectedDataFileName)
 #             }
 #         """
-#     When def uploadFileStatus = call read(ReUsableFeaturesPath + '/Methods/S3.feature@UploadFile') UploadFileParams
+#     When def uploadFileStatus = call read(ReUsableFeaturesPath + '/StepDefs/S3.feature@UploadFile') UploadFileParams
 #     * print uploadFileStatus.result
 #     Then uploadFileStatus.result.pass == true?karate.log('[PASSED] ' + scenarioName + ' ' + ExpectedDataFileName):karate.fail('[FAILED] ' + scenarioName + ' ' + ExpectedDataFileName + ': ' + karate.pretty(uploadFileStatus.result.message))
 
@@ -88,7 +88,7 @@ Scenario: MAIN PHASE 2: Save AssetDB Records
                         WriteToFile: false,
                         ShortCircuit: {}
                     }
-                    var ValidationResult = karate.call(ReUsableFeaturesPath + '/Methods/DynamoDB.feature@ValidateItemViaQuery', ValidationParams);
+                    var ValidationResult = karate.call(ReUsableFeaturesPath + '/StepDefs/DynamoDB.feature@ValidateItemViaQuery', ValidationParams);
                     if(ValidationResult.result.response != 'No records found.') {
                         var thisResponse = ValidationResult.result.response;
                         iconikObjectIds = thisResponse.iconikObjectIds;

@@ -10,8 +10,8 @@ Scenario: Global Variables
     * def ResultsPath = 'CA/Results'
     # ---- Testing Variables ----
     * def WochitStage = STAGE
-    * def RandomString = GenerateRandomString == true?karate.call(ReUsableFeaturesPath + '/Methods/RandomGenerator.feature@GenerateRandomString'):RandomString
-    * def ExpectedDate = callonce read(ReUsableFeaturesPath + '/Methods/Date.feature@GetDateWithOffset') { offset: 0 } 
+    * def RandomString = GenerateRandomString == true?karate.call(ReUsableFeaturesPath + '/StepDefs/RandomGenerator.feature@GenerateRandomString'):RandomString
+    * def ExpectedDate = callonce read(ReUsableFeaturesPath + '/StepDefs/Date.feature@GetDateWithOffset') { offset: 0 } 
     * def ExpectedDataFileName = DATAFILENAME.replace('.xml', '-' + TargetEnv + '-' + RandomString.result + '-' + WochitStage +'-AUTO.xml')
     * def TestXMLPath = 'classpath:' + DownloadsPath + '/' + ExpectedDataFileName
     # ---- Config Variables----
@@ -32,6 +32,6 @@ Scenario: Global Variables
     * def IconikAppTokenName = EnvConfig['Common']['Iconik']['AppTokenName']
     * def IconikAdminEmail = EnvConfig['Common']['Iconik']['AdminEmail']
     * def IconikAdminPassword = EnvConfig['Common']['Iconik']['AdminPassword']
-    * def IconikAuthenticationData = karate.callSingle(ReUsableFeaturesPath + '/Methods/Iconik.feature@GetAppTokenData').result
+    * def IconikAuthenticationData = karate.callSingle(ReUsableFeaturesPath + '/StepDefs/Iconik.feature@GetAppTokenData').result
     * def IconikAuthToken = IconikAuthenticationData['IconikAuthToken']
     * def IconikAppID = IconikAuthenticationData['IconikAppID']

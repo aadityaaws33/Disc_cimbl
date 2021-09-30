@@ -23,7 +23,7 @@ Feature: Validate Wochit Rendition Record
                     RandomString: #(RandomString)
                 }
             """
-        * call read('classpath:CA/Features/ReUsable/Scenarios/Setup.feature') TestParams
+        * call read('classpath:CA/Features/ReUsable/Steps/Setup.feature') TestParams
         * print TrailerIDs
         Given def ValidateWochitRenditionParams =
             """
@@ -68,7 +68,7 @@ Scenario: MAIN PHASE 2 Validate Wochit Renditon Table Records
                         Retries: 5,
                         RetryDuration: 10000
                     }
-                    var getItemsViaQueryResult = karate.call(ReUsableFeaturesPath + '/Methods/DynamoDB.feature@GetItemsViaQuery', getItemsViaQueryParams).result;
+                    var getItemsViaQueryResult = karate.call(ReUsableFeaturesPath + '/StepDefs/DynamoDB.feature@GetItemsViaQuery', getItemsViaQueryParams).result;
                     wochitRenditionReferenceIDs.push(getItemsViaQueryResult[0].wochitRenditionReferenceID);
                     Pause(500);
                 }
@@ -103,7 +103,7 @@ Scenario: MAIN PHASE 2 Validate Wochit Renditon Table Records
                         Retries: 5,
                         RetryDuration: 10000
                     }
-                    var getItemsViaQueryResult = karate.call(ReUsableFeaturesPath + '/Methods/DynamoDB.feature@GetItemsViaQuery', getItemsViaQueryParams).result;
+                    var getItemsViaQueryResult = karate.call(ReUsableFeaturesPath + '/StepDefs/DynamoDB.feature@GetItemsViaQuery', getItemsViaQueryParams).result;
                     results.push(getItemsViaQueryResult[0]);
                     Pause(500);
                 }

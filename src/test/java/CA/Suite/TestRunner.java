@@ -25,6 +25,7 @@ import org.testng.annotations.AfterClass;
 import com.intuit.karate.KarateOptions;
 import com.intuit.karate.Results;
 import com.intuit.karate.Runner;
+import com.intuit.karate.core.ScenarioResult;
 
 @RunWith(Karate.class)
 @KarateOptions(features = "classpath:CA")
@@ -52,11 +53,6 @@ public class TestRunner {
 
     System.setProperty("karate.options", "-t @Teardown");
     Runner.path("classpath:CA").parallel(envParallelThreads);
-
-    generateReport(finalResults.getReportDir());
-    assertTrue(finalResults.getErrorMessages(), finalResults.getFailCount() == 0);
-
-    System.out.print(finalResults.getErrorMessages());
   }  
   
 
@@ -87,6 +83,9 @@ public class TestRunner {
 
     // Results results = Runner.path("classpath:CA").hook(new ExecHook()).parallel(envParallelThreads);
     finalResults = Runner.path("classpath:CA").parallel(envParallelThreads);
+
+    generateReport(finalResults.getReportDir());
+    assertTrue(finalResults.getErrorMessages(), finalResults.getFailCount() == 0);
   }
 
  

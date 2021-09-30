@@ -12,7 +12,7 @@ Background:
                 WaitTime: 0
             }
         """
-    * call read('classpath:CA/Features/ReUsable/Scenarios/Setup.feature') TestParams
+    * call read('classpath:CA/Features/ReUsable/Steps/Setup.feature') TestParams
     * def RandomString =
         """
             {
@@ -43,7 +43,7 @@ Background:
                         Retries: 1,
                         RetryDuration: 10000
                     }
-                    var ValidationResult = karate.call(ReUsableFeaturesPath + '/Methods/DynamoDB.feature@GetItemsViaQuery', ValidationParams);
+                    var ValidationResult = karate.call(ReUsableFeaturesPath + '/StepDefs/DynamoDB.feature@GetItemsViaQuery', ValidationParams);
                     karate.write(karate.pretty(ValidationResult.result[0]), 'test-classes/' + ResultsPath + '/' + trailerId + '.json');
                 }
             }
@@ -60,7 +60,7 @@ Scenario: MAIN PHASE 2 Upload Assets to Iconik Placeholders
                 TrailerIDs: #(TrailerIDs)
             }
         """
-    * def TrailerAssetDetails = call read(ReUsableFeaturesPath + '/Methods/Iconik.feature@GetAssetDetailsByTrailerIDs') GetAssetDetailsByTrailerIDsParams
+    * def TrailerAssetDetails = call read(ReUsableFeaturesPath + '/StepDefs/Iconik.feature@GetAssetDetailsByTrailerIDs') GetAssetDetailsByTrailerIDsParams
     * def formUploadAssetParams =
         """
             function(TrailerAssetDetails) {
@@ -81,7 +81,7 @@ Scenario: MAIN PHASE 2 Upload Assets to Iconik Placeholders
         """
     * def UploadAssetToPlaceholderParams = formUploadAssetParams(TrailerAssetDetails.result)
     * print UploadAssetToPlaceholderParams
-    # * call read(ReUsableFeaturesPath + '/Methods/Iconik.feature@UploadAssetToPlaceholder') UploadAssetToPlaceholderParams
+    # * call read(ReUsableFeaturesPath + '/StepDefs/Iconik.feature@UploadAssetToPlaceholder') UploadAssetToPlaceholderParams
     # -------------------------------------
     
 

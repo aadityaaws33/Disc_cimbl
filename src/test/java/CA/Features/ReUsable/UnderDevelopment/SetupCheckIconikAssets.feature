@@ -29,7 +29,7 @@ Scenario: Setup: Check Iconik Assets Before Running
                     var page = 1;
                     while (true) {
                         SearchForAssetsParams.URL = IconikSearchAPIUrl + '&page=' + page;
-                        var searchResult = karate.call(ReUsableFeaturesPath + '/Methods/Iconik.feature@SearchForAssets', SearchForAssetsParams);
+                        var searchResult = karate.call(ReUsableFeaturesPath + '/StepDefs/Iconik.feature@SearchForAssets', SearchForAssetsParams);
                         var thisPath = '$.objects.*.id';
                         var searchedAssets = karate.jsonPath(searchResult.result, thisPath);
                         for(var j in searchedAssets) {
