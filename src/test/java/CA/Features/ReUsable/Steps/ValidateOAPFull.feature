@@ -105,7 +105,7 @@ Scenario: MAIN PHASE 2 Validate OAP AssetDB Table Records
                         ExpectedOAPAssetDBRecord.comments = '#? _ == "New Version Type - Pending Upload" || _ == "New Version Type - Pending Asset Upload"';
                     } else if(stage == 'rerender') {
                         ExpectedOAPAssetDBRecord.xmlMetadata.data.disclaimer = stage;
-                        ExpectedOAPAssetDBRecord.isMetadataUpdateRequired = true;
+                        // ExpectedOAPAssetDBRecord.isMetadataUpdateRequired = true;
                         // ExpectedOAPAssetDBRecord.promoXMLName = ExpectedOAPAssetDBRecord.promoXMLName.replace(stage, expectedStage);
                     } else if(stage == 'versionTypeDelete') {
                         ExpectedOAPAssetDBRecord.xmlMetadata.data.versionType = 'TEST';
