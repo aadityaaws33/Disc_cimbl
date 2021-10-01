@@ -52,10 +52,10 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>][St
     Examples:
         | DATAFILENAME                                  | EXPECTEDRESPONSEFILE        | PRESTAGE   | THISSTAGE           |  ISDELETEOUTPUTONLY | WAITTIME |
         # ----------------------------------------------- Rerender ----------------------------------------------------------------------------------------
-        | promo_generation_DK_generic_dp.xml            | promo_generation_qa.json    | postWochit | rerender            |  true               | 17000    |
-        | promo_generation_DK_teaser_combi.xml          | promo_generation_qa.json    | postWochit | rerender            |  true               | 17500    |
-        | promo_generation_NO_episodic_dp_1.xml         | promo_generation_qa.json    | postWochit | rerender            |  true               | 18000    |
+        # | promo_generation_DK_generic_dp.xml            | promo_generation_qa.json    | postWochit | rerender            |  true               | 17000    |
+        # | promo_generation_DK_teaser_combi.xml          | promo_generation_qa.json    | postWochit | rerender            |  true               | 17500    |
+        # | promo_generation_NO_episodic_dp_1.xml         | promo_generation_qa.json    | postWochit | rerender            |  true               | 18000    |
         | promo_generation_NO_prelaunch_combi.xml       | promo_generation_qa.json    | postWochit | rerender            |  true               | 18500    |
-        | promo_generation_FI_bundle_dp.xml             | promo_generation_qa.json    | postWochit | rerender            |  true               | 19000    |
-        | promo_generation_FI_launch_combi.xml          | promo_generation_qa.json    | postWochit | rerender            |  true               | 19500    |
-        | promo_generation_SE_film_dp.xml               | promo_generation_qa.json    | postWochit | rerender            |  true               | 20000    |
+        # | promo_generation_FI_bundle_dp.xml             | promo_generation_qa.json    | postWochit | rerender            |  true               | 19000    |
+        # | promo_generation_FI_launch_combi.xml          | promo_generation_qa.json    | postWochit | rerender            |  true               | 19500    |
+        # | promo_generation_SE_film_dp.xml               | promo_generation_qa.json    | postWochit | rerender            |  true               | 20000    |
