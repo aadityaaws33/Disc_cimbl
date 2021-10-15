@@ -1,12 +1,11 @@
 
 Feature: Validate Wochit Rendition Record
-    @WIP
     Scenario Outline: MAIN PHASE 2 Validate Wochit Renditon Table Records
         * def scenarioName = 'MAIN PHASE 2 Validate Wochit Renditon Table Records'
         * def RandomString = 
             """
                 {
-                    result: '1631686124018'
+                    result: '1634033181619'
                 }
             """
         * def TestParams =
@@ -36,17 +35,16 @@ Feature: Validate Wochit Rendition Record
         Examples:
         | DATAFILENAME                                  | EXPECTEDRESPONSEFILE        | STAGE               |  ISDELETEOUTPUTONLY | WAITTIME |
         # ------------------------------- After Wochit Processing ----------------------------------------------------------------------------
-        # | promo_generation_DK_generic_dp.xml            | promo_generation_qa.json    | postWochit          |  true               | 15000    |
+        | promo_generation_DK_generic_dp.xml            | promo_generation_qa.json    | postWochit          |  true               | 15000    |
         # | promo_generation_DK_teaser_combi.xml          | promo_generation_qa.json    | postWochit          |  true               | 17000    |
         # | promo_generation_NO_episodic_dp_1.xml         | promo_generation_qa.json    | postWochit          |  true               | 19000    |
         # | promo_generation_NO_prelaunch_combi.xml       | promo_generation_qa.json    | postWochit          |  true               | 21000    |
-        | promo_generation_FI_bundle_dp.xml             | promo_generation_qa.json    | postWochit          |  true               | 0    |
+        # | promo_generation_FI_bundle_dp.xml             | promo_generation_qa.json    | postWochit          |  true               | 0    |
         # | promo_generation_FI_launch_combi.xml          | promo_generation_qa.json    | postWochit          |  true               | 25000    |
         # | promo_generation_SE_film_dp.xml               | promo_generation_qa.json    | postWochit          |  true               | 27000    |
 
 @ValidateWochitRenditionDBRecords
 Scenario: MAIN PHASE 2 Validate Wochit Renditon Table Records
-    * print TrailerIDs
     * def getWochitRenditionReferenceIDs =
         """
             function(TrailerIDList) {
@@ -68,21 +66,50 @@ Scenario: MAIN PHASE 2 Validate Wochit Renditon Table Records
                         Retries: 5,
                         RetryDuration: 10000
                     }
+                    karate.log(getItemsViaQueryParams);
                     var getItemsViaQueryResult = karate.call(ReUsableFeaturesPath + '/StepDefs/DynamoDB.feature@GetItemsViaQuery', getItemsViaQueryParams).result;
-                    wochitRenditionReferenceIDs.push(getItemsViaQueryResult[0].wochitRenditionReferenceID);
-                    Pause(500);
+                    karate.log(getItemsViaQueryResult);
+                    try {
+                        var thisRefId = trailerID + ":" + getItemsViaQueryResult[0].wochitRenditionReferenceID;
+                        wochitRenditionReferenceIDs.push(thisRefId);
+                        Pause(500);
+                    } catch(e) {
+                        var errMsg = 'Failed to get wochitRenditionReferenceID for ' + trailerID + ': ' + e;
+                        karate.log(trailerID + ': ' + errMsg);
+                        karate.log(trailerID + ': pushing null value');
+                        var thisRefId = trailerID + ":null";
+                        wochitRenditionReferenceIDs.push(thisRefId);
+                        continue;
+                    }
                 }
                 return wochitRenditionReferenceIDs
             }
         """
     * def wochitReferenceIDs = getWochitRenditionReferenceIDs(TrailerIDs)
+    * print wochitReferenceIDs
     * def validateReferenceIDs =
         """
             function(referenceIDs) {
-                var results = [];
+                var results = {
+                    message: [],
+                    pass: true
+                };
                 for(var i in referenceIDs) {
                     var referenceID = referenceIDs[i];
-                    var getItemsViaQueryParams = {
+                    var trailerID = referenceID.split(':')[0];
+                    var referenceID = referenceID.split(':')[1];
+                    //karate.log('RANDOMSTRING: ' + RandomString);
+                    var expectedResponse = karate.read(ResourcesPath + '/WochitRendition/' + TargetEnv + '/' + trailerID.split(RandomString.result)[1] + '.json');
+
+                    if(referenceID.contains('null')) {
+                        var errMsg = trailerID + ' has a null wochitRenditionReferenceID';
+                        karate.log(errMsg);
+                        results.message.push(errMsg);
+                        results.pass = false;
+                        continue;
+                    }
+                    
+                    var validateItemViaQueryParams = {
                         Param_TableName: WochitRenditionTableName,
                         Param_QueryInfoList: [
                             {
@@ -99,24 +126,30 @@ Scenario: MAIN PHASE 2 Validate Wochit Renditon Table Records
                             }
                         ],
                         Param_GlobalSecondaryIndex: WochitRenditionTableGSI,
+                        Param_ExpectedResponse: expectedResponse,
                         AWSRegion: AWSRegion,
-                        Retries: 5,
-                        RetryDuration: 10000
+                        Retries: 1,
+                        RetryDuration: 10000,
+                        WriteToFile: true,
+                        WritePath: 'test-classes/CA/WochitRenditionResults/' + trailerID + '.json',
+                        ShortCircuit: {
+                            Key: 'renditionStatus',
+                            Value: 'FAILED'
+                        }
                     }
-                    var getItemsViaQueryResult = karate.call(ReUsableFeaturesPath + '/StepDefs/DynamoDB.feature@GetItemsViaQuery', getItemsViaQueryParams).result;
-                    results.push(getItemsViaQueryResult[0]);
+                    //karate.log(validateItemViaQueryParams);
+                    var getItemsViaQueryResult = karate.call(ReUsableFeaturesPath + '/StepDefs/DynamoDB.feature@ValidateItemViaQuery', validateItemViaQueryParams).result;
+                    if(!getItemsViaQueryResult.pass) {
+                        for(var j in getItemsViaQueryResult.message) {
+                            var resultReason = getItemsViaQueryResult.message[j].split('reason: ')[1];
+                            results.message.push(trailerID + ': ' + resultReason);
+                        }
+                        results.pass = false;
+                    }
                     Pause(500);
                 }
                 return results;
             }
         """
-    * def this = validateReferenceIDs(wochitReferenceIDs)
-    * print this
-    * def result =
-        """
-            {
-                message: [],
-                pass: true
-            }
-        """
+    * def result = validateReferenceIDs(wochitReferenceIDs)
     * print result

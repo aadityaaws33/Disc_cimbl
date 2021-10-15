@@ -24,6 +24,7 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>][St
     * call read(ReUsableFeaturesPath + '/Steps/ValidateOAPFull.feature@UploadXMLFileToS3')
     * call read(ReUsableFeaturesPath + '/Steps/ValidateOAPFull.feature@ValidateOAPAssetDBRecords')
     * call read(ReUsableFeaturesPath + '/Steps/ValidateOAPFull.feature@ValidateOAPDataSourceDBRecords')
+    # * call read(ReUsableFeaturesPath + '/Steps/ValidateOAPFull.feature@ValidateWochitRenditionDBRecords')
     * def TestParams =
         """
             {

@@ -12,6 +12,10 @@
             "Region": "Nordic"
         }
     },
+    "WochitRendition": {
+        "TableName": "CA_WOCHIT_RENDITIONS_EU-dev",
+        "GSI": "assetType-createdAt-index"
+    },
     "DataSource": {
         "TableName": "OAP_DATASOURCES_EU-dev",
         "GSI": "dataFileName-createdAt-Index"

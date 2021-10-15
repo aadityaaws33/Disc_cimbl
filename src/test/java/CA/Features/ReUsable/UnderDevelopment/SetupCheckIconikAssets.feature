@@ -16,7 +16,7 @@ Scenario: Setup: Check Iconik Assets Before Running
                     }
                 ]
                 for(var i in SearchKeywords){
-                    var searchQuery = karate.read(resourcesPath + '/Iconik/GETSearchRequest.json');
+                    var searchQuery = karate.read(ResourcesPath + '/Iconik/GETSearchRequest.json');
                     searchQuery.filter.terms = karate.toJson(filterTerms);
                     searchQuery.include_fields = ['id'];
                     searchQuery.query = SearchKeywords[i];

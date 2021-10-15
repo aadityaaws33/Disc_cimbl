@@ -3,6 +3,20 @@ Feature: Single File Upload
 
 Background:
     * def thisFile = ReUsableFeaturesPath + '/Steps/ValidateOAPFull.feature'
+    * def shouldValidateWochitRenditionTable =
+        """
+            function(stage) {
+                var runInStage = ['postWochit', 'rerender'];
+                var shouldRun = false;
+                for(var i in runInStage) {
+                    if(stage == runInStage[i]) {
+                        shouldRun = true;
+                        break;
+                    }
+                }
+                return shouldRun;
+            }
+        """
 
 
 @Main
@@ -10,6 +24,7 @@ Scenario: MAIN PHASE Validate OAP
     * call read(thisFile + '@UploadXMLFileToS3')
     * call read(thisFile + '@ValidateOAPDataSourceDBRecords')
     * call read(thisFile + '@ValidateOAPAssetDBRecords')
+    * shouldValidateWochitRenditionTable(WochitStage)?karate.call(thisFile + '@ValidateWochitRenditionDBRecords'):karate.log(WochitStage + ' SKIPPING ValidateWochitRenditionDBRecords')
     * call read(thisFile + '@ValidateIconikCollectionHeirarchy')
     * call read(thisFile + '@ValidateIconikPlaceholdersAndAssets')
 
@@ -34,7 +49,7 @@ Scenario: MAIN PHASE 1 Upload File To S3
 @ValidateOAPDataSourceDBRecords
 Scenario: MAIN PHASE 1 Validate OAP DataSource Table Record
     *  def scenarioName = WochitStage + ' MAIN PHASE 1 Validate OAP DataSource Table Record'
-    * def ExpectedOAPDataSourceRecord = read(resourcesPath + '/OAPDataSource/' + TargetEnv + '/' + EXPECTEDRESPONSEFILE)
+    * def ExpectedOAPDataSourceRecord = read(ResourcesPath + '/OAPDataSource/' + TargetEnv + '/' + EXPECTEDRESPONSEFILE)
     Given def ValidationParams =
         """
             {
@@ -92,8 +107,8 @@ Scenario: MAIN PHASE 2 Validate OAP AssetDB Table Records
                         expectedStage = 'postWochit';
                     }
 
-                    karate.log('Expected AssetDB Record: ' + resourcesPath + '/OAPAssetDB/' + expectedStage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
-                    var ExpectedOAPAssetDBRecord = karate.read(resourcesPath + '/OAPAssetDB/' + expectedStage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
+                    karate.log('Expected AssetDB Record: ' + ResourcesPath + '/OAPAssetDB/' + expectedStage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
+                    var ExpectedOAPAssetDBRecord = karate.read(ResourcesPath + '/OAPAssetDB/' + expectedStage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
 
                     // Stage-specific modifications
                     if(stage == 'metadataUpdate') {
@@ -183,6 +198,120 @@ Scenario: MAIN PHASE 2 Validate OAP AssetDB Table Records
     * print validateOAPAssetDBTable
     # Then validateOAPAssetDBTable.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + karate.pretty(TrailerIDs)):karate.fail('[FAILED] ' + scenarioName + ': ' + karate.pretty(validateOAPAssetDBTable.message))
     Then validateOAPAssetDBTable.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + TrailerIDs):karate.fail('[FAILED] ' + scenarioName + ': ' + validateOAPAssetDBTable.message)
+
+@ValidateWochitRenditionDBRecords
+Scenario: MAIN PHASE 2 Validate Wochit Rendition Table Records
+    * def scenarioName = WochitStage + ' MAIN PHASE 2 Validate Wochit Rendition Table Records'
+    * def getWochitRenditionReferenceIDs =
+        """
+            function(TrailerIDList) {
+                var wochitRenditionReferenceIDs = [];
+                for(var i in TrailerIDList) {
+                    var trailerID = TrailerIDList[i];
+                    var getItemsViaQueryParams = {
+                        Param_TableName: OAPAssetDBTableName,
+                        Param_QueryInfoList: [
+                            {
+                                infoName: 'trailerId',
+                                infoValue: trailerID,
+                                infoComparator: '=',
+                                infoType: 'key'
+                            }
+                        ],
+                        Param_GlobalSecondaryIndex: OAPAssetDBTableGSI,
+                        AWSRegion: AWSRegion,
+                        Retries: 5,
+                        RetryDuration: 10000
+                    }
+                    //karate.log(getItemsViaQueryParams);
+                    var getItemsViaQueryResult = karate.call(ReUsableFeaturesPath + '/StepDefs/DynamoDB.feature@GetItemsViaQuery', getItemsViaQueryParams).result;
+                    karate.log(getItemsViaQueryResult);
+                    try {
+                        var thisRefId = trailerID + ":" + getItemsViaQueryResult[0].wochitRenditionReferenceID;
+                        wochitRenditionReferenceIDs.push(thisRefId);
+                        Pause(500);
+                    } catch(e) {
+                        var errMsg = 'Failed to get wochitRenditionReferenceID for ' + trailerID + ': ' + e;
+                        karate.log(trailerID + ': ' + errMsg);
+                        karate.log(trailerID + ': pushing null value');
+                        var thisRefId = trailerID + ":null";
+                        wochitRenditionReferenceIDs.push(thisRefId);
+                        continue;
+                    }
+                }
+                return wochitRenditionReferenceIDs
+            }
+        """
+    * def validateWochitRenditionRecords =
+        """
+            function(referenceIDs) {
+                var results = {
+                    message: [],
+                    pass: true
+                };
+                for(var i in referenceIDs) {
+                    var referenceID = referenceIDs[i];
+                    var trailerID = referenceID.split(':')[0];
+                    var referenceID = referenceID.split(':')[1];
+                    //karate.log('RANDOMSTRING: ' + RandomString);
+                    var expectedResponse = karate.read(ResourcesPath + '/WochitRendition/' + TargetEnv + '/' + trailerID.split(RandomString.result)[1] + '.json');
+
+                    if(referenceID.contains('null')) {
+                        var errMsg = trailerID + ' has a null wochitRenditionReferenceID';
+                        karate.log(errMsg);
+                        results.message.push(errMsg);
+                        results.pass = false;
+                        continue;
+                    }
+                    
+                    var validateItemViaQueryParams = {
+                        Param_TableName: WochitRenditionTableName,
+                        Param_QueryInfoList: [
+                            {
+                                infoName: 'assetType',
+                                infoValue: 'VIDEO',
+                                infoComparator: '=',
+                                infoType: 'key'
+                            },
+                            {
+                                infoName: 'ID',
+                                infoValue: referenceID,
+                                infoComparator: '=',
+                                infoType: 'filter'
+                            }
+                        ],
+                        Param_GlobalSecondaryIndex: WochitRenditionTableGSI,
+                        Param_ExpectedResponse: expectedResponse,
+                        AWSRegion: AWSRegion,
+                        Retries: 1,
+                        RetryDuration: 10000,
+                        WriteToFile: true,
+                        WritePath: 'test-classes/CA/WochitRenditionResults/' + trailerID + '.json',
+                        ShortCircuit: {
+                            Key: 'renditionStatus',
+                            Value: 'FAILED'
+                        }
+                    }
+                    //karate.log(validateItemViaQueryParams);
+                    var getItemsViaQueryResult = karate.call(ReUsableFeaturesPath + '/StepDefs/DynamoDB.feature@ValidateItemViaQuery', validateItemViaQueryParams).result;
+                    if(!getItemsViaQueryResult.pass) {
+                        for(var j in getItemsViaQueryResult.message) {
+                            var resultReason = getItemsViaQueryResult.message[j].split('reason: ')[1];
+                            results.message.push(trailerID + ': ' + resultReason);
+                        }
+                        results.pass = false;
+                    }
+                    Pause(500);
+                }
+                return results;
+            }
+        """
+    Given def TrailerIDs = karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id').length == 0?karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].id'):karate.jsonPath(XMLNodes, '$.trailers._.trailer[*].*.id')
+    And def wochitReferenceIDs = getWochitRenditionReferenceIDs(TrailerIDs)
+    When def validateWochitRenditionTable = validateWochitRenditionRecords(wochitReferenceIDs)
+    * print validateWochitRenditionTable
+    # Then validateOAPAssetDBTable.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + karate.pretty(TrailerIDs)):karate.fail('[FAILED] ' + scenarioName + ': ' + karate.pretty(validateWochitRenditionTable.message))
+    Then validateWochitRenditionTable.pass == true?karate.log('[PASSED] ' + scenarioName + ' - Successfully validated ' + TrailerIDs):karate.fail('[FAILED] ' + scenarioName + ': ' + validateWochitRenditionTable.message)
 
 @ValidateIconikCollectionHeirarchy
 Scenario: MAIN PHASE 2 Check Iconik Collection Heirarchy

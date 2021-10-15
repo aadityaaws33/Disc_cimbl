@@ -26,7 +26,7 @@ Background:
             function() {
                 for(var index in TrailerIDs) {
                     trailerId = TrailerIDs[index];
-                    var ExpectedOAPAssetDBRecord = karate.read(resourcesPath + '/OAPAssetDB/' + stage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
+                    var ExpectedOAPAssetDBRecord = karate.read(ResourcesPath + '/OAPAssetDB/' + stage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
                     var ValidationParams = {
                         Param_TableName: OAPAssetDBTableName,
                         Param_QueryInfoList: [

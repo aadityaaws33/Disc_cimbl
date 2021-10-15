@@ -387,7 +387,7 @@ Scenario: Validate Placeholders
                 
 
                 var thisURL = IconikAssetDataAPIUrl + '/assets/' + expectedAssetID;
-                var ExpectedPlaceholderAssetData = read(resourcesPath + '/Iconik/ExpectedPlaceholderAssetData.json')
+                var ExpectedPlaceholderAssetData = read(ResourcesPath + '/Iconik/ExpectedPlaceholderAssetData.json')
                 ExpectedPlaceholderAssetData.title = expectedAssetName;
                 ExpectedPlaceholderAssetData.external_id = expectedAssetName;
                 ExpectedPlaceholderAssetData.id = expectedAssetID;  
@@ -474,7 +474,7 @@ Scenario: Search and delete all Iconik assets which contains a particular patter
                 var searchedAssets = [];
 
                 for(var i in SearchKeywords) {
-                    var searchQuery = karate.read(resourcesPath + '/Iconik/GETSearchRequest.json')
+                    var searchQuery = karate.read(ResourcesPath + '/Iconik/GETSearchRequest.json')
                     searchQuery.filter.terms = karate.toJson(filterTerms);
                     searchQuery.include_fields = ['id']
                     searchQuery.query = SearchKeywords[i];
@@ -532,7 +532,7 @@ Scenario: Setup: Check Iconik Assets Before Running
                     }
                 ]
                 for(var i in SearchKeywords){
-                    var searchQuery = karate.read(resourcesPath + '/Iconik/GETSearchRequest.json');
+                    var searchQuery = karate.read(ResourcesPath + '/Iconik/GETSearchRequest.json');
                     searchQuery.filter.terms = karate.toJson(filterTerms);
                     searchQuery.include_fields = ['id'];
                     searchQuery.query = SearchKeywords[i];

@@ -5,7 +5,7 @@ Scenario: Global Variables
     
     # ---- Paths ----
     * def ReUsableFeaturesPath = 'classpath:CA/Features/ReUsable'
-    * def resourcesPath = 'classpath:CA/resources'
+    * def ResourcesPath = 'classpath:CA/resources'
     * def DownloadsPath = 'target/test-classes/CA/Downloads'
     * def ResultsPath = 'CA/Results'
     # ---- Testing Variables ----

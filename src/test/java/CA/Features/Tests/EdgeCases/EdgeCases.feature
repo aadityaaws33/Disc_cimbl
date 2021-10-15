@@ -1,4 +1,4 @@
-@Regression @Phase1
+@Phase1
 Feature: Edge Casess TestAssetsS3
 
 Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>]

@@ -185,6 +185,8 @@ Scenario: Validate DynamoDB Item via Query
         return queryResp;
       }
 
+      // dynamoDB.shutdown();
+      
       return JSON.parse(queryResp[0]);
 
     }
@@ -362,7 +364,8 @@ Scenario: Delete items from DynamoDB Table
           }
         }
 
-        dynamoDB.shutdown();
+        //dynamoDB.shutdown();
+        
         return result;
       }
     """
