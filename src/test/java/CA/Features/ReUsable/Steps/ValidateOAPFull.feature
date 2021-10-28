@@ -109,8 +109,7 @@ Scenario: MAIN PHASE 2 Validate OAP AssetDB Table Records
 
                     karate.log('Expected AssetDB Record: ' + ResourcesPath + '/OAPAssetDB/' + expectedStage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
                     var ExpectedOAPAssetDBRecord = karate.read(ResourcesPath + '/OAPAssetDB/' + expectedStage + '/' + TargetEnv + '/' + trailerId.replace(RandomString.result, '') + '.json');
-
-                    // Stage-specific modifications
+                    
                     if(stage == 'metadataUpdate') {
                         ExpectedOAPAssetDBRecord.xmlMetadata.data.disclaimer = stage;
                         ExpectedOAPAssetDBRecord.isMetadataUpdateRequired = true;
@@ -142,10 +141,9 @@ Scenario: MAIN PHASE 2 Validate OAP AssetDB Table Records
                     // Environment-specific modifications to expected record
                     // QA_AUTOMATION_USER
                     if(stage == 'postWochit' || stage == 'rerender') {
-                        //if(TargetEnv == 'dev' || TargetEnv == 'qa') {
                         if(TestUser == 'QA_AUTOMATION_USER') {
-                            ExpectedOAPAssetDBRecord.promoAssetStatus = 'Processing';
-                            ExpectedOAPAssetDBRecord.wochitRenditionStatus = 'Processing';
+                            //ExpectedOAPAssetDBRecord.promoAssetStatus = 'Processing';
+                            //ExpectedOAPAssetDBRecord.wochitRenditionStatus = 'Processing';
                             ExpectedOAPAssetDBRecord.outputFileStatus = 'Not Available';
                         }
                     }

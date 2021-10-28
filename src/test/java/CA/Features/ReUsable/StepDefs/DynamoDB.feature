@@ -310,7 +310,7 @@ Scenario: Delete items from DynamoDB Table
           }
           
           var thisResult = karate.call(ReUsableFeaturesPath + '/StepDefs/DynamoDB.feature@GetItemsViaQuery', getItemParams);
-
+          // karate.log("JESSNAR: " + thisResult);
           if(thisResult.result.length > 0) {
             return false;
           }
@@ -331,15 +331,14 @@ Scenario: Delete items from DynamoDB Table
         for(var j in itemParamList) {
           var retry = 1;
           var isDeleted = false;
+          var thisDeleteMsg = '';
           while(retry <= Retries) {
             var errMsg = '';
             var PrimaryPartitionKeyName = itemParamList[j]['PrimaryPartitionKeyName'];
             var PrimaryPartitionKeyValue = itemParamList[j]['PrimaryPartitionKeyValue'];
             karate.log('[Deleting] ' + PrimaryPartitionKeyName + ': ' + PrimaryPartitionKeyValue);
-            var thisDeleteMsg = dynamoDB.Delete_Item(TableName, PrimaryPartitionKeyName, PrimaryPartitionKeyValue);
-            if(thisDeleteMsg.contains('Failed')) {
-              errMsg = thisDeleteMsg;
-            }
+            thisDeleteMsg = dynamoDB.Delete_Item(TableName, PrimaryPartitionKeyName, PrimaryPartitionKeyValue);
+            // karate.log("JESSNAR: " + thisDeleteMsg);
             Pause(500);
             if(
               isTrailerIDDeleted(
@@ -349,6 +348,17 @@ Scenario: Delete items from DynamoDB Table
                 GSI
               ) == true) {
               isDeleted = true;
+            }
+            if(thisDeleteMsg.contains('Failed')) {
+              errMsg = thisDeleteMsg;
+              isDeleted = false;
+
+              if(thisDeleteMsg.contains('AccessDeniedException')) {
+                karate.log(thisDeleteMsg);
+                break;
+              }
+            }
+            if(isDeleted == true) {
               break;
             }
             karate.log('Try #' + (retry) + ' of ' + Retries + ': Failed. Sleeping for ' + RetryDuration + ' ms. - ' + karate.pretty(errMsg));
@@ -359,8 +369,8 @@ Scenario: Delete items from DynamoDB Table
             result.message.push('Successfully deleted AssetDB trailer Records for ' + PrimaryPartitionKeyValue);
             result.pass = true;
           } else {
-            result.message.push('Failed to delete AssetDB trailer Records for ' + PrimaryPartitionKeyValue);
-            result.pass = false;
+            result.message.push(thisDeleteMsg);
+            result.pass = false;            
           }
         }
 

@@ -12,7 +12,7 @@
     },
     "linkedFields": [
       {
-        "value": "No Intro",
+        "value": "Originals Over VT",
         "key": "Dplus.OAP.Video.Intro.IntroType"
       },
       {
@@ -64,7 +64,7 @@
         "key": "Dplus.OAP.Video.Outro.T&C"
       }
     ],
-    "title": "#? _ == RandomString.result + '_postWochit_DK0000000000004551337007_X_dp_QA_TEST_AUTOMATION_DENMARK_s18_gen02_15_e05e10_newseason_streamnow'",
+    "title": "#? _ == RandomString.result + '_postWochit_DK0000000000004551337007_X_dp_QA_TEST_AUTOMATION_DENMARK_s18_gen02_30_e05e10_newseason_streamnow'",
     "timelineItems": [
       {
         "itemType": "VIDEO_SEGMENT",
@@ -73,12 +73,18 @@
           "video": "0.0"
         },
         "videoUrl": "#notnull",
-        "segmentEndTime": "15.0",
+        "segmentEndTime": "30.0",
         "segmentStartTime": "0.0"
       },
       {
-        "itemType": "NONE",
-        "disabled": "true"
+        "itemType": "VIDEO_SEGMENT",
+        "volumeControl": {
+          "bgMusic": "0.0",
+          "video": "1.0"
+        },
+        "videoUrl": "#notnull",
+        "segmentEndTime": "5.76",
+        "segmentStartTime": "0.0"
       }
     ]
   },

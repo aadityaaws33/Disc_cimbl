@@ -4,13 +4,17 @@
         "TestAssets" : {
             "Name": "ca-qa-prod",
             "Key": "OAP",
-            "Region": "APAC"
+            "Region": "Nordic"
         },
         "OAPHotfolder": {
             "Name": "ca-data-ingest-prod",
-            "Key": "eu/qa/whatson/data",
+            "Key": "eu/prod/whatson/data",
             "Region": "Nordic"
         }
+    },
+    "WochitRendition": {
+        "TableName": "CA_WOCHIT_RENDITIONS_EU-prod",
+        "GSI": "assetType-createdAt-index"
     },
     "DataSource": {
         "TableName": "OAP_DATASOURCES_EU-prod",

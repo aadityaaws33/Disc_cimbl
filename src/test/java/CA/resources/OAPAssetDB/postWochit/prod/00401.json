@@ -1,0 +1,61 @@
+{
+  "templateType": "DPlus",
+  "country": "Norway",
+  "sourceAudioFileStatus": "Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "4551337_4",
+  "type": "Shows",
+  "episodeNumber": "E02",
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": "#notnull",
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "NO0000000000004551337003",
+  "duration": "25",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Completed",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "Discovery+",
+  "comments": "",
+  "associatedFiles": {
+    "sourceAudioFileName": "dp_NO0000000000004551337003_Weekday_25.wav",
+    "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'NO0000000000004551337003_X_dp_QA_TEST_AUTOMATION_NORWAY_s01_e02_30_+X4598_newep_Thursday_20:30_streamalreadynow.mxf')",
+    "titleArtFileName": "QA_TEST_AUTOMATION_NORWAY_s01_titleart.png",
+    "sponsorFileName": "#(WochitStage + '_' + 'QA_TEST_AUTOMATION_NORWAY_SPONS_5sec_4551337_4.mxf')",
+    "sourceVideoFileName": "dp_NO0000000000004551337003_25.mxf",
+    "keyArtFileName": "QA_TEST_AUTOMATION_NORWAY_s01_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Finished",
+  "seasonNumber": "S01",
+  "wochitVideoId": "#notnull",
+  "userName": "#(TestUser)",
+  "sourceVideoFileStatus": "Available",
+  "createdBy": "#notnull",
+  "showTitle": "#('QA TEST AUTOMATION NORWAY ' + WochitStage)",
+  "outputFileStatus": "Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Weekday",
+      "branding": "original",
+      "tag": "torsdag",
+      "dPlusCta": "strøm allerede nå",
+      "time": "20.30",
+      "title": "X dp_QA TEST AUTOMATION NORWAY_s01_e02_30_+X4598_newep_Thursday_20:30_streamalreadynow",
+      "brand": "ny episode",
+      "disclaimer": "Terms and conditions apply."
+    }
+  },
+  "subType": "e02",
+  "trailerId": "#(RandomString.result + '00401')",
+  "sponsorFileStatus": "Available"
+}

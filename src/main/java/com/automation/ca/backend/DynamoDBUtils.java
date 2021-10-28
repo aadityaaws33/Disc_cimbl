@@ -37,6 +37,7 @@ import com.amazonaws.services.dynamodbv2.model.ScanRequest;
 import com.amazonaws.services.dynamodbv2.model.ScanResult;
 import com.amazonaws.services.dynamodbv2.model.TableDescription;
 import com.amazonaws.services.dynamodbv2.document.Index;
+import com.amazonaws.services.dynamodbv2.document.DeleteItemOutcome;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -133,7 +134,7 @@ public class DynamoDBUtils {
         try {
             table = dynamoDB.getTable(TableName);
             DeleteItemSpec deleteItemSpec = new DeleteItemSpec().withPrimaryKey(new PrimaryKey(PrimaryPartitionKeyName, PrimaryPartitionKeyValue));
-            table.deleteItem(deleteItemSpec);
+            result = table.deleteItem(deleteItemSpec).toString();
         } catch (Exception e) {
             result = "Failed to delete " + PrimaryPartitionKeyValue + " from " + TableName + ": " + e.getMessage();
         }

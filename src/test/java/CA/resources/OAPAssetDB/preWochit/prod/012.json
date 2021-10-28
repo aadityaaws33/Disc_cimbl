@@ -1,0 +1,61 @@
+{
+  "templateType": "Combi",
+  "country": "Norway",
+  "sourceAudioFileStatus": "Not Available",
+  "modifiedAt": "#notnull",
+  "mediaId": "4551337_12",
+  "type": "Shows",
+  "episodeNumber": null,
+  "isMetadataUpdateRequired": false,
+  "iconikObjectIds": {
+    "sourceAudioAssetId": "#notnull",
+    "showTitleCollectionId": "#notnull",
+    "episodeCollectionId": "#notnull",
+    "sourceVideoAssetId": "#notnull",
+    "outputAssetId": "#notnull",
+    "mediaAssetCollectionId": "#notnull",
+    "seasonCollectionId": "#notnull",
+    "sponsorAssetId": "#notnull",
+    "outputCollectionId": "#notnull"
+  },
+  "mediaAssetId": "FI0000000000004551337011",
+  "duration": "30",
+  "createdAt": "#notnull",
+  "promoAssetStatus": "Pending Upload",
+  "modifiedBy": "#notnull",
+  "promotedChannel": "TV Norge",
+  "comments": "Pending Upload",
+  "associatedFiles": {
+    "sourceAudioFileName": "tvn_FI0000000000004551337011_Now_30.wav",
+    "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'FI0000000000004551337011_X_tvn_QA_TEST_AUTOMATION_NORWAY_s18_prelaunch_30_newseason_streamnow.mxf')",
+    "titleArtFileName": "QA_TEST_AUTOMATION_NORWAY_s18_titleart.png",
+    "sponsorFileName": "#(WochitStage + '_' + 'QA_TEST_AUTOMATION_NORWAY_SPONS_5sec_4551337_012.mxf')",
+    "sourceVideoFileName": "tvn_FI0000000000004551337011_30.mxf",
+    "keyArtFileName": "QA_TEST_AUTOMATION_NORWAY_s18_image.jpg"
+  },
+  "promoXMLId": "#notnull",
+  "wochitRenditionStatus": "Not Started",
+  "seasonNumber": "S18",
+  "wochitVideoId": null,
+  "userName": "#(TestUser)",
+  "sourceVideoFileStatus": "Not Available",
+  "createdBy": "#notnull",
+  "showTitle": "#('QA TEST AUTOMATION NORWAY ' + WochitStage)",
+  "outputFileStatus": "Not Available",
+  "promoXMLName": "#(ExpectedDataFileName)",
+  "xmlMetadata": {
+    "data": {
+      "versionType": "Now",
+      "branding": "original",
+      "tag": null,
+      "dPlusCta": "strøm nå",
+      "time": null,
+      "title": "X tvn_QA TEST AUTOMATION NORWAY_s18_prelaunch_30_newseason_streamnow",
+      "brand": "ny sesong",
+      "disclaimer": "Terms and conditions apply."
+    }
+  },
+  "subType": "prelaunch",
+  "trailerId": "#(RandomString.result + '012')",
+  "sponsorFileStatus": "Not Available"
+}

@@ -15,7 +15,7 @@
      },
      "linkedFields": [
       {
-       "value": "5",
+       "value": "2",
        "key": "Combi.OAP.Video.DplusStrap.SwitchTime"
       },
       {
@@ -27,11 +27,11 @@
        "key": "Combi.OAP.Video.ChannelStrap.Title"
       },
       {
-       "value": "ny sesong",
+       "value": "ny sesong 27. mai",
        "key": "Combi.OAP.Video.ChannelStrap.CTA"
       },
       {
-       "value": "strøm nå",
+       "value": "ny sesong 27. mai",
        "key": "Combi.OAP.Video.DplusStrap.CTA"
       },
       {
@@ -47,7 +47,7 @@
        "key": "Combi.OAP.Video.ChannelEndboard.Brand"
       },
       {
-       "value": " ",
+       "value": "27. mai",
        "key": "Combi.OAP.Video.ChannelEndboard.Tag"
       },
       {
@@ -55,15 +55,15 @@
        "key": "Combi.OAP.Video.ChannelEndboard.Time"
       },
       {
-        "value": "strøm nå",
+       "value": "ny sesong 27. mai",
        "key": "Combi.OAP.Video.DplusOutro.CTA"
       },
       {
-       "value": "Terms and conditions apply.",
+       "value": "rerender",
        "key": "Combi.OAP.Video.DplusOutro.Disclaimer"
       }
      ],
-     "title": "#? _ == RandomString.result + '_postWochit_FI0000000000004551337011_X_tvn_QA_TEST_AUTOMATION_NORWAY_s18_prelaunch_30_newseason_streamnow'",
+     "title": "#? _ == RandomString.result + '_postWochit_FI0000000000004551337011_X_tvn_QA_TEST_AUTOMATION_NORWAY_s18_prelaunch_15_newseason_27may'",
      "timelineItems": [
       {
        "itemType": "VIDEO_SEGMENT",
@@ -73,17 +73,11 @@
        },
        "segmentStartTime": "0.0",
        "videoUrl": "#notnull",
-       "segmentEndTime": "30.0"
+       "segmentEndTime": "15.0"
       },
       {
-       "itemType": "VIDEO_SEGMENT",
-       "volumeControl": {
-        "bgMusic": "0.0",
-        "video": "1.0"
-       },
-       "segmentStartTime": "0.0",
-       "videoUrl": "#notnull",
-       "segmentEndTime": "5.76"
+       "itemType": "NONE",
+       "disabled": "true"
       }
      ]
     },
