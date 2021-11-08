@@ -310,7 +310,6 @@ Scenario: Delete items from DynamoDB Table
           }
           
           var thisResult = karate.call(ReUsableFeaturesPath + '/StepDefs/DynamoDB.feature@GetItemsViaQuery', getItemParams);
-          // karate.log("JESSNAR: " + thisResult);
           if(thisResult.result.length > 0) {
             return false;
           }
@@ -338,7 +337,6 @@ Scenario: Delete items from DynamoDB Table
             var PrimaryPartitionKeyValue = itemParamList[j]['PrimaryPartitionKeyValue'];
             karate.log('[Deleting] ' + PrimaryPartitionKeyName + ': ' + PrimaryPartitionKeyValue);
             thisDeleteMsg = dynamoDB.Delete_Item(TableName, PrimaryPartitionKeyName, PrimaryPartitionKeyValue);
-            // karate.log("JESSNAR: " + thisDeleteMsg);
             Pause(500);
             if(
               isTrailerIDDeleted(

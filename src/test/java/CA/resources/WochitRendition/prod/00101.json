@@ -1,7 +1,7 @@
 {
     "ID": "#notnull",
     "modifiedAt": "#notnull",
-    "renditionStatus": "#? _ == 'PROCESSING' || _ == 'FINISHED'",
+    "renditionStatus": "PROCESSING",
     "assetType": "VIDEO",
     "templateId": "6125abd25ea20121cbd10699",
     "userName": "#notnull",
@@ -15,7 +15,7 @@
         },
         "linkedFields": [
             {
-                "value": "#(IntroType)",
+                "value": "No Intro",
                 "key": "Dplus.OAP.Video.Intro.IntroType"
             },
             {
@@ -23,11 +23,11 @@
                 "key": "Dplus.OAP.Video.Strap.StrapType"
             },
             {
-                "value": "streama nu",
+                "value": "uusi kausi 27. toukokuuta",
                 "key": "Dplus.OAP.Video.Strap.CTA"
             },
             {
-                "value": "QA TEST AUTOMATION SWEDEN postWochit",
+                "value": "QA TEST AUTOMATION FINLAND postWochit",
                 "key": "Dplus.OAP.Video.Strap.Title"
             },
             {
@@ -47,27 +47,27 @@
                 "key": "Dplus.OAP.Video.TitleCard.TitleArt"
             },
             {
-                "value": "QA TEST AUTOMATION SWEDEN\\npostWochit",
+                "value": "QA TEST AUTOMATION FINLAND\\npostWochit",
                 "key": "Dplus.OAP.Video.TitleCard.Title"
             },
             {
-                "value": "Standard 1 Stage CTA",
+                "value": "Standard 2 Stage CTA",
                 "key": "Dplus.OAP.Video.Outro.OutroType"
             },
             {
-                "value": "streama nu",
+                "value": "uusi kausi",
                 "key": "Dplus.OAP.Video.Outro.Stage1CTA"
             },
             {
-                "value": "streama nu",
+                "value": "27. toukokuuta",
                 "key": "Dplus.OAP.Video.Outro.Stage2CTA"
             },
             {
-                "value": "Terms and conditions apply.",
+                "value": " ",
                 "key": "Dplus.OAP.Video.Outro.T&C"
             }
         ],
-        "title": "#? _ == RandomString.result + '_postWochit_SE0000000000004551337005_X_dp_QA_TEST_AUTOMATION_SWEDEN_w25_film_30_Wednesday_21:00_streamnow'",
+        "title": "#? _ == RandomString.result + '_postWochit_FI0000000000004551337001_X_dp_QA_TEST_AUTOMATION_FINLAND_s18_bundle02_15_newseason_27may'",
         "timelineItems": [
             {
                 "itemType": "VIDEO_SEGMENT",
@@ -77,17 +77,11 @@
                 },
                 "segmentStartTime": "0.0",
                 "videoUrl": "#notnull",
-                "segmentEndTime": "30.0"
+                "segmentEndTime": "15.0"
             },
             {
-                "itemType": "VIDEO_SEGMENT",
-                "volumeControl": {
-                    "bgMusic": "0.0",
-                    "video": "1.0"
-                },
-                "segmentStartTime": "0.0",
-                "videoUrl": "#notnull",
-                "segmentEndTime": "5.76"
+                "itemType": "NONE",
+                "disabled": "true"
             }
         ]
     },

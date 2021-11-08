@@ -3,7 +3,7 @@
     "modifiedAt": "#notnull",
     "renditionStatus": "PROCESSING",
     "assetType": "VIDEO",
-    "templateId": "60ed0a203fe6da53b1385f9b",
+    "templateId": "60e7f668d05b353d236b04da",
     "userName": "#notnull",
     "createdAt": "#notnull",
     "iconikUserName": "#notnull",
@@ -19,35 +19,39 @@
                 "key": "Combi.OAP.Video.DplusStrap.SwitchTime"
             },
             {
-                "value": "NO - TV Norge",
+                "value": "DK - Kanal 5",
                 "key": "Combi.OAP.Video.ChannelStrap.StrapType"
             },
             {
-                "value": "QA TEST AUTOMATION NORWAY postWochit",
+                "value": "QA TEST AUTOMATION DENMARK postWochit",
                 "key": "Combi.OAP.Video.ChannelStrap.Title"
             },
             {
-                "value": "ny sesong",
+                "value": "kommer snart",
                 "key": "Combi.OAP.Video.ChannelStrap.CTA"
             },
             {
-                "value": "strøm nå",
+                "value": "kommer snart",
                 "key": "Combi.OAP.Video.DplusStrap.CTA"
             },
             {
-                "value": "QA TEST AUTOMATION NORWAY postWochit",
+                "value": "QA TEST AUTOMATION DENMARK postWochit",
                 "key": "Combi.OAP.Video.DplusStrap.Title"
             },
             {
-                "value": "QA TEST AUTOMATION NORWAY postWochit",
+                "value": "DK - Kanal 5",
+                "key": "Combi.OAP.Video.ChannelEndboard.EndboardType"
+            },
+            {
+                "value": "QA TEST AUTOMATION DENMARK postWochit",
                 "key": "Combi.OAP.Video.ChannelEndboard.Title"
             },
             {
-                "value": "ny sesong",
+                "value": "",
                 "key": "Combi.OAP.Video.ChannelEndboard.Brand"
             },
             {
-                "value": " ",
+                "value": "kommer snart",
                 "key": "Combi.OAP.Video.ChannelEndboard.Tag"
             },
             {
@@ -55,15 +59,15 @@
                 "key": "Combi.OAP.Video.ChannelEndboard.Time"
             },
             {
-                "value": "strøm nå",
+                "value": "kommer snart",
                 "key": "Combi.OAP.Video.DplusOutro.CTA"
             },
             {
-                "value": "Terms and conditions apply.",
+                "value": "Terms & conditions apply.",
                 "key": "Combi.OAP.Video.DplusOutro.Disclaimer"
             }
         ],
-        "title": "#? _ == RandomString.result + '_postWochit_FI0000000000004551337011_X_tvn_QA_TEST_AUTOMATION_NORWAY_s18_prelaunch_30_newseason_streamnow'",
+        "title": "#? _ == RandomString.result + '_postWochit_DK0000000000004551337015_X_k5_QA_TEST_AUTOMATION_DENMARK_s01_teaser_30_+X5432_comingsoon'",
         "timelineItems": [
             {
                 "itemType": "VIDEO_SEGMENT",
@@ -73,21 +77,15 @@
                 },
                 "segmentStartTime": "0.0",
                 "videoUrl": "#notnull",
-                "segmentEndTime": "30.0"
+                "segmentEndTime": "25.0"
             },
             {
-                "itemType": "VIDEO_SEGMENT",
-                "volumeControl": {
-                    "bgMusic": "0.0",
-                    "video": "1.0"
-                },
-                "segmentStartTime": "0.0",
-                "videoUrl": "#notnull",
-                "segmentEndTime": "5.76"
+                "itemType": "NONE",
+                "disabled": "true"
             }
         ]
     },
-    "programmerName": "Discovery_WAVE_Black_Test",
+    "programmerName": "Discovery_WAVE_Linear_TEST",
     "aspectRatio": "ASPECT_16_9",
     "modifiedBy": "ca-oap-generate-wochit-rendition-EU-qa",
     "type": "OAP"

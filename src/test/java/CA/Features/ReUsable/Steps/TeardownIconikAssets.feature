@@ -16,7 +16,7 @@ Scenario: Teardown: Delete Iconik Assets
                     var trailerId = i;
                     var isDeleteOutputOnly = TrailerData[i];
                     karate.log('TrailerID: ' + trailerId + ' isDeleteOnly: ' + isDeleteOutputOnly);
-                    var filePath = 'classpath:' + ResultsPath + '/' + trailerId + '.json';
+                    var filePath = 'classpath:' + ResultsPath + '/OAPAssetDB/' + trailerId + '.json';
                     try {
                         var trailerIdAssetDBrecord = karate.read(filePath);
                     } catch (e) {

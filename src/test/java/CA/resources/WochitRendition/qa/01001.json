@@ -3,7 +3,7 @@
     "modifiedAt": "#notnull",
     "renditionStatus": "PROCESSING",
     "assetType": "VIDEO",
-    "templateId": "60ed0a203fe6da53b1385f9b",
+    "templateId": "60d5a4b2b913ca2c41ca5698",
     "userName": "#notnull",
     "createdAt": "#notnull",
     "iconikUserName": "#notnull",
@@ -15,36 +15,48 @@
         },
         "linkedFields": [
             {
+                "value": "FI - TV5",
+                "key": "Combi.OAP.Video.ChannelOpener.OpenerType"
+            },
+            {
                 "value": "5",
                 "key": "Combi.OAP.Video.DplusStrap.SwitchTime"
             },
             {
-                "value": "NO - TV Norge",
+                "value": "FI - TV5",
                 "key": "Combi.OAP.Video.ChannelStrap.StrapType"
             },
             {
-                "value": "QA TEST AUTOMATION NORWAY postWochit",
+                "value": "QA TEST AUTOMATION FINLAND postWochit",
                 "key": "Combi.OAP.Video.ChannelStrap.Title"
             },
             {
-                "value": "ny sesong",
+                "value": "uusi kausi",
                 "key": "Combi.OAP.Video.ChannelStrap.CTA"
             },
             {
-                "value": "strøm nå",
+                "value": "katso nyt",
                 "key": "Combi.OAP.Video.DplusStrap.CTA"
             },
             {
-                "value": "QA TEST AUTOMATION NORWAY postWochit",
+                "value": "QA TEST AUTOMATION FINLAND postWochit",
                 "key": "Combi.OAP.Video.DplusStrap.Title"
             },
             {
-                "value": "QA TEST AUTOMATION NORWAY postWochit",
-                "key": "Combi.OAP.Video.ChannelEndboard.Title"
+                "value": "FI - TV5",
+                "key": "Combi.OAP.Video.ChannelEndboard.EndboardType"
             },
             {
-                "value": "ny sesong",
+                "value": "#? 'beige-blue pink-dark blue cyan-grey pink-blue'.contains(_)",
+                "key": "Combi.OAP.Video.ChannelEndboard.Colour"
+            },
+            {
+                "value": "uusi kausi",
                 "key": "Combi.OAP.Video.ChannelEndboard.Brand"
+            },
+            {
+                "value": "QA TEST AUTOMATION FINLAND postWochit",
+                "key": "Combi.OAP.Video.ChannelEndboard.Title"
             },
             {
                 "value": " ",
@@ -55,7 +67,7 @@
                 "key": "Combi.OAP.Video.ChannelEndboard.Time"
             },
             {
-                "value": "strøm nå",
+                "value": "katso nyt",
                 "key": "Combi.OAP.Video.DplusOutro.CTA"
             },
             {
@@ -63,7 +75,7 @@
                 "key": "Combi.OAP.Video.DplusOutro.Disclaimer"
             }
         ],
-        "title": "#? _ == RandomString.result + '_postWochit_FI0000000000004551337011_X_tvn_QA_TEST_AUTOMATION_NORWAY_s18_prelaunch_30_newseason_streamnow'",
+        "title": "#? _ == RandomString.result + '_postWochit_FI0000000000004551337009_X_tv5_QA_TEST_AUTOMATION_FINLAND_s18_launch_30_newseason_streamnow'",
         "timelineItems": [
             {
                 "itemType": "VIDEO_SEGMENT",
@@ -87,7 +99,7 @@
             }
         ]
     },
-    "programmerName": "Discovery_WAVE_Black_Test",
+    "programmerName": "Discovery_WAVE_Linear_TEST",
     "aspectRatio": "ASPECT_16_9",
     "modifiedBy": "ca-oap-generate-wochit-rendition-EU-qa",
     "type": "OAP"

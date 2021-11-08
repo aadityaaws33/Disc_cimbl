@@ -142,7 +142,7 @@ Scenario: MAIN PHASE 2: Save AssetDB Records
                         // 1629802776510_preWochit_DK0000000000004551337015_X_k5_QA_TEST_AUTOMATION_DENMARK_s01_teaser_30_+X5432_comingsoon.mxf
                         // "#(RandomString.result + '_' + WochitStage + '_' + 'FI0000000000004551337001_X_dp_Greys_Anatomy_s18_bundle02_15_newseason_27may.mxf')",
 
-                        karate.write(karate.pretty(thisResponse), 'test-classes/' + ResultsPath + '/' + trailerId.replace(RandomString.result, '') + '.json');
+                        karate.write(karate.pretty(thisResponse), 'test-classes/' + ResultsPath + '/OAPAssetDB/' + trailerId.replace(RandomString.result, '') + '.json');
                     }
                 }
                 

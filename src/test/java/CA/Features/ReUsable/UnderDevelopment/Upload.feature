@@ -1,3 +1,4 @@
+# DISCONTINUED
 Feature: UPLOAD WIP
 
 Background:
@@ -44,7 +45,7 @@ Background:
                         RetryDuration: 10000
                     }
                     var ValidationResult = karate.call(ReUsableFeaturesPath + '/StepDefs/DynamoDB.feature@GetItemsViaQuery', ValidationParams);
-                    karate.write(karate.pretty(ValidationResult.result[0]), 'test-classes/' + ResultsPath + '/' + trailerId + '.json');
+                    karate.write(karate.pretty(ValidationResult.result[0]), 'test-classes/' + ResultsPath + '/OAPAssetDB/' + trailerId + '.json');
                 }
             }
         """

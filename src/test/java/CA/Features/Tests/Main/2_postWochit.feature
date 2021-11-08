@@ -2,9 +2,9 @@
 Feature: Phase2: Happy Path Flow - Post Wochit
 
 Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>][Stage: <STAGE>]
-    * if(TestUser == 'QA_AUTOMATION_USER') {karate.configure('abortedStepsShouldPass', true)}
-    * if(TestUser == 'QA_AUTOMATION_USER') {karate.configure('report', false)}
-    * if(TestUser == 'QA_AUTOMATION_USER') {karate.log("SKIPPED"); karate.abort()}
+    # * if(TestUser == 'QA_AUTOMATION_USER') {karate.configure('abortedStepsShouldPass', true)}
+    # * if(TestUser == 'QA_AUTOMATION_USER') {karate.configure('report', false)}
+    # * if(TestUser == 'QA_AUTOMATION_USER') {karate.log("SKIPPED"); karate.abort()}
     * def TestParams =
         """
             {
@@ -36,11 +36,11 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>][St
         | DATAFILENAME                                  | EXPECTEDRESPONSEFILE        | STAGE               |  ISDELETEOUTPUTONLY | WAITTIME |
         # ------------------------------- After Wochit Processing ----------------------------------------------------------------------------
         | promo_generation_DK_generic_dp.xml            | promo_generation_qa.json    | postWochit          |  true               | 5000     |
-        # | promo_generation_DK_teaser_combi.xml          | promo_generation_qa.json    | postWochit          |  true               | 5500     |
-        # | promo_generation_NO_episodic_dp_1.xml         | promo_generation_qa.json    | postWochit          |  true               | 6000     |
+        | promo_generation_DK_teaser_combi.xml          | promo_generation_qa.json    | postWochit          |  true               | 5500     |
+        | promo_generation_NO_episodic_dp_1.xml         | promo_generation_qa.json    | postWochit          |  true               | 6000     |
         | promo_generation_NO_prelaunch_combi.xml       | promo_generation_qa.json    | postWochit          |  true               | 6500     |
-        # | promo_generation_FI_bundle_dp.xml             | promo_generation_qa.json    | postWochit          |  true               | 7000     |
-        # | promo_generation_FI_launch_combi.xml          | promo_generation_qa.json    | postWochit          |  true               | 7500     |
+        | promo_generation_FI_bundle_dp.xml             | promo_generation_qa.json    | postWochit          |  true               | 7000     |
+        | promo_generation_FI_launch_combi.xml          | promo_generation_qa.json    | postWochit          |  true               | 7500     |
         | promo_generation_SE_film_dp.xml               | promo_generation_qa.json    | postWochit          |  true               | 8000     |
 
 

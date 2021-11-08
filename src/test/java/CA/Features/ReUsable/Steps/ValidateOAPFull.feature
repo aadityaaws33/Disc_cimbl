@@ -164,14 +164,14 @@ Scenario: MAIN PHASE 2 Validate OAP AssetDB Table Records
                         Retries: 120,
                         RetryDuration: 10000,
                         WriteToFile: true,
-                        WritePath: 'test-classes/' + ResultsPath + '/' + trailerId + '.json',
+                        WritePath: 'test-classes/' + ResultsPath + '/OAPAssetDB/' + trailerId + '.json',
                         ShortCircuit: {
                             Key: 'promoAssetStatus',
                             Value: 'Failed'
                         }
                     }
                     var ValidationResult = karate.call(ReUsableFeaturesPath + '/StepDefs/DynamoDB.feature@ValidateItemViaQuery', ValidationParams);
-                    // karate.write(karate.pretty(ValidationResult.result.response), 'test-classes/' + ResultsPath + '/' + trailerId + '.json');
+                    // karate.write(karate.pretty(ValidationResult.result.response), 'test-classes/' + ResultsPath + '/OAPAssetDB/' + trailerId + '.json');
                     if(!ValidationResult.result.pass) {
                         result.pass = false;
                         var errMsg = '';
@@ -240,6 +240,46 @@ Scenario: MAIN PHASE 2 Validate Wochit Rendition Table Records
                 return wochitRenditionReferenceIDs
             }
         """
+    * def getExpectedWochitRenditionRecord =
+        """
+            function(trailerID) {
+                var thisTrailerID = trailerID.split(RandomString.result)[1];
+                var thisExpectedWochitRenditionRecord = karate.read(ResourcesPath + '/WochitRendition/' + TargetEnv + '/' + thisTrailerID + '.json');
+                // EXPECTED INTRO TYPE
+                var thisTrailerDuration = parseInt(karate.jsonPath(thisExpectedWochitRenditionRecord, '$.videoUpdates.timelineItems[*].segmentEndTime')[0]);
+                var thisLinkedFields = karate.jsonPath(thisExpectedWochitRenditionRecord, '$.videoUpdates.linkedFields[*]');
+                var thisHasBranding = false;
+                try {
+                    if(karate.jsonPath(thisExpectedWochitRenditionRecord, '$.videoUpdates.linkedFields[?(@.value == "discovery+ original")].value').length > 0) {
+                        thisHasBranding = true;
+                    }
+                } catch(e) {
+                    karate.log('Branding does not exist. Resuming.');
+                }
+                
+                var thisIntro = '';
+                if(thisTrailerDuration <= 15) {
+                    var thisIntro = 'No Intro'
+                } else {
+                    if(thisHasBranding == true) {
+                        thisIntro = 'Originals Over VT';
+                    } else {
+                        thisIntro = 'Standard Over VT';
+                    }
+                }
+
+                for(var i in thisLinkedFields) {
+                    if(thisLinkedFields[i].key == 'Dplus.OAP.Video.Intro.IntroType') {
+                        thisLinkedFields[i].value = thisIntro;
+                        break;
+                    }
+                }
+                thisExpectedWochitRenditionRecord.videoUpdates.linkedFields = thisLinkedFields;
+
+                // karate.log('Expected Wochit Rendition Record: ' + thisExpectedWochitRenditionRecord);
+                return thisExpectedWochitRenditionRecord
+            }
+        """
     * def validateWochitRenditionRecords =
         """
             function(referenceIDs) {
@@ -252,8 +292,7 @@ Scenario: MAIN PHASE 2 Validate Wochit Rendition Table Records
                     var trailerID = referenceID.split(':')[0];
                     var referenceID = referenceID.split(':')[1];
                     //karate.log('RANDOMSTRING: ' + RandomString);
-                    var expectedResponse = karate.read(ResourcesPath + '/WochitRendition/' + TargetEnv + '/' + trailerID.split(RandomString.result)[1] + '.json');
-
+                    var expectedResponse = getExpectedWochitRenditionRecord(trailerID);
                     if(referenceID.contains('null')) {
                         var errMsg = trailerID + ' has a null wochitRenditionReferenceID';
                         karate.log(errMsg);
@@ -284,7 +323,7 @@ Scenario: MAIN PHASE 2 Validate Wochit Rendition Table Records
                         Retries: 1,
                         RetryDuration: 10000,
                         WriteToFile: true,
-                        WritePath: 'test-classes/CA/WochitRenditionResults/' + trailerID + '.json',
+                        WritePath: 'test-classes/' + ResultsPath + '/WochitRenditionDB/' + trailerID + '.json',
                         ShortCircuit: {
                             Key: 'renditionStatus',
                             Value: 'FAILED'

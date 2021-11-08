@@ -229,7 +229,7 @@ Scenario: Validate Collection Heirarchy
                 };
                 for(var i in trailerIDList) {
                     var trailerId = trailerIDList[i];
-                    var trailerIdAssetDBrecord = karate.read('classpath:' + ResultsPath + '/' + trailerId + '.json');
+                    var trailerIdAssetDBrecord = karate.read('classpath:' + ResultsPath + '/OAPAssetDB/' + trailerId + '.json');
 
                     // Build expectedCollectionHeirarchy array
                     // Push collection ID to array if it is not null
@@ -330,7 +330,7 @@ Scenario: Get AssetIDs from AssetDB by TrailerID
             function(trailerIDList) {
                 for(var i in trailerIDList) {
                     var trailerId = trailerIDList[i];
-                    var trailerIdAssetDBrecord = karate.read('classpath:' + ResultsPath + '/' + trailerId + '.json');
+                    var trailerIdAssetDBrecord = karate.read('classpath:' + ResultsPath + '/OAPAssetDB/' + trailerId + '.json');
                     
                     // Build Assets array
                     // Push asset ID to array if it is not null
