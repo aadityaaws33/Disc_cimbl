@@ -3,11 +3,11 @@
     "modifiedAt": "#notnull",
     "renditionStatus": "PROCESSING",
     "assetType": "VIDEO",
-    "templateId": "6125abd25ea20121cbd10699",
+    "templateId": "613041f974d7d2649c18ef9d",
     "userName": "#notnull",
     "createdAt": "#notnull",
     "iconikUserName": "#notnull",
-    "createdBy": "ca-oap-generate-wochit-rendition-EU-qa",
+    "createdBy": "ca-oap-generate-wochit-rendition-EU-prod",
     "videoUpdates": {
         "backgroundMusic": {
             "selectionType": "MANUAL",
@@ -93,6 +93,6 @@
     },
     "programmerName": "Discovery_WAVE_Black_Test",
     "aspectRatio": "ASPECT_16_9",
-    "modifiedBy": "ca-oap-generate-wochit-rendition-EU-qa",
+    "modifiedBy": "ca-oap-generate-wochit-rendition-EU-prod",
     "type": "OAP"
 }

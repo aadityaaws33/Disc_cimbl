@@ -1,18 +1,17 @@
 {
-    "Comments": "Invalid XML file. Wrong file extension",
+    "comments": "Invalid XML file. Wrong file extension",
     "createdAt": "#notnull",
-    "CreatedBy": "#notnull",
-    "DataFileName": "#(ExpectedDataFileName)",
-    "DataSourceName": "WHATS_ON",
-    "DataSourceStatus": "Failed",
-    "Errors": {
+    "createdBy": "#notnull",
+    "dataFileName": "#(ExpectedDataFileName)",
+    "dataSourceName": "WHATS_ON",
+    "dataSourceStatus": "Failed",
+    "errors": {
         "code": "OAP-101",
         "errorMessage": "Invalid XML file. Wrong file extension"
     },
-    "FilePath": "#(OAPHotfolderS3.Key + '/' + ExpectedDataFileName)",
+    "filePath": "#(OAPHotfolderS3.Key + '/' + ExpectedDataFileName)",
     "ID": "#notnull",
     "modifiedAt": "#notnull",
     "modifiedBy": "#notnull",
-    "UserName": "",
-    "Country": ""
+    "country": null
 }
