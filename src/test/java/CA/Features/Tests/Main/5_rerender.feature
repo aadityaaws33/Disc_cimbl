@@ -1,4 +1,5 @@
-@Regression @rerender
+# @Regression @Phase2 @postWochit
+# DISABLED UNTIL OAP PHASE 2 TEST AUTOMATION IS FINISHED
 Feature: Phase2: Rerender
 
 Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>][Stage: <THISSTAGE>]

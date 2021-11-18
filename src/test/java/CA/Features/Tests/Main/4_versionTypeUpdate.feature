@@ -1,4 +1,4 @@
-@Regression @versionTypeUpdate
+@Regression @Phase2 @versionTypeUpdate
 Feature: Phase2: Version Type Update
 
 Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>][Stage: <THISSTAGE>]
