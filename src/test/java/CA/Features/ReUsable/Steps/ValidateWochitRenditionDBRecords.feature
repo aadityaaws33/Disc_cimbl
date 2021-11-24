@@ -98,7 +98,7 @@ Scenario: Validate Wochit Rendition DB Records
                     thisExpectedTitle = thisXMLShowTitle;
                 }
                 else if(thisXMLShowTitle.contains('-')) {
-                    thisExpectedTitle = thisXMLShowTitle.replace('-', '\\n');
+                    thisExpectedTitle = thisXMLShowTitle.replace('-', '\\n-');
                 }
                 else if(thisXMLShowTitle.length > 18) {
                     var finalTitle = '';
