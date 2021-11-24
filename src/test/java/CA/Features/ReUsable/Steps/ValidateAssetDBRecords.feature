@@ -39,7 +39,7 @@ Scenario: Validate Asset DB Trailer Records
                         ExpectedOAPAssetDBRecord.comments = 'New Version Type - Pending Audio Upload';
                         ExpectedOAPAssetDBRecord.sourceAudioFileStatus = 'Not Available';
                         ExpectedOAPAssetDBRecord.promoAssetStatus = 'Pending Upload';
-                        // ExpectedOAPAssetDBRecord.wochitRenditionStatus = '#ignore';
+                        ExpectedOAPAssetDBRecord.wochitRenditionStatus = '#ignore';
                         // ExpectedOAPAssetDBRecord.wochitVideoId = null;
                         ExpectedOAPAssetDBRecord.outputFileStatus = 'Not Available';
                     }
