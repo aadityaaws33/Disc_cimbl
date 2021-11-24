@@ -1,0 +1,92 @@
+{
+    "ID": "#notnull",
+    "modifiedAt": "#notnull",
+    "renditionStatus": "PROCESSING",
+    "assetType": "VIDEO",
+    "templateId": "60e7f668d05b353d236b04da",
+    "userName": "#notnull",
+    "createdAt": "#notnull",
+    "iconikUserName": "#notnull",
+    "createdBy": "ca-oap-generate-wochit-rendition-EU-qa",
+    "videoUpdates": {
+        "backgroundMusic": {
+            "selectionType": "MANUAL",
+            "url": "#notnull"
+        },
+        "linkedFields": [
+            {
+                "value": "5",
+                "key": "Combi.OAP.Video.DplusStrap.SwitchTime"
+            },
+            {
+                "value": "DK - Kanal 5",
+                "key": "Combi.OAP.Video.ChannelStrap.StrapType"
+            },
+            {
+                "value": "QA TEST AUTOMATION DENMARK postWochit",
+                "key": "Combi.OAP.Video.ChannelStrap.Title"
+            },
+            {
+                "value": "kommer snart",
+                "key": "Combi.OAP.Video.ChannelStrap.CTA"
+            },
+            {
+                "value": "kommer snart",
+                "key": "Combi.OAP.Video.DplusStrap.CTA"
+            },
+            {
+                "value": "QA TEST AUTOMATION DENMARK postWochit",
+                "key": "Combi.OAP.Video.DplusStrap.Title"
+            },
+            {
+                "value": "DK - Kanal 5",
+                "key": "Combi.OAP.Video.ChannelEndboard.EndboardType"
+            },
+            {
+                "value": "QA TEST AUTOMATION DENMARK postWochit",
+                "key": "Combi.OAP.Video.ChannelEndboard.Title"
+            },
+            {
+                "value": "",
+                "key": "Combi.OAP.Video.ChannelEndboard.Brand"
+            },
+            {
+                "value": "kommer snart",
+                "key": "Combi.OAP.Video.ChannelEndboard.Tag"
+            },
+            {
+                "value": " ",
+                "key": "Combi.OAP.Video.ChannelEndboard.Time"
+            },
+            {
+                "value": "kommer snart",
+                "key": "Combi.OAP.Video.DplusOutro.CTA"
+            },
+            {
+                "value": "Terms & conditions apply.",
+                "key": "Combi.OAP.Video.DplusOutro.Disclaimer"
+            }
+        ],
+        "title": "#? _ == RandomString.result + '_postWochit_DK0000000000004551337015_X_k5_QA_TEST_AUTOMATION_DENMARK_s01_teaser_30_+X5432_comingsoon'",
+        "timelineItems": [
+            {
+                "itemType": "VIDEO_SEGMENT",
+                "volumeControl": {
+                    "bgMusic": "1.0",
+                    "video": "0.0"
+                },
+                "segmentStartTime": "0.0",
+                "videoUrl": "#notnull",
+                "segmentEndTime": "25.0"
+            },
+            {
+                "itemType": "NONE",
+                "disabled": "true"
+            }
+        ]
+    },
+    "programmerName": "Discovery_WAVE_Linear_TEST",
+    "aspectRatio": "ASPECT_16_9",
+    "modifiedBy": "ca-oap-generate-wochit-rendition-EU-qa",
+    "type": "OAP"
+}

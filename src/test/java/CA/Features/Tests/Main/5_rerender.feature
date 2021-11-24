@@ -1,11 +1,11 @@
-# @Regression @Phase2 @postWochit
+@Regression @Phase2 @rerender
 # DISABLED UNTIL OAP PHASE 2 TEST AUTOMATION IS FINISHED
 Feature: Phase2: Rerender
 
 Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>][Stage: <THISSTAGE>]
-    * if(TestUser == 'QA_AUTOMATION_USER') {karate.configure('abortedStepsShouldPass', true)}
-    * if(TestUser == 'QA_AUTOMATION_USER') {karate.configure('report', false)}
-    * if(TestUser == 'QA_AUTOMATION_USER') {karate.log("SKIPPED"); karate.abort()}
+    # * if(TestUser == 'QA_AUTOMATION_USER') {karate.configure('abortedStepsShouldPass', true)}
+    # * if(TestUser == 'QA_AUTOMATION_USER') {karate.configure('report', false)}
+    # * if(TestUser == 'QA_AUTOMATION_USER') {karate.log("SKIPPED"); karate.abort()}
     * def TestParams =
         """
             {

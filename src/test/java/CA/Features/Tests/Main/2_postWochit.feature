@@ -1,5 +1,4 @@
-# @Regression @Phase2 @postWochit
-# DISABLED UNTIL OAP PHASE 2 TEST AUTOMATION IS FINISHED
+@Regression @Phase2 @postWochit
 Feature: Phase2: Happy Path Flow - Post Wochit
 
 Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>][Stage: <STAGE>]

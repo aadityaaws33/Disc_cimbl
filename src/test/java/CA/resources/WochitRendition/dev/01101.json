@@ -7,7 +7,7 @@
     "userName": "#notnull",
     "createdAt": "#notnull",
     "iconikUserName": "#notnull",
-    "createdBy": "ca-oap-generate-wochit-rendition-EU-qa",
+    "createdBy": "ca-oap-generate-wochit-rendition-EU-dev",
     "videoUpdates": {
         "backgroundMusic": {
             "selectionType": "MANUAL",
@@ -83,6 +83,6 @@
     },
     "programmerName": "Discovery_WAVE_Black_Test",
     "aspectRatio": "ASPECT_16_9",
-    "modifiedBy": "ca-oap-generate-wochit-rendition-EU-qa",
+    "modifiedBy": "ca-oap-generate-wochit-rendition-EU-dev",
     "type": "OAP"
 }

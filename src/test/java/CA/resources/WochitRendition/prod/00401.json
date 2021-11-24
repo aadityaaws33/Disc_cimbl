@@ -15,7 +15,7 @@
         },
         "linkedFields": [
             {
-                "value": "Originals Over VT",
+                "value": "#(IntroType)",
                 "key": "Dplus.OAP.Video.Intro.IntroType"
             },
             {

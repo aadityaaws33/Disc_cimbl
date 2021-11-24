@@ -15,7 +15,7 @@
         },
         "linkedFields": [
             {
-                "value": "No Intro",
+                "value": "#(IntroType)",
                 "key": "Dplus.OAP.Video.Intro.IntroType"
             },
             {

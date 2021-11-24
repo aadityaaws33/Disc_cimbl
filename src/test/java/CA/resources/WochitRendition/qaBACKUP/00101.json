@@ -1,0 +1,96 @@
+{
+    "ID": "#notnull",
+    "modifiedAt": "#notnull",
+    "renditionStatus": "PROCESSING",
+    "assetType": "VIDEO",
+    "templateId": "6184ee7bd10e3274f80612e6",
+    "userName": "#notnull",
+    "createdAt": "#notnull",
+    "iconikUserName": "#notnull",
+    "createdBy": "ca-oap-generate-wochit-rendition-EU-qa",
+    "videoUpdates": {
+        "backgroundMusic": {
+            "selectionType": "MANUAL",
+            "url": "#notnull"
+        },
+        "linkedFields": [
+            {
+                "value": "#(IntroType)",
+                "key": "Dplus.OAP.Video.Intro.IntroType"
+            },
+            {
+                "value": "Standard Logo, CTA & Title",
+                "key": "Dplus.OAP.Video.Strap.StrapType"
+            },
+            {
+                "value": "uusi kausi 27. toukokuuta",
+                "key": "Dplus.OAP.Video.Strap.CTA"
+            },
+            {
+                "value": "QA TEST AUTOMATION FINLAND postWochit",
+                "key": "Dplus.OAP.Video.Strap.Title"
+            },
+            {
+                "value": "Generic Text On White",
+                "key": "Dplus.OAP.Video.TitleCard.TitleCardType"
+            },
+            {
+                "value": "#(OutroType)",
+                "key": "Dplus.OAP.Video.Outro.OutroType"
+            },
+            {
+                "value": "DARK BLUE",
+                "key": "Dplus.OAP.Video.Outro.BackgroundColour"
+            },
+            {
+                "value": " ",
+                "key": "Dplus.OAP.Video.TitleCard.KeyArt"
+            },
+            {
+                "value": "discovery+ original",
+                "key": "Dplus.OAP.Video.TitleCard.OriginalLine"
+            },
+            {
+                "value": " ",
+                "key": "Dplus.OAP.Video.TitleCard.TitleArt"
+            },
+            {
+                "value": "QA TEST AUTOMATION FINLAND\\npostWochit",
+                "key": "Dplus.OAP.Video.TitleCard.Title"
+            },
+            {
+                "value": "Dokumentit + Urheilu + Reality + Rikos + Moottorit",
+                "key": "Dplus.OAP.Video.Outro.GenreTrainText"
+            },
+            {
+                "value": "uusi kausi 27. toukokuuta",
+                "key": "Dplus.OAP.Video.Outro.CTAText"
+            },
+            {
+                "value": " ",
+                "key": "Dplus.OAP.Video.Outro.LegalText"
+            }
+        ],
+        "title": "#? _ == RandomString.result + '_postWochit_FI0000000000004551337001_X_dp_QA_TEST_AUTOMATION_FINLAND_s18_bundle02_15_newseason_27may'",
+        "timelineItems": [
+            {
+                "itemType": "VIDEO_SEGMENT",
+                "volumeControl": {
+                    "bgMusic": "1.0",
+                    "video": "0.0"
+                },
+                "segmentStartTime": "0.0",
+                "videoUrl": "#notnull",
+                "segmentEndTime": "15.0"
+            },
+            {
+                "itemType": "NONE",
+                "disabled": "true"
+            }
+        ]
+    },
+    "programmerName": "Discovery_WAVE_Linear_TEST",
+    "aspectRatio": "ASPECT_16_9",
+    "modifiedBy": "ca-oap-generate-wochit-rendition-EU-qa",
+    "type": "OAP"
+}

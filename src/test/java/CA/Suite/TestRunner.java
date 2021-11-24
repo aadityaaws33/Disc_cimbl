@@ -31,16 +31,12 @@ import com.intuit.karate.core.ScenarioResult;
 @KarateOptions(features = "classpath:CA")
 public class TestRunner {
   private static Results finalResults;
+  private static int envParallelThreads = 0;
 
   @BeforeClass
   public static void beforeClass() {
     System.setProperty("file.encoding","ISO-8859-1");
       // skip 'callSingle' in karate-config.js
-  } 
- 
-  @AfterClass
-  public static void afterClass() {
-    int envParallelThreads = 0;
     try {
       envParallelThreads =  Integer.parseInt(
                               System.getenv("parallelThreads")
@@ -48,11 +44,29 @@ public class TestRunner {
     } catch (NumberFormatException e) {
       envParallelThreads = 4;
     }
-
+  } 
+ 
+  @AfterClass
+  public static void afterClass() {
+    // RUN TEARDOWN
     System.out.println("Parallel Threads: " + envParallelThreads);
 
     System.setProperty("karate.options", "-t @Teardown");
     Runner.path("classpath:CA").parallel(envParallelThreads);
+
+    // CONSOLIDATE RESULTS AND PRESENT
+    List<ScenarioResult> scenarioResults = finalResults.getScenarioResults();
+    if(finalResults.getFailCount() > 0) {
+        scenarioResults.forEach(
+            thisResult -> {
+                if(thisResult.getError() != null) {
+                    System.err.println("--------------------- FAILURE: ---------------------");
+                    System.out.println("Failed Scenario: " + thisResult.getScenario());
+                    System.err.println("Failure Message: " + thisResult.getError());
+                }
+            }
+        );
+    }
   }  
   
 
@@ -68,17 +82,6 @@ public class TestRunner {
 
   @Test
   public void testParallel() {
-    //Read environment variable "parallelThreads"
-    //Defaults to 4 parallel threads if not set
-    int envParallelThreads = 0;
-    try {
-      envParallelThreads =  Integer.parseInt(
-                              System.getenv("parallelThreads")
-                            );
-    } catch (NumberFormatException e) {
-      envParallelThreads = 4;
-    }
-
     System.out.println("Parallel Threads: " + envParallelThreads);
 
     // Results results = Runner.path("classpath:CA").hook(new ExecHook()).parallel(envParallelThreads);
