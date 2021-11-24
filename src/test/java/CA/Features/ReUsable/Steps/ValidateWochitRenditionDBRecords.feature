@@ -103,19 +103,18 @@ Scenario: Validate Wochit Rendition DB Records
                 else if(thisXMLShowTitle.length > 18) {
                     var finalTitle = '';
                     var words = thisXMLShowTitle.split(' ');
-                    var length = 0
+
                     for(var i in words) {
-                        length += words[i].length;
-                        if(length > 18) {
-                            if(!finalTitle.contains('\n')) {
-                                finalTitle += '\n';
+                        var separator = '';
+                        if(i > 0) {
+                            separator = ' ';
+                            if((finalTitle + words[i]).length >= 18 && !finalTitle.contains('\\n')) {
+                                separator = '\\n';
                             }
                         }
-                        finalTitle += words[i];
-                        if(i < words.length - 1) {
-                            finalTitle += ' ';
-                        }
+                        finalTitle += separator + words[i];
                     }
+
                     thisExpectedTitle = finalTitle;
                 }
                 return thisExpectedTitle;
