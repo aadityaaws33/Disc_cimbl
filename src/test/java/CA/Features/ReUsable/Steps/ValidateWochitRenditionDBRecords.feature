@@ -260,8 +260,9 @@ Scenario: Validate Wochit Rendition DB Records
                 if(thisLinkedFieldsKeys.indexOf('Dplus.OAP.Video.TitleCard.Title') > -1) {
                     // TEMPLATE ID
                     templateIDs = {
+                        'dev': '6184ee7bd10e3274f80612e6', 
                         'qa': '6184ee7bd10e3274f80612e6', 
-                        'prod': null
+                        'prod': '619f496d29f511256af7109f'
                     }
                     thisExpectedWochitRenditionRecord.templateId = templateIDs[TargetEnv];
 
@@ -285,9 +286,7 @@ Scenario: Validate Wochit Rendition DB Records
                     thisLinkedFields[TitleCardTypeIndex].value = thisExpectedTitleCardType;
 
                     // TITLE
-                    // IGNORE FOR NOW BUG
                     var TitleIndex = thisLinkedFieldsKeys.indexOf('Dplus.OAP.Video.TitleCard.Title');
-                    // thisLinkedFields[TitleIndex].value = "#ignore";
                     if(thisExpectedTitleCardType == 'Generic Text On Background') {
                         var thisXMLShowTitle = thisXMLNodeSets[trailerID].showTitle;
                         var thisExpectedTitle = getExpectedTitle(thisXMLShowTitle);
@@ -319,14 +318,67 @@ Scenario: Validate Wochit Rendition DB Records
                     var CTATextIndex = thisLinkedFieldsKeys.indexOf('Dplus.OAP.Video.Outro.CTAText');
                     var thisExpectedCTAText = getExpectedCTAText(trailerID);
                     thisLinkedFields[CTATextIndex].value = thisExpectedCTAText;
-
-
-                    thisExpectedWochitRenditionRecord.videoUpdates.linkedFields = thisLinkedFields;
                 }
                 // COMBI TEMPLATES (PHASE 1)
                 else {
-
+                    // TEMPLATE ID
+                    var countryCode = thisXMLNodeSets[trailerID].countryCode;
+                    var promotedChannel = thisXMLNodeSets[trailerID].promotedChannel
+                    var templateIDs = {
+                        'qa': {
+                            'FI': {
+                                'tv5': '60d5a4b2b913ca2c41ca5698',
+                                'frii': '60d5a506b913ca2c41ca569e',
+                                'kut': '60d5a4dcb913ca2c41ca569a'
+                            },
+                            'DK': {
+                                'k4': '60e7f0093467b05de4c3ac8f',
+                                'k5': '60e7f668d05b353d236b04da',
+                                'k6': '60e7f77bd05b353d236b04dd',
+                                'c9': '60e7f85c4a5954449fe6db7c'
+                            },
+                            'NO': {
+                                'tvn': '60ed0a203fe6da53b1385f9b',
+                                'fem': '60ed13dd3fe6da53b1385fa0',
+                                'max': '60ed1fce3fe6da53b1385fa8',
+                                'vox': '60ed23ceee1e076949304262',
+                            },
+                            'SE': {
+                                'k5': '60e53f5e4a5954449fe6d6ca',
+                                'k9': '60e547bb4a5954449fe6d6d2',
+                                'k11': '60e680a44a5954449fe6d8fd'
+                            }
+                        },
+                        'prod': {
+                            'FI': {
+                                'tv5': '60fa2ad004732008a8bb1043',
+                                'frii': '60fa2b5704732008a8bb1045',
+                                'kut': '60fa2b8e04732008a8bb1047'
+                            },
+                            'DK': {
+                                'k4': '60fe26ea353ea20724abab95',
+                                'k5': '60fe27512cc15704dee2fdf3',
+                                'k6': '60fe27ac04732008a8bb1365',
+                                'c9': '60fe28772cc15704dee2fdf8'
+                            },
+                            'NO': {
+                                'tvn': '60fe2963353ea20724abab9f',
+                                'fem': '60fe2b89353ea20724ababa3',
+                                'max': '60fe2bea2cc15704dee2fdfa',
+                                'vox': '60fe2c4b04732008a8bb136c',
+                            },
+                            'SE': {
+                                'k5': '60fa3e74353ea20724aba862',
+                                'k9': '60fa3e372cc15704dee2fab3',
+                                'k11': '60fa3dfc2cc15704dee2fab0'
+                            }
+                        },
+                    }
+                    templateIDs['dev'] = templateIDs['qa'];
+                    thisExpectedWochitRenditionRecord.templateId = templateIDs[TargetEnv][countryCode][promotedChannel];
                 }
+
+                thisExpectedWochitRenditionRecord.videoUpdates.linkedFields = thisLinkedFields;
 
                 // karate.log('Expected Wochit Rendition Record: ' + thisExpectedWochitRenditionRecord);
                 return thisExpectedWochitRenditionRecord

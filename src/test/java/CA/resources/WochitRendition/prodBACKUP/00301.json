@@ -1,9 +1,9 @@
 {
     "ID": "#notnull",
     "modifiedAt": "#notnull",
-    "renditionStatus": "#? _ == 'PROCESSING' || _ == 'FINISHED'",
+    "renditionStatus": "PROCESSING",
     "assetType": "VIDEO",
-    "templateId": "6184ee7bd10e3274f80612e6",
+    "templateId": "613041f974d7d2649c18ef9d",
     "userName": "#notnull",
     "createdAt": "#notnull",
     "iconikUserName": "#notnull",
@@ -23,31 +23,23 @@
                 "key": "Dplus.OAP.Video.Strap.StrapType"
             },
             {
-                "value": "streama nu",
+                "value": "strøm allerede nå",
                 "key": "Dplus.OAP.Video.Strap.CTA"
             },
             {
-                "value": "QA TEST AUTOMATION SWEDEN postWochit",
+                "value": "QA TEST AUTOMATION NORWAY postWochit",
                 "key": "Dplus.OAP.Video.Strap.Title"
             },
             {
-                "value": "#(TitleCardType)",
+                "value": "Generic Text On White",
                 "key": "Dplus.OAP.Video.TitleCard.TitleCardType"
-            },
-            {
-                "value": "#(OutroType)",
-                "key": "Dplus.OAP.Video.Outro.OutroType"
-            },
-            {
-                "value": "DARK BLUE",
-                "key": "Dplus.OAP.Video.Outro.BackgroundColour"
             },
             {
                 "value": " ",
                 "key": "Dplus.OAP.Video.TitleCard.KeyArt"
             },
             {
-                "value": "on",
+                "value": "discovery+ original",
                 "key": "Dplus.OAP.Video.TitleCard.OriginalLine"
             },
             {
@@ -55,23 +47,27 @@
                 "key": "Dplus.OAP.Video.TitleCard.TitleArt"
             },
             {
-                "value": "QA TEST AUTOMATION SWEDEN\\npostWochit",
+                "value": "QA TEST AUTOMATION NORWAY\\npostWochit",
                 "key": "Dplus.OAP.Video.TitleCard.Title"
             },
             {
-                "value": "Dokumentärer + Reality + Sport + Humor + Crime",
-                "key": "Dplus.OAP.Video.Outro.GenreTrainText"
+                "value": "Standard 2 Stage CTA",
+                "key": "Dplus.OAP.Video.Outro.OutroType"
             },
             {
-                "value": "streama nu",
-                "key": "Dplus.OAP.Video.Outro.CTAText"
+                "value": "ny episode",
+                "key": "Dplus.OAP.Video.Outro.Stage1CTA"
+            },
+            {
+                "value": "strøm allerede nå",
+                "key": "Dplus.OAP.Video.Outro.Stage2CTA"
             },
             {
                 "value": "Terms and conditions apply.",
-                "key": "Dplus.OAP.Video.Outro.LegalText"
+                "key": "Dplus.OAP.Video.Outro.T&C"
             }
         ],
-        "title": "#? _ == RandomString.result + '_postWochit_SE0000000000004551337005_X_dp_QA_TEST_AUTOMATION_SWEDEN_w25_film_30_Wednesday_21:00_streamnow'",
+        "title": "#? _ == RandomString.result + '_postWochit_NO0000000000004551337003_X_dp_QA_TEST_AUTOMATION_NORWAY_s01_e02_15_newep_Thursday_20:30_streamalreadynow'",
         "timelineItems": [
             {
                 "itemType": "VIDEO_SEGMENT",
@@ -81,21 +77,15 @@
                 },
                 "segmentStartTime": "0.0",
                 "videoUrl": "#notnull",
-                "segmentEndTime": "30.0"
+                "segmentEndTime": "15.0"
             },
             {
-                "itemType": "VIDEO_SEGMENT",
-                "volumeControl": {
-                    "bgMusic": "0.0",
-                    "video": "1.0"
-                },
-                "segmentStartTime": "0.0",
-                "videoUrl": "#notnull",
-                "segmentEndTime": "5.76"
+                "itemType": "NONE",
+                "disabled": "true"
             }
         ]
     },
-    "programmerName": "Discovery_WAVE_Linear_Prod",
+    "programmerName": "Discovery_WAVE_Black_Test",
     "aspectRatio": "ASPECT_16_9",
     "modifiedBy": "ca-oap-generate-wochit-rendition-EU-prod",
     "type": "OAP"

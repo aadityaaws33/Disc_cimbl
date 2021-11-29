@@ -1,7 +1,7 @@
 {
     "modifiedAt": "#notnull",
     "aspectRatio": "ASPECT_16_9",
-    "templateId": "613041f974d7d2649c18ef9d",
+    "templateId": "6184ee7bd10e3274f80612e6",
     "userName": "#notnull",
     "iconikUserName": "#notnull",
     "type": "OAP",
@@ -28,15 +28,23 @@
                 "key": "Dplus.OAP.Video.Strap.Title"
             },
             {
-                "value": "Generic Text On White",
+                "value": "#(TitleCardType)",
                 "key": "Dplus.OAP.Video.TitleCard.TitleCardType"
+            },
+            {
+                "value": "#(OutroType)",
+                "key": "Dplus.OAP.Video.Outro.OutroType"
+            },
+            {
+                "value": "DARK BLUE",
+                "key": "Dplus.OAP.Video.Outro.BackgroundColour"
             },
             {
                 "value": " ",
                 "key": "Dplus.OAP.Video.TitleCard.KeyArt"
             },
             {
-                "value": "discovery+ original",
+                "value": "on",
                 "key": "Dplus.OAP.Video.TitleCard.OriginalLine"
             },
             {
@@ -48,20 +56,16 @@
                 "key": "Dplus.OAP.Video.TitleCard.Title"
             },
             {
-                "value": "Standard 2 Stage CTA",
-                "key": "Dplus.OAP.Video.Outro.OutroType"
-            },
-            {
-                "value": "ny sæson",
-                "key": "Dplus.OAP.Video.Outro.Stage1CTA"
+                "value": "Dokumentarer + Serier + Sport + Reality + Krimi",
+                "key": "Dplus.OAP.Video.Outro.GenreTrainText"
             },
             {
                 "value": "stream lige nu",
-                "key": "Dplus.OAP.Video.Outro.Stage2CTA"
+                "key": "Dplus.OAP.Video.Outro.CTAText"
             },
             {
                 "value": "Terms and conditions apply.",
-                "key": "Dplus.OAP.Video.Outro.T&C"
+                "key": "Dplus.OAP.Video.Outro.LegalText"
             }
         ],
         "title": "#? _ == RandomString.result + '_postWochit_DK0000000000004551337007_X_dp_QA_TEST_AUTOMATION_DENMARK_s18_gen02_30_e05e10_newseason_streamnow'",
@@ -93,6 +97,6 @@
     "createdBy": "ca-oap-generate-wochit-rendition-EU-prod",
     "renditionStatus": "#? _ == 'PROCESSING' || _ == 'FINISHED'",
     "modifiedBy": "ca-oap-generate-wochit-rendition-EU-prod",
-    "programmerName": "Discovery_WAVE_Linear_TEST",
+    "programmerName": "Discovery_WAVE_Linear_Prod",
     "ID": "#notnull"
 }

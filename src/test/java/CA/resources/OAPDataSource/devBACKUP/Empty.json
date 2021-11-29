@@ -1,5 +1,5 @@
 {
-    "comments": "Invalid Format. Not a valid xml file",
+    "comments": "Invalid Format Error: Could not parse XML string",
     "createdAt": "#notnull",
     "createdBy": "#notnull",
     "dataFileName": "#(ExpectedDataFileName)",
@@ -7,7 +7,7 @@
     "dataSourceStatus": "Failed",
     "errors": {
         "code": "OAP-201",
-        "errorMessage": "Invalid Format. Not a valid xml file"
+        "errorMessage": "Invalid Format Error: Could not parse XML string"
     },
     "filePath": "#(OAPHotfolderS3.Key + '/' + ExpectedDataFileName)",
     "ID": "#notnull",

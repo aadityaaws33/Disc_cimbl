@@ -14,16 +14,5 @@
 	"status": "ACTIVE",
 	"title": "REPLACEME",
 	"type": "REPLACEME",
-	"versions": [
-		{
-			"analyze_status": "N/A",
-			"archive_status": "NOT_ARCHIVED",
-			"created_by_user": "#notnull",
-			"date_created": "#notnull",
-			"id": "#notnull",
-			"is_online": "REPLACEME",
-			"status": "ACTIVE",
-			"transcribe_status": "N/A"
-		}
-	]
+	"versions": "#ignore"
 }
