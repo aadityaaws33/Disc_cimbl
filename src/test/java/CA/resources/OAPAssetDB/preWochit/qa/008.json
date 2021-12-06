@@ -57,5 +57,5 @@
   },
   "subType": "gen02",
   "trailerId": "#(RandomString.result + '008')",
-  "sponsorFileStatus": "Not Available"
+  "sponsorFileStatus": "Available"
 }

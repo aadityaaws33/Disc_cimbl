@@ -30,6 +30,7 @@ Scenario: Validate Asset DB Trailer Records
                     } else if(stage == 'versionTypeUpdate') {
                         ExpectedOAPAssetDBRecord.xmlMetadata.data.versionType = 'TEST';
                         ExpectedOAPAssetDBRecord.comments = '#? _ == "New Version Type - Pending Upload" || _ == "New Version Type - Pending Asset Upload"';
+                        ExpectedOAPAssetDBRecord.sourceAudioFileStatus = '#ignore';
                     } else if(stage == 'rerender') {
                         ExpectedOAPAssetDBRecord.xmlMetadata.data.disclaimer = 'rerender';
                         ExpectedOAPAssetDBRecord.isMetadataUpdateRequired = '#ignore';
@@ -37,7 +38,7 @@ Scenario: Validate Asset DB Trailer Records
                     } else if(stage == 'versionTypeDelete') {
                         ExpectedOAPAssetDBRecord.xmlMetadata.data.versionType = 'TEST';
                         ExpectedOAPAssetDBRecord.comments = 'New Version Type - Pending Audio Upload';
-                        ExpectedOAPAssetDBRecord.sourceAudioFileStatus = 'Not Available';
+                        ExpectedOAPAssetDBRecord.sourceAudioFileStatus = '#ignore';
                         ExpectedOAPAssetDBRecord.promoAssetStatus = 'Pending Upload';
                         ExpectedOAPAssetDBRecord.wochitRenditionStatus = '#ignore';
                         ExpectedOAPAssetDBRecord.wochitVideoId = '#ignore';
