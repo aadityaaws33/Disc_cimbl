@@ -2,9 +2,9 @@
     "AWSRegion": "Nordic",
     "S3bucket": {
         "TestAssets" : {
-            "Name": "ca-qa-prod",
+            "Name": "ca-oap-data",
             "Key": "OAP",
-            "Region": "Nordic"
+            "Region": "APAC"
         },
         "OAPHotfolder": {
             "Name": "ca-data-ingest-prod",
