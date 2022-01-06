@@ -193,7 +193,7 @@ Scenario: Validate Wochit Rendition DB Records
             function(thisTrailerXMLInfo) {
                 var genreTrainTexts = {
                     'FI': 'Dokumentit + Urheilu + Reality + Rikos + Moottorit',
-                    'NO': 'Sport + Dokumentarer + Humor + Reality + Krim',
+                    'NO': 'Humor + Reality + Dokumentarer + Sport + Krim',
                     'SE': 'Dokumentärer + Reality + Sport + Humor + Crime',
                     'DK': 'Dokumentarer + Serier + Sport + Reality + Krimi'
                 }
