@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
  
     <groupId>Discovery.API</groupId>
-    <artifactId>CAAPITests</artifactId>
+    <artifactId>CAOAPTests</artifactId>
     <version>0.1</version>
     <packaging>jar</packaging>
  
