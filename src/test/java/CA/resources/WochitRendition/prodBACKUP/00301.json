@@ -3,7 +3,7 @@
     "modifiedAt": "#notnull",
     "renditionStatus": "PROCESSING",
     "assetType": "VIDEO",
-    "templateId": "613041f974d7d2649c18ef9d",
+    "templateId": "619f496d29f511256af7109f",
     "userName": "#notnull",
     "createdAt": "#notnull",
     "iconikUserName": "#notnull",
@@ -31,15 +31,23 @@
                 "key": "Dplus.OAP.Video.Strap.Title"
             },
             {
-                "value": "Generic Text On White",
+                "value": "#(TitleCardType)",
                 "key": "Dplus.OAP.Video.TitleCard.TitleCardType"
+            },
+            {
+                "value": "#(OutroType)",
+                "key": "Dplus.OAP.Video.Outro.OutroType"
+            },
+            {
+                "value": "DARK BLUE",
+                "key": "Dplus.OAP.Video.Outro.BackgroundColour"
             },
             {
                 "value": " ",
                 "key": "Dplus.OAP.Video.TitleCard.KeyArt"
             },
             {
-                "value": "discovery+ original",
+                "value": "on",
                 "key": "Dplus.OAP.Video.TitleCard.OriginalLine"
             },
             {
@@ -51,20 +59,16 @@
                 "key": "Dplus.OAP.Video.TitleCard.Title"
             },
             {
-                "value": "Standard 2 Stage CTA",
-                "key": "Dplus.OAP.Video.Outro.OutroType"
-            },
-            {
-                "value": "ny episode",
-                "key": "Dplus.OAP.Video.Outro.Stage1CTA"
+                "value": "Sport + Dokumentarer + Humor + Reality + Krim",
+                "key": "Dplus.OAP.Video.Outro.GenreTrainText"
             },
             {
                 "value": "strøm allerede nå",
-                "key": "Dplus.OAP.Video.Outro.Stage2CTA"
+                "key": "Dplus.OAP.Video.Outro.CTAText"
             },
             {
                 "value": "Terms and conditions apply.",
-                "key": "Dplus.OAP.Video.Outro.T&C"
+                "key": "Dplus.OAP.Video.Outro.LegalText"
             }
         ],
         "title": "#? _ == RandomString.result + '_postWochit_NO0000000000004551337003_X_dp_QA_TEST_AUTOMATION_NORWAY_s01_e02_15_newep_Thursday_20:30_streamalreadynow'",
@@ -85,7 +89,7 @@
             }
         ]
     },
-    "programmerName": "Discovery_WAVE_Black_Test",
+    "programmerName": "Discovery_WAVE_Black_Opener_Prod",
     "aspectRatio": "ASPECT_16_9",
     "modifiedBy": "ca-oap-generate-wochit-rendition-EU-prod",
     "type": "OAP"

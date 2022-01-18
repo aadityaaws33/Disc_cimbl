@@ -3,7 +3,7 @@
     "modifiedAt": "#notnull",
     "renditionStatus": "#? _ == 'PROCESSING' || _ == 'FINISHED'",
     "assetType": "VIDEO",
-    "templateId": "613041f974d7d2649c18ef9d",
+    "templateId": "619f496d29f511256af7109f",
     "userName": "#notnull",
     "createdAt": "#notnull",
     "iconikUserName": "#notnull",
@@ -31,15 +31,23 @@
                 "key": "Dplus.OAP.Video.Strap.Title"
             },
             {
-                "value": "Generic Text On White",
+                "value": "#(TitleCardType)",
                 "key": "Dplus.OAP.Video.TitleCard.TitleCardType"
+            },
+            {
+                "value": "#(OutroType)",
+                "key": "Dplus.OAP.Video.Outro.OutroType"
+            },
+            {
+                "value": "DARK BLUE",
+                "key": "Dplus.OAP.Video.Outro.BackgroundColour"
             },
             {
                 "value": " ",
                 "key": "Dplus.OAP.Video.TitleCard.KeyArt"
             },
             {
-                "value": "discovery+ original",
+                "value": "on",
                 "key": "Dplus.OAP.Video.TitleCard.OriginalLine"
             },
             {
@@ -51,20 +59,16 @@
                 "key": "Dplus.OAP.Video.TitleCard.Title"
             },
             {
-                "value": "Standard 1 Stage CTA",
-                "key": "Dplus.OAP.Video.Outro.OutroType"
+                "value": "Dokumentärer + Reality + Sport + Humor + Crime",
+                "key": "Dplus.OAP.Video.Outro.GenreTrainText"
             },
             {
                 "value": "streama nu",
-                "key": "Dplus.OAP.Video.Outro.Stage1CTA"
-            },
-            {
-                "value": "streama nu",
-                "key": "Dplus.OAP.Video.Outro.Stage2CTA"
+                "key": "Dplus.OAP.Video.Outro.CTAText"
             },
             {
                 "value": "Terms and conditions apply.",
-                "key": "Dplus.OAP.Video.Outro.T&C"
+                "key": "Dplus.OAP.Video.Outro.LegalText"
             }
         ],
         "title": "#? _ == RandomString.result + '_postWochit_SE0000000000004551337005_X_dp_QA_TEST_AUTOMATION_SWEDEN_w25_film_30_tonight_21:00_streamnow'",
@@ -85,7 +89,7 @@
             }
         ]
     },
-    "programmerName": "Discovery_WAVE_Linear_TEST",
+    "programmerName": "Discovery_WAVE_Linear_Prod",
     "aspectRatio": "ASPECT_16_9",
     "modifiedBy": "ca-oap-generate-wochit-rendition-EU-prod",
     "type": "OAP"

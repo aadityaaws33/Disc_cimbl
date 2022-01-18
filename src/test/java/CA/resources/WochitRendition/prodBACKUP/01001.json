@@ -3,7 +3,7 @@
     "modifiedAt": "#notnull",
     "renditionStatus": "PROCESSING",
     "assetType": "VIDEO",
-    "templateId": "60fa2ad004732008a8bb1043",
+    "templateId": "60d5a4b2b913ca2c41ca5698",
     "userName": "#notnull",
     "createdAt": "#notnull",
     "iconikUserName": "#notnull",
@@ -99,7 +99,7 @@
             }
         ]
     },
-    "programmerName": "Discovery_WAVE_Linear_TEST",
+    "programmerName": "Discovery_WAVE_Linear_Prod",
     "aspectRatio": "ASPECT_16_9",
     "modifiedBy": "ca-oap-generate-wochit-rendition-EU-prod",
     "type": "OAP"
