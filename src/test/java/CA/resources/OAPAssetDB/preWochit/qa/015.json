@@ -34,7 +34,7 @@
     "keyArtFileName": "QA_TEST_AUTOMATION_DENMARK_s01_image.jpg"
   },
   "promoXMLId": "#notnull",
-  "wochitRenditionStatus": "#ignore",
+  "wochitRenditionStatus": "Not Started",
   "seasonNumber": "S01",
   "wochitVideoId": null,
   "userName": "#(TestUser)",

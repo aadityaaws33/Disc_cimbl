@@ -34,7 +34,7 @@
     "keyArtFileName": "QA_TEST_AUTOMATION_SWEDEN_w25_image.jpg"
   },
   "promoXMLId": "#notnull",
-  "wochitRenditionStatus": "Finished",
+  "wochitRenditionStatus": "#? _ == 'Processing' || _ == 'Finished'",
   "seasonNumber": null,
   "wochitVideoId": "#notnull",
   "userName": "#(TestUser)",

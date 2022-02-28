@@ -1,5 +1,4 @@
 @Regression @Phase2 @versionTypeDelete
-# DISABLED UNTIL OAP PHASE 2 TEST AUTOMATION IS FINISHED
 Feature: Phase2: Version Type Delete
 
 Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>][Stage: <THISSTAGE>]

@@ -16,7 +16,7 @@ Scenario: Validate Asset DB Trailer Records
                     var expectedStage = stage;
                     if(stage == 'metadataUpdate' || stage == 'versionTypeUpdate') {
                         expectedStage = 'preWochit';
-                    } else if(stage == 'rerender' || stage == 'versionTypeDelete') {
+                    } else if(stage == 'rerender' || stage == 'versionTypeDelete' || stage == 'mediaReversion') {
                         expectedStage = 'postWochit';
                     }
 
@@ -43,6 +43,8 @@ Scenario: Validate Asset DB Trailer Records
                         ExpectedOAPAssetDBRecord.wochitRenditionStatus = '#ignore';
                         ExpectedOAPAssetDBRecord.wochitVideoId = '#ignore';
                         ExpectedOAPAssetDBRecord.outputFileStatus = 'Not Available';
+                    } else if(stage == 'mediaReversion') {
+                        ExpectedOAPAssetDBRecord.mediaReversion = true;
                     }
 
                     // Common modifications
@@ -52,9 +54,8 @@ Scenario: Validate Asset DB Trailer Records
                         ExpectedOAPAssetDBRecord.associatedFiles.sponsorFileName = ExpectedOAPAssetDBRecord.associatedFiles.sponsorFileName.replace(stage, expectedStage);
                     }
 
-                    // Environment-specific modifications to expected record
                     // QA_AUTOMATION_USER
-                    if(stage == 'postWochit' || stage == 'rerender') {
+                    if(stage == 'postWochit' || stage == 'rerender' || stage == 'mediaReversion') {
                         if(TestUser == 'QA_AUTOMATION_USER') {
                             // ExpectedOAPAssetDBRecord.promoAssetStatus = 'Processing';
                             // ExpectedOAPAssetDBRecord.wochitRenditionStatus = 'Processing';

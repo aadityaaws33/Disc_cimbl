@@ -20,12 +20,12 @@ Scenario:
                     var expectedStage = WochitStage;
                     if(WochitStage == 'metadataUpdate' || WochitStage == 'versionTypeUpdate') {
                         expectedStage = 'preWochit';
-                    } else if(WochitStage == 'rerender' || WochitStage == 'versionTypeDelete') {
+                    } else if(WochitStage == 'rerender' || WochitStage == 'versionTypeDelete' || WochitStage == 'mediaReversion') {
                         expectedStage = 'postWochit';
                     }
 
                     // Stage-specific modifications
-                    if(WochitStage == 'postWochit' || WochitStage == 'rerender' || WochitStage == 'versionTypeDelete') {
+                    if(WochitStage == 'postWochit' || WochitStage == 'rerender' || WochitStage == 'versionTypeDelete' || WochitStage == 'mediaReversion') {
                         TestXMLData['trailers']['_']['trailer'][index]['@']['id'] = TestXMLData['trailers']['_']['trailer'][index]['@']['id'] + '01';
                     } 
                     if(WochitStage == 'metadataUpdate' || WochitStage == 'rerender') {
@@ -33,6 +33,9 @@ Scenario:
                     } 
                     if(WochitStage == 'versionTypeUpdate' || WochitStage == 'versionTypeDelete') {
                         TestXMLData['trailers']['_']['trailer'][index]['_']['versionType'] = 'TEST';
+                    }
+                    if(WochitStage == 'mediaReversion') {
+                        TestXMLData['trailers']['_']['trailer'][index]['_']['mediaReversion'] = 'true';
                     }
 
 
@@ -46,7 +49,7 @@ Scenario:
                     // karate.log(TestXMLData['trailers']['_']['trailer'][index]['@']['id'].replace(RandomString.result, '')); 
 
                     // Environment-specific modifications
-                    if(TargetEnv == 'dev' || TargetEnv == 'qa') {
+                    if(TargetEnv == 'dev' || TargetEnv == 'qa' || TargetEnv == 'prod') {
                         TestXMLData['trailers']['@']['username'] = TestUser;
                     }
                 }

@@ -96,7 +96,7 @@
     "createdAt": "#notnull",
     "createdBy": "ca-oap-generate-wochit-rendition-EU-qa",
     "renditionStatus": "#? _ == 'PROCESSING' || _ == 'FINISHED'",
-    "modifiedBy": "ca-oap-generate-wochit-rendition-EU-qa",
+    "modifiedBy": "#notnull",
     "programmerName": "Discovery_WAVE_Linear_TEST",
     "ID": "#notnull"
 }

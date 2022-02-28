@@ -1,11 +1,10 @@
-@Regression @Phase2 @rerender
-Feature: Phase2: Rerender
+@Regression @Phase2 @mediaReversion
+Feature: Phase2: Version Type Delete
 
 Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>][Stage: <THISSTAGE>]
-    * if(TestUser == 'QA_AUTOMATION_USER') {karate.configure('abortedStepsShouldPass', true)}
-    * if(TestUser == 'QA_AUTOMATION_USER') {karate.configure('report', false)}
-    * def REASON = "Skipped due to BUG: CRAU-2208"
-    * if(TestUser == 'QA_AUTOMATION_USER') {karate.log(REASON); karate.abort()}
+    # * if(TestUser == 'QA_AUTOMATION_USER') {karate.configure('abortedStepsShouldPass', true)}
+    # * if(TestUser == 'QA_AUTOMATION_USER') {karate.configure('report', false)}
+    # * if(TestUser == 'QA_AUTOMATION_USER') {karate.log("SKIPPED"); karate.abort()}
     * def TestParams =
         """
             {
@@ -25,7 +24,6 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>][St
     * call read(ReUsableFeaturesPath + '/Steps/ValidateOAPFull.feature@UploadXMLFileToS3')
     * call read(ReUsableFeaturesPath + '/Steps/ValidateOAPFull.feature@ValidateOAPAssetDBRecords')
     * call read(ReUsableFeaturesPath + '/Steps/ValidateOAPFull.feature@ValidateOAPDataSourceDBRecords')
-    # * call read(ReUsableFeaturesPath + '/Steps/ValidateOAPFull.feature@ValidateWochitRenditionDBRecords')
     * def TestParams =
         """
             {
@@ -52,12 +50,12 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>][St
     When def Result = call read('classpath:CA/Features/ReUsable/Steps/ValidateOAPFull.feature@Main') TestParams
     Then karate.info.errorMessage == null?karate.log('[PASSED]: <DATAFILENAME>'):karate.fail('[FAILED]: <DATAFILENAME>')
     Examples:
-        | DATAFILENAME                                  | EXPECTEDRESPONSEFILE        | PRESTAGE   | THISSTAGE           |  ISDELETEOUTPUTONLY | WAITTIME |
-        # ----------------------------------------------- Rerender ----------------------------------------------------------------------------------------
-        | promo_generation_DK_generic_dp.xml            | promo_generation_qa.json    | postWochit | rerender            |  true               | 17000    |
-        # | promo_generation_DK_teaser_combi.xml          | promo_generation_qa.json    | postWochit | rerender            |  true               | 17500    |
-        # | promo_generation_NO_episodic_dp_1.xml         | promo_generation_qa.json    | postWochit | rerender            |  true               | 18000    |
-        # | promo_generation_NO_prelaunch_combi.xml       | promo_generation_qa.json    | postWochit | rerender            |  true               | 18500    |
-        # | promo_generation_FI_bundle_dp.xml             | promo_generation_qa.json    | postWochit | rerender            |  true               | 19000    |
-        | promo_generation_FI_launch_combi.xml          | promo_generation_qa.json    | postWochit | rerender            |  true               | 19500    |
-        # | promo_generation_SE_film_dp.xml               | promo_generation_qa.json    | postWochit | rerender            |  true               | 20000    |
+        | DATAFILENAME                                  | EXPECTEDRESPONSEFILE        | PRESTAGE   | THISSTAGE                      |  ISDELETEOUTPUTONLY | WAITTIME |
+        # -------------------------------------------------- Version Type Delete--------------------------------------------------------------------------------------
+        | promo_generation_DK_generic_dp.xml            | promo_generation_qa.json    | postWochit | mediaReversion              |  true               | 25000    |
+        # | promo_generation_DK_teaser_combi.xml          | promo_generation_qa.json    | postWochit | mediaReversion              |  true               | 25500    |
+        # | promo_generation_NO_episodic_dp_1.xml         | promo_generation_qa.json    | postWochit | mediaReversion              |  true               | 26000    |
+        # | promo_generation_NO_prelaunch_combi.xml       | promo_generation_qa.json    | postWochit | mediaReversion              |  true               | 26500    |
+        # | promo_generation_FI_bundle_dp.xml             | promo_generation_qa.json    | postWochit | mediaReversion              |  true               | 27000    |
+        # | promo_generation_FI_launch_combi.xml          | promo_generation_qa.json    | postWochit | mediaReversion              |  true               | 27500    |
+        # | promo_generation_SE_film_dp.xml               | promo_generation_qa.json    | postWochit | mediaReversion              |  true               | 28000    |

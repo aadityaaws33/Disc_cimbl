@@ -1,7 +1,7 @@
 {
     "ID": "#notnull",
     "modifiedAt": "#notnull",
-    "renditionStatus": "PROCESSING",
+    "renditionStatus": "#? _ == 'PROCESSING' || _ == 'FINISHED'",
     "assetType": "VIDEO",
     "templateId": "619f496d29f511256af7109f",
     "userName": "#notnull",
@@ -91,6 +91,6 @@
     },
     "programmerName": "Discovery_WAVE_Linear_Prod",
     "aspectRatio": "ASPECT_16_9",
-    "modifiedBy": "ca-oap-generate-wochit-rendition-EU-prod",
+    "modifiedBy": "#notnull",
     "type": "OAP"
 }

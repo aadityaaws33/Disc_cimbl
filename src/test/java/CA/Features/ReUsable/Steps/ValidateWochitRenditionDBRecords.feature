@@ -376,6 +376,11 @@ Scenario: Validate Wochit Rendition DB Records
                     }
                     templateIDs['dev'] = templateIDs['qa'];
                     thisExpectedWochitRenditionRecord.templateId = templateIDs[TargetEnv][countryCode][promotedChannel];
+
+                    // Disclaimer
+                    var DisclaimerIndex = thisLinkedFieldsKeys.indexOf('Combi.OAP.Video.DplusOutro.Disclaimer');
+                    var thisExpectedDisclaimer = getExpectedLegalText(thisXMLNodeSets[trailerID]);
+                    thisLinkedFields[DisclaimerIndex].value = thisExpectedDisclaimer;
                 }
 
                 thisExpectedWochitRenditionRecord.videoUpdates.linkedFields = thisLinkedFields;
