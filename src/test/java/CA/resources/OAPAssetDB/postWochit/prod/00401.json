@@ -27,7 +27,7 @@
   "comments": "",
   "associatedFiles": {
     "sourceAudioFileName": "dp_NO0000000000004551337003_Weekday_25.wav",
-    "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'NO0000000000004551337003_X_dp_QA_TEST_AUTOMATION_NORWAY_s01_e02_30_+X4598_newep_Thursday_20:30_streamalreadynow.mxf')",
+    "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'NO0000000000004551337003_X_dp_QA_TEST_AUTOMATION_NORWAY_s01_e02_30_newep_Thursday_20:30_streamalreadynow.mxf')",
     "titleArtFileName": "QA_TEST_AUTOMATION_NORWAY_s01_titleart.png",
     "sponsorFileName": "#(WochitStage + '_' + 'QA_TEST_AUTOMATION_NORWAY_SPONS_5sec_4551337_4.mxf')",
     "sourceVideoFileName": "dp_NO0000000000004551337003_25.mxf",
@@ -50,7 +50,7 @@
       "tag": "torsdag",
       "dPlusCta": "strøm allerede nå",
       "time": "20.30",
-      "title": "X dp_QA TEST AUTOMATION NORWAY_s01_e02_30_+X4598_newep_Thursday_20:30_streamalreadynow",
+      "title": "X dp_QA TEST AUTOMATION NORWAY_s01_e02_30_newep_Thursday_20:30_streamalreadynow",
       "brand": "ny episode",
       "disclaimer": "Terms and conditions apply."
     }

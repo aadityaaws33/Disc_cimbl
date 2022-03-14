@@ -37,7 +37,7 @@ Feature: Validate Wochit Rendition Record
         # ------------------------------- After Wochit Processing ----------------------------------------------------------------------------
         | promo_generation_DK_generic_dp.xml            | promo_generation_qa.json    | postWochit          |  true               | 15000    |
         # | promo_generation_DK_teaser_combi.xml          | promo_generation_qa.json    | postWochit          |  true               | 17000    |
-        # | promo_generation_NO_episodic_dp_1.xml         | promo_generation_qa.json    | postWochit          |  true               | 19000    |
+        # | promo_generation_NO_episodic_dp.xml         | promo_generation_qa.json    | postWochit          |  true               | 19000    |
         # | promo_generation_NO_prelaunch_combi.xml       | promo_generation_qa.json    | postWochit          |  true               | 21000    |
         # | promo_generation_FI_bundle_dp.xml             | promo_generation_qa.json    | postWochit          |  true               | 0    |
         # | promo_generation_FI_launch_combi.xml          | promo_generation_qa.json    | postWochit          |  true               | 25000    |

@@ -52,10 +52,10 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>][St
     Examples:
         | DATAFILENAME                                  | EXPECTEDRESPONSEFILE        | PRESTAGE   | THISSTAGE                      |  ISDELETEOUTPUTONLY | WAITTIME |
         # -------------------------------------------------- Version Type Delete--------------------------------------------------------------------------------------
-        | promo_generation_DK_generic_dp.xml            | promo_generation_qa.json    | postWochit | mediaReversion              |  true               | 25000    |
+        # | promo_generation_DK_generic_dp.xml            | promo_generation_qa.json    | postWochit | mediaReversion              |  true               | 25000    |
         # | promo_generation_DK_teaser_combi.xml          | promo_generation_qa.json    | postWochit | mediaReversion              |  true               | 25500    |
-        # | promo_generation_NO_episodic_dp_1.xml         | promo_generation_qa.json    | postWochit | mediaReversion              |  true               | 26000    |
+        # | promo_generation_NO_episodic_dp.xml         | promo_generation_qa.json    | postWochit | mediaReversion              |  true               | 26000    |
         # | promo_generation_NO_prelaunch_combi.xml       | promo_generation_qa.json    | postWochit | mediaReversion              |  true               | 26500    |
         # | promo_generation_FI_bundle_dp.xml             | promo_generation_qa.json    | postWochit | mediaReversion              |  true               | 27000    |
         # | promo_generation_FI_launch_combi.xml          | promo_generation_qa.json    | postWochit | mediaReversion              |  true               | 27500    |
-        # | promo_generation_SE_film_dp.xml               | promo_generation_qa.json    | postWochit | mediaReversion              |  true               | 28000    |
+        | promo_generation_SE_film_dp.xml               | promo_generation_qa.json    | postWochit | mediaReversion              |  true               | 28000    |

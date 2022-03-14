@@ -49,10 +49,10 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>][St
     Examples:
         | DATAFILENAME                                  | EXPECTEDRESPONSEFILE        | PRESTAGE  | THISSTAGE           |  ISDELETEOUTPUTONLY | WAITTIME |
         # ---------------------------------------- Version Type Update -----------------------------------------------------------------------------------
-        | promo_generation_DK_generic_dp.xml            | promo_generation_qa.json    | preWochit | versionTypeUpdate   |  false              | 13000    |
-        | promo_generation_DK_teaser_combi.xml          | promo_generation_qa.json    | preWochit | versionTypeUpdate   |  false              | 13500    |
-        | promo_generation_NO_episodic_dp_1.xml         | promo_generation_qa.json    | preWochit | versionTypeUpdate   |  false              | 14000    |
-        | promo_generation_NO_prelaunch_combi.xml       | promo_generation_qa.json    | preWochit | versionTypeUpdate   |  false              | 14500    |
-        | promo_generation_FI_bundle_dp.xml             | promo_generation_qa.json    | preWochit | versionTypeUpdate   |  false              | 15000    |
-        | promo_generation_FI_launch_combi.xml          | promo_generation_qa.json    | preWochit | versionTypeUpdate   |  false              | 15500    |
-        | promo_generation_SE_film_dp.xml               | promo_generation_qa.json    | preWochit | versionTypeUpdate   |  false              | 16000    |
+        # | promo_generation_DK_generic_dp.xml            | promo_generation_qa.json    | preWochit | versionTypeUpdate   |  false              | 13000    |
+        # # | promo_generation_DK_teaser_combi.xml          | promo_generation_qa.json    | preWochit | versionTypeUpdate   |  false              | 13500    |
+        # | promo_generation_NO_episodic_dp.xml         | promo_generation_qa.json    | preWochit | versionTypeUpdate   |  false              | 14000    |
+        # # | promo_generation_NO_prelaunch_combi.xml       | promo_generation_qa.json    | preWochit | versionTypeUpdate   |  false              | 14500    |
+        # | promo_generation_FI_bundle_dp.xml             | promo_generation_qa.json    | preWochit | versionTypeUpdate   |  false              | 15000    |
+        # # | promo_generation_FI_launch_combi.xml          | promo_generation_qa.json    | preWochit | versionTypeUpdate   |  false              | 15500    |
+        # | promo_generation_SE_film_dp.xml               | promo_generation_qa.json    | preWochit | versionTypeUpdate   |  false              | 16000    |

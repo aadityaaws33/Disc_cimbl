@@ -49,10 +49,10 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>][St
     Examples:
         | DATAFILENAME                                  | EXPECTEDRESPONSEFILE        | PRESTAGE  | THISSTAGE           |  ISDELETEOUTPUTONLY | WAITTIME |
         # ---------------------------------------- Metadata Update --------------------------------------------------------------------------------------
-        | promo_generation_DK_generic_dp.xml            | promo_generation_qa.json    | preWochit | metadataUpdate      |  false              | 9000     |
-        | promo_generation_DK_teaser_combi.xml          | promo_generation_qa.json    | preWochit | metadataUpdate      |  false              | 9500     |
-        | promo_generation_NO_episodic_dp_1.xml         | promo_generation_qa.json    | preWochit | metadataUpdate      |  false              | 10000    |
-        | promo_generation_NO_prelaunch_combi.xml       | promo_generation_qa.json    | preWochit | metadataUpdate      |  false              | 10500    |
-        | promo_generation_FI_bundle_dp.xml             | promo_generation_qa.json    | preWochit | metadataUpdate      |  false              | 11000    |
-        | promo_generation_FI_launch_combi.xml          | promo_generation_qa.json    | preWochit | metadataUpdate      |  false              | 11500    |
-        | promo_generation_SE_film_dp.xml               | promo_generation_qa.json    | preWochit | metadataUpdate      |  false              | 12000    |
+        # | promo_generation_DK_generic_dp.xml            | promo_generation_qa.json    | preWochit | metadataUpdate      |  false              | 9000     |
+        # # | promo_generation_DK_teaser_combi.xml          | promo_generation_qa.json    | preWochit | metadataUpdate      |  false              | 9500     |
+        # | promo_generation_NO_episodic_dp.xml         | promo_generation_qa.json    | preWochit | metadataUpdate      |  false              | 10000    |
+        # # | promo_generation_NO_prelaunch_combi.xml       | promo_generation_qa.json    | preWochit | metadataUpdate      |  false              | 10500    |
+        # | promo_generation_FI_bundle_dp.xml             | promo_generation_qa.json    | preWochit | metadataUpdate      |  false              | 11000    |
+        # # | promo_generation_FI_launch_combi.xml          | promo_generation_qa.json    | preWochit | metadataUpdate      |  false              | 11500    |
+        # | promo_generation_SE_film_dp.xml               | promo_generation_qa.json    | preWochit | metadataUpdate      |  false              | 12000    |

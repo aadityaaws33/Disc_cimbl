@@ -53,9 +53,9 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>][St
         | DATAFILENAME                                  | EXPECTEDRESPONSEFILE        | PRESTAGE   | THISSTAGE                      |  ISDELETEOUTPUTONLY | WAITTIME |
         # -------------------------------------------------- Version Type Delete--------------------------------------------------------------------------------------
         # | promo_generation_DK_generic_dp.xml            | promo_generation_qa.json    | postWochit | versionTypeDelete              |  true               | 21000    |
-        # | promo_generation_DK_teaser_combi.xml          | promo_generation_qa.json    | postWochit | versionTypeDelete              |  true               | 21500    |
-        # | promo_generation_NO_episodic_dp_1.xml         | promo_generation_qa.json    | postWochit | versionTypeDelete              |  true               | 22000    |
-        # | promo_generation_NO_prelaunch_combi.xml       | promo_generation_qa.json    | postWochit | versionTypeDelete              |  true               | 22500    |
-        # | promo_generation_FI_bundle_dp.xml             | promo_generation_qa.json    | postWochit | versionTypeDelete              |  true               | 23000    |
-        | promo_generation_FI_launch_combi.xml          | promo_generation_qa.json    | postWochit | versionTypeDelete              |  true               | 23500    |
+        # # | promo_generation_DK_teaser_combi.xml          | promo_generation_qa.json    | postWochit | versionTypeDelete              |  true               | 21500    |
+        # | promo_generation_NO_episodic_dp.xml         | promo_generation_qa.json    | postWochit | versionTypeDelete              |  true               | 22000    |
+        # # | promo_generation_NO_prelaunch_combi.xml       | promo_generation_qa.json    | postWochit | versionTypeDelete              |  true               | 22500    |
+        | promo_generation_FI_bundle_dp.xml             | promo_generation_qa.json    | postWochit | versionTypeDelete              |  true               | 23000    |
+        # # | promo_generation_FI_launch_combi.xml          | promo_generation_qa.json    | postWochit | versionTypeDelete              |  true               | 23500    |
         # | promo_generation_SE_film_dp.xml               | promo_generation_qa.json    | postWochit | versionTypeDelete              |  true               | 24000    |

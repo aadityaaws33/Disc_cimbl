@@ -24,7 +24,7 @@
   "promoAssetStatus": "Pending Upload",
   "modifiedBy": "#notnull",
   "promotedChannel": "TV5",
-  "comments": "Pending Upload",
+  "comments": " Pending Upload",
   "associatedFiles": {
     "sourceAudioFileName": "tv5_FI0000000000004551337009_Now_30.wav",
     "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'FI0000000000004551337009_X_tv5_QA_TEST_AUTOMATION_FINLAND_s18_launch_30_newseason_streamnow.mxf')",

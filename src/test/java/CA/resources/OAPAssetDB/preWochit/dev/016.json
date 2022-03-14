@@ -24,7 +24,7 @@
   "promoAssetStatus": "Pending Upload",
   "modifiedBy": "#notnull",
   "promotedChannel": "Kanal 5 Danmark",
-  "comments": "Pending Upload",
+  "comments": " Pending Upload",
   "associatedFiles": {
     "sourceAudioFileName": "k5_DK0000000000004551337015_Coming_Soon_10.wav",
     "outputFilename": "#(RandomString.result + '_' + WochitStage + '_' + 'DK0000000000004551337015_X_k5_QA_TEST_AUTOMATION_DENMARK_s01_teaser_15_+X5432_comingsoon.mxf')",

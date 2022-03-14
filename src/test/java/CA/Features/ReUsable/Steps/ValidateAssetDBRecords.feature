@@ -29,7 +29,7 @@ Scenario: Validate Asset DB Trailer Records
                         // ExpectedOAPAssetDBRecord.promoXMLName = ExpectedOAPAssetDBRecord.promoXMLName.replace(stage, expectedStage);
                     } else if(stage == 'versionTypeUpdate') {
                         ExpectedOAPAssetDBRecord.xmlMetadata.data.versionType = 'TEST';
-                        ExpectedOAPAssetDBRecord.comments = '#? _ == "New Version Type - Pending Upload" || _ == "New Version Type - Pending Asset Upload"';
+                        ExpectedOAPAssetDBRecord.comments = '#? _ == "New Version Type -  Pending Upload" || _ == "New Version Type - Pending Asset Upload"';
                         ExpectedOAPAssetDBRecord.sourceAudioFileStatus = '#ignore';
                     } else if(stage == 'rerender') {
                         ExpectedOAPAssetDBRecord.xmlMetadata.data.disclaimer = 'rerender';

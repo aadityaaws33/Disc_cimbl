@@ -71,7 +71,7 @@
                 "key": "Dplus.OAP.Video.Outro.LegalText"
             }
         ],
-        "title": "#? _ == RandomString.result + '_postWochit_NO0000000000004551337003_X_dp_QA_TEST_AUTOMATION_NORWAY_s01_e02_30_+X4598_newep_Thursday_20:30_streamalreadynow'",
+        "title": "#? _ == RandomString.result + '_postWochit_NO0000000000004551337003_X_dp_QA_TEST_AUTOMATION_NORWAY_s01_e02_30_newep_Thursday_20:30_streamalreadynow'",
         "timelineItems": [
             {
                 "itemType": "VIDEO_SEGMENT",

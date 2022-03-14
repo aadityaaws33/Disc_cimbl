@@ -31,7 +31,7 @@ Scenario Outline: Validate Single File Upload [Data Filename: <DATAFILENAME>]
         # ------------------------------- Before Wochit Processing ---------------------------------------------------------------------------
         | promo_generation_DK_generic_dp.xml            | promo_generation_qa.json    | preWochit           |  false              | 1000     |
         | promo_generation_DK_teaser_combi.xml          | promo_generation_qa.json    | preWochit           |  false              | 2000     |
-        | promo_generation_NO_episodic_dp_1.xml         | promo_generation_qa.json    | preWochit           |  false              | 3000     |
+        | promo_generation_NO_episodic_dp.xml         | promo_generation_qa.json    | preWochit           |  false              | 3000     |
         | promo_generation_NO_prelaunch_combi.xml       | promo_generation_qa.json    | preWochit           |  false              | 4000     |
         | promo_generation_FI_bundle_dp.xml             | promo_generation_qa.json    | preWochit           |  false              | 5000     |
         | promo_generation_FI_launch_combi.xml          | promo_generation_qa.json    | preWochit           |  false              | 6000     |

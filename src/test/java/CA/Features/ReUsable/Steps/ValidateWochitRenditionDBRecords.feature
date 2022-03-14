@@ -327,50 +327,50 @@ Scenario: Validate Wochit Rendition DB Records
                     var templateIDs = {
                         'qa': {
                             'FI': {
-                                'tv5': '60d5a4b2b913ca2c41ca5698',
-                                'frii': '60d5a506b913ca2c41ca569e',
-                                'kut': '60d5a4dcb913ca2c41ca569a'
+                                'tv5': '62185c707ae43638498d5e0d',
+                                'frii': '621855115f84e62b42aa09ab',
+                                'kut': '62185a495f84e62b42aa09ad'
                             },
                             'DK': {
-                                'k4': '60e7f0093467b05de4c3ac8f',
-                                'k5': '60e7f668d05b353d236b04da',
-                                'k6': '60e7f77bd05b353d236b04dd',
-                                'c9': '60e7f85c4a5954449fe6db7c'
+                                'k4': '6218346e5f84e62b42aa099e',
+                                'k5': '62183ee77ae43638498d5e01',
+                                'k6': '6218430db92b215d724a1bd3',
+                                'c9': '621841c2b92b215d724a1bd0'
                             },
                             'NO': {
-                                'tvn': '60ed0a203fe6da53b1385f9b',
-                                'fem': '60ed13dd3fe6da53b1385fa0',
-                                'max': '60ed1fce3fe6da53b1385fa8',
-                                'vox': '60ed23ceee1e076949304262',
+                                'tvn': '621877f959a90c47b8410874',
+                                'fem': '6218742f7ae43638498d5e15',
+                                'max': '62187aea7ae43638498d5e18',
+                                'vox': '62187ca859a90c47b8410877',
                             },
                             'SE': {
-                                'k5': '60e53f5e4a5954449fe6d6ca',
-                                'k9': '60e547bb4a5954449fe6d6d2',
-                                'k11': '60e680a44a5954449fe6d8fd'
+                                'k5': '621886997ae43638498d5e2f',
+                                'k9': '6218835e5f84e62b42aa09d2',
+                                'k11': '62188921b92b215d724a1bf7'
                             }
                         },
                         'prod': {
                             'FI': {
-                                'tv5': '60fa2ad004732008a8bb1043',
-                                'frii': '60fa2b5704732008a8bb1045',
-                                'kut': '60fa2b8e04732008a8bb1047'
+                                'tv5': '6226d9bc5f84e62b42aa235d',
+                                'frii': '6226cc4d8399a14acbe5a303',
+                                'kut': '6226da735f84e62b42aa235f'
                             },
                             'DK': {
-                                'k4': '60fe26ea353ea20724abab95',
-                                'k5': '60fe27512cc15704dee2fdf3',
-                                'k6': '60fe27ac04732008a8bb1365',
-                                'c9': '60fe28772cc15704dee2fdf8'
+                                'k4': '6226db708399a14acbe5a327',
+                                'k5': '6226dbf98399a14acbe5a329',
+                                'k6': '6226dad55f84e62b42aa2361',
+                                'c9': '6226db228399a14acbe5a324'
                             },
                             'NO': {
-                                'tvn': '60fe2963353ea20724abab9f',
-                                'fem': '60fe2b89353ea20724ababa3',
-                                'max': '60fe2bea2cc15704dee2fdfa',
-                                'vox': '60fe2c4b04732008a8bb136c',
+                                'tvn': '6226d97085d03e28bb13d32f',
+                                'fem': '6226d9bc5f84e62b42aa235d',
+                                'max': '6226d90b7ae43638498d78a0',
+                                'vox': '6226d8b485d03e28bb13d32d',
                             },
                             'SE': {
-                                'k5': '60fa3e74353ea20724aba862',
-                                'k9': '60fa3e372cc15704dee2fab3',
-                                'k11': '60fa3dfc2cc15704dee2fab0'
+                                'k5': '6226cd2c5f84e62b42aa2355',
+                                'k9': '6226ccc37ae43638498d7897',
+                                'k11': '6226cba185d03e28bb13d321'
                             }
                         },
                     }
